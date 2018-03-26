@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_1' hides previous declaration at line '43' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;3,vec3,std::auto_ptr&lt;vec3&gt;,boost::mpl::vector5&lt;void,luabind::adl::argument const &amp;,float,float,float&gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$02Vvec3@@V?$auto_ptr@Vvec3@@@std@@U?$vector5@XABVargument@adl@luabind@@MMM@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@MMM@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_2' hides previous declaration at line '44' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;3,vec3,std::auto_ptr&lt;vec3&gt;,boost::mpl::vector5&lt;void,luabind::adl::argument const &amp;,float,float,float&gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$02Vvec3@@V?$auto_ptr@Vvec3@@@std@@U?$vector5@XABVargument@adl@luabind@@MMM@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@MMM@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_1' hides previous declaration at line '43' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;3,NPC,std::auto_ptr&lt;NPC&gt;,boost::mpl::vector5&lt;void,luabind::adl::argument const &amp;,Identifiers &amp;,vec3,ResourceList&gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$02VNPC@@V?$auto_ptr@VNPC@@@std@@U?$vector5@XABVargument@adl@luabind@@AAVIdentifiers@@Vvec3@@VResourceList@@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@AAVIdentifiers@@Vvec3@@VResourceList@@@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_2' hides previous declaration at line '44' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;3,NPC,std::auto_ptr&lt;NPC&gt;,boost::mpl::vector5&lt;void,luabind::adl::argument const &amp;,Identifiers &amp;,vec3,ResourceList&gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$02VNPC@@V?$auto_ptr@VNPC@@@std@@U?$vector5@XABVargument@adl@luabind@@AAVIdentifiers@@Vvec3@@VResourceList@@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@AAVIdentifiers@@Vvec3@@VResourceList@@@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_1' hides previous declaration at line '43' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;2,Identifiers,std::auto_ptr&lt;Identifiers&gt;,boost::mpl::vector4&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$01VIdentifiers@@V?$auto_ptr@VIdentifiers@@@std@@U?$vector4@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_1' hides previous declaration at line '43' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;3,Identifiers,std::auto_ptr&lt;Identifiers&gt;,boost::mpl::vector5&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$02VIdentifiers@@V?$auto_ptr@VIdentifiers@@@std@@U?$vector5@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@11@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_2' hides previous declaration at line '44' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;3,Identifiers,std::auto_ptr&lt;Identifiers&gt;,boost::mpl::vector5&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$02VIdentifiers@@V?$auto_ptr@VIdentifiers@@@std@@U?$vector5@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@11@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_1' hides previous declaration at line '43' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;2,Message,std::auto_ptr&lt;Message&gt;,boost::mpl::vector4&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$01VMessage@@V?$auto_ptr@VMessage@@@std@@U?$vector4@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_1' hides previous declaration at line '43' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;2,ResourceList,std::auto_ptr&lt;ResourceList&gt;,boost::mpl::vector4&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$01VResourceList@@V?$auto_ptr@VResourceList@@@std@@U?$vector4@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_1' hides previous declaration at line '43' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;4,ResourceList,std::auto_ptr&lt;ResourceList&gt;,boost::mpl::vector6&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$03VResourceList@@V?$auto_ptr@VResourceList@@@std@@U?$vector6@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@V45@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@111@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>43</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_2' hides previous declaration at line '44' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;4,ResourceList,std::auto_ptr&lt;ResourceList&gt;,boost::mpl::vector6&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$03VResourceList@@V?$auto_ptr@VResourceList@@@std@@U?$vector6@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@V45@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@111@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\luabind\detail\</FILEPATH>
+      <FILENAME>constructor.hpp</FILENAME>
+      <LINE>89</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>6244</DEFECTCODE>
+    <DESCRIPTION>Local declaration of '_3' hides previous declaration at line '45' of 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\placeholders.hpp'.</DESCRIPTION>
+    <FUNCTION>luabind::detail::construct_aux&lt;4,ResourceList,std::auto_ptr&lt;ResourceList&gt;,boost::mpl::vector6&lt;void,luabind::adl::argument const &amp;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt;,std::basic_string&lt;char,std::char_traits&lt;char&gt;,std::allocator&lt;char&gt; &gt; &gt; &gt;::()</FUNCTION>
+    <DECORATED>??R?$construct_aux@$03VResourceList@@V?$auto_ptr@VResourceList@@@std@@U?$vector6@XABVargument@adl@luabind@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V45@V45@V45@@mpl@boost@@@detail@luabind@@QBEXABVargument@adl@2@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@111@Z</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\thirdparty\include\boost\bind\</FILEPATH>
+        <FILENAME>placeholders.hpp</FILENAME>
+        <LINE>45</LINE>
+        <COLUMN>23</COLUMN>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>
