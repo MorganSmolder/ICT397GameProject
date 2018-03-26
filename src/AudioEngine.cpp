@@ -98,7 +98,6 @@ bool AudioEngine::playSound(std::string sound) {
 	}
 	else {
 		if (BASS_ChannelPlay(channel, FALSE)) {
-			BASS_ChannelSetSync(channel, BASS_SYNC_END | BASS_SYNC_MIXTIME, 0, ChannelFinishedCallback, NULL);
 			activechannels[activesubgroup][sound] = SoundSourceWrapper(channel);
 			return true;
 		}
@@ -129,8 +128,6 @@ bool AudioEngine::playSoundatSource(std::string sound, unsigned gameobject, vec3
 	}
 	else {
 		if (BASS_ChannelPlay(channel, FALSE)) {
-			if(!BASS_ChannelSetSync(channel, BASS_SYNC_END | BASS_SYNC_MIXTIME, 0, ChannelFinishedCallback, NULL))
-				if (DEBUGMODE) std::cerr << "Error Playing Sound! Code: " << BASS_ErrorGetCode() << std::endl;
 			activechannels[activesubgroup][sound] = SoundSourceWrapper(channel, true);
 		}
 		else {
