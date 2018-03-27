@@ -69,8 +69,7 @@ bool Engine::initaliseRenderer() {
 	if (RNDR == NULL) return false;
 
 	//BAD!!!! temporary while mat does rendering
-	char ** empty = NULL;
-	RNDR->init(0, empty);
+	RNDR->init(0, NULL);
 	RNDR->setUpdateCallBack(Run);
 	RNDR->setReshapeCallBack();
 	RNDR->setKeyCallback();
