@@ -38,24 +38,21 @@ function initGame(SM, LSM, AMAN, AE)
 	SM:addScene();
 
 
-	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-50,0,0), ResourceList("updatefunc", "start"));
+	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-10,0,0), ResourceList("updatefunc", "start"));
 	
 
-	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(50, 0, 0), ResourceList("updatefunc", "start"));
+	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(10, 0, 0), ResourceList("updatefunc", "start"));
 	
 
-	SM:addObject(Identifiers("NPC", "listener"), 0, vec3(0, 0, 0), ResourceList());
+	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(0, 0, 10), ResourceList());
 	
 	--Unecessary in this instance, but good practice 
 	SM:setCurrScene(0);
 
-	AE:setListenerSource(SM:GetGameObjectID("listener"), vec3(0, 0, 0));
+	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
 	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("bob"), vec3(-10, 0, 0));
-	
-	if AE:playSoundatSource("bgmusic", SM:GetGameObjectID("ted"), vec3(10, 0, 0)) == false then
-	print ("Issue playing same sound twice."); end
-	
+
 	print("Data Loaded!");
 	print();
 end

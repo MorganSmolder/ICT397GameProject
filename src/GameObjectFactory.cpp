@@ -14,6 +14,11 @@ GameObject* GameObjectFactory::create(Identifiers & id, vec3 pos, ResourceList &
 		tmp = new NPC(id, pos, list);
 		return tmp;
 	}
+	else
+	if (id.getType() == "CAM") {
+		tmp = new Camera(id, pos, list);
+		return tmp;
+	}
 	else{
 		nextid--;
 		return NULL;

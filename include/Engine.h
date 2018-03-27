@@ -4,7 +4,6 @@
 #include "LUAScriptManager.h"
 #include "Singleton.h"
 #include "CtoLUABinder.h"
-#include "Windows.h"
 #include "RenderModuleStubb.h"
 #include "AssetManager.h"
 #include "AudioEngine.h"
@@ -15,7 +14,12 @@ public:
 	Engine();
 	~Engine();
 	bool Initalise(std::string initscript);
-	void Run();
+	
+	//Temporarily static ahile mat does rendering
+	static void Run();
+	
+	//tmp while mat does rendering
+	static Engine* self;
 
 private:
 	SceneManager SM;

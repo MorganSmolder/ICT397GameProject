@@ -16,7 +16,8 @@ NPC::~NPC()
 }
 
 void NPC::render() {
-
+	RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
+	tmp->DrawQuad(point(pos.x(), pos.z() + 1), point(pos.x() + 1, pos.z()));
 }
 
 void NPC::update(float time) {

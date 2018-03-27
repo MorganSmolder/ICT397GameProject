@@ -6,6 +6,7 @@
 #include "Identifiers.h"
 #include "MessagingBus.h"
 #include "ResourceList.h"
+#include "RenderMOduleStubb.h"
 
 class GameObject
 {

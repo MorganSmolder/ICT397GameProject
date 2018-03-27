@@ -23,15 +23,18 @@ function initGame(SM, LSM, AMAN)
 	
 	print("Adding Scene 1");
 	SM:addScene();
-	SM:addObject(Identifiers("NPC"), 0, vec3(0,1,0), ResourceList("updatefunc", "start"));
-	
+	SM:addObject(Identifiers("NPC"), 0, vec3(2,1,0), ResourceList("updatefunc", "start"));
+	SM:addObject(Identifiers("CAM", "Camera"), 0, vec3(2,1,0), ResourceList());
+
 	print("Adding Scene 2");
 	SM:addScene();
 	SM:addObject(Identifiers("NPC"), 1, vec3(0,1,0), ResourceList("updatefunc", "start"));
+	SM:addObject(Identifiers("CAM", "Camera"), 1, vec3(2,1,0), ResourceList());
 	
 	print("Adding Scene 3");
 	SM:addScene();
-	SM:addObject(Identifiers("NPC"), 2, vec3(0,1,0), ResourceList("updatefunc", "start"));
+	SM:addObject(Identifiers("NPC"), 2, vec3(-2,1,0), ResourceList("updatefunc", "start"));
+		SM:addObject(Identifiers("CAM", "Camera"), 2, vec3(2,1,0), ResourceList());
 	
 	SM:setCurrScene(0);
 

@@ -3,7 +3,7 @@
 
 Scene::Scene()
 {
-	objects.setWorldDimensions(0, 1000, 1000, 0);
+	objects.setWorldDimensions(-100, 1000, 1000, -100);
 }
 
 

@@ -3,6 +3,7 @@
 #include <string>
 #include "GameObject.h"
 #include "NPC.h"
+#include "camera.h"
 
 class GameObjectFactory
 {

@@ -1,7 +1,9 @@
 #include "Engine.h"
 
-
-Engine::Engine()
+//temporary
+Engine* Engine::self = NULL;
+	
+Engine::Engine() 
 {
 	LSM = NULL;
 	RNDR = NULL;
@@ -34,37 +36,51 @@ bool Engine::Initalise(std::string initscript){
 
 	LSM->callFunction<SceneManager, LUAScriptManager, AssetManager, AudioEngine>("initGame", SM, *LSM, *AMAN, *AE);
 
+	//BAD!!!! Stand in for mat's renderer
+	RNDR->start();
+
 	return true;
 }
 
-void Engine::Run(){
+//Temporarily gimped while mat does rendering
+void Engine::Run() {
 	int count = 0;
-	while (count < 10) {
-		SM.update((float) count);
+	//while (count < 10) {
+	self->SM.update((float)count);
 
-		SM.render();
-		
-		//Refresh audio positional data
-		AE->update();
+	self->SM.render();
 
-		Sleep(16);
-	}
+	self->AE->update();
+	//}
 }
 
 bool Engine::initaliseScriptingInterface() {
 	LSM = Singleton<LUAScriptManager>::getInstance();
 	if (!LSM->initLuaState()) return false;
 	CtoLUABinder().bindClasses(LSM->getState());
+
+	return true;
 }
 
 bool Engine::initaliseRenderer() {
 	RNDR = Singleton<RenderModuleStubb>::getInstance();
 	if (RNDR == NULL) return false;
+
+	//BAD!!!! temporary while mat does rendering
+	char ** empty = NULL;
+	RNDR->init(0, empty);
+	RNDR->setUpdateCallBack(Run);
+	RNDR->setReshapeCallBack();
+	RNDR->setKeyCallback();
+
+	return true;
 }
 
 bool Engine::initaliseUtilityModules() {
 	AMAN = Singleton<AssetManager>::getInstance();
 	if (AMAN == NULL) return false;
+
+	return true;
 }
 
 bool Engine::initaliseAudioEngine() {
@@ -72,4 +88,6 @@ bool Engine::initaliseAudioEngine() {
 	if (AE == NULL) return false;
 
 	AE->initalise();
+	
+	return true;
 }

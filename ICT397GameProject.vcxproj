@@ -91,6 +91,7 @@
     <ClInclude Include="include\AssetManager.h" />
     <ClInclude Include="include\AudioEngine.h" />
     <ClInclude Include="include\BMPLoader.h" />
+    <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\CtoLUABinder.h" />
     <ClInclude Include="include\Engine.h" />
     <ClInclude Include="include\GameObject.h" />
@@ -113,12 +114,16 @@
     <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\TGALoader.h" />
     <ClInclude Include="include\vec3.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="OBJModel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ICT397GameProject.cpp" />
+    <ClCompile Include="OBJModel.cpp" />
     <ClCompile Include="src\AssetManager.cpp" />
     <ClCompile Include="src\AudioEngine.cpp" />
     <ClCompile Include="src\BMPLoader.cpp" />
+    <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\CtoLUABinder.cpp" />
     <ClCompile Include="src\Engine.cpp" />
     <ClCompile Include="src\GameObject.cpp" />
