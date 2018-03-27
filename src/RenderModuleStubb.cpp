@@ -127,6 +127,14 @@ void RenderModuleStubb::keys(unsigned char key, int x, int y) {
 		case 's':
 			Singleton<MessagingBus>::getInstance()->postMessage(Message("MVB"), Identifiers("", "Camera"));
 			break;
+		case 'Q':
+		case 'q':
+			Singleton<MessagingBus>::getInstance()->postMessage(Message("LD"), Identifiers("", "Camera"));
+			break;
+		case 'E':
+		case 'e':
+			Singleton<MessagingBus>::getInstance()->postMessage(Message("LU"), Identifiers("", "Camera"));
+			break;
 	}
 }
 
@@ -143,6 +151,12 @@ void RenderModuleStubb::keys2(unsigned char key, int x, int y) {
 	case 'D':
 	case 'd':
 		Singleton<MessagingBus>::getInstance()->postMessage(Message("SLR"), Identifiers("", "Camera"));
+		break;
+	case 'Q':
+	case 'q':
+	case 'e':
+	case 'E':
+		Singleton<MessagingBus>::getInstance()->postMessage(Message("SUD"), Identifiers("", "Camera"));
 		break;
 	}
 }

@@ -89,6 +89,22 @@ void Camera::update(float time) {
 			std::cout << "SLR" << std::endl;
 			DirectionRotateLR(0);
 		}
+		else
+		if (tmpm.getInstruction() == "LD") {
+			std::cout << "LD" << std::endl;
+			DirectionLookUD(-1);
+		}
+		else
+		if (tmpm.getInstruction() == "LU") {
+			std::cout << "LU" << std::endl;
+			DirectionLookUD(1);
+		}
+		else
+		if (tmpm.getInstruction() == "SUD") {
+			std::cout << "SUD" << std::endl;
+			DirectionLookUD(0);
+		}
+
 		std::cout << pos.x() << " " << pos.y() << " " << pos.z() << std::endl;
 	}
 	CheckCamera();
