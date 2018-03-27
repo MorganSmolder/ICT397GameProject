@@ -76,6 +76,7 @@ void RenderModuleStubb::setReshapeCallBack() {
 
 void RenderModuleStubb::setKeyCallback() {
 	glutKeyboardFunc(keys);
+	glutKeyboardUpFunc(keys2);
 }
 
 void RenderModuleStubb::start() {
@@ -126,5 +127,22 @@ void RenderModuleStubb::keys(unsigned char key, int x, int y) {
 		case 's':
 			Singleton<MessagingBus>::getInstance()->postMessage(Message("MVB"), Identifiers("", "Camera"));
 			break;
+	}
+}
+
+void RenderModuleStubb::keys2(unsigned char key, int x, int y) {
+	switch (key) {
+	case 'W':
+	case 'w':
+	case 'S':
+	case 's':
+		Singleton<MessagingBus>::getInstance()->postMessage(Message("SFB"), Identifiers("", "Camera"));
+		break;
+	case 'A':
+	case 'a':
+	case 'D':
+	case 'd':
+		Singleton<MessagingBus>::getInstance()->postMessage(Message("SLR"), Identifiers("", "Camera"));
+		break;
 	}
 }

@@ -16,8 +16,8 @@
 //--------------------------------------------------------------------------------------
 Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id, pos, list)
 {
-	m_rotateSpeed = 0.4f;
-	m_moveSpeed = 1.0f;
+	m_rotateSpeed = 0.1f;
+	m_moveSpeed = 0.4f;
 
 	ResetXYZ();
 
@@ -54,39 +54,47 @@ void Camera::update(float time) {
 	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
 	Message tmpm;
 
+	bool in = false;
+
 	while (tmp->hasMessage(id)) {
+		in = true;
 		tmpm = tmp->getMessage(id);
-		m_moveSpeed = 0.4f;
+
 		if (tmpm.getInstruction() == "MVF") {
 			std::cout << "MVF" << std::endl;
 			DirectionFB(1);
-			DirectionLR(0);
 		}
 		else
 		if (tmpm.getInstruction() == "MVB") {
 			std::cout << "MVB" << std::endl;
 			DirectionFB(-1);
-			DirectionLR(0);
 		}
 		else
 		if (tmpm.getInstruction() == "MVR") {
 			std::cout << "MVR" << std::endl;
-			DirectionLR(1);
-			DirectionFB(0);
+			DirectionRotateLR(1);
 		}
 		else
 		if (tmpm.getInstruction() == "MVL") {
 			std::cout << "MVL" << std::endl;
-			DirectionLR(-1);
+			DirectionRotateLR(-1);
+		}
+		else
+		if (tmpm.getInstruction() == "SFB") {
+			std::cout << "SFB" << std::endl;
 			DirectionFB(0);
+		}
+		else
+		if (tmpm.getInstruction() == "SLR") {
+			std::cout << "SLR" << std::endl;
+			DirectionRotateLR(0);
 		}
 		std::cout << pos.x() << " " << pos.y() << " " << pos.z() << std::endl;
 	}
+	CheckCamera();
 
-	if (MoveFBOK()) MoveFB();
-	if (MoveLROK()) MoveLR();
-	m_moveSpeed = 0.0f;
-
+	callGLLookAt();
+	//
 }
 
 void Camera::render() {

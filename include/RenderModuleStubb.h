@@ -31,5 +31,6 @@ public:
 	static void display();
 	static void reshape(GLsizei width, GLsizei height);
 	static void keys(unsigned char key, int x, int y);
+	static void keys2(unsigned char key, int x, int y);
 };
 

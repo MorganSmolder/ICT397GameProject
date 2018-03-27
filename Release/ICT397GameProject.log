@@ -1,71 +1,27 @@
-﻿  ICT397GameProject.cpp
+﻿  camera.cpp
   Unknown compiler version - please run the configure tests and report the results
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(68): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(69): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(70): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\include\Camera.h(68): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\include\Camera.h(69): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\include\Camera.h(70): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+src\camera.cpp(231): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+src\camera.cpp(232): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+src\camera.cpp(248): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+src\camera.cpp(249): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+src\camera.cpp(260): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
+src\camera.cpp(296): warning C4244: 'argument': conversion from 'const GLdouble' to 'float', possible loss of data
+src\camera.cpp(297): warning C4244: 'argument': conversion from 'const GLdouble' to 'float', possible loss of data
+src\camera.cpp(298): warning C4244: 'argument': conversion from 'const GLdouble' to 'float', possible loss of data
 C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
   C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
   C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
   c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
   c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
-  Engine.cpp
-  Unknown compiler version - please run the configure tests and report the results
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(68): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(69): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(70): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(82): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(82): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  src\Engine.cpp(37): note: see reference to function template instantiation 'void LUAScriptManager::callFunction<SceneManager,LUAScriptManager,AssetManager,AudioEngine>(std::string,T &,U &,V &,W &)' being compiled
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
   Generating code
-  2 of 6112 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  12 of 6120 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    22 functions had inline decision re-evaluated but remain unchanged
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
 OBJModel.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-AssetManager.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
 AudioEngine.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
 BMPLoader.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
 CtoLUABinder.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
@@ -74,7 +30,7 @@ GameObject.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict3
 GameObjectFactory.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 GameObjectHandler.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 Identifiers.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-ImageCreationHandler.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+ImageCreationHandler.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 ImageLoaderFactory.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
 LUAScriptManager.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
 Message.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
@@ -84,7 +40,7 @@ RenderModuleStubb.obj : warning LNK4020: a type record in 'c:\users\morgan\deskt
 ResourceList.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
 Scene.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 SceneManager.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-TextureManager.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
+TextureManager.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
 TGALoader.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.pdb (Full PDB)
