@@ -7,6 +7,7 @@
 #include "RenderModuleStubb.h"
 #include "AssetManager.h"
 #include "AudioEngine.h"
+#include "windows.h"
 
 class Engine
 {

@@ -51,6 +51,8 @@ void Engine::Run() {
 	self->SM.render();
 
 	self->AE->update();
+	
+	Sleep(16);
 	//}
 }
 
