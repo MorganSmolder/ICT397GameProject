@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+      <FILENAME>tgaloader.cpp</FILENAME>
+      <LINE>88</LINE>
+      <COLUMN>16</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>Buffer overrun while writing to 'data':  the writable size is 'size*1' bytes, but '5' bytes might be written.</DESCRIPTION>
+    <FUNCTION>TGALoader::loadFile</FUNCTION>
+    <DECORATED>?loadFile@TGALoader@@UAE_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>18</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>19</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'filedata-&gt;!()' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>21</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>23</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>25</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'bits!=32&amp;&amp;bits!=24' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>37</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>39</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>41</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>15</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'header[2]==2' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>62</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>62</LINE>
+        <COLUMN>26</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;size')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>63</LINE>
+        <COLUMN>17</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>65</LINE>
+        <COLUMN>12</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'tmp&gt;128' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>82</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>84</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'tmp&gt;0')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>85</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>86</LINE>
+        <COLUMN>24</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>88</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>89</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>90</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>92</LINE>
+        <COLUMN>32</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>94</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>84</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>7</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'tmp&gt;0')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>85</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>86</LINE>
+        <COLUMN>24</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>88</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>8</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 1</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>88</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>9</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid write to 'data[4]', (writable range is 0 to 3)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+      <FILENAME>tgaloader.cpp</FILENAME>
+      <LINE>56</LINE>
+      <COLUMN>11</COLUMN>
+    </SFA>
+    <DEFECTCODE>6385</DEFECTCODE>
+    <DESCRIPTION>Reading invalid data from 'data':  the readable size is 'size*1' bytes, but '6' bytes may be read.</DESCRIPTION>
+    <FUNCTION>TGALoader::loadFile</FUNCTION>
+    <DECORATED>?loadFile@TGALoader@@UAE_NV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z</DECORATED>
+    <FUNCLINE>17</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>18</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>19</LINE>
+        <COLUMN>5</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'filedata-&gt;!()' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>21</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>23</LINE>
+        <COLUMN>14</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>25</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>27</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Skip this branch, (assume 'bits!=32&amp;&amp;bits!=24' is false)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>31</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>32</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>34</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>35</LINE>
+        <COLUMN>8</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>37</LINE>
+        <COLUMN>10</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>39</LINE>
+        <COLUMN>6</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>41</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>42</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>44</LINE>
+        <COLUMN>15</COLUMN>
+        <KEYEVENT>
+          <ID>3</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this branch, (assume 'header[2]==2')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>46</LINE>
+        <COLUMN>16</COLUMN>
+        <KEYEVENT>
+          <ID>4</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>'data' is an Output from 'std::basic_istream&lt;char,std::char_traits&lt;char&gt; &gt;::read' (declared at c:\program files (x86)\microsoft visual studio 14.0\vc\include\istream:723)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>16</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>25</COLUMN>
+        <KEYEVENT>
+          <ID>5</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Enter this loop, (assume 'i&lt;size')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>55</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>11</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>57</LINE>
+        <COLUMN>15</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>35</COLUMN>
+        <KEYEVENT>
+          <ID>6</ID>
+          <KIND>declaration</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>'i' may equal 3</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>54</LINE>
+        <COLUMN>25</COLUMN>
+        <KEYEVENT>
+          <ID>7</ID>
+          <KIND>branch</KIND>
+          <IMPORTANCE>Full</IMPORTANCE>
+          <MESSAGE>Continue this loop, (assume 'i&lt;size')</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>55</LINE>
+        <COLUMN>7</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\src\</FILEPATH>
+        <FILENAME>tgaloader.cpp</FILENAME>
+        <LINE>56</LINE>
+        <COLUMN>11</COLUMN>
+        <KEYEVENT>
+          <ID>8</ID>
+          <KIND>usage</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>Invalid read from 'data[5]', (readable range is 0 to 3)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

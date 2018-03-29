@@ -22,6 +22,7 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 	std::map<int, std::map<int, float> >::iterator mapit = heightmap.begin();
 
 	int sample1 = mapit->first;
+	
 	++mapit;
 	int sample2 = mapit->first;
 

@@ -134,7 +134,7 @@ bool RAWTerrain::loadModel(std::string filename){
 	
 	if (file.empty()) return false;
 
-	bool good = loadData(filename);
+	bool good = loadData(file);
 	
 	if (good) {
 		genPlane(dimensions);
