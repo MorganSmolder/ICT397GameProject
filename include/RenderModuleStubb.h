@@ -20,7 +20,7 @@ public:
 	void setReshapeCallBack();
 	void setKeyCallback();
 	void start();
-	void DrawQuad(point tl, point br);
+	void DrawQuad(point tl, point br, float y);
 	void storeTexture(const int & texID, unsigned pixelsize, unsigned width, unsigned height, const unsigned char* data);
 	void deleteTexture(const int & texID);
 	void bindTexture(const int & texID);

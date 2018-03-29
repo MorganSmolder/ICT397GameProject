@@ -16,6 +16,9 @@ class terrain : public Model
 		virtual void update() = 0;
 		virtual void render() = 0;
 		virtual terrain * create() const = 0;
+		void centerOnPoint(vec3 & point);
+		std::vector<vec3>& getVerticies();
+
 	protected:
 		float * data;
 		std::vector<vec3> plane;
@@ -24,6 +27,7 @@ class terrain : public Model
 		vec3 scale;
 		std::string texture;
 		unsigned dimensions;
+		void calcMaxMin();
 
 		void genPlane(unsigned size);
 		void genPlaneIndicies(unsigned size);

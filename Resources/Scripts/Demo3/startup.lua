@@ -40,24 +40,25 @@ function initGame(SM, LSM, AMAN, AE)
 	--Initalise the scene used in this demo.
 	SM:addScene();
 
+	--Unecessary in this instance, but good practice 
+	SM:setCurrScene(0);
 
 	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-10,0,0), ResourceList("updatefunc", "start"));
-	
 
 	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(10, 0, 0), ResourceList("updatefunc", "start"));
 	
+	SM:addObject(Identifiers("NPC", "Terrain"), 0, vec3(0,0,0), ResourceList("model", "Terrain"));
 
 	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(0, 0, 10), ResourceList());
 
-	
-	SM:addObject(Identifiers("NPC", "Terrain"), 0, vec3(-10,0,0), ResourceList("model", "Terrain"));
-	
-	--Unecessary in this instance, but good practice 
-	SM:setCurrScene(0);
+	SM:setSceneHeightMap(0, SM:GetGameObject("Terrain"));
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
 	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("bob"), vec3(-10, 0, 0));
+
+	--Unecessary in this instance, but good practice 
+	SM:setCurrScene(0);
 
 	print("Data Loaded!");
 	print();

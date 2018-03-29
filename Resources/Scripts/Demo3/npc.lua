@@ -1,10 +1,10 @@
 function start(this,msgbus)
 
-	if (this:getPos():x() > 10) then
+	if (this:getPos():x() > 50) then
 		this:setState(0);
 	end
 	
-	if (this:getPos():x() < -10) then
+	if (this:getPos():x() < -50) then
 		this:setState(1);
 	end
 

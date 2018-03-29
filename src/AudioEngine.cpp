@@ -67,6 +67,8 @@ bool AudioEngine::initalise(){
 		return false;
 	}
 
+	BASS_SetVolume(.2);
+
 	return true;
 }
 
@@ -109,6 +111,7 @@ bool AudioEngine::soundPlaying(std::string sound) {
 
 bool AudioEngine::loadSound(std::string path, std::string type, std::string name) {
 	if (type != "WAV") return false;
+
 	HSAMPLE tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 10, BASS_SAMPLE_3D | BASS_SAMPLE_FLOAT);
 	if (tmp != 0) {
 		loadedsounds[name] = tmp;
@@ -151,7 +154,6 @@ bool AudioEngine::stopSound(std::string sound) {
 }
 
 bool AudioEngine::playSoundatSource(std::string sound, unsigned gameobject, vec3 & pos) {
-
 	if (loadedsounds.count(sound) == 0) return false;
 
 	HCHANNEL channel = BASS_SampleGetChannel(loadedsounds[sound], FALSE);

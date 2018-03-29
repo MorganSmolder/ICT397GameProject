@@ -19,9 +19,11 @@ void NPC::render() {
 
 	if (resources.hasResource("model")) GameObject::model->render();
 	else {
+		pos.sy(pos.y() + 5);
+
 		RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
 
-		tmp->DrawQuad(point(pos.x(), pos.z() + 1), point(pos.x() + 1, pos.z()));
+		tmp->DrawQuad(point(pos.x(), pos.y() + 1), point(pos.x() + 1, pos.y()), pos.z());
 	}
 }
 

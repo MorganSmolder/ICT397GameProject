@@ -51,6 +51,8 @@ void Camera::ResetXYZ()
 void Camera::update(float time) {
 	msgrcvr();
 
+	pos.sy(pos.y() + 5);
+
 	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
 	Message tmpm;
 

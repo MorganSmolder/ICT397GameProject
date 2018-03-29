@@ -76,4 +76,9 @@ void GameObject::msgrcvr() {
 
 void GameObject::setModel(Model* M) {
 	model = M;
+	model->centerOnPoint(pos);
+}
+
+Model*  GameObject::getModel() {
+	return model;
 }

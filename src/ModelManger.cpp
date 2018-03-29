@@ -23,7 +23,7 @@ bool ModelManger::loadModel(std::string path, std::string type, std::string name
 	if (tmp == NULL) return false;
 
 	models[name] = tmp;
-	std::cout << "loaded resource " << name << std::endl;
+
 	return true;
 }
 

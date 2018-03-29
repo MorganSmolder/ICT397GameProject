@@ -26,6 +26,7 @@ public:
 	int getState();
 	void setState(int state);
 	void setModel(Model* M);
+	Model* getModel();
 
 protected:
 	int state;

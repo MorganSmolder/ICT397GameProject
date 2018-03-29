@@ -2,16 +2,16 @@
 
 void (*RenderModuleStubb::displayfunc)() = NULL;
 
-void RenderModuleStubb::DrawQuad(point tl, point br){
+void RenderModuleStubb::DrawQuad(point tl, point br, float y){
 	glBegin(GL_QUADS);
 	glTexCoord2f(0, 1);
-	glVertex2f(tl.x, tl.y);
+	glVertex3f(tl.x, tl.y, y);
 	glTexCoord2f(0, 0);
-	glVertex2f(tl.x, br.y);
+	glVertex3f(tl.x, br.y, y);
 	glTexCoord2f(1, 0);
-	glVertex2f(br.x, br.y);
+	glVertex3f(br.x, br.y, y);
 	glTexCoord2f(1, 1);
-	glVertex2f(br.x, tl.y);
+	glVertex3f(br.x, tl.y, y);
 	glEnd();
 }
 

@@ -14,6 +14,8 @@ public:
 	void render();
 	void setCurrScene(unsigned sceneno);
 	unsigned getNumScenes();
+	GameObject* GetGameObject(std::string name);
+	bool setSceneHeightMap(unsigned sceneno, GameObject* hmObj);
 private:
 	std::vector<Scene> scenes;
 	unsigned currscene;

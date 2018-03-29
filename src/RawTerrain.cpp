@@ -43,7 +43,6 @@ RAWTerrain * RAWTerrain::create() const {
 
 void RAWTerrain::render() {
 	if (!texture.empty()) {
-		std::cout << texture << std::endl;
 		Singleton<TextureManager>::getInstance()->useTexture(texture, Singleton<RenderModuleStubb>::getInstance());
 		Singleton<RenderModuleStubb>::getInstance()->renderTexturedArrayTriStrip(planInd, plane, texcoords);
 		Singleton<TextureManager>::getInstance()->disableTexture(Singleton<RenderModuleStubb>::getInstance());
@@ -122,7 +121,6 @@ std::string RAWTerrain::parseOptions(std::string file) {
 			tmp = tmp.substr(tmp.find(" ") + 1);
 			std::string mettype = tmp;
 			std::string name = RandomString(25);
-			std::cout << name << std::endl;
 			bool good = Singleton<TextureManager>::getInstance()->loadNewTexture(path, mettype, name, Singleton<RenderModuleStubb>::getInstance());
 			if (good) texture = name;
 			break;

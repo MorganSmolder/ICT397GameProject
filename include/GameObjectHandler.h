@@ -20,6 +20,9 @@ public:
 	void render();
 	std::vector<GameObject*> findSpatiallyGroupedGameObjects(GameObject* tofind);
 	int GetGameObjectID(std::string name);
+	GameObject* GetGameObject(std::string name);
+	unsigned getNumObjects();
+	GameObject* & getObject(unsigned index);
 
 private:
 	std::vector<GameObject*> gameobjects;
@@ -27,7 +30,6 @@ private:
 	GameObjectFactory* GOF;
 
 	void refreshTree();
-
 	static std::vector<GameObject*> searchres;
 	static pair getposfunc(const GameObjectWrapper & element);
 	static void travfunc(const std::vector< std::list<GameObjectWrapper> > & elements, pair topleft, pair bottomright);

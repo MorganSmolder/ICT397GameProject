@@ -71,3 +71,17 @@ int  SceneManager::GetGameObjectID(std::string name) {
 
 	return tmpid;
 }
+
+GameObject* SceneManager::GetGameObject(std::string name) {
+	GameObject* tmp = NULL;
+	for (unsigned i = 0; i < scenes.size() && tmp == NULL; i++) {
+		tmp = scenes.at(currscene).GetGameObject(name);
+	}
+
+	return tmp;
+}
+
+bool SceneManager::setSceneHeightMap(unsigned sceneno, GameObject* hmObj) {
+	if (sceneno > scenes.size()) return false;
+	else return scenes.at(sceneno).setHeightMap(hmObj);
+}

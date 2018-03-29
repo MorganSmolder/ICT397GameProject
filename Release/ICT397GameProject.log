@@ -1,11 +1,15 @@
-﻿  RawTerrain.cpp
-src\RawTerrain.cpp(110): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-src\RawTerrain.cpp(112): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-src\RawTerrain.cpp(114): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+﻿  CollisionEngine.cpp
+  Unknown compiler version - please run the configure tests and report the results
+src\CollisionEngine.cpp(19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
+  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
+  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
+  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
+  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
   Generating code
-  1 of 6543 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  16 of 6998 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    22 functions had inline decision re-evaluated but remain unchanged
+    16 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.pdb (Full PDB)

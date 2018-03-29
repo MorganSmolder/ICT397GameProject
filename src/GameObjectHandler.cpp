@@ -30,6 +30,14 @@ void GameObjectHandler::update(float time) {
 	}
 }
 
+unsigned GameObjectHandler::getNumObjects() {
+	return gameobjects.size();
+}
+
+GameObject* & GameObjectHandler::getObject(unsigned index) {
+	return gameobjects.at(index);
+}
+
 int GameObjectHandler::GetGameObjectID(std::string name) {
 	int tmpid = -1;
 	
@@ -40,6 +48,18 @@ int GameObjectHandler::GetGameObjectID(std::string name) {
 	}
 
 	return tmpid;
+}
+
+GameObject* GameObjectHandler::GetGameObject(std::string name) {
+	GameObject* tmp = NULL;
+
+	for (unsigned i = 0; i < gameobjects.size() && tmp == NULL; i++) {
+		if (gameobjects.at(i)->getIdentifiers().getName() == name) {
+			tmp = gameobjects.at(i);
+		}
+	}
+
+	return tmp;
 }
 
 void GameObjectHandler::render() {

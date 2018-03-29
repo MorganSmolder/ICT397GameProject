@@ -40,3 +40,4 @@ bool GameObjectFactory::setModel(GameObject* & GO, std::string model) {
 
 	return true;
 }
+

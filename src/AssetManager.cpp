@@ -28,6 +28,7 @@ bool AssetManager::addResource(std::string path, std::string type, std::string n
 	}
 	else
 	if(AE->loadSound(path, type, name)){
+
 		return true;
 	}
 

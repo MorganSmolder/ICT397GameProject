@@ -9,6 +9,8 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("addScene", &SceneManager::addScene)
 			.def("setCurrScene", &SceneManager::setCurrScene)
 			.def("GetGameObjectID", &SceneManager::GetGameObjectID)
+			.def("GetGameObject", &SceneManager::GetGameObject)
+			.def("setSceneHeightMap", &SceneManager::setSceneHeightMap)
 	];
 	luabind::module(lstate)[
 		luabind::class_<vec3>("vec3")

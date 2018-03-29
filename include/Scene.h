@@ -1,5 +1,6 @@
 #pragma once
 #include "GameObjectHandler.h"
+#include "CollisionEngine.h"
 
 class Scene
 {
@@ -10,8 +11,11 @@ public:
 	void update(float time);
 	void render();
 	int GetGameObjectID(std::string name);
+	GameObject* GetGameObject(std::string name);
+	bool setHeightMap(GameObject* hmObj);
 
 private:
 	GameObjectHandler objects;
+	CollisionEngine collision;
 };
 
