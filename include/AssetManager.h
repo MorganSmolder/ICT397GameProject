@@ -3,6 +3,7 @@
 #include "TextureManager.h"
 #include "Singleton.h"
 #include "AudioEngine.h"
+#include "ModelManger.h"
 
 class AssetManager
 {
@@ -14,5 +15,6 @@ public:
 private:
 	TextureManager* TexMan;
 	AudioEngine* AE;
+	ModelManger* MM;
 };
 

@@ -26,6 +26,12 @@ struct ListenerSourceWrapper {
 	ListenerSourceWrapper() : id(-1) {};
 };
 
+struct FFTData {
+	bool empty;
+	float data[8];
+	FFTData() : empty(true) {};
+};
+
 class AudioEngine
 {
 public:
@@ -43,6 +49,7 @@ public:
 	bool pauseActiveChannels();
 	bool unpauseChannels();
 	bool soundPlaying(std::string sound);
+	FFTData performFFT(std::string sound);
 	void update();
 
 private:

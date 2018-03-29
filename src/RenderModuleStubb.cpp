@@ -39,7 +39,7 @@ void RenderModuleStubb::renderArrayTriStrip(std::vector<unsigned> &indicies, std
 	glEnd();
 }
 
-void RenderModuleStubb::renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec3> & texcoords) {
+void RenderModuleStubb::renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords) {
 	glBegin(GL_TRIANGLE_STRIP);
 	for (unsigned i = 0; i < indicies.size(); i++) {
 		glTexCoord2f(texcoords.at(indicies.at(i)).x(), texcoords.at(indicies.at(i)).y());
@@ -106,7 +106,7 @@ void RenderModuleStubb::reshape(GLsizei width, GLsizei height) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluPerspective(90.0f, aspect, 0.1f, 80.0f);
+	gluPerspective(45.0f, aspect, 0.1f, 1000.0f);
 }
 
 void RenderModuleStubb::keys(unsigned char key, int x, int y) {

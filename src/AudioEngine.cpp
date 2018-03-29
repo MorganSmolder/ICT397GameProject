@@ -70,6 +70,39 @@ bool AudioEngine::initalise(){
 	return true;
 }
 
+FFTData AudioEngine::performFFT(std::string sound) {
+	FFTData tmp;
+	float data[128];
+
+	int ind = 0;
+
+	float sum = 0;
+
+	if (BASS_ChannelGetData(activechannels[activesubgroup][sound].channel, data, BASS_DATA_FFT256) != -1) {
+		for (unsigned i = 0; i < 128; i++) {
+			sum += data[i];
+			if (i + 1 % 16 == 0) {
+				tmp.data[ind] = floorf((sum / 16) * 100) / 100;
+				while (tmp.data[ind] < 0.1) tmp.data[ind] *= 10;
+				ind++;
+				sum = 0;
+			}
+		}
+		for (unsigned i = 0; i < 8; i++)
+			std::cout << tmp.data[i] << " ";
+		std::cout << std::endl;
+	//	for (unsigned i = 0; i < 128; i++)
+		//	std::cout << data[i] << " ";
+
+		tmp.empty = false;
+	}
+	else {
+		if (DEBUGMODE) std::cerr << "Error Performing FFT Analysis! Code: " << BASS_ErrorGetCode() << std::endl;
+	}
+
+	return tmp;
+}
+
 bool AudioEngine::soundPlaying(std::string sound) {
 	return activechannels[activesubgroup].count(sound) == 1;
 }

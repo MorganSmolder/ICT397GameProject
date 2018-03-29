@@ -57,7 +57,7 @@ void SceneManager::msgrcvr() {
 
 	while (tmp->hasMessage(id)) {
 		Message tmpmsg = tmp->getMessage(id);
-		if (tmpmsg.getInstruction() == "changescene") {
+		if (tmpmsg.getInstruction() == "CS") {
 			setCurrScene((unsigned) (currscene + 1) % scenes.size());
 		}
 	}

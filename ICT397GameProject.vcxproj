@@ -103,23 +103,27 @@
     <ClInclude Include="include\ImageLoaderFactory.h" />
     <ClInclude Include="include\LUAScriptManager.h" />
     <ClInclude Include="include\Message.h" />
+    <ClInclude Include="include\MessageTypes.h" />
     <ClInclude Include="include\MessagingBus.h" />
+    <ClInclude Include="include\Model.h" />
+    <ClInclude Include="include\ModelFactory.h" />
+    <ClInclude Include="include\ModelManger.h" />
     <ClInclude Include="include\NPC.h" />
     <ClInclude Include="include\QuadTree.h" />
+    <ClInclude Include="include\RawTerrain.h" />
     <ClInclude Include="include\RenderModuleStubb.h" />
     <ClInclude Include="include\ResourceList.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\SceneManager.h" />
     <ClInclude Include="include\Singleton.h" />
+    <ClInclude Include="include\terrain.h" />
     <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\TGALoader.h" />
+    <ClInclude Include="include\vec2.h" />
     <ClInclude Include="include\vec3.h" />
-    <ClInclude Include="Model.h" />
-    <ClInclude Include="OBJModel.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ICT397GameProject.cpp" />
-    <ClCompile Include="OBJModel.cpp" />
     <ClCompile Include="src\AssetManager.cpp" />
     <ClCompile Include="src\AudioEngine.cpp" />
     <ClCompile Include="src\BMPLoader.cpp" />
@@ -135,11 +139,15 @@
     <ClCompile Include="src\LUAScriptManager.cpp" />
     <ClCompile Include="src\Message.cpp" />
     <ClCompile Include="src\MessagingBus.cpp" />
+    <ClCompile Include="src\ModelFactory.cpp" />
+    <ClCompile Include="src\ModelManger.cpp" />
     <ClCompile Include="src\NPC.cpp" />
+    <ClCompile Include="src\RawTerrain.cpp" />
     <ClCompile Include="src\RenderModuleStubb.cpp" />
     <ClCompile Include="src\ResourceList.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\Terrain.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\TGALoader.cpp" />
   </ItemGroup>

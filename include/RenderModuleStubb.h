@@ -2,6 +2,7 @@
 #include "GL\glut.h"
 #include <vector>
 #include "vec3.h"
+#include "vec2.h"
 #include "MessagingBus.h"
 #include "Singleton.h"
 #include "Identifiers.h"
@@ -24,7 +25,7 @@ public:
 	void deleteTexture(const int & texID);
 	void bindTexture(const int & texID);
 	void renderArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices);
-	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec3> & texcoords);
+	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
 
 	static void (*displayfunc)();
 

@@ -4,6 +4,7 @@
 GameObject::GameObject() 
 {
 	state = 0;
+	model = NULL;
 }
 
 GameObject::GameObject(Identifiers & id, vec3 pos, ResourceList & list) {
@@ -11,6 +12,14 @@ GameObject::GameObject(Identifiers & id, vec3 pos, ResourceList & list) {
 	this->pos = pos;
 	this->resources = list;
 	state = 0;
+	model = NULL;
+}
+
+GameObject::~GameObject() {
+	if (model != NULL) delete model;
+
+
+	model = NULL;
 }
 
 const Identifiers  & GameObject::getIdentifiers() {
@@ -63,4 +72,8 @@ void GameObject::msgrcvr() {
 			tmpmsgbus->postIMessage(tmprmsg, tmpmsg.getFrom().getId());
 		}
 	}
+}
+
+void GameObject::setModel(Model* M) {
+	model = M;
 }

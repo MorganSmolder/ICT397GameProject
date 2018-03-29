@@ -17,8 +17,9 @@ bool GameObjectHandler::addObject(Identifiers id, vec3 pos, ResourceList & list)
 	GameObject* tmp = GOF->create(id, pos, list);
 
 	if (tmp == NULL) return false;
-	else gameobjects.push_back(tmp);
-
+	else {
+		gameobjects.push_back(tmp);
+	}
 	return true;
 }
 

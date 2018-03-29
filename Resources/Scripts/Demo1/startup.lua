@@ -12,13 +12,13 @@ end
 local function loadResources(AMAN)
 	print();
 
-	if AMAN:addResource("./Resources/DemoTextures/1.bmp", "BMP", "tex1") then print("Successfully loaded Resource '1.bmp'");
+	if AMAN:addResource("./Resources/Textures/1.bmp", "BMP", "tex1") then print("Successfully loaded Resource '1.bmp'");
 	else print("Failed to load Resource '1.bmp'"); end
 
-	if AMAN:addResource("./Resources/DemoTextures/2.tga", "TGA", "tex2") then print("Successfully loaded Resource '2.tga'");
+	if AMAN:addResource("./Resources/Textures/2.tga", "TGA", "tex2") then print("Successfully loaded Resource '2.tga'");
 	else print("Failed to load Resource '2.tga'"); end
 
-	if AMAN:addResource("./Resources/DemoTextures/3.bmp", "BMP", "tex3") then print("Successfully loaded Resource '3.bmp'");
+	if AMAN:addResource("./Resources/Textures/3.bmp", "BMP", "tex3") then print("Successfully loaded Resource '3.bmp'");
 	else print("Failed to load Resource '3.bmp'"); end
 
 	if AMAN:addResource("./Resources/Audio/2.wav", "WAV", "bgmusic") then print("Successfully loaded Resource 'bgmusic'");
@@ -26,12 +26,12 @@ local function loadResources(AMAN)
 
 	--Test Asset Manager: load same file twice
 	--Should return false and not load any new data
-	if AMAN:addResource("./Resources/DemoTextures/3.bmp", "BMP", "tex3") then print("Successfully loaded Resource '3.bmp'");
+	if AMAN:addResource("./Resources/Textures/3.bmp", "BMP", "tex3") then print("Successfully loaded Resource '3.bmp'");
 	else print("Failed to load Resource '3.bmp'"); end
 
 	--Test Asset Manager: load file that does not exist
 	--Should return false 
-	if AMAN:addResource("./Resources/DemoTextures/4.bmp", "BMP", "tex4") then print("Successfully loaded Resource '4.bmp'");
+	if AMAN:addResource("./Resources/Textures/4.bmp", "BMP", "tex4") then print("Successfully loaded Resource '4.bmp'");
 	else print("Failed to load Resource '4.bmp'"); end
 	
 	print();

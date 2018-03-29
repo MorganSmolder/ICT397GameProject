@@ -33,3 +33,7 @@ bool TextureManager::deleteTexture(std::string name, RenderModuleStubb* renderer
 	images.erase(name);
 	return true;
 }
+
+void TextureManager::disableTexture(RenderModuleStubb* renderer) {
+	renderer->bindTexture(NULL);
+}

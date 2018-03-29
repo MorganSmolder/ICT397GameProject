@@ -1,0 +1,3 @@
+s 50 .5 50
+t ./Resources/Textures/grass.tga TGA
+f ./Resources/Models/hm2.raw

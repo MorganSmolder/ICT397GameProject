@@ -6,6 +6,7 @@ AssetManager::AssetManager()
 {
 	TexMan = Singleton<TextureManager>::getInstance();
 	AE = Singleton<AudioEngine>::getInstance();
+	MM = Singleton<ModelManger>::getInstance();
 }
 
 
@@ -13,10 +14,16 @@ AssetManager::~AssetManager()
 {
 	delete TexMan;
 	TexMan = NULL;
+	delete MM;
+	MM = NULL;
 }
 
 bool AssetManager::addResource(std::string path, std::string type, std::string name) {
 	if (TexMan->loadNewTexture(path, type, name, Singleton<RenderModuleStubb>::getInstance())) {
+		return true;
+	}
+	else
+	if (MM->loadModel(path, type, name)) {
 		return true;
 	}
 	else

@@ -4,10 +4,9 @@
 #include <queue>
 #include "Message.h"
 #include "Identifiers.h"
+#include "MessageTypes.h"
 #include <iostream>
 
-#define AUDIOENG_ID 1000000
-#define SCENEMAN_ID 1000001
 
 class MessagingBus
 {

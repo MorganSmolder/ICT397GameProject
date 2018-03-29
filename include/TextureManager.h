@@ -9,6 +9,7 @@ public:
 	bool loadNewTexture(std::string path, std::string type, std::string name, RenderModuleStubb* renderer);
 	bool useTexture(std::string name, RenderModuleStubb* renderer);
 	bool deleteTexture(std::string name, RenderModuleStubb* renderer);
+	void disableTexture(RenderModuleStubb* renderer);
 
 private:
 	std::map<std::string, int> images;

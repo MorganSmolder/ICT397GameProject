@@ -1,29 +1,11 @@
-﻿  RenderModuleStubb.cpp
+﻿  RawTerrain.cpp
+src\RawTerrain.cpp(110): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+src\RawTerrain.cpp(112): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+src\RawTerrain.cpp(114): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
   Generating code
-  5 of 6121 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
+  1 of 6543 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    138 functions had inline decision re-evaluated but remain unchanged
+    22 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-OBJModel.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-AudioEngine.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-BMPLoader.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-CtoLUABinder.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-Engine.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-GameObject.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-GameObjectFactory.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-GameObjectHandler.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-Identifiers.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-ImageCreationHandler.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-ImageLoaderFactory.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-LUAScriptManager.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-Message.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-MessagingBus.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-NPC.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-RenderModuleStubb.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-ResourceList.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
-Scene.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-SceneManager.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-TextureManager.obj : warning LNK4020: a type record in 'c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-TGALoader.obj : warning LNK4204: 'C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\vc140.pdb' is missing debugging information for referencing module; linking object as if no debug info
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.pdb (Full PDB)

@@ -1,7 +1,7 @@
 #pragma once
 #include "GameObject.h"
 #include <iostream>
-
+#include "AudioEngine.h"
 
 class NPC : public GameObject
 {

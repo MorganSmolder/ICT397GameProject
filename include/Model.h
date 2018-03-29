@@ -8,6 +8,7 @@
 class Model
 {
 	public:
+		virtual Model * create() const = 0;
 		virtual bool loadModel(std::string filename) = 0;
 		virtual void update() = 0;
 		virtual void render() = 0;
