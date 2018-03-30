@@ -1,25 +1,16 @@
-﻿  camera.cpp
+﻿  CollisionEngine.cpp
   Unknown compiler version - please run the configure tests and report the results
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\include\Camera.h(68): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\include\Camera.h(69): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\include\Camera.h(70): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-src\camera.cpp(249): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-src\camera.cpp(250): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-src\camera.cpp(266): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-src\camera.cpp(267): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-src\camera.cpp(278): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-src\camera.cpp(314): warning C4244: 'argument': conversion from 'const GLdouble' to 'float', possible loss of data
-src\camera.cpp(315): warning C4244: 'argument': conversion from 'const GLdouble' to 'float', possible loss of data
-src\camera.cpp(316): warning C4244: 'argument': conversion from 'const GLdouble' to 'float', possible loss of data
+src\CollisionEngine.cpp(41): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
+src\CollisionEngine.cpp(44): warning C4244: 'initializing': conversion from 'const float' to 'int', possible loss of data
 C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
   C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
   C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
   c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
   c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
   Generating code
-  1 of 6984 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  4 of 6984 functions ( 0.1%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    29 functions had inline decision re-evaluated but remain unchanged
+    23 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.pdb (Full PDB)

@@ -14,9 +14,26 @@ CollisionEngine::~CollisionEngine()
 void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 	std::map<float, float> tmp;
 
+	maxx = toset.at(0).x();
+	minx = toset.at(0).x();
+	maxz = toset.at(0).z();
+	minz = toset.at(0).z();
+
 	for (unsigned i = 0; i < toset.size(); i++) {
 		if (heightmap.count(toset.at(i).x()) == 0) heightmap[ toset.at(i).x()] = tmp;
 		heightmap[toset.at(i).x()][toset.at(i).z()] = toset.at(i).y();
+		if(toset.at(i).x() > maxx){
+			maxx = toset.at(i).x();
+		}
+		if (toset.at(i).z() > maxz) {
+			maxz = toset.at(i).z();
+		}
+		if (toset.at(i).x() < minx) {
+			minx = toset.at(i).x();
+		}
+		if (toset.at(i).z() < minz) {
+			minz = toset.at(i).z();
+		}
 	}
 
 	std::map<float, std::map<float, float> >::iterator mapit = heightmap.begin();
@@ -33,11 +50,13 @@ void CollisionEngine::update(GameObject* & toupdate) {
 	float x = toupdate->getPos().x();
 	float z = toupdate->getPos().z();
 
-	HMPos hmloc = findHMLocation(toupdate->getPos());
+	if (x < maxx && x > minx && z > minz && z < maxz) {
+		HMPos hmloc = findHMLocation(toupdate->getPos());
 
-	float y = findBarycenter(toupdate->getPos(), hmloc);
+		float y = findBarycenter(toupdate->getPos(), hmloc);
 
-	toupdate->setPos(vec3(toupdate->getPos().x(), y, toupdate->getPos().z()));
+		toupdate->setPos(vec3(toupdate->getPos().x(), y, toupdate->getPos().z()));
+	}
 }
 
 HMPos CollisionEngine::findHMLocation(const vec3 & pos) {
