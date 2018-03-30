@@ -67,7 +67,7 @@ bool AudioEngine::initalise(){
 		return false;
 	}
 
-	BASS_SetVolume(.2);
+	BASS_SetVolume(.02);
 
 	return true;
 }

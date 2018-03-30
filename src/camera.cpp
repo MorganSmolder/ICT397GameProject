@@ -51,7 +51,7 @@ void Camera::ResetXYZ()
 void Camera::update(float time) {
 	msgrcvr();
 
-	pos.sy(pos.y() + 5);
+	pos.sy(pos.y() + 10);
 
 	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
 	Message tmpm;
@@ -64,12 +64,12 @@ void Camera::update(float time) {
 
 		if (tmpm.getInstruction() == "MVF") {
 			std::cout << "MVF" << std::endl;
-			DirectionFB(1);
+			DirectionFB(4);
 		}
 		else
 		if (tmpm.getInstruction() == "MVB") {
 			std::cout << "MVB" << std::endl;
-			DirectionFB(-1);
+			DirectionFB(-4);
 		}
 		else
 		if (tmpm.getInstruction() == "MVR") {

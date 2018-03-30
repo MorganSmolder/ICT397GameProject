@@ -10,5 +10,9 @@ public:
 	float y() {
 		return m_y;
 	}
+	vec2() {
+		m_x = 0;
+		m_y = 0;
+	}
 };
 

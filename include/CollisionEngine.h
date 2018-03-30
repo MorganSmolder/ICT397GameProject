@@ -3,7 +3,13 @@
 #include <map>
 #include <vector>
 #include "vec3.h"
+#include "vec2.h"
 #include "GameObject.h"
+
+struct HMPos {
+	vec2 tl;
+	vec2 br;
+};
 
 class CollisionEngine
 {
@@ -13,9 +19,10 @@ public:
 	void setHeightMap(std::vector<vec3> & toset);
 	void update(GameObject* & toupdate);
 private:
-	std::map<int, std::map<int, float>> heightmap;
+	std::map<float, std::map<float, float>> heightmap;
 
-	float linearInterpolate(float a, float b, float f);
+	HMPos findHMLocation(const vec3 & pos);
+	float findBarycenter(const vec3 & ppos, HMPos & pos);
 	int step;
 };
 

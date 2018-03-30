@@ -106,7 +106,7 @@ void RenderModuleStubb::reshape(GLsizei width, GLsizei height) {
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	gluPerspective(45.0f, aspect, 0.1f, 1000.0f);
+	gluPerspective(45.0f, aspect, 0.1f, 10000.0f);
 }
 
 void RenderModuleStubb::keys(unsigned char key, int x, int y) {
