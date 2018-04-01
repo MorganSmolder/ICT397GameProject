@@ -9,7 +9,6 @@
 #include "Camera.h"
 
 #include <math.h>
-#include <gl/glut.h>
 
 //--------------------------------------------------------------------------------------
 // Set initial values
@@ -350,10 +349,11 @@ void Camera::CheckCamera()
 //----------------------------------------------------------------------------------------
 void Camera::callGLLookAt()
 {
-	glLoadIdentity();
-	gluLookAt(pos.x(), pos.y(), pos.z(), 
-		pos.x() + m_lookX, pos.y() + m_lookY, pos.z() + m_lookZ,
-			  0.0f, 1.0f, 0.0f);
+	Singleton<RenderModuleStubb>::getInstance()->callLookAt(vec3(pos.x(), pos.y(), pos.z()), vec3(pos.x() + m_lookX, pos.y() + m_lookY, pos.z() + m_lookZ), vec3(0,1,0));
+	//glLoadIdentity();
+	//gluLookAt(pos.x(), pos.y(), pos.z(), 
+	//	pos.x() + m_lookX, pos.y() + m_lookY, pos.z() + m_lookZ,
+	//		  0.0f, 1.0f, 0.0f);
 
 }
 

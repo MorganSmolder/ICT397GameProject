@@ -34,7 +34,7 @@ bool TGALoader::loadFile(std::string filename){
 	height = header[14];
 	height += header[15] * 256;
 
-	unsigned size = width * height * ((bits == 24) ? 3 : 4);
+	size = width * height * ((bits == 24) ? 3 : 4);
 
 	data = new unsigned char[size];
 
@@ -106,7 +106,7 @@ bool TGALoader::loadFile(std::string filename){
 	return true;
 }
 
-const unsigned char* TGALoader::getData() const{
+unsigned char* TGALoader::getData() const{
 	return data;
 }
 
@@ -116,6 +116,10 @@ unsigned TGALoader::getBits() const{
 
 unsigned TGALoader::getWidth() const{
 	return width;
+}
+
+unsigned TGALoader::getDataSize() {
+	return size;
 }
 
 unsigned TGALoader::getHeight() const{

@@ -35,15 +35,6 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 			minz = toset.at(i).z();
 		}
 	}
-
-	std::map<float, std::map<float, float> >::iterator mapit = heightmap.begin();
-
-	int sample1 = mapit->first;
-	
-	++mapit;
-	int sample2 = mapit->first;
-
-	step = abs(sample2 - sample1);
 }
 
 void CollisionEngine::update(GameObject* & toupdate) {

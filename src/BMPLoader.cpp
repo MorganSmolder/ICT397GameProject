@@ -25,7 +25,7 @@ bool BMPLoader::loadFile(std::string filename){
 		return false;
 	}
 
-	unsigned size = header[34];
+	size = header[34];
 	size += header[35] * 256;
 	size += header[36] * 65536;
 	size += header[37] * 16777216;
@@ -56,6 +56,8 @@ bool BMPLoader::loadFile(std::string filename){
 	offset += header[12] * 65536;
 	offset += header[13] * 16777216;
 
+	size = width*height*bits;
+
 	data = new unsigned char[width*height*bits];
 
 	if (data == NULL) return false;
@@ -82,7 +84,7 @@ bool BMPLoader::loadFile(std::string filename){
 	return true;
 }
 
-const unsigned char* BMPLoader::getData() const{
+unsigned char* BMPLoader::getData() const{
 	return data;
 }
 
@@ -96,6 +98,10 @@ unsigned BMPLoader::getWidth() const{
 
 unsigned BMPLoader::getHeight() const{
 	return height;
+}
+
+unsigned BMPLoader::getDataSize() {
+	return size;
 }
 
 void BMPLoader::clear(){

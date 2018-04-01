@@ -18,8 +18,11 @@ class RAWTerrain : public terrain
 		RAWTerrain * create() const;
 
 	private:
+		std::string multitexture;
+		std::string detailmap;
 		bool loadData(std::string filename);
 		std::string parseOptions(std::string file);
 		std::string RandomString(unsigned len);
+		std::vector<std::string> images;
 };
 

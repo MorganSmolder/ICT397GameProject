@@ -19,7 +19,7 @@ void NPC::render() {
 
 	if (resources.hasResource("model")) GameObject::model->render();
 	else {
-		pos.sy(pos.y() + 5);
+		pos.sy(pos.y() + 10);
 
 		RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
 

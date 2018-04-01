@@ -36,24 +36,24 @@ bool Engine::Initalise(std::string initscript){
 
 	LSM->callFunction<SceneManager, LUAScriptManager, AssetManager, AudioEngine>("initGame", SM, *LSM, *AMAN, *AE);
 
-	//BAD!!!! Stand in for mat's renderer
-	RNDR->start();
-
 	return true;
 }
 
 //Temporarily gimped while mat does rendering
 void Engine::Run() {
-	int count = 0;
-	//while (count < 10) {
-	self->SM.update((float)count);
+	float count = 0;
+	while (count < 1000000) {
+		self->RNDR->startRenderCycle();
 
-	self->SM.render();
 
-	self->AE->update();
-	
-	Sleep(16);
-	//}
+		self->SM.update((float)count++);
+
+		self->SM.render();
+
+		self->AE->update();
+		
+		self->RNDR->endRenderCycle();
+	}
 }
 
 bool Engine::initaliseScriptingInterface() {
@@ -70,8 +70,6 @@ bool Engine::initaliseRenderer() {
 
 	//BAD!!!! temporary while mat does rendering
 	RNDR->init(0, NULL);
-	RNDR->setUpdateCallBack(Run);
-	RNDR->setReshapeCallBack();
 	RNDR->setKeyCallback();
 
 	return true;

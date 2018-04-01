@@ -12,7 +12,9 @@ bool TextureManager::loadNewTexture(std::string path, std::string type, std::str
 
 	if (!success) return false;
 
-	int id = nextid++;
+	int id = nextid;
+
+	nextid++;
 
 	ImgCH.bindImage(id, renderer);
 
@@ -27,6 +29,12 @@ bool TextureManager::useTexture(std::string name, RenderModuleStubb* renderer){
 	return true;
 }
 
+bool TextureManager::useTexture(std::string name, std::string name2, RenderModuleStubb* renderer) {
+	if (images.count(name) == 0 || images.count(name2) == 0) return false;
+	renderer->bindMultiTexture(images.at(name), images.at(name2));
+	return true;
+}
+
 bool TextureManager::deleteTexture(std::string name, RenderModuleStubb* renderer){
 	if (images.count(name) == 0) return false;
 	renderer->deleteTexture(images.at(name));
@@ -36,4 +44,27 @@ bool TextureManager::deleteTexture(std::string name, RenderModuleStubb* renderer
 
 void TextureManager::disableTexture(RenderModuleStubb* renderer) {
 	renderer->bindTexture(NULL);
+}
+
+bool TextureManager::genMultiTexture(std::vector<vec3> heightmap, std::vector<std::string> textures, std::string name) {
+	if (images.count(name) == 1) return false;
+
+	int id = nextid;
+
+	nextid++;
+
+	bool success = ImgCH.CreateMultiTexture(heightmap, textures, name, id);
+
+	if (success) {
+		images[name] = id;
+		return true;
+	}
+	
+	nextid--;
+
+	return false;
+}
+
+void TextureManager::DisableMultiTex(RenderModuleStubb* renderer) {
+	renderer->disableMultiTexture();
 }

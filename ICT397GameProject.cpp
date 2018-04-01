@@ -9,7 +9,7 @@ int main(int argc, char* argv[])
 
 	if (ENG.Initalise("./Resources/Scripts/Demo3/startup.lua")){
 		//Temporarily switched rendering mechanism to glut callback while mat sorts out glfw.
-		//ENG.Run();
+		ENG.Run();
 	}
 
 	return 0;

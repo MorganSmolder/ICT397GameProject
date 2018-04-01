@@ -7,10 +7,11 @@
 
 #define PI 3.1415962654
 
-#include "gl/glut.h"
 #include "GameObject.h"
 #include "Identifiers.h"
 #include "ResourceList.h"
+#include "RenderModuleStubb.h"
+#include "Singleton.h"
 
 //--------------------------------------------------------------------------------------
 

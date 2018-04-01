@@ -11,6 +11,9 @@ end
 local function loadResources(AMAN)
 	print();
 
+	if AMAN:addResource("./Resources/Textures/detailmap.tga", "TGA", "tex1") then print("Successfully loaded Resource '1.bmp'");
+	else print("Failed to load Resource '1.bmp'"); end
+
 	if AMAN:addResource("./Resources/Models/RAW1.tdef", "RAWTRN", "Terrain") then print("Successfully loaded Resource 'Terrain'");
 	else print("Failed to load Resource 'Terrain'"); end
 
@@ -43,7 +46,7 @@ function initGame(SM, LSM, AMAN, AE)
 	--Unecessary in this instance, but good practice 
 	SM:setCurrScene(0);
 
-	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-10,0,0), ResourceList("updatefunc", "start"));
+	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-10,0,0), ResourceList());
 
 	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(10, 0, 0), ResourceList("updatefunc", "start"));
 	

@@ -34,7 +34,8 @@ RAWTerrain::RAWTerrain(const RAWTerrain & tocpy) {
 	planInd = tocpy.planInd;
 	texcoords = tocpy.texcoords;
 	scale = tocpy.scale;
-	texture = tocpy.texture;
+	multitexture = tocpy.multitexture;
+	detailmap = tocpy.detailmap;
 }
 
 RAWTerrain * RAWTerrain::create() const {
@@ -42,10 +43,10 @@ RAWTerrain * RAWTerrain::create() const {
 }
 
 void RAWTerrain::render() {
-	if (!texture.empty()) {
-		Singleton<TextureManager>::getInstance()->useTexture(texture, Singleton<RenderModuleStubb>::getInstance());
-		Singleton<RenderModuleStubb>::getInstance()->renderTexturedArrayTriStrip(planInd, plane, texcoords);
-		Singleton<TextureManager>::getInstance()->disableTexture(Singleton<RenderModuleStubb>::getInstance());
+	if (!multitexture.empty()) {
+		Singleton<TextureManager>::getInstance()->useTexture(multitexture, detailmap, Singleton<RenderModuleStubb>::getInstance());
+		Singleton<RenderModuleStubb>::getInstance()->renderMultiTexturedArrayTriStrip(planInd, plane, texcoords);
+		Singleton<TextureManager>::getInstance()->DisableMultiTex(Singleton<RenderModuleStubb>::getInstance());
 	}
 	else {
 		Singleton<RenderModuleStubb>::getInstance()->renderArrayTriStrip(planInd, plane);
@@ -103,6 +104,10 @@ std::string RAWTerrain::parseOptions(std::string file) {
 
 		linehead = tmp.at(0);
 		tmp = tmp.substr(tmp.find(" ") + 1);
+		std::string path;
+		std::string name;
+		bool good;
+		std::string mettype;
 
 		switch (linehead) {
 		case 's':
@@ -117,12 +122,20 @@ std::string RAWTerrain::parseOptions(std::string file) {
 			hm = tmp;
 			break;
 		case 't':
-			std::string path = tmp.substr(0, tmp.find(" "));
+			path = tmp.substr(0, tmp.find(" "));
 			tmp = tmp.substr(tmp.find(" ") + 1);
-			std::string mettype = tmp;
-			std::string name = RandomString(25);
-			bool good = Singleton<TextureManager>::getInstance()->loadNewTexture(path, mettype, name, Singleton<RenderModuleStubb>::getInstance());
-			if (good) texture = name;
+			mettype = tmp;
+			name = RandomString(25);
+			good = Singleton<TextureManager>::getInstance()->loadNewTexture(path, mettype, name, Singleton<RenderModuleStubb>::getInstance());
+			if (good) detailmap = name;
+			break;
+		case 'm':
+			multitexture = RandomString(25);
+			while (tmp.find(' ') != std::string::npos) {
+				images.push_back(tmp.substr(0, tmp.find(" ")));
+				tmp = tmp.substr(tmp.find(" ") + 1);
+			}
+			images.push_back(tmp);
 			break;
 		}
 	}
@@ -140,6 +153,11 @@ bool RAWTerrain::loadModel(std::string filename){
 		genPlane(dimensions);
 		genPlaneIndicies(dimensions);
 		genTexCoords();
+		if (!multitexture.empty()) {
+			if ((Singleton<TextureManager>::getInstance()->genMultiTexture(plane, images, multitexture)) == false) {
+				multitexture = "";
+			}
+		}
 		applyScaling(scale);
 		delete[] data;
 		data = NULL;
@@ -150,7 +168,6 @@ bool RAWTerrain::loadModel(std::string filename){
 
 std::string RAWTerrain::RandomString(unsigned len) {
 	std::string tmp;
-
 
 	for (unsigned i = 0; i < len; ++i) {
 		tmp.push_back((char) 97 + (rand() % static_cast<int>(122 - 97 + 1)));

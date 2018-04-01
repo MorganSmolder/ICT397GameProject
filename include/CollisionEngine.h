@@ -23,8 +23,6 @@ private:
 
 	HMPos findHMLocation(const vec3 & pos);
 	float findBarycenter(const vec3 & ppos, HMPos & pos);
-	int step;
-
 	float maxx, minx, maxz, minz;
 };
 

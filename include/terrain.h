@@ -25,7 +25,6 @@ class terrain : public Model
 		std::vector<unsigned> planInd;
 		std::vector<vec2> texcoords;
 		vec3 scale;
-		std::string texture;
 		unsigned dimensions;
 		void calcMaxMin();
 

@@ -1,5 +1,8 @@
 #pragma once
-#include "GL\glut.h"
+
+#define GLFW_INCLUDE_GLU 
+#include "gl/glew.h"
+#include "glfw/glfw3.h"
 #include <vector>
 #include "vec3.h"
 #include "vec2.h"
@@ -15,23 +18,29 @@ struct point{
 class RenderModuleStubb
 {
 public:
+	RenderModuleStubb();
 	void init(int argc, char** argv);
-	void setUpdateCallBack(void(*callback)());
-	void setReshapeCallBack();
 	void setKeyCallback();
-	void start();
 	void DrawQuad(point tl, point br, float y);
 	void storeTexture(const int & texID, unsigned pixelsize, unsigned width, unsigned height, const unsigned char* data);
 	void deleteTexture(const int & texID);
 	void bindTexture(const int & texID);
+	void bindMultiTexture(const int & texIDcolor, const int & texIDdetail);
 	void renderArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices);
 	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
+	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
+	void callLookAt(vec3 r1, vec3 r2, vec3 r3);
+	void disableMultiTexture();
 
-	static void (*displayfunc)();
+	void startRenderCycle();
+	void endRenderCycle();
 
-	static void display();
-	static void reshape(GLsizei width, GLsizei height);
-	static void keys(unsigned char key, int x, int y);
-	static void keys2(unsigned char key, int x, int y);
+	static void reshape(GLFWwindow* window, int width, int height);
+	static void keys(GLFWwindow* window, int key, int scancode, int action, int mods);
+
+private:
+	GLFWwindow* window;
+	vec3 campos;
+	vec3 camlook;
 };
 
