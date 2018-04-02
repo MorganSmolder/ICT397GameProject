@@ -1,7 +1,4 @@
 #include "Engine.h"
-
-//temporary
-Engine* Engine::self = NULL;
 	
 Engine::Engine() 
 {
@@ -43,16 +40,16 @@ bool Engine::Initalise(std::string initscript){
 void Engine::Run() {
 	float count = 0;
 	while (count < 1000000) {
-		self->RNDR->startRenderCycle();
+		RNDR->startRenderCycle();
 
 
-		self->SM.update((float)count++);
+		SM.update((float)count++);
 
-		self->SM.render();
+		SM.render();
 
-		self->AE->update();
+		AE->update();
 		
-		self->RNDR->endRenderCycle();
+		RNDR->endRenderCycle();
 	}
 }
 

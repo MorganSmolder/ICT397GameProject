@@ -16,11 +16,7 @@ public:
 	~Engine();
 	bool Initalise(std::string initscript);
 	
-	//Temporarily static ahile mat does rendering
-	static void Run();
-	
-	//tmp while mat does rendering
-	static Engine* self;
+	void Run();
 
 private:
 	SceneManager SM;
