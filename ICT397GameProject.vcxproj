@@ -69,7 +69,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>luad.lib;luabindd.lib;glfw3dll.lib;glew32.lib;bass.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>luad.lib;luabindd.lib;glfw3dll.lib;glew32.lib;bass.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -87,7 +87,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>lua.lib;luabind.lib;glfw3.lib;bass.lib;glew32.lib;opengl32.lib;glu32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>lua.lib;luabind.lib;glfw3.lib;bass.lib;glew32.lib;opengl32.lib;glu32.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -108,6 +108,7 @@
     <ClInclude Include="include\ImageCreationHandler.h" />
     <ClInclude Include="include\ImageLoader.h" />
     <ClInclude Include="include\ImageLoaderFactory.h" />
+    <ClInclude Include="include\ImportModel.h" />
     <ClInclude Include="include\LUAScriptManager.h" />
     <ClInclude Include="include\Message.h" />
     <ClInclude Include="include\MessageTypes.h" />
@@ -144,6 +145,7 @@
     <ClCompile Include="src\Identifiers.cpp" />
     <ClCompile Include="src\ImageCreationHandler.cpp" />
     <ClCompile Include="src\ImageLoaderFactory.cpp" />
+    <ClCompile Include="src\ImportModel.cpp" />
     <ClCompile Include="src\LUAScriptManager.cpp" />
     <ClCompile Include="src\Message.cpp" />
     <ClCompile Include="src\MessagingBus.cpp" />
