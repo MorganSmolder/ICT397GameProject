@@ -19,6 +19,11 @@ ImportModel::ImportModel(const ImportModel & tocpy)
 
 >>>>>>> ImportModel
 	Vertices = tocpy.Vertices;
+	texCoords = tocpy.texCoords;
+	Normals = tocpy.Normals;
+	vertIndex = tocpy.vertIndex;
+	texture = tocpy.texture;
+	
 	model = tocpy.model;
 }
 ImportModel::~ImportModel()
@@ -28,30 +33,45 @@ ImportModel::~ImportModel()
 bool ImportModel::loadModel(std::string filename)
 {
 	Assimp::Importer importer;
-<<<<<<< HEAD
-	model = importer.ReadFile(filename, NULL); //aiProcessPreset_TargetRealtime_MaxQuality
 
-	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); //see assimp.sourceforge.net/lib_html/postprocess_8h.html for more info.
+	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); 
 
-=======
+	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_Fast);
+
 >>>>>>> ImportModel
 	if (!model)
 	{
 		printf("Unable to load mesh: %s\n", importer.GetErrorString());
-		return(false);
+		return false;
+	}
+
+	aiString path;
+
+	if (model->HasMaterials()) {
+		for (int i = 0; i < model->mNumMaterials; i++)
+		{
+			if (model->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE) > 0) {
+				if (model->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &path) == AI_SUCCESS)
+				{
+					texture = RandomString(25);
+					if (Singleton<TextureManager>::getInstance()->loadNewTexture(path.data, "TGA", texture, Singleton<RenderModuleStubb>::getInstance()) == false) {
+						texture.clear();
+					}
+				}
+			}
+		}
 	}
 
 	for (int i = 0; i < model->mNumMeshes; i++)
 	{
-		setMinsAndMaxs();
 		setVertices(model->mMeshes[i]);
 		setTexCoords(model->mMeshes[i]);
 		setNormals(model->mMeshes[i]);
 		setIndexes(model->mMeshes[i]);
 	}
-		setMinsAndMaxs();
 
-		//delete model; // Further data I guess isn't used.
+	setMinsAndMaxs();
+
 	return(true);
 }
 
@@ -117,7 +137,6 @@ void ImportModel::setVertices(aiMesh *mesh)
 	}
 }
 
-//this one im not sure is right, rest should be fine
 void ImportModel::setIndexes(aiMesh *mesh)
 {
 	int indexStart = 0;
@@ -125,10 +144,11 @@ void ImportModel::setIndexes(aiMesh *mesh)
 	{
 		for (int i = 0; i < mesh->mNumFaces; i++)
 		{
-<<<<<<< HEAD
-			Index.push_back(vec3(mesh->mFaces[i].mIndices[0], mesh->mFaces[i].mIndices[1], mesh->mFaces[i].mIndices[2]));
-=======
->>>>>>> ImportModel
+
+			vertIndex.push_back(mesh->mFaces[i].mIndices[0]);
+			vertIndex.push_back(mesh->mFaces[i].mIndices[1]);
+			vertIndex.push_back(mesh->mFaces[i].mIndices[2]);
+
 		}
 	}
 }
@@ -183,5 +203,17 @@ void ImportModel::update()
 
 void ImportModel::render()
 {
-	
+	if (texture.empty() == false) Singleton<TextureManager>::getInstance()->useTexture(texture, Singleton<RenderModuleStubb>::getInstance());
+	Singleton<RenderModuleStubb>::getInstance()->renderArrayTri(vertIndex,Vertices, texCoords);
+	Singleton<TextureManager>::getInstance()->disableTexture(Singleton<RenderModuleStubb>::getInstance());
+}
+
+std::string ImportModel::RandomString(unsigned len) {
+	std::string tmp;
+
+	for (unsigned i = 0; i < len; ++i) {
+		tmp.push_back((char)97 + (rand() % static_cast<int>(122 - 97 + 1)));
+	}
+
+	return tmp;
 }

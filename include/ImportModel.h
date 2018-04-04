@@ -4,6 +4,7 @@
 #include <Assimp/postprocess.h>
 #include "Model.h"
 #include "vec2.h"
+#include "TextureManager.h"
 
 class ImportModel : public Model
 {
@@ -16,12 +17,6 @@ public:
 
 	bool loadModel(std::string filename);
 
-	void setVertices(aiMesh *mesh);
-	void setTexCoords(aiMesh *mesh);
-	void setNormals(aiMesh *mesh);
-	void setIndexes(aiMesh *mesh);
-	void centerOnPoint(vec3 &point);
-
 	void update();
 	void render();
 
@@ -29,15 +24,18 @@ public:
 
 private:
 	void setMinsAndMaxs();
-
+	std::string RandomString(unsigned len);
 	std::vector<vec3> Vertices;
 	std::vector<vec2> texCoords;
 	std::vector<vec3> Normals;
-<<<<<<< HEAD
-	std::vector<vec3> Index;
-
-=======
->>>>>>> ImportModel
+	std::vector<unsigned> vertIndex;
+	std::string texture;
 	const aiScene *model;
+
+	void setVertices(aiMesh *mesh);
+	void setTexCoords(aiMesh *mesh);
+	void setNormals(aiMesh *mesh);
+	void setIndexes(aiMesh *mesh);
+	void centerOnPoint(vec3 &point);
 };
 

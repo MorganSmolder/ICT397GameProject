@@ -18,6 +18,9 @@ local function loadResources(AMAN)
 	if AMAN:addResource("./Resources/Models/RAW2.tdef", "RAWTRN", "Terrain2") then print("Successfully loaded Resource 'Terrain2'");
 	else print("Failed to load Resource 'Terrain2'"); end
 
+	if AMAN:addResource("./Resources/Models/Iron_Man.obj", "IM", "Robot") then print("Successfully loaded Resource 'Robot'");
+	else print("Failed to load Resource 'Robot'"); end
+
 	if AMAN:addResource("./Resources/Audio/2.wav", "WAV", "bgmusic") then print("Successfully loaded Resource 'bgmusic'");
 	else print("Failed to load Resource 'bgmusic'"); end
 
@@ -46,9 +49,7 @@ function initGame(SM, LSM, AMAN, AE)
 
 	SM:attachControls(0, ResourceList("keyCallback", "keys"));
 
-	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-10,0,0), ResourceList());
-
-	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(10, 0, 0), ResourceList("updatefunc", "start"));
+	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-10,12,0), ResourceList("model", "Robot"));
 	
 	SM:addObject(Identifiers("SE", "Terrain"), 0, vec3(0,0,0), ResourceList("model", "Terrain"));
 

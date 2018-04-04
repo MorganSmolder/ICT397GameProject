@@ -1,84 +1,8 @@
-﻿  ICT397GameProject.cpp
-  Unknown compiler version - please run the configure tests and report the results
-C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\glfw/glfw3.h(98): note: see previous definition of 'APIENTRY'
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(69): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(70): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(71): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
-  CtoLUABinder.cpp
-  Unknown compiler version - please run the configure tests and report the results
-C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\glfw/glfw3.h(98): note: see previous definition of 'APIENTRY'
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(69): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(70): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(71): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
-  Engine.cpp
-  Unknown compiler version - please run the configure tests and report the results
-C:\Program Files (x86)\Windows Kits\8.1\Include\shared\minwindef.h(130): warning C4005: 'APIENTRY': macro redefinition
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\glfw/glfw3.h(98): note: see previous definition of 'APIENTRY'
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(69): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(70): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\camera.h(71): warning C4244: 'argument': conversion from 'GLdouble' to 'float', possible loss of data
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
-C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): warning C4297: 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller': function assumed not to throw an exception but does
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(260): note: destructor or deallocator has a (possibly implicit) non-throwing exception specification
-  C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\ThirdParty\include\luabind/detail/call_function.hpp(247): note: while compiling class template member function 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)'
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(82): note: see reference to function template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>::~proxy_function_void_caller(void)' being compiled
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\include\LUAScriptManager.h(82): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<const boost::reference_wrapper<T> *,const boost::reference_wrapper<U> *,const boost::reference_wrapper<V> *,const boost::reference_wrapper<W> *,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
-  src\Engine.cpp(39): note: see reference to function template instantiation 'void LUAScriptManager::callFunction<SceneManager,LUAScriptManager,AssetManager,AudioEngine>(std::string,T &,U &,V &,W &)' being compiled
-          with
-          [
-              T=SceneManager,
-              U=LUAScriptManager,
-              V=AssetManager,
-              W=AudioEngine
-          ]
+﻿  RenderModuleStubb.cpp
   Generating code
-  471 of 7685 functions ( 6.1%) were compiled, the rest were copied from previous compilation.
-    196 functions were new in current compilation
-    1052 functions had inline decision re-evaluated but remain unchanged
+  1 of 7744 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Desktop\ICT397 Upload\BACKUP\ICT397GameProject\Release\ICT397GameProject.pdb (Full PDB)
