@@ -1,10 +1,3 @@
-//  camera.cpp
-//
-//  Implementation file for Camera Class
-//  Defines all the methods declared, but not defined, in camera.h
-//
-//  Shay Leary, March 2005
-//--------------------------------------------------------------------------------------
 
 #include "Camera.h"
 
