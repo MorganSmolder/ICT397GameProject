@@ -13,7 +13,15 @@ ImportModel::ImportModel(const ImportModel & tocpy)
 	miny = tocpy.miny;
 	maxy = tocpy.maxy;
 
+
+
 	Vertices = tocpy.Vertices;
+	texCoords = tocpy.texCoords;
+	Normals = tocpy.Normals;
+	vertIndex = tocpy.vertIndex;
+	texIndex = tocpy.texIndex;
+	normIndex = tocpy.normIndex;
+	
 	model = tocpy.model;
 }
 ImportModel::~ImportModel()
@@ -23,13 +31,12 @@ ImportModel::~ImportModel()
 bool ImportModel::loadModel(std::string filename)
 {
 	Assimp::Importer importer;
-	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); //see assimp.sourceforge.net/lib_html/postprocess_8h.html for more info.
+	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_Fast); //see assimp.sourceforge.net/lib_html/postprocess_8h.html for more info.
 	if (!model)
 	{
 		printf("Unable to load mesh: %s\n", importer.GetErrorString());
 		return(false);
 	}
-
 	for (int i = 0; i < model->mNumMeshes; i++)
 	{
 		setVertices(model->mMeshes[i]);
@@ -39,7 +46,7 @@ bool ImportModel::loadModel(std::string filename)
 	}
 		setMinsAndMaxs();
 
-		delete model; // Further data I guess isn't used.
+		//delete model; // Further data I guess isn't used.
 	return(true);
 }
 
@@ -100,11 +107,15 @@ void ImportModel::setVertices(aiMesh *mesh)
 //this one im not sure is right, rest should be fine
 void ImportModel::setIndexes(aiMesh *mesh)
 {
+	int indexStart = 0;
 	if (mesh->HasFaces())
 	{
 		for (int i = 0; i < mesh->mNumFaces; i++)
 		{
-			Normals.push_back(vec3(mesh->mFaces[i].mIndices[0], mesh->mFaces[i].mIndices[1], mesh->mFaces[i].mIndices[2]));
+			//vec3(mesh->mFaces[i].mIndices[0], mesh->mFaces[i].mIndices[1], mesh->mFaces[i].mIndices[2])
+			vertIndex.push_back(mesh->mFaces[i].mIndices[0]);
+			vertIndex.push_back(mesh->mFaces[i].mIndices[1]);
+			vertIndex.push_back(mesh->mFaces[i].mIndices[2]);
 		}
 	}
 }
@@ -119,6 +130,7 @@ void ImportModel::setNormals(aiMesh *mesh)
 		}
 	}
 }
+
 
 void ImportModel::setTexCoords(aiMesh *mesh)
 {
@@ -158,4 +170,6 @@ void ImportModel::update()
 
 void ImportModel::render()
 {
+	Singleton<RenderModuleStubb>::getInstance()->renderArrayTri(vertIndex,Vertices);
+	
 }
