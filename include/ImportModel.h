@@ -2,7 +2,6 @@
 #include <Assimp/scene.h>
 #include <Assimp/Importer.hpp>
 #include <Assimp/postprocess.h>
-
 #include "Model.h"
 #include "vec2.h"
 
@@ -34,8 +33,11 @@ private:
 	std::vector<vec3> Vertices;
 	std::vector<vec2> texCoords;
 	std::vector<vec3> Normals;
+<<<<<<< HEAD
 	std::vector<vec3> Index;
 
+=======
+>>>>>>> ImportModel
 	const aiScene *model;
 };
 

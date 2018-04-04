@@ -14,6 +14,10 @@ ImportModel::ImportModel(const ImportModel & tocpy)
 	maxy = tocpy.maxy;
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ImportModel
 	Vertices = tocpy.Vertices;
 	model = tocpy.model;
 }
@@ -24,10 +28,13 @@ ImportModel::~ImportModel()
 bool ImportModel::loadModel(std::string filename)
 {
 	Assimp::Importer importer;
+<<<<<<< HEAD
 	model = importer.ReadFile(filename, NULL); //aiProcessPreset_TargetRealtime_MaxQuality
 
 	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); //see assimp.sourceforge.net/lib_html/postprocess_8h.html for more info.
 
+=======
+>>>>>>> ImportModel
 	if (!model)
 	{
 		printf("Unable to load mesh: %s\n", importer.GetErrorString());
@@ -44,7 +51,7 @@ bool ImportModel::loadModel(std::string filename)
 	}
 		setMinsAndMaxs();
 
-		delete model; // Further data I guess isn't used.
+		//delete model; // Further data I guess isn't used.
 	return(true);
 }
 
@@ -113,11 +120,15 @@ void ImportModel::setVertices(aiMesh *mesh)
 //this one im not sure is right, rest should be fine
 void ImportModel::setIndexes(aiMesh *mesh)
 {
+	int indexStart = 0;
 	if (mesh->HasFaces())
 	{
 		for (int i = 0; i < mesh->mNumFaces; i++)
 		{
+<<<<<<< HEAD
 			Index.push_back(vec3(mesh->mFaces[i].mIndices[0], mesh->mFaces[i].mIndices[1], mesh->mFaces[i].mIndices[2]));
+=======
+>>>>>>> ImportModel
 		}
 	}
 }
@@ -132,6 +143,7 @@ void ImportModel::setNormals(aiMesh *mesh)
 		}
 	}
 }
+
 
 void ImportModel::setTexCoords(aiMesh *mesh)
 {
@@ -171,4 +183,5 @@ void ImportModel::update()
 
 void ImportModel::render()
 {
+	
 }

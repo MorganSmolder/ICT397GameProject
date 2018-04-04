@@ -66,6 +66,19 @@ void RenderModuleStubb::renderArrayTriStrip(std::vector<unsigned> &indicies, std
 	}
 	glEnd();
 }
+//renderarraytri
+//glBegin(GL_TRIANGLES
+void RenderModuleStubb::renderArrayTri(std::vector<unsigned> &indicies, std::vector<vec3> &vertices) {
+	
+	glBegin(GL_TRIANGLES);
+
+	for (unsigned i = 0; i < indicies.size(); i++) {
+		glVertex3f(vertices[indicies[i]].x(), vertices[indicies[i]].y(), vertices[indicies[i]].z());
+	}
+	glEnd();
+
+}
+
 
 void RenderModuleStubb::renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords) {
 	glBegin(GL_TRIANGLE_STRIP);
