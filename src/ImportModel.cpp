@@ -23,7 +23,7 @@ ImportModel::~ImportModel()
 bool ImportModel::loadModel(std::string filename)
 {
 	Assimp::Importer importer;
-	model = importer.ReadFile(filename, NULL); //aiProcessPreset_TargetRealtime_MaxQuality
+	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); //see assimp.sourceforge.net/lib_html/postprocess_8h.html for more info.
 	if (!model)
 	{
 		printf("Unable to load mesh: %s\n", importer.GetErrorString());
@@ -33,8 +33,13 @@ bool ImportModel::loadModel(std::string filename)
 	for (int i = 0; i < model->mNumMeshes; i++)
 	{
 		setVertices(model->mMeshes[i]);
+		setTexCoords(model->mMeshes[i]);
+		setNormals(model->mMeshes[i]);
+		setIndexes(model->mMeshes[i]);
 	}
 		setMinsAndMaxs();
+
+		delete model; // Further data I guess isn't used.
 	return(true);
 }
 
@@ -88,6 +93,40 @@ void ImportModel::setVertices(aiMesh *mesh)
 		for (int i = 0; i < mesh->mNumVertices; i++)
 		{
 			Vertices.push_back(vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z));
+		}
+	}
+}
+
+//this one im not sure is right, rest should be fine
+void ImportModel::setIndexes(aiMesh *mesh)
+{
+	if (mesh->HasFaces())
+	{
+		for (int i = 0; i < mesh->mNumFaces; i++)
+		{
+			Normals.push_back(vec3(mesh->mFaces[i].mIndices[0], mesh->mFaces[i].mIndices[1], mesh->mFaces[i].mIndices[2]));
+		}
+	}
+}
+
+void ImportModel::setNormals(aiMesh *mesh)
+{
+	if (mesh->HasNormals())
+	{
+		for (int i = 0; i < mesh->mNumVertices; i++)
+		{
+			Normals.push_back(vec3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z));
+		}
+	}
+}
+
+void ImportModel::setTexCoords(aiMesh *mesh)
+{
+	if (mesh->HasTextureCoords(0))
+	{
+		for (int i = 0; i < mesh->mNumVertices; i++)
+		{
+			texCoords.push_back(vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y));
 		}
 	}
 }
