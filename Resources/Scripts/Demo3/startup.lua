@@ -4,6 +4,7 @@
 local function loadScripts(LSM)
 	--Load behaviour functions into lua state
 	LSM:doScriptFromFile("./Resources/Scripts/Demo3/npc.lua");
+	LSM:doScriptFromFile("./Resources/Scripts/Demo3/controls.lua");
 end
 
 --Placeholder resource loading function
@@ -11,16 +12,16 @@ end
 local function loadResources(AMAN)
 	print();
 
-	if AMAN:addResource("./Resources/Textures/detailmap.tga", "TGA", "tex1") then print("Successfully loaded Resource '1.bmp'");
-	else print("Failed to load Resource '1.bmp'"); end
-
 	if AMAN:addResource("./Resources/Models/RAW1.tdef", "RAWTRN", "Terrain") then print("Successfully loaded Resource 'Terrain'");
 	else print("Failed to load Resource 'Terrain'"); end
+
+	if AMAN:addResource("./Resources/Models/RAW2.tdef", "RAWTRN", "Terrain2") then print("Successfully loaded Resource 'Terrain2'");
+	else print("Failed to load Resource 'Terrain2'"); end
 
 	if AMAN:addResource("./Resources/Audio/2.wav", "WAV", "bgmusic") then print("Successfully loaded Resource 'bgmusic'");
 	else print("Failed to load Resource 'bgmusic'"); end
 
-	if AMAN:addResource("./Resources/Audio/1.wav", "WAV", "bgmusic1") then print("Successfully loaded Resource 'bgmusic1'");
+	if AMAN:addResource("./Resources/Audio/30.wav", "WAV", "bgmusic1") then print("Successfully loaded Resource 'bgmusic1'");
 	else print("Failed to load Resource 'bgmusic1'"); end
 	
 	print();
@@ -32,25 +33,24 @@ end
 --This function is requred for a game to be created (the name "initGame" is hardcoded in c++)
 function initGame(SM, LSM, AMAN, AE)
 
-	--call function to load lua code	
+	--call function to load lua code into memory
 	loadScripts(LSM);
 
-	--placeholder
+	--load game resources
 	loadResources(AMAN);
 	
-	print("Adding Scene 1");
-	
-	--Initalise the scene used in this demo.
+	--Initalise Scene 1
 	SM:addScene();
 
-	--Unecessary in this instance, but good practice 
 	SM:setCurrScene(0);
+
+	SM:attachControls(0, ResourceList("keyCallback", "keys"));
 
 	SM:addObject(Identifiers("NPC", "bob"), 0, vec3(-10,0,0), ResourceList());
 
 	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(10, 0, 0), ResourceList("updatefunc", "start"));
 	
-	SM:addObject(Identifiers("NPC", "Terrain"), 0, vec3(0,0,0), ResourceList("model", "Terrain"));
+	SM:addObject(Identifiers("SE", "Terrain"), 0, vec3(0,0,0), ResourceList("model", "Terrain"));
 
 	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(0, 0, 10), ResourceList());
 
@@ -58,9 +58,26 @@ function initGame(SM, LSM, AMAN, AE)
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
-	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("bob"), vec3(-10, 0, 0));
+	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("Camera"), vec3(-10, 0, 0));
 
-	--Unecessary in this instance, but good practice 
+	--Initalise Scene 2
+	SM:addScene();
+
+	SM:setCurrScene(1);
+	
+	SM:attachControls(1, ResourceList("keyCallback", "keys2"));
+
+	SM:addObject(Identifiers("SE", "Terrain2"), 1, vec3(0,0,0), ResourceList("model", "Terrain2"));
+
+	SM:addObject(Identifiers("CAM","Camera2"), 1, vec3(0, 0, 10), ResourceList());
+
+	SM:setSceneHeightMap(1, SM:GetGameObject("Terrain2"));
+
+	AE:setListenerSource(SM:GetGameObjectID("Camera2"), vec3(0, 0, 0));
+	
+	AE:playSoundatSource("bgmusic1", SM:GetGameObjectID("Camera2"), vec3(-10, 0, 0));
+
+	--Set Starting Scene
 	SM:setCurrScene(0);
 
 	print("Data Loaded!");

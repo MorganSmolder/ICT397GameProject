@@ -1,50 +1,55 @@
 #pragma once
+
+#include "glm/glm.hpp"
+#include "glm/gtx/transform.hpp"
+#include "glm/ext.hpp"
+#include "glm/gtc/type_ptr.hpp"
+
 class vec3
 {
 public:
+	vec3() {};
+	vec3(float x, float y, float z) : vector(x, y, z) {};
+	vec3(const vec3 & tocpy) : vector(tocpy.vector) {};
 
-	vec3()
-	{
-		this->m_x = 0;
-		this->m_y = 0;
-		this->m_z = 0;
-	}
+	float x() const;
+	float y() const;
+	float z() const;
+	float sx(float nx);
+	float sy(float ny);
+	float sz(float nz);
 
-	vec3(float x, float y, float z)
-	{
-		this->m_x = x;
-		this->m_y = y;
-		this->m_z = z;
-	}
+	vec3 normalise();
+	void normailse();
+	vec3 cross(const vec3 & rhs);
+	float dot(const vec3 & rhs);
+	float angle(const vec3 & rhs);
+	
+	void operator = (const vec3 & rhs);
 
-	float x() const{
-		return m_x;
-	}
+	float& operator [] (int index);
 
-	float y() const{
-		return m_y;
-	}
+	vec3 operator += (const vec3 & rhs);
+	vec3 operator *= (const vec3 & rhs);
+	vec3 operator /= (const vec3 & rhs);
+	vec3 operator -= (const vec3 & rhs);
 
-	float z() const{
-		return m_z;
-	}
+	vec3 operator + (const vec3 & rhs);
+	vec3 operator * (const vec3 & rhs);
+	vec3 operator / (const vec3 & rhs);
+	vec3 operator - (const vec3 & rhs);
 
-	float sx(float nx){
-		this->m_x = nx;
-		return m_x;
-	}
+	vec3 operator + (const float rhs);
+	vec3 operator * (const float rhs);
+	vec3 operator / (const float rhs);
+	vec3 operator - (const float rhs);
 
-	float sy(float ny){
-		this->m_y = ny;
-		return m_y;
-	}
-
-	float sz(float nz){
-		this->m_z = nz;
-		return m_z;
-	}
+	vec3 operator += (const float rhs);
+	vec3 operator *= (const float rhs);
+	vec3 operator /= (const float rhs);
+	vec3 operator -= (const float rhs);
 
 private:
-	float m_x, m_y, m_z;
+	vec3(const glm::vec3 & tocpy) : vector(tocpy) {};
+	glm::vec3 vector;
 };
-

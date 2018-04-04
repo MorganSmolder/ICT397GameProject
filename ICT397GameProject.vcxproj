@@ -109,7 +109,9 @@
     <ClInclude Include="include\ImageLoader.h" />
     <ClInclude Include="include\ImageLoaderFactory.h" />
     <ClInclude Include="include\ImportModel.h" />
+    <ClInclude Include="include\Controls.h" />
     <ClInclude Include="include\LUAScriptManager.h" />
+    <ClInclude Include="include\mat4.h" />
     <ClInclude Include="include\Message.h" />
     <ClInclude Include="include\MessageTypes.h" />
     <ClInclude Include="include\MessagingBus.h" />
@@ -123,12 +125,15 @@
     <ClInclude Include="include\ResourceList.h" />
     <ClInclude Include="include\Scene.h" />
     <ClInclude Include="include\SceneManager.h" />
+    <ClInclude Include="include\SimpleString.h" />
     <ClInclude Include="include\Singleton.h" />
+    <ClInclude Include="include\StaticEntity.h" />
     <ClInclude Include="include\terrain.h" />
     <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\TGALoader.h" />
     <ClInclude Include="include\vec2.h" />
     <ClInclude Include="include\vec3.h" />
+    <ClInclude Include="include\vec4.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ICT397GameProject.cpp" />
@@ -146,7 +151,9 @@
     <ClCompile Include="src\ImageCreationHandler.cpp" />
     <ClCompile Include="src\ImageLoaderFactory.cpp" />
     <ClCompile Include="src\ImportModel.cpp" />
+    <ClCompile Include="src\Controls.cpp" />
     <ClCompile Include="src\LUAScriptManager.cpp" />
+    <ClCompile Include="src\mat4.cpp" />
     <ClCompile Include="src\Message.cpp" />
     <ClCompile Include="src\MessagingBus.cpp" />
     <ClCompile Include="src\ModelFactory.cpp" />
@@ -157,9 +164,14 @@
     <ClCompile Include="src\ResourceList.cpp" />
     <ClCompile Include="src\Scene.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\SimpleString.cpp" />
+    <ClCompile Include="src\StaticEntity.cpp" />
     <ClCompile Include="src\Terrain.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\TGALoader.cpp" />
+    <ClCompile Include="src\vec2.cpp" />
+    <ClCompile Include="src\vec3.cpp" />
+    <ClCompile Include="src\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Scripts\Demo1\npc.lua" />
@@ -167,6 +179,7 @@
     <None Include="Resources\Scripts\Demo1\startup.lua" />
     <None Include="Resources\Scripts\Demo2\npc.lua" />
     <None Include="Resources\Scripts\Demo2\startup.lua" />
+    <None Include="Resources\Scripts\Demo3\controls.lua" />
     <None Include="Resources\Scripts\Demo3\npc.lua" />
     <None Include="Resources\Scripts\Demo3\startup.lua" />
   </ItemGroup>

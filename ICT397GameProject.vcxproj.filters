@@ -135,6 +135,21 @@
     <ClInclude Include="include\ImportModel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\mat4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\vec4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Controls.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SimpleString.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\StaticEntity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CtoLUABinder.cpp">
@@ -224,6 +239,27 @@
     <ClCompile Include="src\ImportModel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\vec2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vec3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mat4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\vec4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Controls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SimpleString.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\StaticEntity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Scripts\Demo1\startup.lua">
@@ -245,6 +281,9 @@
       <Filter>Resource Files\Scripts\Demo3</Filter>
     </None>
     <None Include="Resources\Scripts\Demo3\startup.lua">
+      <Filter>Resource Files\Scripts\Demo3</Filter>
+    </None>
+    <None Include="Resources\Scripts\Demo3\controls.lua">
       <Filter>Resource Files\Scripts\Demo3</Filter>
     </None>
   </ItemGroup>

@@ -112,7 +112,7 @@ bool AudioEngine::soundPlaying(std::string sound) {
 bool AudioEngine::loadSound(std::string path, std::string type, std::string name) {
 	if (type != "WAV") return false;
 
-	HSAMPLE tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 10, BASS_SAMPLE_3D | BASS_SAMPLE_FLOAT);
+	HSAMPLE tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 10, BASS_SAMPLE_3D | BASS_SAMPLE_LOOP);
 	if (tmp != 0) {
 		loadedsounds[name] = tmp;
 	}

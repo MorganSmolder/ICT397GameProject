@@ -131,9 +131,6 @@ void RenderModuleStubb::init(int argc, char** argv) {
 
 }
 
-void RenderModuleStubb::setKeyCallback() {
-	glfwSetKeyCallback(window, keys);
-}
 
 void RenderModuleStubb::startRenderCycle() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
@@ -172,49 +169,3 @@ void RenderModuleStubb::callLookAt(vec3 r1, vec3 r2, vec3 r3) {
 
 }
 
-void RenderModuleStubb::keys(GLFWwindow* window, int key, int scancode, int action, int mods) {
-	switch (key) {
-		case 'W':
-		case 'w':
-			if(action == GLFW_PRESS || action == GLFW_REPEAT)
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("MVF"), Identifiers("", "Camera"));
-			else
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("SFB"), Identifiers("", "Camera"));
-			break;
-		case 'A':
-		case 'a':
-			if (action == GLFW_PRESS || action == GLFW_REPEAT)
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("MVL"), Identifiers("", "Camera"));
-			else
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("SLR"), Identifiers("", "Camera"));
-			break;
-		case 'D':
-		case 'd':
-			if (action == GLFW_PRESS || action == GLFW_REPEAT)
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("MVR"), Identifiers("", "Camera"));
-			else
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("SLR"), Identifiers("", "Camera"));
-			break;
-		case 'S':
-		case 's':
-			if (action == GLFW_PRESS || action == GLFW_REPEAT)
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("MVB"), Identifiers("", "Camera"));
-			else
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("SFB"), Identifiers("", "Camera"));
-			break;
-		case 'Q':
-		case 'q':
-			if (action == GLFW_PRESS || action == GLFW_REPEAT)
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("LD"), Identifiers("", "Camera"));
-			else
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("SUD"), Identifiers("", "Camera"));
-			break;
-		case 'E':
-		case 'e':
-			if (action == GLFW_PRESS || action == GLFW_REPEAT)
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("LU"), Identifiers("", "Camera"));
-			else
-			Singleton<MessagingBus>::getInstance()->postMessage(Message("SUD"), Identifiers("", "Camera"));
-			break;
-	}
-}

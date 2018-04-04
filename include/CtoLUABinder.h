@@ -9,6 +9,8 @@
 #include "ResourceList.h"
 #include "AssetManager.h"
 #include "AudioEngine.h"
+#include "SimpleString.h"
+#include "StaticEntity.h"
 
 extern "C" {
 	#include "lua/lua.h"

@@ -6,6 +6,7 @@ Engine::Engine()
 	RNDR = NULL;
 	AMAN = NULL;
 	AE = NULL;
+	CONT = NULL;
 }
 
 Engine::~Engine()
@@ -21,6 +22,9 @@ Engine::~Engine()
 
 	if (AE != NULL) delete AE;
 	AE = NULL;
+
+	if (CONT != NULL) delete CONT;
+	CONT = NULL;
 }
 
 bool Engine::Initalise(std::string initscript){
@@ -28,6 +32,7 @@ bool Engine::Initalise(std::string initscript){
 	if (!initaliseRenderer()) return false;
 	if (!initaliseUtilityModules()) return false;
 	if (!initaliseAudioEngine()) return false;
+	if (!initaliseControls()) return false;
 
 	if(!LSM->doScriptFromFile(initscript)) return false;
 
@@ -36,12 +41,10 @@ bool Engine::Initalise(std::string initscript){
 	return true;
 }
 
-//Temporarily gimped while mat does rendering
 void Engine::Run() {
 	float count = 0;
 	while (count < 1000000) {
 		RNDR->startRenderCycle();
-
 
 		SM.update((float)count++);
 
@@ -67,8 +70,7 @@ bool Engine::initaliseRenderer() {
 
 	//BAD!!!! temporary while mat does rendering
 	RNDR->init(0, NULL);
-	RNDR->setKeyCallback();
-
+	
 	return true;
 }
 
@@ -84,6 +86,13 @@ bool Engine::initaliseAudioEngine() {
 	if (AE == NULL) return false;
 
 	AE->initalise();
+	
+	return true;
+}
+
+bool Engine::initaliseControls() {
+	CONT = Singleton<Controls>::getInstance();
+	if (CONT == NULL) return false;
 	
 	return true;
 }

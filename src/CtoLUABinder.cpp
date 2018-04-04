@@ -11,6 +11,7 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("GetGameObjectID", &SceneManager::GetGameObjectID)
 			.def("GetGameObject", &SceneManager::GetGameObject)
 			.def("setSceneHeightMap", &SceneManager::setSceneHeightMap)
+			.def("attachControls", &SceneManager::attachControls)
 	];
 	luabind::module(lstate)[
 		luabind::class_<vec3>("vec3")
@@ -31,6 +32,17 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 	];
 	luabind::module(lstate)[
 		luabind::class_<NPC>("NPC")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
+			.def("setPos", &NPC::setPos)
+			.def("getPos", &NPC::getPos)
+			.def("setState", &NPC::setState)
+			.def("getState", &NPC::getState)
+			.def("getID", &NPC::getID)
+			.def("getIdentifiers", &NPC::getIdentifiers)
+	];
+	luabind::module(lstate)[
+		luabind::class_<StaticEntity>("StaticEntity")
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
 			.def("setPos", &NPC::setPos)
@@ -87,5 +99,11 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("loadSound", &AudioEngine::loadSound)
 			.def("playSoundatSource", &AudioEngine::playSoundatSource)
 			.def("setListenerSource", &AudioEngine::setListenerSource)
+	];
+	luabind::module(lstate)[
+		luabind::class_<SimpleString>("SimpleString")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<std::string>())
+			.def("equals", &SimpleString::equals)
 	];
 }

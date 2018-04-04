@@ -18,9 +18,9 @@ struct point{
 class RenderModuleStubb
 {
 public:
+	GLFWwindow* getWindow() { return window; }
 	RenderModuleStubb();
 	void init(int argc, char** argv);
-	void setKeyCallback();
 	void DrawQuad(point tl, point br, float y);
 	void storeTexture(const int & texID, unsigned pixelsize, unsigned width, unsigned height, const unsigned char* data);
 	void deleteTexture(const int & texID);
@@ -36,7 +36,6 @@ public:
 	void endRenderCycle();
 
 	static void reshape(GLFWwindow* window, int width, int height);
-	static void keys(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 private:
 	GLFWwindow* window;

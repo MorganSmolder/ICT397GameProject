@@ -1,4 +1,5 @@
 ﻿  TGALoader.cpp
+<<<<<<< HEAD
 c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\tgaloader.cpp : fatal error C1041: cannot open program database 'C:\Users\Jarad\Documents\GitHub\f\VaugeNameSoPeopleCantStealOurStuff\Debug\vc140.idb'; if multiple CL.EXE write to the same .PDB file, please use /FS
   TextureManager.cpp
   Terrain.cpp
@@ -241,3 +242,41 @@ c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\thirdparty\
   c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\include\luascriptmanager.h(40): note: see reference to class template instantiation 'luabind::detail::proxy_function_void_caller<boost::tuples::tuple<boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type,boost::tuples::null_type>>' being compiled
   Generating Code...
 c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\audioengine.cpp(237): warning C4715: 'AudioEngine::updateChannelPos': not all control paths return a value
+=======
+  ImportModel.cpp
+c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\importmodel.cpp(33): warning C4018: '<': signed/unsigned mismatch
+c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\importmodel.cpp(93): warning C4018: '<': signed/unsigned mismatch
+c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\importmodel.cpp(105): warning C4018: '<': signed/unsigned mismatch
+c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\importmodel.cpp(107): warning C4244: 'argument': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\importmodel.cpp(116): warning C4018: '<': signed/unsigned mismatch
+c:\users\jarad\documents\github\f\vaugenamesopeoplecantstealourstuff\src\importmodel.cpp(127): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
+  LINK : C:\Users\Jarad\Documents\GitHub\f\VaugeNameSoPeopleCantStealOurStuff\Debug\ICT397GameProject.exe not found or not built by the last incremental link; performing full link
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glBegin@4 referenced in function "public: void __thiscall RenderModuleStubb::DrawQuad(struct point,struct point,float)" (?DrawQuad@RenderModuleStubb@@QAEXUpoint@@0M@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glBindTexture@8 referenced in function "public: void __thiscall RenderModuleStubb::bindMultiTexture(int const &,int const &)" (?bindMultiTexture@RenderModuleStubb@@QAEXABH0@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glClear@4 referenced in function "public: void __thiscall RenderModuleStubb::startRenderCycle(void)" (?startRenderCycle@RenderModuleStubb@@QAEXXZ)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glClearColor@16 referenced in function "public: void __thiscall RenderModuleStubb::init(int,char * *)" (?init@RenderModuleStubb@@QAEXHPAPAD@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glClearDepth@8 referenced in function "public: void __thiscall RenderModuleStubb::init(int,char * *)" (?init@RenderModuleStubb@@QAEXHPAPAD@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glDeleteTextures@8 referenced in function "public: void __thiscall RenderModuleStubb::deleteTexture(int const &)" (?deleteTexture@RenderModuleStubb@@QAEXABH@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glDepthFunc@4 referenced in function "public: void __thiscall RenderModuleStubb::init(int,char * *)" (?init@RenderModuleStubb@@QAEXHPAPAD@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glDisable@4 referenced in function "public: void __thiscall RenderModuleStubb::bindMultiTexture(int const &,int const &)" (?bindMultiTexture@RenderModuleStubb@@QAEXABH0@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glEnable@4 referenced in function "public: void __thiscall RenderModuleStubb::bindMultiTexture(int const &,int const &)" (?bindMultiTexture@RenderModuleStubb@@QAEXABH0@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glEnd@0 referenced in function "public: void __thiscall RenderModuleStubb::DrawQuad(struct point,struct point,float)" (?DrawQuad@RenderModuleStubb@@QAEXUpoint@@0M@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glFlush@0 referenced in function "public: void __thiscall RenderModuleStubb::endRenderCycle(void)" (?endRenderCycle@RenderModuleStubb@@QAEXXZ)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glGenTextures@8 referenced in function "public: void __thiscall RenderModuleStubb::storeTexture(int const &,unsigned int,unsigned int,unsigned int,unsigned char const *)" (?storeTexture@RenderModuleStubb@@QAEXABHIIIPBE@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glHint@8 referenced in function "public: void __thiscall RenderModuleStubb::init(int,char * *)" (?init@RenderModuleStubb@@QAEXHPAPAD@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glLoadIdentity@0 referenced in function "public: static void __cdecl RenderModuleStubb::reshape(struct GLFWwindow *,int,int)" (?reshape@RenderModuleStubb@@SAXPAUGLFWwindow@@HH@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glMatrixMode@4 referenced in function "public: static void __cdecl RenderModuleStubb::reshape(struct GLFWwindow *,int,int)" (?reshape@RenderModuleStubb@@SAXPAUGLFWwindow@@HH@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glPopMatrix@0 referenced in function "public: void __thiscall RenderModuleStubb::endRenderCycle(void)" (?endRenderCycle@RenderModuleStubb@@QAEXXZ)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glPushMatrix@0 referenced in function "public: void __thiscall RenderModuleStubb::startRenderCycle(void)" (?startRenderCycle@RenderModuleStubb@@QAEXXZ)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glShadeModel@4 referenced in function "public: void __thiscall RenderModuleStubb::init(int,char * *)" (?init@RenderModuleStubb@@QAEXHPAPAD@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glTexCoord2f@8 referenced in function "public: void __thiscall RenderModuleStubb::DrawQuad(struct point,struct point,float)" (?DrawQuad@RenderModuleStubb@@QAEXUpoint@@0M@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glTexEnvi@12 referenced in function "public: void __thiscall RenderModuleStubb::bindMultiTexture(int const &,int const &)" (?bindMultiTexture@RenderModuleStubb@@QAEXABH0@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glTexImage2D@36 referenced in function "public: void __thiscall RenderModuleStubb::storeTexture(int const &,unsigned int,unsigned int,unsigned int,unsigned char const *)" (?storeTexture@RenderModuleStubb@@QAEXABHIIIPBE@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glTexParameteri@12 referenced in function "public: void __thiscall RenderModuleStubb::bindMultiTexture(int const &,int const &)" (?bindMultiTexture@RenderModuleStubb@@QAEXABH0@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glVertex3f@12 referenced in function "public: void __thiscall RenderModuleStubb::DrawQuad(struct point,struct point,float)" (?DrawQuad@RenderModuleStubb@@QAEXUpoint@@0M@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol __imp__glViewport@16 referenced in function "public: static void __cdecl RenderModuleStubb::reshape(struct GLFWwindow *,int,int)" (?reshape@RenderModuleStubb@@SAXPAUGLFWwindow@@HH@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol _gluPerspective@32 referenced in function "public: static void __cdecl RenderModuleStubb::reshape(struct GLFWwindow *,int,int)" (?reshape@RenderModuleStubb@@SAXPAUGLFWwindow@@HH@Z)
+RenderModuleStubb.obj : error LNK2019: unresolved external symbol _gluLookAt@72 referenced in function "public: void __thiscall RenderModuleStubb::startRenderCycle(void)" (?startRenderCycle@RenderModuleStubb@@QAEXXZ)
+C:\Users\Jarad\Documents\GitHub\f\VaugeNameSoPeopleCantStealOurStuff\Debug\ICT397GameProject.exe : fatal error LNK1120: 26 unresolved externals
+>>>>>>> 9217a834900c7ea061baa69ba93f23777d66f6ae

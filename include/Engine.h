@@ -8,6 +8,7 @@
 #include "AssetManager.h"
 #include "AudioEngine.h"
 #include "windows.h"
+#include "Controls.h"
 
 class Engine
 {
@@ -24,10 +25,12 @@ private:
 	RenderModuleStubb* RNDR;
 	AssetManager* AMAN;
 	AudioEngine* AE;
+	Controls* CONT;
 
 	bool initaliseScriptingInterface();
 	bool initaliseRenderer();
 	bool initaliseUtilityModules();
 	bool initaliseAudioEngine();
+	bool initaliseControls();
 };
 

@@ -6,14 +6,6 @@
 #include "Model.h"
 #include "vec2.h"
 
-struct Mesh {
-	std::vector<vec3> vertices;
-	std::vector<int> indicies;
-	std::vector<vec2> texcoords;
-	std::vector<vec3> normals;
-};
-
-
 class ImportModel : public Model
 {
 public:
@@ -25,6 +17,10 @@ public:
 
 	bool loadModel(std::string filename);
 
+	void setVertices(aiMesh *mesh);
+	void setTexCoords(aiMesh *mesh);
+	void setNormals(aiMesh *mesh);
+	void setIndexes(aiMesh *mesh);
 	void centerOnPoint(vec3 &point);
 
 	void update();
@@ -33,10 +29,13 @@ public:
 	std::vector<vec3>& getVerticies();
 
 private:
-	void setData(aiMesh *mesh);
 	void setMinsAndMaxs();
-	std::vector<Mesh> meshes;
+
 	std::vector<vec3> Vertices;
+	std::vector<vec2> texCoords;
+	std::vector<vec3> Normals;
+	std::vector<vec3> Index;
+
 	const aiScene *model;
 };
 
