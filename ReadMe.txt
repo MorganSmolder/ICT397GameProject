@@ -1,33 +1,15 @@
-BAM! Readme for our game.
+Update Number 1,000,000
 
-Read it!
+The matrix math interface has now been integrated with the main class system.
 
-It explains stuff!
+I've also written a scripted lua controls interface, which allows for control binding on a per-scene basis.
 
-Basically I've set up the engine foundation. LUA integration, asset loading, and scene managment has been implemented.
+See demo three for usage.
 
-I've also done some work on 3d audio, its working but still has a few kinks I need to sort out.
+Controls:
+movement: as before
+Change scene: the 'o' or 'O' (capital 'o') key
 
-The upload features a few demo's I've created to show off the existing functionality. Run the demo scripts by changing this line in main:
+Purpose:
+Illustrates the benifit of multiple cameras and flexibility of scene management interface.
 
-ENG.Initalise("./Resources/Scripts/Demo3/startup.lua")
-
-Switch between the directories Demo3, Demo2, and Demo1 to view the different configurations.
-
-Short summary of each:
-
-Demo 1:
-Illustrates asset loading and inter game object messaging features.
-
-Demo 2:
-Shows how scenes can be changed from script through messaging interface.
-
-Demo 3 (wip):
-Demonstrates current implementation of 3D sound.
-
-All the required linkages should be configured. Mat, I've already set up the project to include the GLFW libs and dll. Just add the libraries in the linker input for debug and release and you should be good to go!
-
-Right now glut is still linked, as the texture manager depends on OpenGL a little bit. Once we've added your render code this can be removed.
-
-Cheers,
-Morgan

@@ -58,7 +58,7 @@ function initGame(SM, LSM, AMAN, AE)
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
-	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("Camera"), vec3(-10, 0, 0));
+	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("Camera"), vec3(0, 0, 10));
 
 	--Initalise Scene 2
 	SM:addScene();
@@ -69,13 +69,13 @@ function initGame(SM, LSM, AMAN, AE)
 
 	SM:addObject(Identifiers("SE", "Terrain2"), 1, vec3(0,0,0), ResourceList("model", "Terrain2"));
 
-	SM:addObject(Identifiers("CAM","Camera2"), 1, vec3(0, 0, 10), ResourceList());
+	SM:addObject(Identifiers("CAM","Camera2"), 1, vec3(0, 0, 0), ResourceList());
 
 	SM:setSceneHeightMap(1, SM:GetGameObject("Terrain2"));
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera2"), vec3(0, 0, 0));
 	
-	AE:playSoundatSource("bgmusic1", SM:GetGameObjectID("Camera2"), vec3(-10, 0, 0));
+	AE:playSoundatSource("bgmusic1", SM:GetGameObjectID("Camera2"), vec3(0, 0, 0));
 
 	--Set Starting Scene
 	SM:setCurrScene(0);
