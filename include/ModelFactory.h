@@ -2,6 +2,7 @@
 
 #include "Model.h"
 #include "RawTerrain.h"
+#include "ImportModel.h"
 
 class ModelFactory
 {

@@ -2,7 +2,8 @@
 #include <Assimp/scene.h>
 #include <Assimp/Importer.hpp>
 #include <Assimp/postprocess.h>
-
+#include "RenderModuleStubb.h"
+#include "Singleton.h"
 #include "Model.h"
 #include "vec2.h"
 
@@ -42,7 +43,9 @@ private:
 	std::vector<vec3> Vertices;
 	std::vector<vec2> texCoords;
 	std::vector<vec3> Normals;
-	std::vector<vec3> Index;
+	std::vector<unsigned> vertIndex;
+	std::vector<unsigned> texIndex;
+	std::vector<unsigned> normIndex;
 	const aiScene *model;
 };
 

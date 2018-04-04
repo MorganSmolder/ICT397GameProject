@@ -27,6 +27,7 @@ public:
 	void bindTexture(const int & texID);
 	void bindMultiTexture(const int & texIDcolor, const int & texIDdetail);
 	void renderArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices);
+	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices);
 	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
 	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
 	void callLookAt(vec3 r1, vec3 r2, vec3 r3);
