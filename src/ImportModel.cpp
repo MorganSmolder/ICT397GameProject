@@ -28,11 +28,8 @@ ImportModel::~ImportModel()
 bool ImportModel::loadModel(std::string filename)
 {
 	Assimp::Importer importer;
-	model = importer.ReadFile(filename, NULL);
 
 	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); 
-
-	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_Fast);
 
 	if (!model)
 	{
