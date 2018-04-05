@@ -24,6 +24,8 @@ public:
 
 	bool checkCollision(particle p);
 
+	void update();
+
 private:
 	vec3 position;
 	vec3 velocity;
