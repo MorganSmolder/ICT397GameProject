@@ -1,18 +1,36 @@
 #pragma once
+
+#include "glm/glm.hpp"
+#include "glm/gtx/transform.hpp"
+#include "glm/ext.hpp"
+#include "glm/gtc/type_ptr.hpp"
+
 class vec2
 {
 public:
-	float m_x, m_y;
-	vec2(float x, float y) { this->m_x = x; this->m_y = y; };
-	float x() {
-		return m_x;
-	}
-	float y() {
-		return m_y;
-	}
-	vec2() {
-		m_x = 0;
-		m_y = 0;
-	}
-};
+	glm::vec2 getVec();
+	void setVec(glm::vec2 vec);
 
+	float& operator[] (int x)
+	{
+	return vector[x];
+	}
+
+	vec2 operator* (vec2 v2)
+	{
+		glm::vec2 tmpglm;
+		tmpglm = vector * v2.getVec();
+
+		vec2 tmp;
+		tmp.setVec(tmpglm);
+		return tmp;
+	}
+
+	float x();
+	float y();
+
+	void add(vec2 vec);
+
+private:
+	glm::vec2 vector;
+};
