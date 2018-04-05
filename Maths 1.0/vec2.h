@@ -11,13 +11,11 @@ public:
 	glm::vec2 getVec();
 	void setVec(glm::vec2 vec);
 
-	/* unsure what type of data is used to store vars in matrix
 	float& operator[] (int x)
 	{
 	return vector[x];
 	}
 
-	*/
 	vec2 operator* (vec2 v2)
 	{
 		glm::vec2 tmpglm;

@@ -18,12 +18,11 @@ public:
 	float sy(float ny);
 	float sz(float nz);
 
-	/* unsure what type of data is used to store vars in matrix
 	float& operator[] (int x)
 	{
 	return vector[x];
 	}
-	*/
+
 	vec3 operator* (vec3 vec2)
 	{
 		glm::vec3 tmpglm;

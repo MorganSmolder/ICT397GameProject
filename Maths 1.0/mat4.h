@@ -11,12 +11,10 @@ public:
 	glm::mat4 getMat();
 	void setMat(glm::mat4 mat);
 
-	/* unsure what type of data is used to store vars in matrix
 	float& operator[] (int x)
 	{
 		return matrix[x];
 	}
-	*/
 
 	mat4 operator* (mat4 mat2)
 	{
