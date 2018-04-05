@@ -13,11 +13,6 @@ ImportModel::ImportModel(const ImportModel & tocpy)
 	miny = tocpy.miny;
 	maxy = tocpy.maxy;
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> ImportModel
 	Vertices = tocpy.Vertices;
 	texCoords = tocpy.texCoords;
 	Normals = tocpy.Normals;
@@ -33,21 +28,21 @@ ImportModel::~ImportModel()
 bool ImportModel::loadModel(std::string filename)
 {
 	Assimp::Importer importer;
+	model = importer.ReadFile(filename, NULL);
 
 	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); 
 
 	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_Fast);
 
->>>>>>> ImportModel
 	if (!model)
 	{
-		printf("Unable to load mesh: %s\n", importer.GetErrorString());
 		return false;
 	}
 
 	aiString path;
 
 	if (model->HasMaterials()) {
+
 		for (int i = 0; i < model->mNumMaterials; i++)
 		{
 			if (model->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE) > 0) {

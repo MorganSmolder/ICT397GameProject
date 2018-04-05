@@ -2,6 +2,8 @@
 #include <Assimp/scene.h>
 #include <Assimp/Importer.hpp>
 #include <Assimp/postprocess.h>
+#include "RenderModuleStubb.h"
+#include "Singleton.h"
 #include "Model.h"
 #include "vec2.h"
 #include "TextureManager.h"
