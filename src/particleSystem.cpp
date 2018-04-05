@@ -1,6 +1,6 @@
 #include "particleSystem.h"
-
-void particleSystem::update()
+/*
+void particleSystem::updateBuffer()
 {
 	for (int i = 0; i > pb.size(); i++) // First for loop to go through all the particles in the buffer.
 	{
@@ -25,13 +25,44 @@ void particleSystem::update()
 			}
 		}
 
-		if (pb[i].getLife() > 0) // Update the vectors for pb[i]
+		if (pb[i].getLife() > 0)
 		{
-			pb[i].getPos().add(pb[i].getVel()); // Adding the VELOCITY vector to the POSITION vector of the particle.
-			pb[i].setLife(pb[i].getLife() - 1); // Taking 1 away from current LIFE value of particle.
-
-			// Update to colour vec4 may be required as life reaches its end to change alpha channel so it fades.
+			pb[i].update();
 		}
 	}
 
+}
+*/
+bool particleSystem::updateBuffer()
+{
+	for (int i = 0; i < pb.size(); i++)
+	{
+		if (pb[i].getLife() < 0)
+		{
+			pb.erase(pb.begin() + i); // Erases the particle if its life is 0 or lower.
+		}
+	}
+
+	if (pb.size() <= 0)
+	{
+		return false;
+	}
+
+	return true;
+	
+}
+
+particle particleSystem::gernerateParticle()
+{
+	vec3 tmpPos;
+	tmpPos[0] = 2.0  * ((float)(rand() % 5) - 0.5f);
+	tmpPos[1] = 2.0  * ((float)(rand() % 5) - 0.5f);
+	tmpPos[2] = 2.0  * ((float)(rand() % 5) - 0.5f);
+
+	particle p;
+	p.setPos(tmpPos);
+
+	p.setLife(rand() % 150); // Creates a random life for the particle between 1 and 150
+
+	return p;
 }

@@ -68,3 +68,9 @@ bool particle::checkCollision(particle p)
 	}
 	return false;
 }
+
+void particle::update()
+{
+	position.add(velocity);
+	life--;
+}
