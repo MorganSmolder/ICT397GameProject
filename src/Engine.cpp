@@ -46,7 +46,9 @@ void Engine::Run() {
 	while (count < 1000000) {
 		RNDR->startRenderCycle();
 
-		SM.update((float)count++);
+		//std::cout << RNDR->getTimeSinceUpdate() << std::endl;
+
+		SM.update(RNDR->getTimeElapsed());
 
 		SM.render();
 

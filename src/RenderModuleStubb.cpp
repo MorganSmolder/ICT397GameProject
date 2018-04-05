@@ -147,11 +147,16 @@ void RenderModuleStubb::init(int argc, char** argv) {
 void RenderModuleStubb::startRenderCycle() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glMatrixMode(GL_MODELVIEW);
+	
 	glLoadIdentity();
+	
 	gluLookAt(campos.x(), campos.y(), campos.z(),
 		camlook.x(), camlook.y(), camlook.z(),
 		0.0f, 1.0f, 0.0f);
 	glPushMatrix();
+	
+
+
 }
 
 void RenderModuleStubb::endRenderCycle() {
@@ -178,6 +183,17 @@ void RenderModuleStubb::reshape(GLFWwindow* window, int width, int height) {
 void RenderModuleStubb::callLookAt(vec3 r1, vec3 r2, vec3 r3) {
 	campos = r1;
 	camlook = r2;
-
 }
 
+float RenderModuleStubb::getTimeElapsed() {
+	return (float)glfwGetTime();
+}
+
+
+float RenderModuleStubb::getTimeSinceUpdate() {
+	
+	float currentTime = (float)glfwGetTime();
+	float returnTime = (currentTime - timeLastUpdate);
+	timeLastUpdate = currentTime;
+	return returnTime;
+};
