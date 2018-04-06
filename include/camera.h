@@ -12,6 +12,7 @@
 #include "ResourceList.h"
 #include "RenderModuleStubb.h"
 #include "Singleton.h"
+#include <glm/glm.hpp>
 
 //--------------------------------------------------------------------------------------
 
@@ -29,6 +30,7 @@ public:
 
 
 	// set step and rotation size
+	/*
 	void SetRotateSpeed (const GLdouble &tempSpeed) {m_rotateSpeed = tempSpeed;}
 	void SetMoveSpeed (const GLdouble &tempSpeed) {m_moveSpeed = tempSpeed;}
 
@@ -66,15 +68,43 @@ public:
 	void setLY(GLdouble y){ m_lookY = y; };
 	void setLZ(GLdouble z){ m_lookZ = z; };
 
+	
 	void setX(GLdouble newx){ pos.sx(newx); };
 	void setY(GLdouble newy){ pos.sy(newy); };
 	void setZ(GLdouble newz){ pos.sz(newz); };
+	*/
+	/////////
 
+	void SetFov(float fov); //sets field of view
+	void SetFrustrumNearFar(float nearPlane, float farPlane); //sets the viewing frustrum near and far plane
+	void Rotate(float upAngle, float rightAngle); //Changes the direction the camera is facing
+	void LookAt(glm::vec3 pos); // adjusts camera rotation to look at 'pos'
+	void SetPosition(const glm::vec3& pos);
+	void MovePosition(const glm::vec3& movement);
+	void SetAspectRatio(float aspectRatio);
+
+	const glm::vec3& GetPosition() const;
+	float GetFov() const;
+	float GetFrustrumNearPlane() const;
+	float GetFrustrumFarPlane() const;
+	float GetAspectRatio() const;
+	glm::mat4 GetDirection() const; //rotation matrix for the direction of the camera
+	glm::vec3 GetCamX() const; //vector for cameras X axis (left / right)
+	glm::vec3 GetCamY() const; //vector for camera's Y axis (up/down
+	glm::vec3 GetCamZ() const; //vector for the cameras Z axis (what it is looking at)
+	glm::mat4 GetTransMatrix() const; //camera's transformation matrix
+	glm::mat4 GetProjectionMatrix() const; //perspective projection transformation matrix
+	glm::mat4 GetViewMatrix() const; //translation and rotation matrix
+
+
+
+	/////////
 	void update(float time);
 	void render();
 	void callGLLookAt();
 private:
-
+	GLdouble moveSpeed;
+	/*
 	// rotation variables
 	GLdouble m_rotateAngleLR;
 	GLdouble m_deltaAngleLR;
@@ -90,7 +120,7 @@ private:
 
 	// movement speed (step size)
 	GLdouble m_rotateSpeed;
-	GLdouble m_moveSpeed;
+	
 	
 	// is it ok to move
 	bool MoveFBOK();
@@ -114,7 +144,18 @@ private:
 	//----------------------------------------------------------------------------------
 
     // Privatised copy constructor and assignment operator
-    Camera (const Camera &cam) {};
+    */
+
+	void CorrectAngleBoundaries();
+	glm::vec3 position;
+	float fov;
+	float aspectRatio;
+	float nearPlane;
+	float farPlane;
+	float horizontalAngle;
+	float verticalAngle;
+	const float maxAngle = 80.0f;
+	Camera (const Camera &cam) {};
     Camera &operator = (const Camera &cam) {};
 };
 

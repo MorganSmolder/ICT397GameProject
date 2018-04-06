@@ -37,10 +37,15 @@ public:
 	void endRenderCycle();
 
 	static void reshape(GLFWwindow* window, int width, int height);
+	float getTimeElapsed();
+	float getTimeSinceUpdate();
 
 private:
 	GLFWwindow* window;
 	vec3 campos;
 	vec3 camlook;
+	float timeLastUpdate;
+	float timeElapsed = 0.0f;
+
 };
 
