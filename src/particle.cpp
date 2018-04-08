@@ -1,10 +1,23 @@
 #include "particle.h"
 
+// Default constructor.
 particle::particle()
 {
 
 }
 
+
+// Constructor with all arguements.
+particle::particle(vec3 pos, vec3 vel, vec4 col, int l, float s)
+{
+	position = pos;
+	velocity = vel;
+	colour = col;
+	life = l;
+	size = s;
+}
+
+// Start gets and sets.
 vec3 particle::getPos()
 {
 	return position;
@@ -55,20 +68,9 @@ void particle::setSize(float s)
 {
 	size = s;
 }
+// End gets and sets.
 
-bool particle::checkCollision(particle p)
-{
-	if ((position[0] + size / 2) > (p.getPos()[0] - p.getSize() / 2) && (position[1] + size / 2) > (p.getPos()[1] - p.getSize() / 2) && (position[1] + size / 2) > (p.getPos()[2] - p.getSize() / 2))
-	{
-		return true;
-	}
-	else if ((position[0] - size / 2) < (p.getPos()[0] + p.getSize() / 2) && (position[1] - size / 2) < (p.getPos()[1] + p.getSize() / 2) && (position[1] - size / 2) < (p.getPos()[2] + p.getSize() / 2))
-	{
-		return true;
-	}
-	return false;
-}
-
+// Updates movement vector by adding current velocity vector to it.
 void particle::update()
 {
 	position.add(velocity);
