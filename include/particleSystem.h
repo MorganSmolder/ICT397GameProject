@@ -3,37 +3,31 @@
 #include "particle.h"
 #include <vector>
 #include <stdlib.h>
+#include "GL/glut.h"
+
 
 using namespace std;
 
-typedef vector <particle> particleBuffer;
+typedef vector <particle> particleBuffer; // Particle container
 
 class particleSystem
 {
 public:
-	particleBuffer pb;
+	particleBuffer pb; /// Buffer for particles.
 
-	vec3 position;
-	vec4 colour;
+	particle generateParticle(); // Used when particles are first created.
 
-	particle gernerateParticle(); // Used when particles are first created.
+	void populateBuffer(); // Populates the buffer with particles.
 
-	bool updateBuffer();
+	bool updateBuffer(); // Updates each particle within the buffer and reuses 'dead' particles.
 
-	virtual void draw()
-	{
-		// TBD
-	}
-};
+	void drawBuffer(); // Draw buffer function.
+	void drawParticle(particle p); // Draw individual particle function called by draw buffer function.
 
-class pExplosion
-{
-public:
+	// Gets and sets
+	vec3 getEPos();
+	void setEPos(vec3 p);
 
 private:
-	static int const DEFAULT_NUM_OF_PARTICLES = 150;
-
-	vec3 pos; // Position of the explostion;
-	vec4 col; // Colour of the explosion
+	vec3 position; /// Position of effect.
 };
-
