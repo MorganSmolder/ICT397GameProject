@@ -196,6 +196,8 @@ void ImportModel::setScale(vec3 & toset) {
 		Vertices.at(i).sy(Vertices.at(i).y() * toset.y());
 		Vertices.at(i).sz(Vertices.at(i).z() * toset.z());
 	}
+
+	setMinsAndMaxs();
 }
 
 void ImportModel::update()

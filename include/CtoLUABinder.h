@@ -11,6 +11,7 @@
 #include "AudioEngine.h"
 #include "SimpleString.h"
 #include "StaticEntity.h"
+#include "TerrainObject.h"
 
 extern "C" {
 	#include "lua/lua.h"

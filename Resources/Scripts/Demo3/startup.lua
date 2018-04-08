@@ -65,14 +65,14 @@ function initGame(SM, LSM, AMAN, AE)
 
 	SM:attachControls(1, ResourceList("keyCallback", "keys", "mouseCallback", "mouse"));
 
-	for i = 100,1,-1 
-	do 
-		SM:addObject(Identifiers("NPC"), 1, vec3(math.random()*(512-0) + 0, 0, math.random()*(512 - 0) + 0), ResourceList("model", "rock")); 
-	end
-	
-	SM:addObject(Identifiers("SE", "Terrain"), 1, vec3(0,0,0), ResourceList("model", "Terrain"));
+	SM:addObject(Identifiers("TO", "Terrain"), 1, vec3(0,0,0), ResourceList("model", "Terrain"));
 
-	SM:addObject(Identifiers("CAM","Camera"), 1, vec3(0, 0, 10), ResourceList());
+	for i = 10,1,-1 
+	do 
+		SM:addObject(Identifiers("SE"), 1, vec3(math.random()*(512-0) + 0, 0, math.random()*(512 - 0) + 0), ResourceList("model", "rock")); 
+	end
+
+	SM:addObject(Identifiers("CAM","Camera"), 1, vec3(20, 0, 10), ResourceList());
 
 	SM:setSceneHeightMap(1, SM:GetGameObject("Terrain"));
 

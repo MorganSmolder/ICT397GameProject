@@ -129,6 +129,7 @@
     <ClInclude Include="include\Singleton.h" />
     <ClInclude Include="include\StaticEntity.h" />
     <ClInclude Include="include\terrain.h" />
+    <ClInclude Include="include\TerrainObject.h" />
     <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\TGALoader.h" />
     <ClInclude Include="include\vec2.h" />
@@ -167,6 +168,7 @@
     <ClCompile Include="src\SimpleString.cpp" />
     <ClCompile Include="src\StaticEntity.cpp" />
     <ClCompile Include="src\Terrain.cpp" />
+    <ClCompile Include="src\TerrainObject.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\TGALoader.cpp" />
     <ClCompile Include="src\vec2.cpp" />

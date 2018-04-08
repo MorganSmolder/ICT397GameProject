@@ -7,6 +7,7 @@
 #include "ModelManger.h"
 #include "Singleton.h"
 #include "StaticEntity.h"
+#include "TerrainObject.h"
 
 class GameObjectFactory
 {

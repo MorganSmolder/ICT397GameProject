@@ -15,8 +15,6 @@ Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id,
 	aspectRatio = (4.0f / 3.0f);
 	horizontalAngle = 0.0f;
 	verticalAngle = 0.0f;
-
-	//targetlook = vec3(sin(horizontalAngle), sin(verticalAngle), -cos(horizontalAngle));
 }
 
 void Camera::update(float time) {
@@ -64,8 +62,6 @@ void Camera::update(float time) {
 
 	pos += (target * time);
 	target -= (target * time);
-	
-	//target.clear();
 	
 	callGLLookAt();
 }
@@ -188,5 +184,5 @@ void Camera::CorrectAngleBoundaries() {
 }
 
 vec3 Camera::getCenterOffset() {
-	return 10;
+	return vec3(0, 10, 0);
 }

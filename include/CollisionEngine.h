@@ -11,13 +11,19 @@ struct HMPos {
 	vec2 br;
 };
 
+struct AABB {
+	float xmin, ymin, zmin, xmax, ymax, zmax;
+	AABB(float xmx, float xmn, float ymx, float ymn, float zmx, float zmn) : xmax(xmx), xmin(xmn), ymax(ymx), ymin(ymn), zmax(zmx), zmin(zmn) {};
+	AABB() {};
+};
+
 class CollisionEngine
 {
 public:
 	CollisionEngine();
 	~CollisionEngine();
 	void setHeightMap(std::vector<vec3> & toset);
-	void update(GameObject* & toupdate);
+	void update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time);
 private:
 	std::map<float, std::map<float, float>> heightmap;
 

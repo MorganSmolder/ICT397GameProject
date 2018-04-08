@@ -27,9 +27,9 @@ void StaticEntity::render() {
 }
 
 vec3 StaticEntity::getCenterOffset() {
-	//if (resources.hasResource("model")) {
-		//return vec3(model->getMaxX() - model->getMinX(), model->getMaxY() - model->getMinY(), model->getMaxZ() - model->getMinZ());
-	//}
+	if (resources.hasResource("model")) {
+		return vec3(model->getMaxX() - model->getMinX(), model->getMaxY() - model->getMinY(), model->getMaxZ() - model->getMinZ());
+	}
 
 	return vec3(0, 0, 0);
 }

@@ -28,6 +28,11 @@ GameObject* GameObjectFactory::create(Identifiers & id, vec3 pos, ResourceList &
 		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
 		return tmp;
 	}
+	if (id.getType() == "TO") {
+		tmp = new TerrainObject(id, pos, list);
+		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
+		return tmp;
+	}
 	else{
 		nextid--;
 		return NULL;
