@@ -189,14 +189,25 @@ void ImportModel::centerOnPoint(vec3 & point)
 	setMinsAndMaxs();
 }
 
+void ImportModel::setScale(vec3 & toset) {
+	for (unsigned i = 0; i < Vertices.size(); i++)
+	{
+		Vertices.at(i).sx(Vertices.at(i).x() * toset.x());
+		Vertices.at(i).sy(Vertices.at(i).y() * toset.y());
+		Vertices.at(i).sz(Vertices.at(i).z() * toset.z());
+	}
+}
+
 void ImportModel::update()
 {
 }
 
-void ImportModel::render()
+void ImportModel::render(const vec3 & transmat)
 {
+	vec3 trans(-1 * ((maxx + minx) / 2 - transmat.x()), -1 * ((maxy + miny) / 2 - transmat.y()), -1 * ((maxz + minz) / 2 - transmat.z()));
+
 	if (texture.empty() == false) Singleton<TextureManager>::getInstance()->useTexture(texture, Singleton<RenderModuleStubb>::getInstance());
-	Singleton<RenderModuleStubb>::getInstance()->renderArrayTri(vertIndex,Vertices, texCoords);
+	Singleton<RenderModuleStubb>::getInstance()->renderArrayTri(vertIndex,Vertices, texCoords, trans);
 	Singleton<TextureManager>::getInstance()->disableTexture(Singleton<RenderModuleStubb>::getInstance());
 }
 

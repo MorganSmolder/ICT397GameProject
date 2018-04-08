@@ -13,7 +13,7 @@ class RAWTerrain : public terrain
 		~RAWTerrain();
 		virtual bool loadModel(std::string filename);
 		virtual void update();
-		virtual void render();
+		virtual void render(const vec3 & transmat);
 
 		RAWTerrain * create() const;
 

@@ -32,7 +32,7 @@ public:
 	Identifiers & getFrom();
 	void setFrom(Identifiers & nid);
 
-	void setData(float data);
+	void setfData(float data);
 	void setData(char data);
 	void setData(int data);
 	void setData(std::string data);

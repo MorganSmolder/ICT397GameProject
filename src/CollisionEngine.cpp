@@ -4,6 +4,7 @@
 
 CollisionEngine::CollisionEngine()
 {
+	hasHMap == false;
 }
 
 
@@ -35,18 +36,21 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 			minz = toset.at(i).z();
 		}
 	}
+
+	hasHMap = true;
 }
 
 void CollisionEngine::update(GameObject* & toupdate) {
 	float x = toupdate->getPos().x();
 	float z = toupdate->getPos().z();
 
-	if (x < maxx && x > minx && z > minz && z < maxz) {
+	if (x < maxx && x > minx && z > minz && z < maxz && hasHMap){
 		HMPos hmloc = findHMLocation(toupdate->getPos());
 
 		float y = findBarycenter(toupdate->getPos(), hmloc);
 
-		toupdate->setPos(vec3(toupdate->getPos().x(), y, toupdate->getPos().z()));
+		toupdate->setPos(vec3(toupdate->getPos().x(), y + toupdate->getCenterOffset().y(), toupdate->getPos().z()));
+		toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
 	}
 }
 

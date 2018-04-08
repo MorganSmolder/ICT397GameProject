@@ -59,24 +59,44 @@ void RenderModuleStubb::disableMultiTexture() {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void RenderModuleStubb::renderArrayTriStrip(std::vector<unsigned> &indicies, std::vector<vec3> &vertices) {
+void RenderModuleStubb::renderArrayTriStrip(std::vector<unsigned> &indicies, std::vector<vec3> &vertices, const vec3 & trans) {
+	glPushMatrix();
+	glTranslatef(trans.x(), trans.y(), trans.z());
 	glBegin(GL_TRIANGLE_STRIP);
 	for (unsigned i = 0; i < indicies.size(); i++) {
 		glVertex3f(vertices.at(indicies.at(i)).x(), vertices.at(indicies.at(i)).y(), vertices.at(indicies.at(i)).z());
 	}
 	glEnd();
+	glPopMatrix();
 }
-void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> texcoords){
+void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> texcoords, const vec3 & trans){
 	
+	glPushMatrix();
+	glTranslatef(trans.x(), trans.y(), trans.z());
 	glBegin(GL_TRIANGLES);
-
 	for (unsigned i = 0; i < indicies.size(); i++) {
-		glTexCoord2f(texcoords.at(indicies.at(i)).x(), texcoords.at(indicies.at(i)).y());
+		if(texcoords.empty() == false) glTexCoord2f(texcoords.at(indicies.at(i)).x(), texcoords.at(indicies.at(i)).y());
 		//Temporarily scaled for demo purposes
-		glVertex3f(vertices.at(indicies.at(i)).x()*4, vertices.at(indicies.at(i)).y()*4, vertices.at(indicies.at(i)).z()*4);
+		glVertex3f(vertices.at(indicies.at(i)).x(), vertices.at(indicies.at(i)).y(), vertices.at(indicies.at(i)).z());
 	}
 	glEnd();
+	glPopMatrix();
+}
 
+void RenderModuleStubb::renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, std::vector<float> lights, const vec3 & trans) {
+	glPushMatrix();
+	glTranslatef(trans.x(), trans.y(), trans.z());
+	glBegin(GL_TRIANGLE_STRIP);
+	for (unsigned i = 0; i < indicies.size(); i++) {
+		glColor4ub(lights.at(indicies.at(i)) * 1, lights.at(indicies.at(i)) * 1, lights.at(indicies.at(i)) * 1, 255);
+		glMultiTexCoord2fARB(GL_TEXTURE0_ARB, texcoords.at(indicies.at(i)).x(), texcoords.at(indicies.at(i)).y());
+		glMultiTexCoord2fARB(GL_TEXTURE1_ARB, texcoords.at(indicies.at(i)).x() * 32, texcoords.at(indicies.at(i)).y() * 32);
+		glVertex3f(vertices.at(indicies.at(i)).x(), vertices.at(indicies.at(i)).y(), vertices.at(indicies.at(i)).z());
+	}
+	glEnd();
+	glPopMatrix();
+
+	glColor4ub(255, 255, 255, 255);
 }
 
 void RenderModuleStubb::renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords) {
@@ -88,7 +108,9 @@ void RenderModuleStubb::renderTexturedArrayTriStrip(std::vector<unsigned> & indi
 	glEnd();
 }
 
-void RenderModuleStubb::renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords) {
+void RenderModuleStubb::renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, const vec3 & trans) {
+	glPushMatrix();
+	glTranslatef(trans.x(), trans.y(), trans.z());
 	glBegin(GL_TRIANGLE_STRIP);
 	for (unsigned i = 0; i < indicies.size(); i++) {
 		glMultiTexCoord2fARB(GL_TEXTURE0_ARB, texcoords.at(indicies.at(i)).x(), texcoords.at(indicies.at(i)).y());
@@ -96,6 +118,7 @@ void RenderModuleStubb::renderMultiTexturedArrayTriStrip(std::vector<unsigned> &
 		glVertex3f(vertices.at(indicies.at(i)).x(), vertices.at(indicies.at(i)).y(), vertices.at(indicies.at(i)).z());
 	}
 	glEnd();
+	glPopMatrix();
 }
 
 void RenderModuleStubb::init(int argc, char** argv) {
@@ -118,19 +141,12 @@ void RenderModuleStubb::init(int argc, char** argv) {
 		fprintf(stderr, "Error: %s\n", glewGetErrorString(err));
 	}
 
-	if (glewIsSupported("GL_ARB_multitexture"))
-	{
-		std::cout << "multtex yes" << std::endl;
-	}
-	else {
-		std::cout << "bad" << std::endl;
-	}
-
 	if (window == NULL){
 		std::cout << "Failed to create GLFW window" << std::endl;
 		glfwTerminate();
-		
 	}
+
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	reshape(window, 1280, 720);
 	glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
@@ -147,11 +163,16 @@ void RenderModuleStubb::init(int argc, char** argv) {
 void RenderModuleStubb::startRenderCycle() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glMatrixMode(GL_MODELVIEW);
+	
 	glLoadIdentity();
+	
 	gluLookAt(campos.x(), campos.y(), campos.z(),
 		camlook.x(), camlook.y(), camlook.z(),
 		0.0f, 1.0f, 0.0f);
 	glPushMatrix();
+	
+
+
 }
 
 void RenderModuleStubb::endRenderCycle() {
@@ -178,6 +199,17 @@ void RenderModuleStubb::reshape(GLFWwindow* window, int width, int height) {
 void RenderModuleStubb::callLookAt(vec3 r1, vec3 r2, vec3 r3) {
 	campos = r1;
 	camlook = r2;
-
 }
 
+float RenderModuleStubb::getTimeElapsed() {
+	return (float)glfwGetTime();
+}
+
+
+float RenderModuleStubb::getTimeSinceUpdate() {
+	
+	float currentTime = (float)glfwGetTime();
+	float returnTime = (currentTime - timeLastUpdate);
+	timeLastUpdate = currentTime;
+	return returnTime;
+};

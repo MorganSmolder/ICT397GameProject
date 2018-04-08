@@ -16,9 +16,14 @@ void terrain::genPlane(unsigned size) {
 
 	for (unsigned i = 0; i < size; i++) {
 		for (unsigned j = 0; j < size; j++) {
-			plane.push_back(vec3((float) i, data[ind++], (float) j));
+			plane.push_back(vec3((float) i, data[ind], (float) j));
+			lights.push_back(data[ind++]);
 		}
 	}
+}
+
+void terrain::setScale(vec3 & toset) {
+	applyScaling(toset);
 }
 
 void terrain::genPlaneIndicies(unsigned size) {

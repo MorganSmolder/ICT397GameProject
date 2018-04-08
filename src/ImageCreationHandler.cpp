@@ -61,7 +61,6 @@ bool ImageCreationHandler::CreateMultiTexture(std::vector<vec3> heightmap, std::
 	for (unsigned i = 0; i < textures.size() && good; i += 2) {
 		good = CreateImage(textures.at(i), textures.at(i+1));
 		if (good) {
-			std::cout << textures.at(i) << " " << textures.at(i+1) << std::endl;
 			data[dataind] = new unsigned char[currimage->getDataSize()];
 
 			for (unsigned j = 0; j < currimage->getDataSize(); j++) {

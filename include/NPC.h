@@ -11,5 +11,6 @@ public:
 	~NPC();
 	void update(float time);
 	void render();
+	vec3 getCenterOffset();
 };
 

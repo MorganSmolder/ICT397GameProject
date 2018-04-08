@@ -14,16 +14,18 @@ class terrain : public Model
 		 ~terrain();
 		virtual bool loadModel(std::string filename) = 0;
 		virtual void update() = 0;
-		virtual void render() = 0;
+		virtual void render(const vec3 & transmat) = 0;
 		virtual terrain * create() const = 0;
 		void centerOnPoint(vec3 & point);
 		std::vector<vec3>& getVerticies();
+		void setScale(vec3 & toset);
 
 	protected:
 		float * data;
 		std::vector<vec3> plane;
 		std::vector<unsigned> planInd;
 		std::vector<vec2> texcoords;
+		std::vector<float> lights;
 		vec3 scale;
 		unsigned dimensions;
 		void calcMaxMin();

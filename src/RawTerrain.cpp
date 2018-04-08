@@ -36,20 +36,22 @@ RAWTerrain::RAWTerrain(const RAWTerrain & tocpy) {
 	scale = tocpy.scale;
 	multitexture = tocpy.multitexture;
 	detailmap = tocpy.detailmap;
+	lights = tocpy.lights;
 }
 
 RAWTerrain * RAWTerrain::create() const {
 	return new RAWTerrain(*this);
 }
 
-void RAWTerrain::render() {
+void RAWTerrain::render(const vec3 & transmat) {
+	vec3 trans(-1 * ((maxx + minx) / 2 - transmat.x()), -1 * ((maxy + miny) / 2 - transmat.y()), -1 * ((maxz + minz) / 2 - transmat.z()));
 	if (!multitexture.empty()) {
 		Singleton<TextureManager>::getInstance()->useTexture(multitexture, detailmap, Singleton<RenderModuleStubb>::getInstance());
-		Singleton<RenderModuleStubb>::getInstance()->renderMultiTexturedArrayTriStrip(planInd, plane, texcoords);
+		Singleton<RenderModuleStubb>::getInstance()->renderMultiTexturedArrayTriStrip(planInd, plane, texcoords, lights, trans);
 		Singleton<TextureManager>::getInstance()->DisableMultiTex(Singleton<RenderModuleStubb>::getInstance());
 	}
 	else {
-		Singleton<RenderModuleStubb>::getInstance()->renderArrayTriStrip(planInd, plane);
+		Singleton<RenderModuleStubb>::getInstance()->renderArrayTriStrip(planInd, plane, trans);
 	}
 }
 

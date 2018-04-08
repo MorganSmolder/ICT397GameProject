@@ -18,9 +18,10 @@ public:
 	~ImportModel();
 
 	bool loadModel(std::string filename);
+	void setScale(vec3 & toset);
 
 	void update();
-	void render();
+	void render(const vec3 & transmat);
 
 	std::vector<vec3>& getVerticies();
 

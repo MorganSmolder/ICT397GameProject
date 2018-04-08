@@ -20,7 +20,6 @@ public:
 	float sz(float nz);
 
 	vec3 normalise();
-	void normailse();
 	vec3 cross(const vec3 & rhs);
 	float dot(const vec3 & rhs);
 	float angle(const vec3 & rhs);
@@ -49,7 +48,13 @@ public:
 	vec3 operator /= (const float rhs);
 	vec3 operator -= (const float rhs);
 
-private:
+	bool almostEqual(const vec3 & tocompare, float threshold);
+
+	void clear();
+
 	vec3(const glm::vec3 & tocpy) : vector(tocpy) {};
+
+private:
+
 	glm::vec3 vector;
 };

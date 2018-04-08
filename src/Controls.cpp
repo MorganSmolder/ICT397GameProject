@@ -1,5 +1,8 @@
 #include "Controls.h"
 
+double Controls::prevx = -1;
+double Controls::prevy = -1;
+
 Controls::Controls() {
 	curgroup = 0;
 }
@@ -51,6 +54,8 @@ void Controls::keyCallback(GLFWwindow* window, int key, int scancode, int action
 	std::string keys;
 	keys = (char) key;
 
+	if (key == 257) keys = "enter";
+
 	if (action == GLFW_REPEAT) {
 		actions = "repeat";
 	}
@@ -72,7 +77,28 @@ void Controls::mouseCallback(GLFWwindow* window, double x, double y) {
 	LUAScriptManager* tmpl = Singleton<LUAScriptManager>::getInstance();
 	MessagingBus* tmpmb = Singleton<MessagingBus>::getInstance();
 
+	if (prevx == -1) prevx = x;
+	if (prevy == -1) prevy = y;
+
+	tmpl->setGlobal<double>(prevx, "prevx");
+	tmpl->setGlobal<double>(prevy, "prevy");
+
 	tmpl->callFunction<SimpleString, SimpleString, MessagingBus>(tmpc->controls.at(tmpc->curgroup).getResource("mouseCallback"), SimpleString(sx), SimpleString(sy), *tmpmb);
+
+	prevx = x;
+	prevy = y;
+
+	int w; int h;
+	glfwGetWindowSize(window, &w, &h);
+	if (x > w * .7 || x < w * .3) {
+		glfwSetCursorPos(window, (double) w/2, y);
+		prevx = (double)w / 2;
+	}
+	if (y > h *.7 || y < h * .3) {
+		glfwSetCursorPos(window, x, (double)h / 2);
+		prevy = (double)h / 2;
+	}
+		
 }
 
 void Controls::mouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {

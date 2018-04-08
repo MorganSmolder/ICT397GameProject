@@ -24,6 +24,9 @@ class Controls
 		std::map<int, ResourceList> controls;
 		unsigned curgroup;
 
+		static double prevx;
+		static double prevy;
+
 		static void bindControls(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
 		static void unbindControls(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
 		static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);

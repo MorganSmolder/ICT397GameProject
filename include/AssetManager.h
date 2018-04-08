@@ -39,6 +39,8 @@ public:
 	*/
 	bool useResource(std::string name);
 
+	bool addModel(std::string path, std::string type, std::string name, vec3 & scale);
+
 private:
 	///Pointer to texture manager module
 	TextureManager* TexMan;

@@ -26,10 +26,11 @@ public:
 	void deleteTexture(const int & texID);
 	void bindTexture(const int & texID);
 	void bindMultiTexture(const int & texIDcolor, const int & texIDdetail);
-	void renderArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices);
-	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> texcoords);
+	void renderArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, const vec3 & trans);
+	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> texcoords, const vec3 & trans);
 	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
-	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
+	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, const vec3 & trans);
+	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, std::vector<float> lights, const vec3 & trans);
 	void callLookAt(vec3 r1, vec3 r2, vec3 r3);
 	void disableMultiTexture();
 
@@ -37,10 +38,15 @@ public:
 	void endRenderCycle();
 
 	static void reshape(GLFWwindow* window, int width, int height);
+	float getTimeElapsed();
+	float getTimeSinceUpdate();
 
 private:
 	GLFWwindow* window;
 	vec3 campos;
 	vec3 camlook;
+	float timeLastUpdate;
+	float timeElapsed = 0.0f;
+
 };
 

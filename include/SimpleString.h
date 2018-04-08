@@ -11,6 +11,8 @@ public:
 	SimpleString(std::string in) : data(in) {};
 
 	bool equals(std::string comparator);
+	double toDouble();
+	std::string getData();
 
 private:	
 	std::string data;
