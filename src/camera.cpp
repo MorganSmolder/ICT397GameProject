@@ -6,7 +6,7 @@
 Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id, pos, list)
 {
 	
-	rotateSpeed = 4.0f;
+	rotateSpeed = 2.0f;
 	moveSpeed = 2.0f;
 
 	fov = 50.0f;
@@ -188,5 +188,5 @@ void Camera::CorrectAngleBoundaries() {
 }
 
 vec3 Camera::getCenterOffset() {
-	return vec3(0, 10, 0);
+	return 10;
 }
