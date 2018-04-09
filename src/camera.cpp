@@ -15,6 +15,7 @@ Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id,
 	aspectRatio = (4.0f / 3.0f);
 	horizontalAngle = 0.0f;
 	verticalAngle = 0.0f;
+
 }
 
 void Camera::update(float time) {
@@ -76,13 +77,11 @@ void Camera::render() {
 //----------------------------------------------------------------------------------------
 void Camera::callGLLookAt()
 {
-	targetlook = GetCamZ();
-
-	glm::vec3 camUpVec = GetCamY();
-
 	Singleton<RenderModuleStubb>::getInstance()->callLookAt(vec3(pos.x(), pos.y(), pos.z()), 
-				vec3(pos.x() + targetlook.x(), pos.y() + targetlook.y(), pos.z() + targetlook.z()),
-				vec3(camUpVec.x, camUpVec.y, camUpVec.z));
+				vec3(pos.x() + GetCamZ().x, pos.y() + GetCamZ().y, pos.z() + GetCamZ().z),
+				vec3(GetCamY().x, GetCamY().y, GetCamY().z));
+
+
 }
 
 void Camera::SetFov(float fov) {
