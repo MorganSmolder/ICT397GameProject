@@ -90,13 +90,6 @@ mat4 Maths::perspective(float a, float b, float c, float d)
 	return m;
 }
 
-mat4 Maths::translate(mat4 m, vec3 v)
-{
-	mat4 m;
-	m.setMat(glm::translate(m.getMat(), v.getVec()));
-	return m;
-}
-
 mat4 Maths::transform(mat4 mat1, mat4 mat2)
 {
 	mat4 tmp;

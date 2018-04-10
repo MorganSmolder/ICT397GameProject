@@ -5,6 +5,14 @@
 #include "glm/ext.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+/**
+*@class vec2
+* @brief Facade of vec2 GLM functionality.
+*
+* @author Matthew MacLennan
+* @version 1.3
+* @date 10 / 04 / 2018
+*/
 class vec2
 {
 public:
@@ -35,5 +43,5 @@ public:
 	void add(vec2 vec);
 
 private:
-	glm::vec2 vector;
+	glm::vec2 vector; /// GLM type vec2.
 };

@@ -7,12 +7,20 @@
 
 #include "vec4.h"
 
+/**
+*@class vec3
+* @brief Facade of vec3 GLM functionality.
+*
+* @author Matthew MacLennan
+* @version 1.3
+* @date 10 / 04 / 2018
+*/
 class vec3
 {
 public:
 	vec3();
 	vec3(float x, float y, float z);
-	vec3(vec4 v4); // Used in camera class? unsure why.
+	vec3(vec4 v4);
 
 	glm::vec3 getVec();
 	void setVec(glm::vec3 vec);
@@ -99,5 +107,5 @@ public:
 	void add(vec3 vec);
 
 private:
-	glm::vec3 vector;
+	glm::vec3 vector; /// GLM type vec3.
 };

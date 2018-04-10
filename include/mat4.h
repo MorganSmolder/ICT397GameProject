@@ -7,18 +7,19 @@
 
 #include "vec4.h"
 
+/**
+*@class Mat4
+* @brief Facade of mat4 GLM functionality.
+*
+* @author Matthew MacLennan
+* @version 1.3
+* @date 10 / 04 / 2018
+*/
 class mat4
 {
 public:
 	glm::mat4 getMat();
 	void setMat(glm::mat4 mat);
-
-	/*
-	float& operator[] (int x)
-	{
-		return matrix[x];
-	}
-	*/
 
 	mat4 operator* (mat4 mat2)
 	{

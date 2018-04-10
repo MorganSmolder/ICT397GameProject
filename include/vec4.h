@@ -5,6 +5,14 @@
 #include "glm/ext.hpp"
 #include "glm/gtc/type_ptr.hpp"
 
+/**
+*@class vec4
+* @brief Facade of vec4 GLM functionality.
+*
+* @author Matthew MacLennan
+* @version 1.3
+* @date 10 / 04 / 2018
+*/
 class vec4
 {
 public:
@@ -32,5 +40,5 @@ public:
 	void add(vec4 vec);
 
 private:
-	glm::vec4 vector;
+	glm::vec4 vector; /// GLM type vec4.
 };
