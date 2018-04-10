@@ -1,9 +1,49 @@
+f:\github\vaugenamesopeoplecantstealourstuff\release\vc140.pdb
+f:\github\vaugenamesopeoplecantstealourstuff\release\messagingbus.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\message.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\mat4.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\luascriptmanager.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\controls.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\importmodel.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\imageloaderfactory.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\imagecreationhandler.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\identifiers.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\gameobjecthandler.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\gameobjectfactory.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\gameobject.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\engine.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\ctoluabinder.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\collisionengine.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\camera.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\bmploader.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\audioengine.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\assetmanager.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\ict397gameproject.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\vec4.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\vec3.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\vec2.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\tgaloader.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\texturemanager.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\terrainobject.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\terrain.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\staticentity.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\simplestring.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\scenemanager.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\scene.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\resourcelist.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\rendermodulestubb.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\rawterrain.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\npc.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\modelmanger.obj
+f:\github\vaugenamesopeoplecantstealourstuff\release\modelfactory.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\npc.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\modelmanger.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\modelfactory.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\messagingbus.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\message.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\luascriptmanager.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\importmodel.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\imageloaderfactory.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\imagecreationhandler.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\identifiers.obj
@@ -11,34 +51,33 @@ c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\gameobjec
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\gameobjectfactory.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\gameobject.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\engine.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ctoluabinder.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\controls.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\collisionengine.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\bmploader.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\audioengine.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\assetmanager.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\tgaloader.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\texturemanager.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\scenemanager.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\scene.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\resourcelist.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\rendermodulestubb.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\npc.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ctoluabinder.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\camera.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\rawterrain.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\importmodel.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\collisionengine.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\terrain.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vec4.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vec3.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vec2.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\mat4.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\camera.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\texturemanager.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\terrainobject.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\terrain.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\tgaloader.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\staticentity.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\simplestring.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\controls.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\scenemanager.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\scene.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\resourcelist.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\rendermodulestubb.obj
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\rawterrain.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.exe
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.ipdb
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.iobj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.pdb
+c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.obj
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397ga.111e66ac.tlog\cl.command.1.tlog
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397ga.111e66ac.tlog\cl.read.1.tlog
 c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397ga.111e66ac.tlog\cl.write.1.tlog
