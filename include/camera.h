@@ -51,6 +51,14 @@ public:
 private:
 	float moveSpeed;
 	float rotateSpeed;
+	float speedDecay;
+	bool moveForward;
+	bool moveBack;
+	bool moveRight;
+	bool moveLeft;
+	bool lookDown;
+	bool lookUp;
+
 
 	void CorrectAngleBoundaries();
 	float fov;

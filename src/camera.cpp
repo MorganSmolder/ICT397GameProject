@@ -3,19 +3,26 @@
 
 #include <math.h>
 
+
+
 Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id, pos, list)
 {
 	
 	rotateSpeed = 2.0f;
-	moveSpeed = 2.0f;
-
+	moveSpeed = 3.0f;
+	speedDecay = 3.0f;
 	fov = 50.0f;
 	nearPlane = 0.01f;
 	farPlane = 100.0f;
 	aspectRatio = (4.0f / 3.0f);
 	horizontalAngle = 0.0f;
 	verticalAngle = 0.0f;
-
+	moveForward = false;
+	moveBack = false;
+	moveRight = false;
+	moveLeft = false;
+	lookDown = false;
+	lookUp = false;
 }
 
 void Camera::update(float time) {
@@ -29,27 +36,51 @@ void Camera::update(float time) {
 		tmpm = tmp->getMessage(id);
 
 		if (tmpm.getInstruction() == "MVF") {
-			target += GetCamZ()* moveSpeed;
+			this->moveForward = true;
+		}
+		else
+		if (tmpm.getInstruction() == "SMF") {
+			this->moveForward = false;
 		}
 		else
 		if (tmpm.getInstruction() == "MVB") {
-			target += -GetCamZ()* moveSpeed;
+			this->moveBack = true;
+		}
+		else
+		if (tmpm.getInstruction() == "SMB") {
+			this->moveBack = false;
 		}
 		else
 		if (tmpm.getInstruction() == "MVR") {
-			target += GetCamX()* moveSpeed;
+			this->moveRight = true;
+		}
+		else
+		if (tmpm.getInstruction() == "SMR") {
+			this->moveRight = false;
 		}
 		else
 		if (tmpm.getInstruction() == "MVL") {
-			target -= GetCamX()* moveSpeed;
+			this->moveLeft = true;
+		}
+		else
+		if (tmpm.getInstruction() == "SML") {
+			this->moveLeft = false;
 		}
 		else
 		if (tmpm.getInstruction() == "LD") {
-			target += -glm::vec3(0, 1, 0)* moveSpeed;
+			this->lookDown = true;
+		}
+		else
+		if (tmpm.getInstruction() == "SLD") {
+			this->lookDown = false;
 		}
 		else
 		if (tmpm.getInstruction() == "LU") {
-			target += glm::vec3(0, 1, 0)* moveSpeed;
+			this->lookUp = true;
+		}
+		else
+		if (tmpm.getInstruction() == "SLU") {
+			this->lookUp = false;
 		}
 		else
 		if (tmpm.getInstruction() == "LX") {
@@ -61,8 +92,33 @@ void Camera::update(float time) {
 		}
 	}
 
-	pos += (target * time);
-	target -= (target * time);
+	if ( this->moveForward ) {
+		target += GetCamZ()* moveSpeed;
+		std::cout << "Move forward!" << std::endl;
+	}
+	else
+	if ( this->moveBack ) {
+		target += -GetCamZ()* moveSpeed;
+	}
+	else
+	if ( this->moveRight ) {
+		target += GetCamX()* moveSpeed;
+	}
+	else
+	if ( this->moveLeft ) {
+		target -= GetCamX()* moveSpeed;
+	}
+	else
+	if ( this->lookDown ){
+		target += -glm::vec3(0, 1, 0)* moveSpeed;
+	}
+	else
+	if ( this->lookUp ) {
+		target += glm::vec3(0, 1, 0)* moveSpeed;
+	}
+	
+	pos += (target * (time * speedDecay));
+	target -= (target * (time * speedDecay));
 	
 	callGLLookAt();
 }
