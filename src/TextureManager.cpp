@@ -65,6 +65,16 @@ bool TextureManager::genMultiTexture(std::vector<vec3> heightmap, std::vector<st
 	return false;
 }
 
+bool TextureManager::storeTextureFromData(std::string name, unsigned char* data, unsigned bits, unsigned width, unsigned height) {
+	int id = nextid;
+	nextid++;
+	Singleton<RenderModuleStubb>::getInstance()->storeTexture(id, bits, width, height, data);
+
+	images[name] = id;
+
+	return true;
+}
+
 void TextureManager::DisableMultiTex(RenderModuleStubb* renderer) {
 	renderer->disableMultiTexture();
 }

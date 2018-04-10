@@ -8,6 +8,7 @@
 #include "AssetManager.h"
 #include "AudioEngine.h"
 #include "windows.h"
+#include "Controls.h"
 
 class Engine
 {
@@ -16,11 +17,7 @@ public:
 	~Engine();
 	bool Initalise(std::string initscript);
 	
-	//Temporarily static ahile mat does rendering
-	static void Run();
-	
-	//tmp while mat does rendering
-	static Engine* self;
+	void Run();
 
 private:
 	SceneManager SM;
@@ -28,10 +25,12 @@ private:
 	RenderModuleStubb* RNDR;
 	AssetManager* AMAN;
 	AudioEngine* AE;
+	Controls* CONT;
 
 	bool initaliseScriptingInterface();
 	bool initaliseRenderer();
 	bool initaliseUtilityModules();
 	bool initaliseAudioEngine();
+	bool initaliseControls();
 };
 

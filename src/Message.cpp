@@ -20,7 +20,7 @@ std::string Message::getInstruction() {
 	return instruction;
 }
 
-void Message::setData(float data) {
+void Message::setfData(float data) {
 	mdata.fdata = data;
 	dtype = FDATA;
 }

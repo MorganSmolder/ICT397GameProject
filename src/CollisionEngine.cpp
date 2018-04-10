@@ -4,6 +4,7 @@
 
 CollisionEngine::CollisionEngine()
 {
+	hasHMap == false;
 }
 
 
@@ -35,19 +36,47 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 			minz = toset.at(i).z();
 		}
 	}
+
+	hasHMap = true;
 }
 
-void CollisionEngine::update(GameObject* & toupdate) {
+void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time) {
 	float x = toupdate->getPos().x();
 	float z = toupdate->getPos().z();
 
-	if (x < maxx && x > minx && z > minz && z < maxz) {
+	if (x < maxx && x > minx && z > minz && z < maxz && hasHMap){
 		HMPos hmloc = findHMLocation(toupdate->getPos());
 
 		float y = findBarycenter(toupdate->getPos(), hmloc);
 
-		toupdate->setPos(vec3(toupdate->getPos().x(), y, toupdate->getPos().z()));
+		toupdate->setPos(vec3(toupdate->getPos().x(), y + toupdate->getCenterOffset().y(), toupdate->getPos().z()));
+		toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
 	}
+
+	AABB updateb;
+
+	if (toupdate->getModel() == NULL) updateb = AABB(toupdate->getPos().x() + 1.5, toupdate->getPos().x() - 1.5,
+		toupdate->getPos().y() + 1.5, toupdate->getPos().y() - 1.5,
+		toupdate->getPos().z() + 1.5, toupdate->getPos().z() - 1.5);
+	else updateb = AABB(toupdate->getModel()->getMaxX(), toupdate->getModel()->getMinX(),
+		toupdate->getModel()->getMaxY(), toupdate->getModel()->getMinY(),
+		toupdate->getModel()->getMaxZ(), toupdate->getModel()->getMinZ());
+
+	vec3 tmpos = toupdate->getPos();
+
+	toupdate->update(time);
+	//std::cout << toupdate->getPos().x() << " " << toupdate->getPos().y() << " " << toupdate->getPos().z() << std::endl;
+
+	for (unsigned i = 0; i < collGO.size(); i++) {
+		if (collGO.at(i)->getID() != toupdate->getID() && collGO.at(i)->getModel() != NULL) {
+			if (updateb.xmax >= collGO.at(i)->getModel()->getMinX() && updateb.xmin <= collGO.at(i)->getModel()->getMaxX()
+				|| updateb.zmax >= collGO.at(i)->getModel()->getMinZ() && updateb.zmin <= collGO.at(i)->getModel()->getMaxZ()) {
+				//toupdate->setPos(tmpos);
+				//toupdate->setTarget(vec3());
+			}
+		}
+	}
+
 }
 
 HMPos CollisionEngine::findHMLocation(const vec3 & pos) {

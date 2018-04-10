@@ -1,5 +1,18 @@
 #include "vec4.h"
 
+vec4::vec4()
+{
+
+}
+
+vec4::vec4(float a, float b, float c, float d)
+{
+	vector[0] = a;
+	vector[1] = b;
+	vector[2] = c;
+	vector[3] = d;
+}
+
 glm::vec4 vec4::getVec()
 {
 	return vector;

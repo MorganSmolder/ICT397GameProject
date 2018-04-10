@@ -1,5 +1,6 @@
 #pragma once
 
+// Morgan
 #include "ImageLoader.h"
 
 class BMPLoader : public ImageLoader

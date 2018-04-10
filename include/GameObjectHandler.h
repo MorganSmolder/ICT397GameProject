@@ -23,13 +23,13 @@ public:
 	GameObject* GetGameObject(std::string name);
 	unsigned getNumObjects();
 	GameObject* & getObject(unsigned index);
+	void refreshTree();
 
 private:
 	std::vector<GameObject*> gameobjects;
 	QuadTree<GameObjectWrapper> gameobjectQT;
 	GameObjectFactory* GOF;
 
-	void refreshTree();
 	static std::vector<GameObject*> searchres;
 	static pair getposfunc(const GameObjectWrapper & element);
 	static void travfunc(const std::vector< std::list<GameObjectWrapper> > & elements, pair topleft, pair bottomright);

@@ -26,6 +26,14 @@ const Identifiers  & GameObject::getIdentifiers() {
 	return id;
 }
 
+void GameObject::setTarget(const vec3 target) {
+	this->target = target;
+}
+
+const vec3 & GameObject::getTarget() {
+	return this->target;
+}
+
 int GameObject::getState() {
 	return state;
 }

@@ -8,6 +8,9 @@
 class vec4
 {
 public:
+	vec4();
+	vec4(float a, float b, float c, float d);
+
 	glm::vec4 getVec();
 	void setVec(glm::vec4 vec);
 

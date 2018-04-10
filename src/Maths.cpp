@@ -39,7 +39,7 @@ mat4 Maths::translate(mat4 mat, vec3 vec)
 	return tmp;
 }
 
-mat4 Maths::rotate(mat4 mat, vec3 vec, float angle)
+mat4 Maths::rotate(mat4 mat, float angle, vec3 vec)
 {
 	mat4 tmp;
 	tmp.setMat(glm::rotate(mat.getMat(), angle, vec.getVec()));
@@ -60,10 +60,41 @@ mat4 Maths::perspective(float fovy, float width, float height, float near, float
 	return tmp;
 }
 
-vec4 Maths::normalize(vec4 vec) //??
+vec4 Maths::normalize(vec4 vec)
 {
 	vec.setVec(glm::normalize(vec.getVec()));
 	return vec;
+}
+
+vec3 Maths::normalize(vec3 vec)
+{
+	vec.setVec(glm::normalize(vec.getVec()));
+	return vec;
+}
+
+float Maths::radians(float a)
+{
+	return glm::radians(a);
+}
+
+mat4 Maths::inverse(mat4 m)
+{
+	m.setMat(glm::inverse(m.getMat()));
+	return m;
+}
+
+mat4 Maths::perspective(float a, float b, float c, float d)
+{
+	mat4 m;
+	m.setMat(glm::perspective(a, b, c, d));
+	return m;
+}
+
+mat4 Maths::translate(mat4 m, vec3 v)
+{
+	mat4 m;
+	m.setMat(glm::translate(m.getMat(), v.getVec()));
+	return m;
 }
 
 mat4 Maths::transform(mat4 mat1, mat4 mat2)

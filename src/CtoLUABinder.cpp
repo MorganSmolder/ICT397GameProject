@@ -11,6 +11,7 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("GetGameObjectID", &SceneManager::GetGameObjectID)
 			.def("GetGameObject", &SceneManager::GetGameObject)
 			.def("setSceneHeightMap", &SceneManager::setSceneHeightMap)
+			.def("attachControls", &SceneManager::attachControls)
 	];
 	luabind::module(lstate)[
 		luabind::class_<vec3>("vec3")
@@ -41,6 +42,28 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("getIdentifiers", &NPC::getIdentifiers)
 	];
 	luabind::module(lstate)[
+		luabind::class_<StaticEntity>("StaticEntity")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
+			.def("setPos", &StaticEntity::setPos)
+			.def("getPos", &StaticEntity::getPos)
+			.def("setState", &StaticEntity::setState)
+			.def("getState", &StaticEntity::getState)
+			.def("getID", &StaticEntity::getID)
+			.def("getIdentifiers", &StaticEntity::getIdentifiers)
+	];
+	luabind::module(lstate)[
+		luabind::class_<TerrainObject>("TerrainObject")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
+			.def("setPos", &TerrainObject::setPos)
+			.def("getPos", &TerrainObject::getPos)
+			.def("setState", &TerrainObject::setState)
+			.def("getState", &TerrainObject::getState)
+			.def("getID", &TerrainObject::getID)
+			.def("getIdentifiers", &TerrainObject::getIdentifiers)
+	];
+	luabind::module(lstate)[
 		luabind::class_<Identifiers>("Identifiers")
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<std::string>())
@@ -66,6 +89,7 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def(luabind::constructor<std::string>())
 			.def("getInstruction", &Message::getInstruction)
 			.def("setInstruction", &Message::setInstruction)
+			.def("setfData", &Message::setfData)
 	];
 	luabind::module(lstate)[
 		luabind::class_<ResourceList>("ResourceList")
@@ -81,11 +105,20 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def(luabind::constructor<>())
 			.def("addResource", &AssetManager::addResource)
 			.def("useResource", &AssetManager::useResource)
+			.def("addModel", &AssetManager::addModel)
 	];
 	luabind::module(lstate)[
 		luabind::class_<AudioEngine>("AudioEngine")
 			.def("loadSound", &AudioEngine::loadSound)
 			.def("playSoundatSource", &AudioEngine::playSoundatSource)
 			.def("setListenerSource", &AudioEngine::setListenerSource)
+	];
+	luabind::module(lstate)[
+		luabind::class_<SimpleString>("SimpleString")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<std::string>())
+			.def("equals", &SimpleString::equals)
+			.def("toDouble", &SimpleString::toDouble)
+			.def("getData", &SimpleString::getData)
 	];
 }

@@ -14,6 +14,11 @@ ImportModel::ImportModel(const ImportModel & tocpy)
 	maxy = tocpy.maxy;
 
 	Vertices = tocpy.Vertices;
+	texCoords = tocpy.texCoords;
+	Normals = tocpy.Normals;
+	vertIndex = tocpy.vertIndex;
+	texture = tocpy.texture;
+	
 	model = tocpy.model;
 }
 ImportModel::~ImportModel()
@@ -23,18 +28,42 @@ ImportModel::~ImportModel()
 bool ImportModel::loadModel(std::string filename)
 {
 	Assimp::Importer importer;
-	model = importer.ReadFile(filename, NULL); //aiProcessPreset_TargetRealtime_MaxQuality
+
+	model = importer.ReadFile(filename, aiProcessPreset_TargetRealtime_MaxQuality); 
+
 	if (!model)
 	{
-		printf("Unable to load mesh: %s\n", importer.GetErrorString());
-		return(false);
+		return false;
+	}
+
+	aiString path;
+
+	if (model->HasMaterials()) {
+
+		for (int i = 0; i < model->mNumMaterials; i++)
+		{
+			if (model->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE) > 0) {
+				if (model->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &path) == AI_SUCCESS)
+				{
+					texture = RandomString(25);
+					if (Singleton<TextureManager>::getInstance()->loadNewTexture(path.data, "TGA", texture, Singleton<RenderModuleStubb>::getInstance()) == false) {
+						texture.clear();
+					}
+				}
+			}
+		}
 	}
 
 	for (int i = 0; i < model->mNumMeshes; i++)
 	{
 		setVertices(model->mMeshes[i]);
+		setTexCoords(model->mMeshes[i]);
+		setNormals(model->mMeshes[i]);
+		setIndexes(model->mMeshes[i]);
 	}
-		setMinsAndMaxs();
+
+	setMinsAndMaxs();
+
 	return(true);
 }
 
@@ -80,6 +109,14 @@ void ImportModel::setMinsAndMaxs()
 
 }
 
+ImportModel* ImportModel::create() const
+{
+	return new ImportModel(*this);
+}
+
+std::vector<vec3>& ImportModel::getVerticies() {
+	return Vertices;
+}
 
 void ImportModel::setVertices(aiMesh *mesh)
 {
@@ -88,6 +125,45 @@ void ImportModel::setVertices(aiMesh *mesh)
 		for (int i = 0; i < mesh->mNumVertices; i++)
 		{
 			Vertices.push_back(vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z));
+		}
+	}
+}
+
+void ImportModel::setIndexes(aiMesh *mesh)
+{
+	int indexStart = 0;
+	if (mesh->HasFaces())
+	{
+		for (int i = 0; i < mesh->mNumFaces; i++)
+		{
+
+			vertIndex.push_back(mesh->mFaces[i].mIndices[0]);
+			vertIndex.push_back(mesh->mFaces[i].mIndices[1]);
+			vertIndex.push_back(mesh->mFaces[i].mIndices[2]);
+
+		}
+	}
+}
+
+void ImportModel::setNormals(aiMesh *mesh)
+{
+	if (mesh->HasNormals())
+	{
+		for (int i = 0; i < mesh->mNumVertices; i++)
+		{
+			Normals.push_back(vec3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z));
+		}
+	}
+}
+
+
+void ImportModel::setTexCoords(aiMesh *mesh)
+{
+	if (mesh->HasTextureCoords(0))
+	{
+		for (int i = 0; i < mesh->mNumVertices; i++)
+		{
+			texCoords.push_back(vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y));
 		}
 	}
 }
@@ -113,10 +189,36 @@ void ImportModel::centerOnPoint(vec3 & point)
 	setMinsAndMaxs();
 }
 
+void ImportModel::setScale(vec3 & toset) {
+	for (unsigned i = 0; i < Vertices.size(); i++)
+	{
+		Vertices.at(i).sx(Vertices.at(i).x() * toset.x());
+		Vertices.at(i).sy(Vertices.at(i).y() * toset.y());
+		Vertices.at(i).sz(Vertices.at(i).z() * toset.z());
+	}
+
+	setMinsAndMaxs();
+}
+
 void ImportModel::update()
 {
 }
 
-void ImportModel::render()
+void ImportModel::render(const vec3 & transmat)
 {
+	vec3 trans(-1 * ((maxx + minx) / 2 - transmat.x()), -1 * ((maxy + miny) / 2 - transmat.y()), -1 * ((maxz + minz) / 2 - transmat.z()));
+
+	if (texture.empty() == false) Singleton<TextureManager>::getInstance()->useTexture(texture, Singleton<RenderModuleStubb>::getInstance());
+	Singleton<RenderModuleStubb>::getInstance()->renderArrayTri(vertIndex,Vertices, texCoords, trans);
+	Singleton<TextureManager>::getInstance()->disableTexture(Singleton<RenderModuleStubb>::getInstance());
+}
+
+std::string ImportModel::RandomString(unsigned len) {
+	std::string tmp;
+
+	for (unsigned i = 0; i < len; ++i) {
+		tmp.push_back((char)97 + (rand() % static_cast<int>(122 - 97 + 1)));
+	}
+
+	return tmp;
 }

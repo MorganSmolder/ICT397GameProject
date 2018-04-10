@@ -1,4 +1,11 @@
 #include "particleSystem.h"
+
+void particleSystem::bufferInit(vec3 pos, int effectLife)
+{
+	position = pos;
+	eLife = effectLife;
+}
+
 bool particleSystem::updateBuffer()
 {
 	// Start setting up colouring vectors.
@@ -26,7 +33,7 @@ bool particleSystem::updateBuffer()
 	for (int i = 0; i < pb.size(); i++)
 	{
 		// If particle life is 0 or lower reuse dead particle
-		if (pb[i].getLife() < 0)
+		if (pb[i].getLife() < 0 && getELife() > 0)
 		{
 			//pb.erase(pb.begin() + i); // Erases the particle if its life is 0 or lower.
 			pb[i] = generateParticle();
@@ -52,6 +59,8 @@ bool particleSystem::updateBuffer()
 		return false;
 	}
 	*/
+
+	eLife--;
 
 	return true;
 	
@@ -161,4 +170,14 @@ vec3 particleSystem::getEPos()
 void particleSystem::setEPos(vec3 p)
 {
 	position = p;
+}
+
+int particleSystem::getELife()
+{
+	return eLife;
+}
+
+void particleSystem::setELife(int l)
+{
+	eLife = l;
 }

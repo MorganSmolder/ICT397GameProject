@@ -1,7 +1,8 @@
 #pragma once
 
 #include "SceneManager.h"
-#include "vec3.h"
+//#include "vec3.h"
+#include "Maths.h"
 #include "LUAScriptManager.h"
 #include "NPC.h"
 #include "Identifiers.h"
@@ -9,6 +10,9 @@
 #include "ResourceList.h"
 #include "AssetManager.h"
 #include "AudioEngine.h"
+#include "SimpleString.h"
+#include "StaticEntity.h"
+#include "TerrainObject.h"
 
 extern "C" {
 	#include "lua/lua.h"

@@ -35,6 +35,13 @@ bool AssetManager::addResource(std::string path, std::string type, std::string n
 	return false;
 }
 
+bool AssetManager::addModel(std::string path, std::string type, std::string name, vec3 & scale) {
+	if (MM->loadModel(path, type, name, scale)) {
+		return true;
+	}
+	return false;
+}
+
 bool AssetManager::useResource(std::string name) {
 	if (TexMan->useTexture(name, Singleton<RenderModuleStubb>::getInstance())) {
 		return true;

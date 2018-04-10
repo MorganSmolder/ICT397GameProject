@@ -21,6 +21,13 @@ void SceneManager::addScene(void ) {
 	Scene tmp;
 	scenes.push_back(tmp);
 	Singleton<AudioEngine>::getInstance()->addChannelSubgroup(scenes.size()-1);
+	Singleton<Controls>::getInstance()->addControlGroup(scenes.size() - 1);
+}
+
+bool SceneManager::attachControls(unsigned sceneno, ResourceList toset) {
+	if (scenes.size() - 1 <= sceneno == false) return false;
+	Singleton<Controls>::getInstance()->bindControls(sceneno, toset);
+	return true;
 }
 
 void SceneManager::update(float time) {
@@ -46,6 +53,7 @@ unsigned SceneManager::getNumScenes() {
 
 void SceneManager::initScene(unsigned sceneind) {
 	Singleton<AudioEngine>::getInstance()->setActiveChannelSubGroup(sceneind);
+	Singleton<Controls>::getInstance()->changeControlGroup(sceneind, Singleton<RenderModuleStubb>::getInstance(), Singleton<Controls>::getInstance());
 }
 
 void SceneManager::closeScene(unsigned sceneind) {

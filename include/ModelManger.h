@@ -11,6 +11,8 @@ public:
 	~ModelManger();
 	bool loadModel(std::string path, std::string type, std::string name);
 	Model* useModel(std::string name);
+	Model* getModelRefrence(std::string name);
+	bool loadModel(std::string path, std::string type, std::string name, vec3 & scale);
 
 private:
 	ModelFactory modelfactory;

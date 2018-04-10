@@ -9,7 +9,8 @@
 #define VDATA 'V'
 
 #include <string>
-#include "vec3.h"
+//#include "vec3.h"
+#include "Maths.h"
 
 struct Data{
 public:
@@ -32,7 +33,7 @@ public:
 	Identifiers & getFrom();
 	void setFrom(Identifiers & nid);
 
-	void setData(float data);
+	void setfData(float data);
 	void setData(char data);
 	void setData(int data);
 	void setData(std::string data);

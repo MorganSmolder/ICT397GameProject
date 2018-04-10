@@ -17,10 +17,8 @@ NPC::~NPC()
 
 void NPC::render() {
 
-	if (resources.hasResource("model")) GameObject::model->render();
+	if (resources.hasResource("model")) GameObject::model->render(this->pos);
 	else {
-		pos.sy(pos.y() + 10);
-
 		RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
 
 		tmp->DrawQuad(point(pos.x(), pos.y() + 1), point(pos.x() + 1, pos.y()), pos.z());
@@ -38,4 +36,12 @@ void NPC::update(float time) {
 	if (resources.hasResource("updatefunc")) 
 		tmp->callFunction<NPC, MessagingBus>(resources.getResource("updatefunc"), *this, *(Singleton<MessagingBus>::getInstance()));
 
+}
+
+vec3 NPC::getCenterOffset() {
+	if (resources.hasResource("model")) {
+		return vec3(model->getMaxX() - model->getMinX(), model->getMaxY() - model->getMinY(), model->getMaxZ() - model->getMinZ());
+	}
+
+	return vec3(0, 0, 0);
 }

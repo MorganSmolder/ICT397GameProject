@@ -1,5 +1,16 @@
 #include "vec2.h"
 
+vec2::vec2()
+{
+
+}
+
+vec2::vec2(float a, float b)
+{
+	vector[0] = a;
+	vector[1] = b;
+}
+
 glm::vec2 vec2::getVec()
 {
 	return vector;
