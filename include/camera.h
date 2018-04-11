@@ -1,11 +1,5 @@
-
-//Shays shitty camera class.
-//Standing in for mat's camera
-
 #ifndef CAMERA_H
 #define CAMERA_H
-
-#define PI 3.1415962654
 
 #include "GameObject.h"
 #include "Identifiers.h"
@@ -42,9 +36,6 @@ public:
 	glm::mat4 GetProjectionMatrix() const; //perspective projection transformation matrix
 	glm::mat4 GetViewMatrix() const; //translation and rotation matrix
 
-
-
-	/////////
 	void update(float time);
 	void render();
 	void callGLLookAt();
@@ -67,9 +58,9 @@ private:
 	float farPlane;
 	float horizontalAngle;
 	float verticalAngle;
-	const float maxAngle = 80.0f;
-	Camera (const Camera &cam) {};
-    Camera &operator = (const Camera &cam) {};
+	const float maxAngle = 60.0f;
+	Camera(const Camera &cam) {};
+	Camera &operator = (const Camera &cam) {};
 };
 
 #endif

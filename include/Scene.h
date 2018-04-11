@@ -13,6 +13,7 @@ public:
 	int GetGameObjectID(std::string name);
 	GameObject* GetGameObject(std::string name);
 	bool setHeightMap(GameObject* hmObj);
+	bool attachTerrain(Identifiers & id, vec3 pos, ResourceList & list);
 
 private:
 	GameObjectHandler objects;

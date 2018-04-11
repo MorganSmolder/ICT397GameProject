@@ -3,7 +3,7 @@
 RenderModuleStubb::RenderModuleStubb() {
 }
 
-void RenderModuleStubb::DrawQuad(point tl, point br, float y){
+void RenderModuleStubb::DrawQuad(point tl, point br, float y) {
 	glBegin(GL_QUADS);
 	glTexCoord2f(0, 1);
 	glVertex3f(tl.x, tl.y, y);
@@ -14,6 +14,32 @@ void RenderModuleStubb::DrawQuad(point tl, point br, float y){
 	glTexCoord2f(1, 1);
 	glVertex3f(br.x, tl.y, y);
 	glEnd();
+}
+
+void RenderModuleStubb::DrawQuad(vec3 tl, float widthx, float widthz, float height, vec3 trans){
+	glPushMatrix();
+	glTranslatef(trans.x(), trans.y(), trans.z());
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 1);
+	glVertex3f(tl.x(), tl.y(), tl.z());
+	glTexCoord2f(0, 0);
+	glVertex3f(tl.x(), tl.y() + height, tl.z());
+	glTexCoord2f(1, 0);
+	glVertex3f(tl.x() + widthx, tl.y() + height, tl.z());
+	glTexCoord2f(1, 1);
+	glVertex3f(tl.x() + widthx, tl.y(), tl.z());
+
+	glTexCoord2f(0, 1);
+	glVertex3f(tl.x(), tl.y(), tl.z() + widthz);
+	glTexCoord2f(0, 0);
+	glVertex3f(tl.x(), tl.y() + height, tl.z() + widthz);
+	glTexCoord2f(1, 0);
+	glVertex3f(tl.x() + widthx, tl.y() + height, tl.z() + widthz);
+	glTexCoord2f(1, 1);
+	glVertex3f(tl.x() + widthx, tl.y(), tl.z() + widthz);
+	glEnd();
+
+	glPopMatrix();
 }
 
 void RenderModuleStubb::storeTexture(const int & texID, unsigned pixelsize, unsigned width, unsigned height, const unsigned char* data){
@@ -69,7 +95,7 @@ void RenderModuleStubb::renderArrayTriStrip(std::vector<unsigned> &indicies, std
 	glEnd();
 	glPopMatrix();
 }
-void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> texcoords, const vec3 & trans){
+void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> & texcoords, const vec3 & trans){
 	
 	glPushMatrix();
 	glTranslatef(trans.x(), trans.y(), trans.z());
@@ -149,13 +175,15 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	reshape(window, 1280, 720);
-	glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
+	glClearColor(0.52f, 0.8f, 0.8f, 0.92f);
 	glClearDepth(1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
 	glDepthFunc(GL_LEQUAL);
 	glShadeModel(GL_SMOOTH);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
 }
 
@@ -170,9 +198,6 @@ void RenderModuleStubb::startRenderCycle() {
 		camlook.x(), camlook.y(), camlook.z(),
 		0.0f, 1.0f, 0.0f);
 	glPushMatrix();
-	
-
-
 }
 
 void RenderModuleStubb::endRenderCycle() {

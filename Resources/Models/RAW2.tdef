@@ -1,4 +1,4 @@
 s 10 1 10
 m ./Resources/Textures/rocks2.tga TGA ./Resources/Textures/grass.tga TGA
-f ./Resources/Models/hm5.raw
+f ./Resources/Models/hm6.raw
 t ./Resources/Textures/detailMap.tga TGA

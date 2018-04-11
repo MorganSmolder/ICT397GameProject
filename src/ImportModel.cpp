@@ -40,7 +40,7 @@ bool ImportModel::loadModel(std::string filename)
 
 	if (model->HasMaterials()) {
 
-		for (int i = 0; i < model->mNumMaterials; i++)
+		for (unsigned i = 0; i < model->mNumMaterials; i++)
 		{
 			if (model->mMaterials[i]->GetTextureCount(aiTextureType_DIFFUSE) > 0) {
 				if (model->mMaterials[i]->GetTexture(aiTextureType_DIFFUSE, 0, &path) == AI_SUCCESS)
@@ -54,7 +54,7 @@ bool ImportModel::loadModel(std::string filename)
 		}
 	}
 
-	for (int i = 0; i < model->mNumMeshes; i++)
+	for (unsigned i = 0; i < model->mNumMeshes; i++)
 	{
 		setVertices(model->mMeshes[i]);
 		setTexCoords(model->mMeshes[i]);
@@ -90,16 +90,16 @@ void ImportModel::setMinsAndMaxs()
 		{
 			minz = Vertices.at(i).z();
 		}
-		if (maxx > Vertices.at(i).x())
+		if (maxx < Vertices.at(i).x())
 		{
 			maxx = Vertices.at(i).x();
 		}
 
-		if (maxy > Vertices.at(i).y())
+		if (maxy < Vertices.at(i).y())
 		{
 			maxy = Vertices.at(i).y();
 		}
-		if (maxz > Vertices.at(i).z())
+		if (maxz < Vertices.at(i).z())
 		{
 			maxz = Vertices.at(i).z();
 		}
@@ -122,7 +122,7 @@ void ImportModel::setVertices(aiMesh *mesh)
 {
 	if (mesh->HasPositions())
 	{
-		for (int i = 0; i < mesh->mNumVertices; i++)
+		for (unsigned i = 0; i < mesh->mNumVertices; i++)
 		{
 			Vertices.push_back(vec3(mesh->mVertices[i].x, mesh->mVertices[i].y, mesh->mVertices[i].z));
 		}
@@ -134,7 +134,7 @@ void ImportModel::setIndexes(aiMesh *mesh)
 	int indexStart = 0;
 	if (mesh->HasFaces())
 	{
-		for (int i = 0; i < mesh->mNumFaces; i++)
+		for (unsigned i = 0; i < mesh->mNumFaces; i++)
 		{
 
 			vertIndex.push_back(mesh->mFaces[i].mIndices[0]);
@@ -149,7 +149,7 @@ void ImportModel::setNormals(aiMesh *mesh)
 {
 	if (mesh->HasNormals())
 	{
-		for (int i = 0; i < mesh->mNumVertices; i++)
+		for (unsigned i = 0; i < mesh->mNumVertices; i++)
 		{
 			Normals.push_back(vec3(mesh->mNormals[i].x, mesh->mNormals[i].y, mesh->mNormals[i].z));
 		}
@@ -161,7 +161,7 @@ void ImportModel::setTexCoords(aiMesh *mesh)
 {
 	if (mesh->HasTextureCoords(0))
 	{
-		for (int i = 0; i < mesh->mNumVertices; i++)
+		for (unsigned i = 0; i < mesh->mNumVertices; i++)
 		{
 			texCoords.push_back(vec2(mesh->mTextureCoords[0][i].x, mesh->mTextureCoords[0][i].y));
 		}
@@ -211,6 +211,7 @@ void ImportModel::render(const vec3 & transmat)
 	if (texture.empty() == false) Singleton<TextureManager>::getInstance()->useTexture(texture, Singleton<RenderModuleStubb>::getInstance());
 	Singleton<RenderModuleStubb>::getInstance()->renderArrayTri(vertIndex,Vertices, texCoords, trans);
 	Singleton<TextureManager>::getInstance()->disableTexture(Singleton<RenderModuleStubb>::getInstance());
+	Singleton<RenderModuleStubb>::getInstance()->DrawQuad(vec3(minx, miny, minz), maxx-minx, maxz-minz, maxy - miny, trans);
 }
 
 std::string ImportModel::RandomString(unsigned len) {

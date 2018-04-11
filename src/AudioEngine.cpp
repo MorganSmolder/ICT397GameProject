@@ -67,7 +67,7 @@ bool AudioEngine::initalise(){
 		return false;
 	}
 
-	BASS_SetVolume(.02);
+	BASS_SetVolume(0.02f);
 
 	return true;
 }
@@ -153,7 +153,8 @@ bool AudioEngine::stopSound(std::string sound) {
 	return true;
 }
 
-bool AudioEngine::playSoundatSource(std::string sound, unsigned gameobject, vec3 & pos) {
+bool AudioEngine::playSoundatSource(std::string sound, int gameobject, vec3 & pos) {
+	if (gameobject == -1) return false;
 	if (loadedsounds.count(sound) == 0) return false;
 
 	HCHANNEL channel = BASS_SampleGetChannel(loadedsounds[sound], FALSE);
@@ -213,9 +214,12 @@ bool AudioEngine::freeAllSounds() {
 	return good;
 }
 
-void AudioEngine::setListenerSource(unsigned id, vec3 startpos){
-	channellistenersources[activesubgroup].id = (int) id;
+bool AudioEngine::setListenerSource(int id, vec3 startpos){
+	if (id == -1) return false;
+	channellistenersources[activesubgroup].id = id;
 	setListenerPosition(startpos);
+
+	return true;
 }
 
 bool AudioEngine::getListenerPosition() {
@@ -234,6 +238,8 @@ bool AudioEngine::updateChannelPos(std::string sound) {
 		if (DEBUGMODE) std::cerr << "Error Playing Sound! Code: " << BASS_ErrorGetCode() << std::endl;
 		return false;
 	}
+
+	return true;
 }
 
 void AudioEngine::msgrcvr() {

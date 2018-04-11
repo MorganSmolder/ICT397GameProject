@@ -26,7 +26,7 @@ public:
 	const Identifiers &getIdentifiers();
 	int getState();
 	void setState(int state);
-	void setModel(Model* M);
+	virtual void setModel(Model* M);
 	Model* getModel();
 	void setTarget(const vec3 target);
 	const vec3 & getTarget();

@@ -12,6 +12,11 @@ SceneManager::~SceneManager()
 {
 }
 
+bool SceneManager::attachTerrain(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & lists) {
+	if (scenes.size() <= sceneno) return false;
+	else return(scenes.at(sceneno).attachTerrain(id, pos, lists));
+}
+
 bool SceneManager::addObject(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & list) {
 	if (scenes.size() <= sceneno) return false;
 	else return(scenes.at(sceneno).addObject(id, pos, list));
@@ -44,6 +49,7 @@ void SceneManager::setCurrScene(unsigned sceneno) {
 		closeScene(currscene);
 		currscene = sceneno;
 		initScene(sceneno);
+		scenes.at(currscene).update(0);
 	}
 }
 

@@ -10,6 +10,7 @@ public:
 	~SceneManager();
 	void addScene(void);
 	bool addObject(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & list);
+	bool attachTerrain(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & lists);
 	int GetGameObjectID(std::string name);
 	void update(float time);
 	void render();

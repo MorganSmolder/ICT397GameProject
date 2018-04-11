@@ -38,6 +38,12 @@ function keys(key, action, MB)
 		end 
 	elseif key:equals("o") or key:equals("O") then
 		if action:equals("press") then
+			MB:postMessage(Message("SMF"), Identifiers("", "Camera"));
+			MB:postMessage(Message("SML"), Identifiers("", "Camera"));
+			MB:postMessage(Message("SMR"), Identifiers("", "Camera"));
+			MB:postMessage(Message("SMB"), Identifiers("", "Camera"));
+			MB:postMessage(Message("SLD"), Identifiers("", "Camera"));
+			MB:postMessage(Message("SLU"), Identifiers("", "Camera"));
 			MB:postMessage(Message("CS"), Identifiers("", "SM"));
 		end
 	end
@@ -83,6 +89,12 @@ function keys2(key, action, MB)
 		end 
 	elseif key:equals("o") or key:equals("O") then
 		if action:equals("press") then
+			MB:postMessage(Message("SMF"), Identifiers("", "Camera2"));
+			MB:postMessage(Message("SML"), Identifiers("", "Camera2"));
+			MB:postMessage(Message("SMR"), Identifiers("", "Camera2"));
+			MB:postMessage(Message("SMB"), Identifiers("", "Camera2"));
+			MB:postMessage(Message("SLD"), Identifiers("", "Camera2"));
+			MB:postMessage(Message("SLU"), Identifiers("", "Camera2"));
 			MB:postMessage(Message("CS"), Identifiers("", "SM"));
 		end
 	end

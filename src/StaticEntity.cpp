@@ -18,7 +18,7 @@ void StaticEntity::update(float time) {
 }
 
 void StaticEntity::render() {
-	if (resources.hasResource("model")) GameObject::model->render(pos);
+	if (resources.hasResource("model") && model != NULL) GameObject::model->render(pos);
 	else {
 		RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
 
@@ -27,8 +27,8 @@ void StaticEntity::render() {
 }
 
 vec3 StaticEntity::getCenterOffset() {
-	if (resources.hasResource("model")) {
-		return vec3(model->getMaxX() - model->getMinX(), model->getMaxY() - model->getMinY(), model->getMaxZ() - model->getMinZ());
+	if (resources.hasResource("model") && model != NULL) {
+		return vec3(0, abs(model->getMaxY()), 0);
 	}
 
 	return vec3(0, 0, 0);

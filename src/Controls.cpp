@@ -23,6 +23,8 @@ bool Controls::bindControls(unsigned group, ResourceList & toset) {
 	if (controls.count(group) == 0) return false;
 
 	controls.at(group) = toset;
+
+	return true;
 }
 
 bool Controls::changeControlGroup(unsigned groupno, RenderModuleStubb* render, Controls* tochange) {

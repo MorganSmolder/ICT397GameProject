@@ -18,7 +18,7 @@ local function loadResources(AMAN)
 	if AMAN:addResource("./Resources/Models/RAW2.tdef", "RAWTRN", "Terrain2") then print("Successfully loaded Resource 'Terrain2'");
 	else print("Failed to load Resource 'Terrain2'"); end
 
-	if AMAN:addResource("./Resources/Models/Iron_Man.obj", "IM", "Robot") then print("Successfully loaded Resource 'Robot'");
+	if AMAN:addModel("./Resources/Models/Iron_Man.obj", "IM", "Robot", vec3(8,8,8)) then print("Successfully loaded Resource 'Robot'");
 	else print("Failed to load Resource 'Robot'"); end
 
 	if AMAN:addModel("./Resources/Models/Rock.obj", "IM", "rock", vec3(8,8,8)) then print("Successfully loaded Resource 'rock'");
@@ -32,7 +32,7 @@ local function loadResources(AMAN)
 
 	if AMAN:addResource("./Resources/Audio/30.wav", "WAV", "bgmusic1") then print("Successfully loaded Resource 'bgmusic1'");
 	else print("Failed to load Resource 'bgmusic1'"); end
-	
+		
 	print();
 end
 
@@ -48,33 +48,26 @@ function initGame(SM, LSM, AMAN, AE)
 	--load game resources
 	loadResources(AMAN);
 	
-	--Initalise Scene 0
-	SM:addScene();
-
-	SM:setCurrScene(0);
-
-	SM:attachControls(0, ResourceList("keyCallback", "startcont"));
-
-	SM:addObject(Identifiers("SE"), 0, vec3(-2.2, -0.2,-5), ResourceList("model", "start"));
-	SM:addObject(Identifiers("CAM", "Camera"), 0, vec3(0, 0, 0), ResourceList());
 
 	--Initalise Scene 1
 	SM:addScene();
 
-	SM:setCurrScene(1);
+	SM:setCurrScene(0);
 
-	SM:attachControls(1, ResourceList("keyCallback", "keys", "mouseCallback", "mouse"));
+	SM:attachControls(0, ResourceList("keyCallback", "keys", "mouseCallback", "mouse"));
 
-	SM:addObject(Identifiers("TO", "Terrain"), 1, vec3(0,0,0), ResourceList("model", "Terrain"));
+	SM:attachTerrain(Identifiers("TO", "Terrain"), 0, vec3(0,0,0), ResourceList("model", "Terrain"));
 
 	for i = 10,1,-1 
 	do 
-		SM:addObject(Identifiers("SE"), 1, vec3(math.random()*(512-0) + 0, 0, math.random()*(512 - 0) + 0), ResourceList("model", "rock")); 
+		SM:addObject(Identifiers("SE"), 0, vec3(math.random()*(512-0) + 0, 0, math.random()*(512 - 0) + 0), ResourceList("model", "rock")); 
 	end
 
-	SM:addObject(Identifiers("CAM","Camera"), 1, vec3(20, 0, 10), ResourceList());
+	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(20, 0, 10), ResourceList());
 
-	SM:setSceneHeightMap(1, SM:GetGameObject("Terrain"));
+	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(0,0,0), ResourceList("model", "Robot"));
+
+	SM:setSceneHeightMap(0, SM:GetGameObject("Terrain"));
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
@@ -83,15 +76,15 @@ function initGame(SM, LSM, AMAN, AE)
 	--Initalise Scene 2
 	SM:addScene();
 
-	SM:setCurrScene(2);
+	SM:setCurrScene(1);
 	
-	SM:attachControls(2, ResourceList("keyCallback", "keys2", "mouseCallback", "mouse2"));
+	SM:attachControls(1, ResourceList("keyCallback", "keys2", "mouseCallback", "mouse2"));
 
-	SM:addObject(Identifiers("SE", "Terrain2"), 2, vec3(0,0,0), ResourceList("model", "Terrain2"));
+	SM:attachTerrain(Identifiers("TO", "Terrain2"), 1, vec3(0,0,0), ResourceList("model", "Terrain2"));
 
-	SM:addObject(Identifiers("CAM","Camera2"), 2, vec3(0, 0, 0), ResourceList());
+	SM:addObject(Identifiers("CAM","Camera2"), 1, vec3(0, 0, 0), ResourceList());
 
-	SM:setSceneHeightMap(2, SM:GetGameObject("Terrain2"));
+	SM:setSceneHeightMap(1, SM:GetGameObject("Terrain2"));
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera2"), vec3(0, 0, 0));
 	

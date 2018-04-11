@@ -108,7 +108,7 @@ public:
 	* @param id - The id of the game object to be bound
 	* @param startpos - The starting position of the game object
 	*/
-	void setListenerSource(unsigned id, vec3 startpos);
+	bool setListenerSource(int id, vec3 startpos);
 
 	/**
 	* @brief Depreciated - Plays sound at origon (0,0,0)
@@ -117,7 +117,7 @@ public:
 	* @return bool - Wether or not the sound was played correctly.
 	*/
 	bool playSound(std::string sound);
-	bool playSoundatSource(std::string sound, unsigned gameobject, vec3 & pos);
+	bool playSoundatSource(std::string sound, int gameobject, vec3 & pos);
 	bool stopSound(std::string sound);
 	bool freeAllSounds();
 	bool pauseActiveChannels();

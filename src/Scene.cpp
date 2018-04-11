@@ -15,6 +15,10 @@ void Scene::render() {
 	objects.render();
 }
 
+bool Scene::attachTerrain(Identifiers & id, vec3 pos, ResourceList & list) {
+	return objects.addTerrain(id, pos, list);
+}
+
 bool Scene::addObject(Identifiers & id, vec3 pos, ResourceList & list){
 	return objects.addObject(id, pos, list);
 }
@@ -38,8 +42,10 @@ GameObject* Scene::GetGameObject(std::string name) {
 }
 
 bool Scene::setHeightMap(GameObject* hmObj) {
+	if (hmObj == NULL) return false;
 	if (hmObj->getModel() == NULL) return false;
 
 	collision.setHeightMap(hmObj->getModel()->getVerticies());
 	objects.setWorldDimensions(hmObj->getModel()->getMinX(), hmObj->getModel()->getMaxZ(), hmObj->getModel()->getMaxX(), hmObj->getModel()->getMinZ());
+	return true;
 }

@@ -24,8 +24,10 @@ public:
 	unsigned getNumObjects();
 	GameObject* & getObject(unsigned index);
 	void refreshTree();
+	bool addTerrain(Identifiers id, vec3 pos, ResourceList & list);
 
 private:
+	GameObject* terrain;
 	std::vector<GameObject*> gameobjects;
 	QuadTree<GameObjectWrapper> gameobjectQT;
 	GameObjectFactory* GOF;

@@ -9,6 +9,7 @@ public:
 	~TerrainObject();
 	void update(float time);
 	void render();
+	void setModel(Model* M);
 	vec3 getCenterOffset();
 };
 

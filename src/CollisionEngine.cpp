@@ -4,7 +4,7 @@
 
 CollisionEngine::CollisionEngine()
 {
-	hasHMap == false;
+	hasHMap = false;
 }
 
 
@@ -40,10 +40,15 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 	hasHMap = true;
 }
 
+
+//CollGO - vector of object pointers it is possible for the current entity to collide with
+//Taken from the quad tree
 void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time) {
+	//Dont touch this
 	float x = toupdate->getPos().x();
 	float z = toupdate->getPos().z();
 
+	//Height mapping - Ignore for the moment
 	if (x < maxx && x > minx && z > minz && z < maxz && hasHMap){
 		HMPos hmloc = findHMLocation(toupdate->getPos());
 
@@ -54,7 +59,8 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 	}
 
 	AABB updateb;
-
+	//Create bounding box for enitity being updated (if non exists)
+	//If you can think of a better way to do this, I'm happy for it to change
 	if (toupdate->getModel() == NULL) updateb = AABB(toupdate->getPos().x() + 1.5, toupdate->getPos().x() - 1.5,
 		toupdate->getPos().y() + 1.5, toupdate->getPos().y() - 1.5,
 		toupdate->getPos().z() + 1.5, toupdate->getPos().z() - 1.5);
@@ -62,17 +68,25 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 		toupdate->getModel()->getMaxY(), toupdate->getModel()->getMinY(),
 		toupdate->getModel()->getMaxZ(), toupdate->getModel()->getMinZ());
 
+	//Sotre entity current position
 	vec3 tmpos = toupdate->getPos();
 
+	//Update entity (changes position)
 	toupdate->update(time);
-	//std::cout << toupdate->getPos().x() << " " << toupdate->getPos().y() << " " << toupdate->getPos().z() << std::endl;
 
+	//Perform collisiong test
 	for (unsigned i = 0; i < collGO.size(); i++) {
+		//This line: collGO.at(i)->getID() != toupdate->getID() is hyper important!
+		//Without it objects will collide with themselves!
+		//Quad tree dumps all objects from the node into the vector - including the objects we are looking for.
 		if (collGO.at(i)->getID() != toupdate->getID() && collGO.at(i)->getModel() != NULL) {
+			//This code works. Don't add y axis collision just yet, the model ymax and ymin are not translated correctly atm. Not an issue unless we add a jump function
 			if (updateb.xmax >= collGO.at(i)->getModel()->getMinX() && updateb.xmin <= collGO.at(i)->getModel()->getMaxX()
-				|| updateb.zmax >= collGO.at(i)->getModel()->getMinZ() && updateb.zmin <= collGO.at(i)->getModel()->getMaxZ()) {
-				//toupdate->setPos(tmpos);
-				//toupdate->setTarget(vec3());
+				&& updateb.zmax >= collGO.at(i)->getModel()->getMinZ() && updateb.zmin <= collGO.at(i)->getModel()->getMaxZ()) {
+				//This code results in models becoming stuck in one another
+				//Up to you to find a better colliaion resolution method
+				toupdate->setPos(tmpos);
+				toupdate->setTarget(vec3());
 			}
 		}
 	}

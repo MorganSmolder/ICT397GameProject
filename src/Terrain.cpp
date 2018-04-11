@@ -28,9 +28,9 @@ void terrain::setScale(vec3 & toset) {
 
 void terrain::genPlaneIndicies(unsigned size) {
 
-	for (int i = 0; i < size - 1; i++) {
+	for (int i = 0; i < (int) size - 1; i++) {
 		if (i % 2 == 0) {
-			for (int j = 0; j < size; j++) {
+			for (int j = 0; j < (int) size; j++) {
 				planInd.push_back(j + i * size);
 				planInd.push_back(j + (i + 1) * size);
 			}
