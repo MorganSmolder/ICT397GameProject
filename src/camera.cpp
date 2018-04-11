@@ -6,7 +6,6 @@
 
 Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id, pos, list)
 {
-
 	rotateSpeed = 2.0f;
 	moveSpeed = 3.0f;
 	speedDecay = 7.0f;
@@ -120,6 +119,7 @@ void Camera::update(float time) {
 	pos += (target * (time * speedDecay));
 	target -= (target * (time * speedDecay));
 
+
 	callGLLookAt();
 }
 
@@ -130,10 +130,9 @@ void Camera::render() {
 
 void Camera::callGLLookAt()
 {
-	Singleton<RenderModuleStubb>::getInstance()->callLookAt(vec3(pos.x(), pos.y(), pos.z()),
-		vec3(pos.x() + GetCamZ().x, pos.y() + GetCamZ().y, pos.z() + GetCamZ().z),
-		vec3(GetCamY().x, GetCamY().y, GetCamY().z));
-
+	Singleton<RenderModuleStubb>::getInstance()->callLookAt(vec3(pos.x(), pos.y(), pos.z()), 
+				vec3(pos.x() + GetCamZ().x, pos.y() + GetCamZ().y, pos.z() + GetCamZ().z),
+				vec3(GetCamY().x, GetCamY().y, GetCamY().z));
 
 }
 
