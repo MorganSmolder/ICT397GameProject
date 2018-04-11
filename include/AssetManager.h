@@ -22,9 +22,9 @@ public:
 	/**
 	* @brief Requests for a new resource to be loaded.
 	*
-	* @param path - Location of the resource on disk.
-	* @param type - The type of resource to load.
-	* @param name - The handle to be used in calls to utilise resource.
+	* @param path(string) - Location of the resource on disk.
+	* @param type(string) - The type of resource to load.
+	* @param name(string) - The handle to be used in calls to utilise resource.
 	*
 	* @return bool - Wether or not the resource was loaded correctly.
 	*/
@@ -33,9 +33,9 @@ public:
 	/**
 	* @brief Uses resource with given handle.
 	*
-	* @param path - Location of the resource on disk.
-	* @param type - The type of resource to load.
-	* @param name - The handle to be used in calls to utilise resource.
+	* @param path(string) - Location of the resource on disk.
+	* @param type(string) - The type of resource to load.
+	* @param name(string) - The handle to be used in calls to utilise resource.
 	*
 	* @return bool - Wether or not the resource could be successfully used.
 	*/
@@ -44,10 +44,10 @@ public:
 	/**
 	* @brief Adds model with given path, type, name and scale
 	*
-	* @param path - Location of the resource on disk.
-	* @param type - The type of resource to load.
-	* @param name - The handle to be used in calls to utilise resource.
-	* @param scale - The scale of the model
+	* @param path(string) - Location of the resource on disk.
+	* @param type(string) - The type of resource to load.
+	* @param name(string) - The handle to be used in calls to utilise resource.
+	* @param scale(vec3) - The scale of the model
 	*
 	* @return bool - Wether or not the model could be successfully added.
 	*/

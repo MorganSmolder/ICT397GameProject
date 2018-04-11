@@ -11,7 +11,7 @@
 #include "vec2.h"
 
 /**
-*@class Maths
+* @class Maths
 * @brief Overall facade class for GLM maths providing vector and matrix functionality.
 *
 * @author Matthew MacLennan

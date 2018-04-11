@@ -18,6 +18,14 @@ struct AABB {
 	AABB() {};
 };
 
+/**
+* @class CollisionEngine
+* @brief Class handling collision.
+*
+* @author Morgan Smolder
+* @version 01
+* @date 02/04/2018
+*/
 class CollisionEngine
 {
 public:
