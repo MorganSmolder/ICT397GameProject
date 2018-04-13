@@ -41,11 +41,52 @@ public:
 	*/
 	void setVec(glm::vec3 vec);
 
+	/**
+	* @brief Get the x value.
+	*
+	* @return float - The x value.
+	*/
 	float x() const;
+
+	/**
+	* @brief Get the y value.
+	*
+	* @return float - The y value.
+	*/
 	float y() const;
+
+	/**
+	* @brief Get the z value.
+	*
+	* @return float - The z value.
+	*/
 	float z() const;
+
+	/**
+	* @brief Set the x value.
+	*
+	* @param sx(float) - The new x value.
+	*
+	* @return float - The x value.
+	*/
 	float sx(float nx);
+
+	/**
+	* @brief Set the y value.
+	*
+	* @param sx(float) - The new y value.
+	*
+	* @return float - The y value.
+	*/
 	float sy(float ny);
+
+	/**
+	* @brief Set the z value.
+	*
+	* @param sz(float) - The new x value.
+	*
+	* @return float - The z value.
+	*/
 	float sz(float nz);
 
 	/**
