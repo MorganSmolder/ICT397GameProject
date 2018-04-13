@@ -6,7 +6,7 @@
 
 Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id, pos, list)
 {
-	rotateSpeed = 2.0f;
+	rotateSpeed = 3.0f;
 	moveSpeed = 3.0f;
 	speedDecay = 7.0f;
 	fov = 50.0f;
@@ -124,8 +124,9 @@ void Camera::update(float time) {
 }
 
 void Camera::render() {
+	//Singleton<RenderModuleStubb>::getInstance()->RenderFacingCamera();
 
-
+	//Singleton<RenderModuleStubb>::getInstance()->StopRenderFacingCamera();
 }
 
 void Camera::callGLLookAt()

@@ -22,7 +22,7 @@ public:
 	std::string getType();
 	virtual void update(float time) = 0;
 	virtual void render() = 0;
-	virtual vec3 getCenterOffset() = 0;
+	virtual vec3 getCenterOffset();
 	const Identifiers &getIdentifiers();
 	int getState();
 	void setState(int state);
@@ -30,6 +30,7 @@ public:
 	Model* getModel();
 	void setTarget(const vec3 target);
 	const vec3 & getTarget();
+	virtual bool isCollidable();
 
 protected:
 	int state;

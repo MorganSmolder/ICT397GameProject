@@ -1,13 +1,13 @@
 #pragma once
 
 #include <string>
-#include "GameObject.h"
 #include "NPC.h"
 #include "camera.h"
 #include "ModelManger.h"
 #include "Singleton.h"
 #include "StaticEntity.h"
 #include "TerrainObject.h"
+#include "MenuObject.h"
 
 class GameObjectFactory
 {

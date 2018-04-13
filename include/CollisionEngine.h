@@ -28,7 +28,8 @@ private:
 	std::map<float, std::map<float, float>> heightmap;
 
 	HMPos findHMLocation(const vec3 & pos);
-	float findBarycenter(const vec3 & ppos, HMPos & pos);
+	AABB genAABB(GameObject* toupdate);
+	float interpolateY(const vec3 & ppos, HMPos & pos);
 	float maxx, minx, maxz, minz;
 	bool hasHMap;
 };

@@ -54,6 +54,17 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("getIdentifiers", &StaticEntity::getIdentifiers)
 	];
 	luabind::module(lstate)[
+		luabind::class_<MenuObject>("StaticEntity")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
+			.def("setPos", &MenuObject::setPos)
+			.def("getPos", &MenuObject::getPos)
+			.def("setState", &MenuObject::setState)
+			.def("getState", &MenuObject::getState)
+			.def("getID", &MenuObject::getID)
+			.def("getIdentifiers", &MenuObject::getIdentifiers)
+	];
+	luabind::module(lstate)[
 		luabind::class_<TerrainObject>("TerrainObject")
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())

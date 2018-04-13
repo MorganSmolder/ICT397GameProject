@@ -65,7 +65,9 @@ function initGame(SM, LSM, AMAN, AE)
 
 	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(20, 0, 10), ResourceList());
 
-	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(0,0,0), ResourceList("model", "Robot"));
+	SM:addObject(Identifiers("MO","Menu"), 0, vec3(0, 0, 0), ResourceList());
+
+	--SM:addObject(Identifiers("NPC", "ted"), 0, vec3(0,0,0), ResourceList("model", "Robot"));
 
 	SM:setSceneHeightMap(0, SM:GetGameObject("Terrain"));
 

@@ -13,5 +13,4 @@ function start(this,msgbus)
 	else
 			this:setPos(vec3(this:getPos():x() + 0.1, this:getPos():y(), this:getPos():z()));
 	end
-	
 end

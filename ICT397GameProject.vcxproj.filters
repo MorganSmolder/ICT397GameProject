@@ -153,6 +153,12 @@
     <ClInclude Include="include\TerrainObject.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\MenuObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\TexturedSquare.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CtoLUABinder.cpp">
@@ -264,6 +270,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\TerrainObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MenuObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TexturedSquare.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -90,3 +90,11 @@ void GameObject::setModel(Model* M) {
 Model*  GameObject::getModel() {
 	return model;
 }
+
+vec3 GameObject::getCenterOffset() {
+	return vec3(0, 0, 0);
+}
+
+bool GameObject::isCollidable() {
+	return true;
+}

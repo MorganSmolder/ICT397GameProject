@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Windows.h"
 #define GLFW_INCLUDE_GLU 
 #include "gl/glew.h"
 #include "glfw/glfw3.h"
@@ -32,8 +33,12 @@ public:
 	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
 	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, const vec3 & trans);
 	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, std::vector<float> lights, const vec3 & trans);
+	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec3> normals, std::vector<vec2> & texcoords, const vec3 & trans);
 	void callLookAt(vec3 r1, vec3 r2, vec3 r3);
 	void disableMultiTexture();
+
+	void RenderFacingCamera();
+	void StopRenderFacingCamera();
 
 	void startRenderCycle();
 	void endRenderCycle();

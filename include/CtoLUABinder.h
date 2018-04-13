@@ -12,6 +12,7 @@
 #include "SimpleString.h"
 #include "StaticEntity.h"
 #include "TerrainObject.h"
+#include "MenuObject.h"
 
 extern "C" {
 	#include "lua/lua.h"

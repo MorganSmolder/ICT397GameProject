@@ -112,6 +112,7 @@
     <ClInclude Include="include\Controls.h" />
     <ClInclude Include="include\LUAScriptManager.h" />
     <ClInclude Include="include\mat4.h" />
+    <ClInclude Include="include\MenuObject.h" />
     <ClInclude Include="include\Message.h" />
     <ClInclude Include="include\MessageTypes.h" />
     <ClInclude Include="include\MessagingBus.h" />
@@ -130,6 +131,7 @@
     <ClInclude Include="include\StaticEntity.h" />
     <ClInclude Include="include\terrain.h" />
     <ClInclude Include="include\TerrainObject.h" />
+    <ClInclude Include="include\TexturedSquare.h" />
     <ClInclude Include="include\TextureManager.h" />
     <ClInclude Include="include\TGALoader.h" />
     <ClInclude Include="include\vec2.h" />
@@ -155,6 +157,7 @@
     <ClCompile Include="src\Controls.cpp" />
     <ClCompile Include="src\LUAScriptManager.cpp" />
     <ClCompile Include="src\mat4.cpp" />
+    <ClCompile Include="src\MenuObject.cpp" />
     <ClCompile Include="src\Message.cpp" />
     <ClCompile Include="src\MessagingBus.cpp" />
     <ClCompile Include="src\ModelFactory.cpp" />
@@ -169,6 +172,7 @@
     <ClCompile Include="src\StaticEntity.cpp" />
     <ClCompile Include="src\Terrain.cpp" />
     <ClCompile Include="src\TerrainObject.cpp" />
+    <ClCompile Include="src\TexturedSquare.cpp" />
     <ClCompile Include="src\TextureManager.cpp" />
     <ClCompile Include="src\TGALoader.cpp" />
     <ClCompile Include="src\vec2.cpp" />
