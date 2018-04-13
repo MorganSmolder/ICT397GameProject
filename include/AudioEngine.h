@@ -13,22 +13,18 @@
 
 /**
 * @struct SoundSourceWrapper
+*
 * @brief Wrapper for holding information about active channels.
 *
 * @author Morgan Smolder
 * @version 01
 * @date 02/04/2018
 */
-
 struct SoundSourceWrapper {
-	///Wether or not channel uses 3d sound
-	bool positional;
-	///Game object SSW is bound too
-	unsigned associatedgameobject;
-	///Handle for channel (for use with BASS)
-	int channel;
-	///Position of the sound source
-	vec3 pos;
+	bool positional; ///Wether or not channel uses 3d sound
+	unsigned associatedgameobject; ///Game object SSW is bound too
+	int channel; ///Handle for channel (for use with BASS)
+	vec3 pos; ///Position of the sound source
 	SoundSourceWrapper() : positional(false), channel(0), associatedgameobject(0) {};
 	SoundSourceWrapper(int nchannel) : channel(nchannel), positional(false) {};
 	SoundSourceWrapper(int nchannel, bool npos) : channel(nchannel), positional(npos) {};
@@ -37,6 +33,7 @@ struct SoundSourceWrapper {
 
 /**
 * @struct ListenerSourceWrapper
+*
 * @brief Wrapper for holding information about the global listener.
 *
 * @author Morgan Smolder
@@ -53,6 +50,7 @@ struct ListenerSourceWrapper {
 
 /**
 * @struct FFTData
+*
 * @brief Wrapper for holding information about FFT.
 *
 * @author Morgan Smolder
@@ -67,6 +65,7 @@ struct FFTData {
 
 /**
 * @class AudioEngine
+*
 * @brief Class for handling, storing, and playing sound files.
 *
 * @author Morgan Smolder
