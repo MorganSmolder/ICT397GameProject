@@ -4,8 +4,7 @@
 
 /**
 * @struct GameObjectWrapper
-*
-* @brief Wrapper for the game object..
+* @brief Struct for holding all game object data.
 *
 * @author Morgan Smolder
 * @version 01
@@ -19,8 +18,7 @@ struct GameObjectWrapper {
 
 /**
 * @class GameObjectHandler
-*
-* @brief Handler for game objects.
+* @brief Class for handling game objects and setting them up in the world
 *
 * @author Morgan Smolder
 * @version 01
@@ -33,139 +31,143 @@ public:
 	~GameObjectHandler();
 
 	/**
-	* @brief Set the dimensions for the world
+	* @brief Set the world dimensions
 	*
-	* @param tlx(float) - The closest x dimension.
-	* @param tlz(float) - The closest z dimension.
-	* @param brx(float) - The furthest x dimension.
-	* @param brz(float) - The furthest z dimension.
-	*
-	* @return NONE.
+	* @param tlx - Top left x value.
+	* @param tlz - Top left z value.
+	* @param brx - Bottom right x value.
+	* @param brz - Bottom right z value.
 	*/
 	void setWorldDimensions(float tlx, float tlz, float brx, float brz);
 
 	/**
-	* @brief Add a game object.
+	* @brief Add a object to the handler.
 	*
-	* @param id(Identifiers) - The ID of the game object.
-	* @param pos(vec3) - The position of the object.
-	* @param list(ResourceList &) - The resources for the object.
-	*
+	* @param id - The identifier.
+	* @param list - The list of resources.
+	* 
 	* @return bool - If the object was added.
 	*/
 	bool addObject(Identifiers id, vec3 pos, ResourceList & list);
 
 	/**
-	* @brief Update a object.
+	* @brief Update function for the manager.
 	*
-	* @param time(float) - System time.
-	*
-	* @return NONE.
+	* @param time - The system time.
 	*/
 	void update(float time);
 
 	/**
-	* @brief Render function.
-	*
-	* @return NONE.
+	* @brief The renderer function.
 	*/
 	void render();
 
 	/**
-	* @brief Find game objects that are spatially grouped near the target.
+	* @brief To find game objects grouped spatially around the target game object in the quadtree.
 	*
-	* @param tofind(GameObject*) - The target game object being looked for.
+	* @param tofind - The target game object.
 	*
-	* @return vector<GameObject*> - The grouped game objects.
+	* @return vector<GameObject*> - A list of game objects.
 	*/
 	std::vector<GameObject*> findSpatiallyGroupedGameObjects(GameObject* tofind);
 
 	/**
-	* @brief Get the game object id for a given object name.
+	* @brief Get the game objects identifier.
 	*
-	* @param name(string) - The name of the object.
-	* 
-	* @return int - The id.
+	* @param name - The name of the game object.
+	*
+	* @param int - The game objects id.
 	*/
 	int GetGameObjectID(std::string name);
 
 	/**
-	* @brief Returns the game object with given name.
+	* @brief Get the game object.
 	*
-	* @param name(string) - The name of the game object.
+	* @param name - The game objects name.
 	*
-	* @return GameObject* - The pointer for the game object.
+	* @return GameObject* - Pointer to the game object.
 	*/
 	GameObject* GetGameObject(std::string name);
 
 	/**
-	* @brief Get the number of objects being stored.
+	* @brief Get the number of objects.
 	*
-	* @return unsigned - The number of objects being stored.
+	* @return unsigned - The number of objects.
 	*/
 	unsigned getNumObjects();
 
 	/**
-	* @brief Get a object based off its index number.
+	* @brief Get the game object.
 	*
-	* @param index(unsigned) - The objects index number.
+	* @param index - The index of the game object.
 	*
-	* @return GameObject* - The pointer to the game object.
+	* @return GameObject * - The game object.
 	*/
 	GameObject* & getObject(unsigned index);
 
 	/**
-	* @brief refresh the quadtree.
-	*
-	* @return NONE.
+	* @brief Refresh the quadtree.
 	*/
 	void refreshTree();
 
-private:
-	std::vector<GameObject*> gameobjects; /// The vector for holding pointers to game objects.
-	QuadTree<GameObjectWrapper> gameobjectQT; /// The storage for game objects
-	GameObjectFactory* GOF; /// Game factory object to create game objects
+	/**
+	* @brief Add terrain to the tree.
+	*
+	* @param id - The identifier for the terrain.
+	* @param pos - The position of the terrain.
+	* @param list - The resource list.
+	*
+	* @return bool - If the terrain was added.
+	*/
+	bool addTerrain(Identifiers id, vec3 pos, ResourceList & list);
 
-	static std::vector<GameObject*> searchres; /// The vector to store game objects that have been searched for.
+private:
+	/// Terrain.
+	GameObject* terrain;
+	/// Game object vector.
+	std::vector<GameObject*> gameobjects;
+	/// Quadtree for game objects.
+	QuadTree<GameObjectWrapper> gameobjectQT;
+	/// Game object factory object to create game objects.
+	GameObjectFactory* GOF;
+
+	/// Game object vector for searching.
+	static std::vector<GameObject*> searchres;
 
 	/**
-	* @brief Get the position function of the wrapper.
-	* 
-	* @param element(GameObjectWrapper) - The game element.
+	* @brief Get the position function.
 	*
-	* @return pair - The position of the function.
+	* @param element - The game object.
+	*
+	* @return pair - The data from the tree.
 	*/
 	static pair getposfunc(const GameObjectWrapper & element);
 
 	/**
-	* @brief Get the travel function.
+	* @brief Traverse function.
 	*
-	* @param elements(vector<list<GameObjectWrapper>> &) - The elements being stored in a wrapper in a list.
-	* @param topleft(pair) - The elements in the top left of the quadtree.
-	* @param bottomright(pair) - The elements in the bottom right of the quadtree.
-	*
-	* @param NONE.
+	* @param elements - A vector for game objects.
+	* @param topleft - Top left element in the tree.
+	* @param bottomright - Bottom right element in the tree.
 	*/
 	static void travfunc(const std::vector< std::list<GameObjectWrapper> > & elements, pair topleft, pair bottomright);
 
 	/**
-	* @brief Comparison of two game object wrappers.
+	* @brief Comaprison function for two game objects.
 	*
-	* @param element(GameObjectWrapper &) - The first element for comparison.
-	* @param comparator(GameObjectWrapper &) - The second element for comparison.
+	* @param element - The first element.
+	* @param comarator - The second element.
 	*
-	* @return bool - If the elements are the same.
+	* @return bool - If the game objects are the same.
 	*/
 	static bool comparisonfunc(const GameObjectWrapper & element, const GameObjectWrapper & comparator);
 
 	/**
-	* @brief Look around the element in the quad tree.
+	* @brief On find get the data around the element.
 	*
-	* @param elements(vector<list<GameObjectWrapper>> &) - The elements.
-	* @param topleft(pair) - To the top left of the element.
-	* @param bottomright(pair) - To the bottom right of the element.
-	*
-	* @return NONE.
+	* @param elements - A vector of game objects.
+	* @param topleft - The element to the top left of the element.
+	* @param bottomright - The element to the bottom of the element.
 	*/
 	static void onFind(const std::vector<std::list<GameObjectWrapper> > & elements, pair topleft, pair bottomright);
 };

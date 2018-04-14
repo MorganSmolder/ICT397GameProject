@@ -3,9 +3,8 @@
 #include <string>
 
 /**
-* @class Indetifiers
-*
-* @brief Identifier class for game objects
+* @class Identifiers
+* @brief Class for handling identification of different objects and data types
 *
 * @author Morgan Smolder
 * @version 01
@@ -20,68 +19,87 @@ public:
 	Identifiers(std::string type, std::string name, std::string objectname);
 
 	/**
-	* @brief Setter for id.
+	* @brief Set the id.
 	*
-	* @param id(int) - New id.
-	*
-	* @return NONE.
+	* @param id - The new id.
 	*/
 	void setId(int id);
 
 	/**
-	* @brief Setter for type.
+	* @brief Set the type.
 	*
-	* @param type(string) - THe type of game object.
-	*
-	* @return NONE.
+	* @param type - The new type.
 	*/
 	void setType(std::string type);
 
 	/**
-	* @brief Setter for name of identifier.
+	* @brief Set the name.
 	*
-	* @param name(string) - The new name of the identigier.
-	*
-	* @return NONE.
+	* @param name - The new name.
 	*/
 	void setName(std::string name);
 
 	/**
-	* @brief Setter for the object name.
+	* @brief Set the object name.
 	*
-	* @param objectname(string) - The new object name.
-	*
-	* @return NONE.
+	* @param objectname - The new object name.
 	*/
 	void setObjectname(std::string objectname);
 
-	int getId() const; /// Game object id.
-	std::string getType() const; /// Game object type.
-	std::string getName() const; /// Identifier name.
-	std::string getObjectname() const; /// Game object name.
+	/**
+	* @brief Get the id.
+	*
+	* @return int - The id.
+	*/
+	int getId() const;
 
 	/**
-	* @brief Overload function for the < operator with another Identifier.
+	* @brief Get the type.
 	*
-	* @oaram rhs(Identifier &) - The identifier object being compaired.
+	* @return string - The type.
+	*/
+	std::string getType() const;
+
+	/**
+	* @brief Get the name.
 	*
-	* @return bool - Result of the compairson.
+	* @return string - The name.
+	*/
+	std::string getName() const;
+
+	/**
+	* @brief Get the object name.
+	*
+	* @return string - The object name.
+	*/
+	std::string getObjectname() const;
+
+	/**
+	* @brief Overload function for the < operator.
+	*
+	* @param rhs - The identifier for comparison.
+	*
+	* @return bool - Result of the comparison.
 	*/
 	bool operator < (const Identifiers & rhs) const;
 
 	/**
-	* @brief Overload function for the == operator with another identifier.
+	* @brief Overload function for the == operator.
 	*
-	* @param rhs(Identifiers &) - The identifier being compaired.
+	* @param rhs - The identifier for comparison.
 	*
 	* @return bool - Result of the comparison.
 	*/
 	bool operator == (const Identifiers & rhs) const;
 
 private:
-	int id; /// identifier id.
-	std::string type; /// Identifier type.
-	std::string name; /// Identifier name.
-	std::string objectname; /// Objects name.
+	/// The id.
+	int id;
+	/// The type of object.
+	std::string type;
+	/// The name of the identifier.
+	std::string name;
+	/// The name of the object.
+	std::string objectname;
 };
 

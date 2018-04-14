@@ -5,28 +5,20 @@
 #include "RenderModuleStubb.h"
 #include "Singleton.h"
 #include "Model.h"
-//#include "vec2.h"
-#include "Maths.h"
+#include "vec2.h"
 #include "TextureManager.h"
 
 /**
 * @class ImportModel
+* @brief Class for importing models from assimp
 *
-* @brief Imports models.
-*
-* @author Jarad McKay
+* @author Jarad Mckay
 * @version 01
-* @date 10/03/2018
+* @date 02/04/2018
 */
 class ImportModel : public Model
 {
 public:
-
-	/**
-	* @brief Create a model import object.
-	*
-	* @return ImportModel* - A pointer to the model import object.
-	*/
 	ImportModel* create() const;
 
 	ImportModel();
@@ -34,112 +26,100 @@ public:
 	~ImportModel();
 
 	/**
-	* @brief Load model
+	* @brief Load the model from file.
 	*
-	* @param filename(string) - The file name.
+	* @param filename - The file name.
 	*
-	* @return bool - If the file was loaded.
+	* @return bool - If the model loaded.
 	*/
 	bool loadModel(std::string filename);
 
 	/**
 	* @brief Set the scale vector.
 	*
-	* @param toset(vec3 &) - The new vector.
-	*
-	* @return NONE.
+	* @param toset - The scale vector.
 	*/
 	void setScale(vec3 & toset);
 
-	/*
-	* @brief The update function.
-	*
-	* @return NONE.
+	/**
+	* @brief Update function.
 	*/
 	void update();
 
-	/*
-	* @brief The render function.
+	/**
+	* @brief rendering function.
 	*
-	* @param transmat(vec3 &) - The position of the model.
-	*
-	* @return NONE.
+	* @param transmat - The translation matrix.
 	*/
 	void render(const vec3 & transmat);
 
 	/**
 	* @brief Get the vertices of the model.
 	*
-	* @return vector<vec3> & - A vector of positions.
+	* @return vector<ve3> - The verticies of the model.
 	*/
 	std::vector<vec3>& getVerticies();
 
 private:
 	/**
-	* @brief Setting the max and min values.
-	*
-	* @return NONE.
+	* @brief Set the max and min values.
 	*/
 	void setMinsAndMaxs();
 
 	/**
-	* @brief Return a random string.
+	* @brief Create a random string.
 	*
-	* @param len(unsigned) - The length required.
+	* @param len - The length of the string.
 	*
 	* @return string - The random string.
 	*/
 	std::string RandomString(unsigned len);
 
-	std::vector<vec3> Vertices; /// Position vector for vertices.
-	std::vector<vec2> texCoords; /// Texture coord vector.
-	std::vector<vec3> Normals; /// Normals vector.
-	std::vector<unsigned> vertIndex; /// Index vector.
-	std::string texture; /// Texture.
-	const aiScene *model; /// Mesh object.
+	/// Vector for the verticies.
+	std::vector<vec3> Vertices;
+	/// Vector for the texture coords.
+	std::vector<vec2> texCoords;
+	/// Vector for the normals.
+	std::vector<vec3> Normals;
+	/// Vector for the indexies
+	std::vector<unsigned> vertIndex;
+	/// The texture data.
+	std::string texture;
+	/// The model data.
+	const aiScene *model;
 
-	/*
-	* @brief Setter for vertices.
+	/**
+	* @brief Set the vertices.
 	*
-	* @param mesh (aiMesh *) - The mesh.
-	* 
-	* @return NONE.
+	* @param mesh - The Mesh.
 	*/
 	void setVertices(aiMesh *mesh);
 
-	/*
-	* @brief Setter for texture coords.
+	/**
+	* @brief Set the texture coords.
 	*
-	* @param mesh (aiMesh *) - The mesh.
-	*
-	* @return NONE.
+	* @param mesh - The Mesh.
 	*/
 	void setTexCoords(aiMesh *mesh);
 
-	/*
-	* @brief Setter for normals.
+	/**
+	* @brief Set the normals.
 	*
-	* @param mesh (aiMesh *) - The mesh.
-	*
-	* @return NONE.
+	* @param mesh - The Mesh.
 	*/
 	void setNormals(aiMesh *mesh);
 
-	/*
-	* @brief Setter for indicies.
+	/**
+	* @brief Set the indexies.
 	*
-	* @param mesh (aiMesh *) - The mesh.
-	*
-	* @return NONE.
+	* @param mesh - The Mesh.
 	*/
 	void setIndexes(aiMesh *mesh);
 
-	/*
-	* @brief Get the center point.
+	/**
+	* @brief Set the center of the point.
 	*
-	* @param point(vec3 &) - The point you want to center on.
-	*
-	* @return NONE.
+	* @param point - The position.
 	*/
 	void centerOnPoint(vec3 &point);
 };

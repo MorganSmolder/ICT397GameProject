@@ -4,7 +4,7 @@
 
 /**
 * @class StaticEntity
-* @brief A static entity for data.
+* @brief Class for creating a static entity and updating, rendering and getting the offset vector for it
 *
 * @author Morgan Smolder
 * @version 01
@@ -20,16 +20,12 @@ public:
 	/**
 	* @brief The update function.
 	*
-	* @param time(float) - The system time.
-	*
-	* @return NONE.
+	* @param time - The system clock.
 	*/
 	void update(float time);
 
 	/**
-	* @brief The renderer function.
-	*
-	* @return NONE.
+	* @brief The render function.
 	*/
 	void render();
 

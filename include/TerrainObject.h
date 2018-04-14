@@ -3,7 +3,7 @@
 
 /**
 * @class TerrainObject
-* @brief The terrain object data.
+* @brief Class for creating the terrain object
 *
 * @author Morgan Smolder
 * @version 01
@@ -19,23 +19,26 @@ public:
 	/**
 	* @brief The update function.
 	*
-	* @param time(float) - The system time.
-	*
-	* @return NONE.
+	* @param time - The system clock.
 	*/
 	void update(float time);
 
 	/**
 	* @brief The render function.
-	*
-	* @return NONE.
 	*/
 	void render();
 
 	/**
-	* @brief Get the center offset vector.
+	* @brief Set the model data.
+	* 
+	* @param M - The model data.
+	*/
+	void setModel(Model* M);
+
+	/**
+	* @brief Get the off set vector.
 	*
-	* @return vec3 - The center offset.
+	* @return vec3 - The vector off set data.
 	*/
 	vec3 getCenterOffset();
 };

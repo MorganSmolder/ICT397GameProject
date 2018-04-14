@@ -9,8 +9,7 @@
 
 /**
 * @class MessagingBus
-*
-* @brief System for sending the messages.
+* @brief Class for Sending and receiving messages
 *
 * @author Morgan Smolder
 * @version 01
@@ -20,63 +19,61 @@ class MessagingBus
 {
 public:
 	/**
-	* @brief send the message.
+	* @brief Send the message.
 	*
-	* @param topos(const Message &) - The message to be sent.
-	* @param recipient(const Identifiers &) - Where the message is being sent.
-	* 
-	* @return NONE.
+	* @param topost - The message.
+	* @param recipient - Where the message is going.
 	*/
 	void postMessage(const Message & topost, const Identifiers & recipient);
 
 	/**
-	* @brief Get the message.
+	* @brief Get the message that was sent.
 	*
-	* @param id(Identifers &) - Where the message is from.
+	* @param id - The identifier.
 	*
-	* @return Message - The message that was received.
+	* @return Message - The message
 	*/
 	Message getMessage(const Identifiers & id);
 
 	/**
-	* @brief If the message was received.
+	* @brief If the id has a message.
 	*
-	* @param id(Identifiers &) - Where the message is from.
+	* @param id - The identifier.
 	*
-	* @return bool - If it was received.
+	* @return bool - If the id has a message.
 	*/
 	bool hasMessage(const Identifiers & id);
 
 	/**
-	* @brief Post the message.
+	* @brief Send a imessage
 	*
-	* @param topost(Message &) - The message that is to be posted.
-	* @param recipientid(unsigned) - The reciepient id.
-	*
-	* @return NONE.
+	* @param topost - The message.
+	* @param recipientid - The id of the recipient.
 	*/
 	void postIMessage(const Message & topost, unsigned recipientid);
 
 	/**
-	* @brief Get the id.
+	* @brief Get the imessage
 	*
-	* @param recipientid(unsigned) - The recipient id.
+	* @param recipientid - The recipient id.
 	*
 	* @return Message - The message.
 	*/
 	Message getIMessage(unsigned recipientid);
 
 	/**
-	* @brief Has the id.
+	* @brief Get if the id has a message.
 	*
-	* @param recipientid(unsigned) - The recipient id.
+	* @param recipientid - The recipient id.
 	*
-	* @return Bool - If the message has been recieived.
+	* @return bool - If the id has a message.
 	*/
 	bool hasIMessage(unsigned recipientid);
 
 private:
-	std::map<Identifiers, std::queue<Message> > messages; /// The messages
-	std::map<unsigned, std::queue<Message> > imessages; /// The messages recieived.
+	/// A map of the messages.
+	std::map<Identifiers, std::queue<Message> > messages;
+	/// A map of the imessages.
+	std::map<unsigned, std::queue<Message> > imessages;
 };
 

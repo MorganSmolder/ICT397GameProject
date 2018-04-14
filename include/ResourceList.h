@@ -5,8 +5,7 @@
 
 /**
 * @class ResourceList
-*
-* @brief The resource list.
+* @brief Class for handling loaded resources
 *
 * @author Morgan Smolder
 * @version 01
@@ -20,34 +19,35 @@ class ResourceList
 		ResourceList(std::string k1, std::string v1, std::string k2, std::string v2);
 
 		/**
-		* @brief If the key has resources.
+		* @brief If the object has data.
 		*
-		* @param key(string) - The data being checked.
+		* @param key - The key for the resource list.
 		*
-		* @return bool - If the key has resources.
+		* @return bool - If there is data.
 		*/
 		bool hasResource(std::string key);
 
 		/**
-		* @brief Get the resources.
+		* @brief Get the resource from the list.
 		*
-		* @param key(string) - The data being checked.
+		* @param key - The key for the resource list.
 		*
-		* @return string - The resources.
+		* @return string - The resource.
 		*/
 		std::string getResource(std::string key);
 
 		/**
-		* @brief Add the resources.
+		* @brief Add a resource to the list.
 		*
-		* @param k1(string) - The first resource.
-		* @param k2(string) - The second resource.
+		* @param k1 - The first key for the resource list.
+		* @param k2 - The second key for the resource list.
 		*
-		* @return bool - If the resource was added successfully.
+		* @return bool - If the resource was added.
 		*/
 		bool addResource(std::string k1, std::string v1);
 
 	private:
-		std::map<std::string, std::string> resources; /// The resources
+		/// The resource maps.
+		std::map<std::string, std::string> resources;
 };
 

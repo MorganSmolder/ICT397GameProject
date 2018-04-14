@@ -19,8 +19,7 @@ extern "C" {
 
 /**
 * @class LUAScriptManager
-*
-* @brief Lua script manager
+* @brief Class for handling lua scripts
 *
 * @author Morgan Smolder
 * @version 01
@@ -35,8 +34,8 @@ public:
 	/**
 	* @brief Load the script.
 	*
-	* @param file(string) - The file path.
-	* @param name(string) - The file name.
+	* @param file - The file name.
+	* @param name - The script name.
 	*
 	* @return bool - If the script loaded.
 	*/
@@ -45,58 +44,54 @@ public:
 	/**
 	* @brief Execute the script.
 	*
-	* @param name(string) - The script name.
+	* @param name - The script name.
 	*
-	* @return bool - If the script ran.
+	* @return bool - If the script executed.
 	*/
 	bool doScript(std::string name);
 
 	/**
-	* @brief Call a script from a file.
+	* @brief Execute a script from a file.
 	*
-	* @param name(string) - Script name.
+	* @param name - The file name.
 	*
-	* @return bool - If the script ran.
+	* @return bool - If the script executed.
 	*/
 	bool doScriptFromFile(std::string name);
 
 	/**
-	* @brief Setup for lua state.
+	* @brief Initalise the lua state.
 	*
-	* @return bool - If the setup was successful.
+	* @return bool - If it initalised.
 	*/
 	bool initLuaState();
 
 	/**
-	* @brief CLose the state.
-	*
-	* @return NONE.
+	* @brief Close the lua state.
 	*/
 	void closeState();
 
 	/**
-	* @brief Get the type of error message.
+	* @brief Get the error message.
 	*
-	* @param LUAERROR - The type of error.
+	* @param LUAERROR - The error message type.
 	*
-	* @return string - The error message.
+	* @return string - The Error message.
 	*/
 	std::string getErrorMSG(LUAERROR);
 
 	/**
-	* @brief Get the state of the script.
+	* @brief Get the lua state.
 	*
-	* @return lua_state* - The pointer to the state type.
+	* @return lua_state* - A pointer to the lua state.
 	*/
 	lua_State* getState();
 
 	/**
-	* @brief Set the global.
+	* @brief Set the global state.
 	*
-	* @param ng(const T & ng) - The new global.
-	* @param name(string) - The name of the script.
-	*
-	* @return NONE.
+	* @param ng - The new global.
+	* @param name - The name of the global.
 	*/
 	template <class T>
 	void setGlobal(const T & ng, std::string name) {
@@ -104,21 +99,19 @@ public:
 	}
 
 	/**
-	* @brief Overload for the call function.
+	* @brief Call the function for the script.
 	*
-	* @param func(string) - The name of the function.
-	*
-	* @return NONE.
+	* @param func - The function
 	*/
 	inline void callFunction(std::string func) {
 		luabind::call_function<void>(lstate, func.c_str());
 	};
 
 	/**
-	* @brief Overload for the call function.
+	* @brief Call the function
 	*
-	* @param func(string) - The name of the function.
-	* @param arg(T &) - The arguement to be passed as a parameter.
+	* @param func - The function.
+	* @param arg - The first arguement.
 	*/
 	template <class T>
 	inline void callFunction(std::string func, T & arg) {
@@ -133,13 +126,11 @@ public:
 	};
 
 	/**
-	* @brief Overload for the call function.
+	* @brief Call the function
 	*
-	* @param func(string) - The name of the function.
-	* @param arg(T &) - The first arguement.
-	* @param arg2(U &) - The second arguement
-	*
-	* @return NONE.
+	* @param func - The function.
+	* @param arg - The first arguement.
+	* @param arg2 - The second arguement.
 	*/
 	template <class T, class U>
 	inline void callFunction(std::string func, T & arg, U & arg2) {
@@ -154,14 +145,12 @@ public:
 	};
 
 	/**
-	* @brief Overload for the call function.
+	* @brief Call the function
 	*
-	* @param func(string) - The name of the function.
-	* @param arg(T &) - The first arguement.
-	* @param arg2(U &) - The second arguement
-	* @param arg3(V &) - The third arguement.
-	*
-	* @return NONE.
+	* @param func - The function.
+	* @param arg - The first arguement.
+	* @param arg2 - The second arguement.
+	* @param arg3 - The third arguement.
 	*/
 	template <class T, class U, class V>
 	inline void callFunction(std::string func, T & arg, U & arg2, V & arg3) {
@@ -176,15 +165,13 @@ public:
 	};
 
 	/**
-	* @brief Overload for the call function.
+	* @brief Call the function
 	*
-	* @param func(string) - The name of the function.
-	* @param arg(T &) - The first arguement.
-	* @param arg2(U &) - The second arguement
-	* @param arg3(V &) - The third arguement.
-	* @param arg4(W &) - The fourth arguement.
-	*
-	* @return NONE.
+	* @param func - The function.
+	* @param arg - The first arguement.
+	* @param arg2 - The second arguement.
+	* @param arg3 - The third arguement.
+	* @param arg4 - The fourth arguement.
 	*/
 	template <class T, class U, class V, class W>
 	inline void callFunction(std::string func, T & arg, U & arg2, V & arg3, W & arg4) {
@@ -199,7 +186,9 @@ public:
 	};
 
 private:
-	lua_State* lstate; /// Pointer to the lua state.
-	std::map< std::string, std::string> scripts; /// A map of the scripts.
+	/// The lua state.
+	lua_State* lstate;
+	/// A map for scripts.
+	std::map< std::string, std::string> scripts;
 };
 

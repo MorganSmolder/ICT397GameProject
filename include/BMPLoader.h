@@ -4,7 +4,7 @@
 
 /**
 * @class BMPLoader
-* @brief Class for loading in .BMP files.
+* @brief Class for loading and saving BMP data.
 *
 * @author Morgan Smolder
 * @version 01
@@ -15,60 +15,64 @@ class BMPLoader : public ImageLoader
 public:
 	BMPLoader();
 	~BMPLoader();
+
 	/**
-	* @brief Load file.
+	* @brief Load in a BMP file.
 	*
-	* @param filename(string) - Name of the file.
+	* @param filename - The filename.
 	*
-	* @return bool - If the file was loaded.
+	* @return bool - If file was loaded.
 	*/
 	bool loadFile(std::string filename);
 
 	/**
-	* @brief Get data from file.
+	* @brief Get the data from the BMP file.
 	*
-	* @return unsigned char* - Data from the file.
+	* @return unsigned char* - Pointer to the data.
 	*/
 	unsigned char* getData() const;
 
 	/**
-	* @brief Get bits in file.
+	* @brief Get the number of bits in the bmp file.
 	*
 	* @return unsigned - The number of bits in the file.
 	*/
 	unsigned getBits() const;
 
-	/** 
-	* @brief Get width.
+	/**
+	* @brief Get the width of the file.
 	*
-	* @return unsigned - The width of the file.
+	* @return unsigned - The width.
 	*/
 	unsigned getWidth() const;
 
 	/**
-	* @brief Get height.
+	* @brief Get the height of the file.
 	*
-	* @return unsigned - The height of the file.
+	* @return unsigned - The height.
 	*/
 	unsigned getHeight() const;
 
 	/**
-	* @brief Clear the loaded file.
-	*
-	* @return NONE.
+	* @brief Clear the data.
 	*/
 	void clear(); 
 
 	/**
-	* @brief Get the size of the data.
+	* @brief Get the data size of the file.
 	*
-	* @return unsigned - The size of the data.
+	* @return unsigned - The data size of the file.
 	*/
 	unsigned getDataSize();
 private:
-	unsigned char * data; /// The data of the file.
-	unsigned width; /// Width of the file.
-	unsigned height; /// Height of the file.
-	unsigned bits; /// Bits in the file.
-	unsigned size; /// Size of the file.
+	/// The data of the BMP.
+	unsigned char * data; 
+	/// The width of the BMP.
+	unsigned width;
+	/// The height of the BMP.
+	unsigned height;
+	/// The amount of bits in the BMP.
+	unsigned bits;
+	/// The size of the BMP.
+	unsigned size;
 };

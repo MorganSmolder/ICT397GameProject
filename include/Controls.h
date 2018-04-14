@@ -8,8 +8,7 @@
 
 /**
 * @class Controls
-*
-* @brief Controls for game resources.
+* @brief Class for handling user input
 *
 * @author Morgan Smolder
 * @version 01
@@ -22,105 +21,98 @@ class Controls
 		~Controls();
 
 		/**
-		* @brief Add a empty control group.
+		* @brief Add a new control group.
 		*
-		* @param controlgroup(unsigned) - New empty control group.
-		*
-		* @return NONE.
+		* @param controlgroup - The new control group.
 		*/
 		void addControlGroup(unsigned controlgroup);
 
 		/**
-		* @brief Add a control group.
+		* @brief Add a initalised control group.
 		*
-		* @param controlgroup(unsigned) - A new control group.
-		* @param data(ResourceList &) - The data for the new control group.
-		*
-		* @return NONE.
+		* @param controlgroup - The new control group.
+		* @param data - The data for the control group.
 		*/
 		void addInitalisedControlGroup(unsigned controlgroup, ResourceList & data);
 
 		/**
-		* @brief Bind a control group to data.
+		* @brief Bind the controls to the resources.
 		*
-		* @param group(unsigned) - The control group.
-		* @param toset(ResourceList &) - The resources to be bound.
+		* @param group - The group number.
+		* @para toset - The resources being bound.
 		*
-		* @return bool - If the bind occured.
+		* @return bool - If resources were bound.
 		*/
 		bool bindControls(unsigned group, ResourceList & toset);
 	
 		/**
-		* @brief Change the control group of some data.
+		* @brief Change the controls of one group and update the renderer.
 		*
-		* @param groupno(unsigned) - New control group.
-		* @param render(RenderModuleStubb*) - The current rendering object.
-		* @param tochange(Controls*) - The control group getting changed.
+		* @param groupno - The control group number.
+		* @param render - The renderer.
+		* @param tochange - The new controls.
 		*
-		* @param bool - If the change occured.
+		* @return bool - If the controls were changed.
 		*/
 		static bool changeControlGroup(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
 
 	private:
-		std::map<int, ResourceList> controls; /// A map containing the ID and resources for each control group.
-		unsigned curgroup; /// The current group.
+		/// Map of resource lists with a ID.
+		std::map<int, ResourceList> controls;
 
-		static double prevx; /// Previous x value.
-		static double prevy; /// Previous y value.
+		/// Current group.
+		unsigned curgroup;
+
+		/// Previous x variable.
+		static double prevx;
+		/// Previous y variable.
+		static double prevy;
 
 		/**
-		* @brief Bind controls to control group.
+		* @brief Bind the controls to a control object.
 		*
-		* @param groupno(unsigned) - The control group.
-		* @param render(RenderModuleStubb*) - The current render object.
-		* @param tochange(Controls*) - The control object to be bound.
-		*
-		* @ return NONE.
+		* @param groupno - The object id.
+		* @param render - The renderer.
+		* @param tochange - The controls being changed.
 		*/
 		static void bindControls(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
 
 		/**
-		* @brief Unbind controls of a control group.
+		* @brief Unbind the controls of a controller.
 		*
-		* @param groupno(unsigned) - The control group.
-		* @param render(RenderModuleStubb*) - The current render object.
-		* @param tochange(Controls*) - The control object to be unbound.
-		*
-		* @ return NONE.
+		* @param groupno - The id of the controller being unbound.
+		* @param render - The renderer.
+		* @param tochange - The controller being changed.
 		*/
 		static void unbindControls(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
 
 		/**
-		* @brief Keyboard input function.
+		* @brief Keyboard key callback function
 		*
-		* @param window(GLFWwindow*) - The window being called.
-		* @param key(int) - The key being hit.
-		* @param scancode(int) - The scan code.
-		* @param action(int) - What should happen.
-		* @param mods(int) - Any special actions.
-		*
-		* @ return NONE.
+		* @param window - The window being rendered.
+		* @param key - The key being called.
+		* @param scanecode - The scan code of the key.
+		* @param action - ID for the action to be taken.
+		* @param mods - ID for any special actions.
 		*/
 		static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
 
 		/**
-		* @brief Mouse input function.
+		* @brief Mouse cursor callback funtion.
 		*
-		* @param window(GLFWwindow*) - The window being called.
-		* @param x(double) - The x coord for the mouse.
-		* @param y(double) - The y coord for the mouse.
-		*
-		* @return NONE.
+		* @param window - The window being rendered.
+		* @param x - The x coord.
+		* @param y - The y coord.
 		*/
 		static void mouseCallback(GLFWwindow* window, double x, double y);
 
 		/**
-		* @brief Mouse button input.
-		* 
-		* @param window(GLFWwindow*) - The window being called.
-		* @param button(int) - What mouse button is being hit.
-		* @param action(int) - The action that should happen.
-		* @param mods(int) - Any special actions that should occur.
+		* @brief The mouse button callback function.
+		*
+		* @param window - The window being rendered.
+		* @param button - The button being pressed.
+		* @param action - ID for the action to be taken.
+		* @param mods - ID for any special action to be taken.
 		*/
 		static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 };

@@ -4,7 +4,7 @@
 
 /**
 * @class Scene
-* @brief The scene object.
+* @brief Class for creating the scene
 *
 * @author Morgan Smolder
 * @version 01
@@ -17,36 +17,32 @@ public:
 	~Scene();
 
 	/**
-	* @brief Add another game object to the scene.
+	* @brief Add a object to the scene.
 	*
-	* @param id(Identifiers) - The id of the object being added.
-	* @param pos(vec3) - The position of the object.
-	* @param list(ResourceList) - The resources for the game object.
+	* @param id - The identifier.
+	* @param pos - The position vector.
+	* @param list - The resource list.
 	*
 	* @return bool - If the object was added.
 	*/
 	bool addObject(Identifiers & id, vec3 pos, ResourceList & list);
 
 	/**
-	* @brief Update function
+	* @brief Update function.
 	*
-	* @param time(float) - System time.
-	*
-	* @return NONE.
+	* @param time - The system clock.
 	*/
 	void update(float time);
 
 	/**
-	* @brief Render function.
-	*
-	* @return NONE.
+	* @brief The render method.
 	*/
 	void render();
 
 	/**
 	* @brief Get the game object id.
 	*
-	* @param name(string) - The game object name.
+	* @param name - The game object name.
 	*
 	* @return int - The game object id.
 	*/
@@ -55,23 +51,36 @@ public:
 	/**
 	* @brief Get the game object.
 	*
-	* @param name(string) - The game object name.
+	* @param name - The object name.
 	*
-	* @return GameObject* - The game object.
+	* @return GameObject* - The game object pointer.
 	*/
 	GameObject* GetGameObject(std::string name);
 
 	/**
 	* @brief Set the height map.
 	*
-	* @param hmObj(GameObject*) - The height map game object.
+	* @param hmObj* - The heightmap object.
 	*
-	* @return bool - If the heightmap was changed.
+	* @return bool - If the heightmap was set.
 	*/
 	bool setHeightMap(GameObject* hmObj);
 
+	/**
+	* @brief Attach the terrain to the scene object.
+	*
+	* @param id - The identifier.
+	* @param pos - The position of the heightmap.
+	* @param list - The resource list.
+	*
+	* @return bool - If the terrain was attached.
+	*/
+	bool attachTerrain(Identifiers & id, vec3 pos, ResourceList & list);
+
 private:
-	GameObjectHandler objects; /// The object handeler.
-	CollisionEngine collision; /// The collision object.
+	/// The game object handler.
+	GameObjectHandler objects;
+	/// The collision object.
+	CollisionEngine collision;
 };
 

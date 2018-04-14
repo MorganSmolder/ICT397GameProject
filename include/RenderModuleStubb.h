@@ -1,19 +1,19 @@
 #pragma once
 
+#include "Windows.h"
 #define GLFW_INCLUDE_GLU 
 #include "gl/glew.h"
 #include "glfw/glfw3.h"
 #include <vector>
-//#include "vec3.h"
-//#include "vec2.h"
-#include "Maths.h"
+#include "vec3.h"
+#include "vec2.h"
 #include "MessagingBus.h"
 #include "Singleton.h"
 #include "Identifiers.h"
 
 /**
-* @struct point
-* @brief Data type for the point.
+* @struct
+* @brief Struct for x y coord data
 *
 * @author Morgan Smolder
 * @version 01
@@ -26,8 +26,7 @@ struct point{
 
 /**
 * @class RenderModuleStubb
-*
-* @brief The render modulde stubb.
+* @brief Class rendering the game.
 *
 * @author Morgan Smolder
 * @version 01
@@ -40,189 +39,194 @@ public:
 	RenderModuleStubb();
 
 	/**
-	* @brief The initilisation function.
+	* @brief Initalise the render function.
 	*
-	* @param argc(int) - The arguement.
-	* @param argv(string**) - The string arguement.
-	*
-	* @return NONE.
+	* @param argc 
+	* @param argv
 	*/
 	void init(int argc, char** argv);
 
 	/**
-	* @brief Draw the quad.
+	* @brief Draw a quad.
 	*
-	* @param tl(point) - Top left data.
-	* @param br(point) - Bottom right data.
-	* @param y(float) - The y coord.
-	*
-	* @return NONE.
+	* @param t1 - The top point.
+	* @param br - The bottom point
+	* @param y - The y coord.
 	*/
 	void DrawQuad(point tl, point br, float y);
 
 	/**
+	* @brief Draw a quad.
+	*
+	* @param t1 - The top vector.
+	* @param widthx - The x width.
+	* @param widthz - The z width.
+	* @param height - The height.
+	* @param trans - The translation matrix.
+	*/
+	void DrawQuad(vec3 tl, float widthx, float widthz, float height, vec3 trans);
+
+	/**
 	* @brief Store the texture.
 	*
-	* @param texID(int &) - The texture id.
-	* @param pixelsize(unsigned) - The pixel size.
-	* @param width(unsigned) - The width.
-	* @param height(unsigned) - The height.
-	* @param data(unsigned char*) - The data.
-	*
-	* @return NONE.
+	* @param texID - The texture id.
+	* @param pixelsize - The texture size.
+	* @param width - The width of the texture.
+	* @param height - The height of the texture.
+	* @param data - The texture data.
 	*/
 	void storeTexture(const int & texID, unsigned pixelsize, unsigned width, unsigned height, const unsigned char* data);
 
 	/**
 	* @brief Delete the texture.
 	*
-	* @param texID(int) - The texture id.
-	*
-	* @return NONE.
+	* @param texID - The texture id.
 	*/
 	void deleteTexture(const int & texID);
 
 	/**
-	* @brief Bind the texture.
+	* @brief Bind the texture to the renderer.
 	*
-	* @param texID(int) - The texture being bound.
-	*
-	* @return NONE.
+	* @param texID - The texture id.
 	*/
 	void bindTexture(const int & texID);
 
 	/**
-	* @brief Bind multi-textures.
+	* @brief Bind the multi-texture.
 	*
-	* @param texIDcolor(int) - The texture colour id.
-	* @param texIDdetail(int) - The detail map texture.
-	*
-	* @return NONE.
+	* @param texIDcolor - The texture colour.
+	* @param texIDdetail - The texture detail id.
 	*/
 	void bindMultiTexture(const int & texIDcolor, const int & texIDdetail);
 
 	/**
-	* @brief Render tri strip array.
+	* @brief Render a array triangle strip.
 	*
-	* @param indicies(vector<unsigned>) - The indicies.
-	* @param vertices(vector<vec3>) - The verticies.
-	* @param trans(vec3) - The translation.
-	*
-	* @return NONE.
+	* @param indicies - A vector of indicies.
+	* @param vecticies - A vector of verticies.
+	* @para trans - The transformatiom matrix.
 	*/
 	void renderArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, const vec3 & trans);
 
 	/**
-	* @brief Render triangle array.
-	* 
-	* @param indicies(vector<unsigned>) - The indicies.
-	* @param vertices(vector<vec3>) - The vertices.
-	* @param texcoord(vector<vec2>) - The texture coords.
-	* @param trans(vec3) - The translation vector.
+	* @brief Render array of triangles.
 	*
-	* @return NONE.
+	* @param indicies - A vector of indicies.
+	* @param vertices - A vector of vertices.
+	* @param texcoords - The texture coords.
+	* @param trans - The transformation matrix.
 	*/
-	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> texcoords, const vec3 & trans);
+	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> & texcoords, const vec3 & trans);
 
 	/**
-	* @brief Render the texured triangle array strip.
+	* @brief Render the textured array triangle strip.
 	*
-	* @param indicies(vector<unsigned>) - The indicies
-	* @param vertices(vector<vec3>) - The vertices.
-	* @param texcoord(vector<vec2>) - The texture coords.
-	*
-	* @return NONE.
+	* @param indicies - A vector of indicies.
+	* @param vertices - A vector of vertices.
+	* @param texcoords - A vector of texture coords.
 	*/
 	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
 
 	/**
-	* @brief Render the multi-textured triangle array strips.
+	* @brief Render a multi-Textured array triangle strip.
 	*
-	* @param indicies(vector<unsigned>) - The indicies
-	* @param vertices(vector<vec3>) - The vertices.
-	* @param texcoord(vector<vec2>) - The texture coords.
-	* @param trans(vec3) - The translation vector.
-	*
-	* @return NONE.
+	* @param indicies - A vector of indicies.
+	* @param vertices - A vector of vertices.
+	* @param texcoords - A vector of texture coords.
+	* @param trans - A transformation matrix.
 	*/
 	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, const vec3 & trans);
 
 	/**
-	* @brief Render the multi-textured triangle array strips.
+	* @brief Render multi-texture array trianlge strip.
 	*
-	* @param indicies(vector<unsigned>) - The indicies
-	* @param vertices(vector<vec3>) - The vertices.
-	* @param texcoord(vector<vec2>) - The texture coords.
-	* @param lights(vector<float>) - The lights.
-	* @param trans(vec3) - The translation vector.
-	*
-	* @return NONE.
+	* @param indicies - A vector of indicies.
+	* @param vertices - A vector of vertices.
+	* @param texcoords - A vector of texture coords.
+	* @param lights - A vector of lights.
+	* @param trans - A transformation matrix.
 	*/
 	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, std::vector<float> lights, const vec3 & trans);
 
 	/**
-	* @brief Look at position.
-	* 
-	* @param r1(vec3)
-	* @param r2(vec3)
-	* @param r3(vec3)
+	* @brief Render a array of triangles.
 	*
-	* @return NONE.
+	* @param indicies - A vector of indicies.
+	* @param verticies - A vector of verticies.
+	* @param normals - A vector of normals.
+	* @param texcoords - A vector of texcoords.
+	* @param trans - A transformation matrix.
+	*/
+	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec3> normals, std::vector<vec2> & texcoords, const vec3 & trans);
+
+	/**
+	* @brief Call the look at function.
+	*
+	* @param r1 - The first vector.
+	* @param r2 - The second vector.
+	* @param r3 - The third vector.
 	*/
 	void callLookAt(vec3 r1, vec3 r2, vec3 r3);
 
 	/**
-	* @brief Disable the multi-texture.
-	*
-	* @return NONE.
+	* @brief Disbale the multi-texture.
 	*/
 	void disableMultiTexture();
 
 	/**
+	* @brief Render the facing camera.
+	*/
+	void RenderFacingCamera();
+
+	/**
+	* @brief Stop rendering the facing camera.
+	*/
+	void StopRenderFacingCamera();
+
+	/**
 	* @brief Start the rendering cycle.
-	*
-	* @return NONE.
 	*/
 	void startRenderCycle();
 
 	/**
-	* @brief End the rendering cycle.
-	*
-	* @return NONE.
+	* @brief End the render cycle.
 	*/
 	void endRenderCycle();
 
 	/**
-	* @brief A static function to reshape the window.
-	* 
-	* @param window(GLFWwindow*) - The window.
-	* @param width(int) - The new width.
-	* @param height(int) - The new height.
-	* 
-	* @return NONE.
+	* @brief Reshape the window function.
+	*
+	* @param window - The window.
+	* @param widht - The window width.
+	* @param height - The window height.
 	*/
 	static void reshape(GLFWwindow* window, int width, int height);
 
 	/**
-	* @brief Get the time elapsed.
+	* @brief Get the elapsed time.
 	*
-	* @return float - The time elapsed.
+	* @return float - The elapsed time.
 	*/
 	float getTimeElapsed();
 
 	/**
-	* @brief Get the time since the last updated.
+	* @brief Get the time since the last update.
 	*
-	* @return float - The time.
+	* @return float - The time since the last update.
 	*/
 	float getTimeSinceUpdate();
 
 private:
-	GLFWwindow* window; /// The window,
-	vec3 campos; /// The camera position.
-	vec3 camlook; /// Where the camera is looking at,
-	float timeLastUpdate; /// The last time uodate.
-	float timeElapsed = 0.0f; /// The elapsed time.
+	/// The window.
+	GLFWwindow* window;
+	/// The camera position.
+	vec3 campos;
+	/// The camera look at position.
+	vec3 camlook;
+	/// The time since the last update.
+	float timeLastUpdate;
+	/// The time elapsed.
+	float timeElapsed = 0.0f;
 
 };
 

@@ -1,18 +1,17 @@
 #pragma once
 
 #include <string>
-#include "GameObject.h"
 #include "NPC.h"
 #include "camera.h"
 #include "ModelManger.h"
 #include "Singleton.h"
 #include "StaticEntity.h"
 #include "TerrainObject.h"
+#include "MenuObject.h"
 
 /**
-* @class GameObjectFactory
-*
-* @brief Creates game objects.
+* @class GameObjectFactory	
+* @brief Class for handling the creation of game objects.
 *
 * @author Morgan Smolder
 * @version 01
@@ -24,26 +23,27 @@ public:
 	GameObjectFactory();
 
 	/**
-	* @brief Create game object.
+	* @brief Create a game object.
 	*
-	* @param id(Identifiers &) - The identifier of the game object.
-	* @param pos(vec3) - The position of the game object.
-	* @param list(ResourceList &) - The resources for the game object.
-	* 
-	* @return GameObject* - A pointer to the game object created.
+	* @param id - The identifier for the object.
+	* @param pos - The position for the object.
+	* @param list - The resource list for the object.
+	*
+	* @return GameObject* - A pointer to the created game object.
 	*/
 	GameObject* create(Identifiers & id, vec3 pos, ResourceList & list);
 
-	unsigned nextid; /// The next game object ID.
+	/// ID for the next object.
+	unsigned nextid;
 private:
 
 	/**
-	* @brief Set the model for a game object.
+	* @brief Set the model for the object.
 	*
-	* @param GO(GameObject* &) - The game object.
-	* @param model(string) - The model data.
+	* @param GO - A pointer to the game object.
+	* @param model - The model data.
 	*
-	* @return bool - If the model was set in the game object.
+	* @return bool - If the model was set.
 	*/
 	bool setModel(GameObject* & GO, std::string model);
 };

@@ -1,16 +1,14 @@
 #pragma once
 #include <vector>
-//#include <vec3.h>
-#include "Maths.h"
+#include <vec3.h>
 #include <fstream>
 #include <string>
 #include <cstdlib>
 #include "mat4.h"
 
 /**
-* @class MessagingBus
-*
-* @brief System for sending the messages.
+* @class Model
+* @brief Class for creating models
 *
 * @author Morgan Smolder
 * @version 01
@@ -19,103 +17,99 @@
 class Model
 {
 	public:
+
 		/**
-		* @brief Virtual method to create the model.
+		* @brief Virtual method to create a model
 		*
-		* @return Model * - The model.
+		* @return Model * - The model data.
 		*/
 		virtual Model * create() const = 0;
 
 		/**
-		* @brief Virtual method to load the model.
+		* @brief Virtual method to load a model.
 		*
-		* @param filename(string) - The filename.
+		* @param filename - The filename.
 		*
-		* @return bool - If it was loaded.
+		* @return bool - If the model loaded.
 		*/
 		virtual bool loadModel(std::string filename) = 0;
-		
+
 		/**
-		* @brief Virtual method to update.
-		*
-		* @return NONE.
+		* @brief Virtual method to update the model.
 		*/
 		virtual void update() = 0;
 
 		/**
-		* @brief Virtual method to render.
+		* @brief Virtual method to render the model.
 		*
-		* @param transmat(vec3) - The position being rendered.
+		* @param transmat - The translation matrix.
 		*/
 		virtual void render(const vec3 & transmat) = 0;
 
 		/**
-		* @brief Virtual method to center the point.
+		* @brief Virtual method to get the center on the point.
 		*
-		* @param point(vec3) - The point
-		*
-		* return NONE.
+		* @param point - The position to get the center of.
 		*/
 		virtual void centerOnPoint(vec3 & point) = 0;
 
 		/**
-		* @brief Virtual method to get the vertices.
+		* @brief Virtual method to get the verticies.
 		*
-		* @return vector<vec3> - The vectices.
+		* @return vector<vec3> - The verticies.
 		*/
 		virtual std::vector<vec3>& getVerticies() = 0;
 
 		/**
-		* @brief Virtual method to set the scale vector.
+		* @brief Virtual method to get the scale.
 		*
-		* @param toset(vec3) - The new scale vector.
-		*
-		* @return NONE.
+		* @param toset - The vector to be set.
 		*/
 		virtual void setScale(vec3 & toset) = 0;
 
 		/**
-		* @brief Get min x.
+		* @brief Get the min x value.
 		*
-		* @return float - The min x.
+		* @return float - The min x value.
 		*/
 		float getMinX() { return minx; };
 
 		/**
-		* @brief Get min z.
+		* @brief Get the min z value.
 		*
-		* @return float - The min z.
+		* @return float - The min z value.
 		*/
 		 float getMinZ() { return minz; };
 
 		 /**
-		 * @brief Get min y.
+		 * @brief Get the min y value.
 		 *
-		 * @return float - The min y.
+		 * @return float - The min y value.
 		 */
 		 float getMinY() { return miny; };
 
 		 /**
-		 * @brief Get max x.
+		 * @brief Get the max x value.
 		 *
-		 * @return float - The max x.
+		 * @return float - The max x value.
 		 */
 		 float getMaxX() { return maxx; };
 
 		 /**
-		 * @brief Get max z.
+		 * @brief Get the max z value.
 		 *
-		 * @return float - The max z.
+		 * @return float - The maz z value.
 		 */
 		 float getMaxZ() { return maxz; };
 
 		 /**
-		 * @brief Get max y.
+		 * @brief Get the max y value.
 		 *
-		 * @return float - The max y.
+		 * @return float - The max y value.
 		 */
 		 float getMaxY() { return maxy; };
 	protected:
-		float minx, maxx, minz, maxz, miny, maxy; /// Min and max values.
+		/// The min and max x and z values.
+		float minx, maxx, minz, maxz, miny, maxy;
 };
 

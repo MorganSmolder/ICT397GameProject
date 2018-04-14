@@ -1,8 +1,7 @@
 #pragma once
 
 #include "SceneManager.h"
-//#include "vec3.h"
-#include "Maths.h"
+#include "vec3.h"
 #include "LUAScriptManager.h"
 #include "NPC.h"
 #include "Identifiers.h"
@@ -13,6 +12,7 @@
 #include "SimpleString.h"
 #include "StaticEntity.h"
 #include "TerrainObject.h"
+#include "MenuObject.h"
 
 extern "C" {
 	#include "lua/lua.h"
@@ -24,8 +24,7 @@ extern "C" {
 
 /**
 * @class CtoLUABinder
-*
-* @brief Binds lua to c.
+* @brief Class for binding lua script.
 *
 * @author Morgan Smolder
 * @version 01
@@ -35,11 +34,9 @@ class CtoLUABinder
 {
 public:
 	/**
-	* @brief Bind lua.
+	* @brief Bind the lua script to the classes.
 	*
-	* @param lstate(lua_State*) - The state that lua is in.
-	*
-	* @return NONE.
+	* @param lstate - The state of the lua script.
 	*/
 	void bindClasses(lua_State* lstate);
 };

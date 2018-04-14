@@ -1,24 +1,18 @@
-
-//Shays shitty camera class.
-//Standing in for mat's camera
-
 #ifndef CAMERA_H
 #define CAMERA_H
-
-#define PI 3.1415962654
 
 #include "GameObject.h"
 #include "Identifiers.h"
 #include "ResourceList.h"
 #include "RenderModuleStubb.h"
 #include "Singleton.h"
-//#include <glm/glm.hpp> // OLD CALL
-#include "Maths.h"
+#include <glm/glm.hpp>
 
 //--------------------------------------------------------------------------------------
+
 /**
-* @class Singleton
-* @brief A singleton data container.
+* @class Camera
+* @brief Class for creating updating and handling the camera object.
 *
 * @author Mat DeVene
 * @version 01
@@ -31,86 +25,75 @@ public:
 	Camera(Identifiers & id, vec3 pos, ResourceList & list);
 
 	/**
-	* @brief Get the offset vector.
+	* @brief Get the center offset vector.
 	*
-	* @return vec3 - The offset vector.
+	* @return vec3 - The center offset vector.
 	*/
 	vec3 getCenterOffset();
 
 	/**
-	* @brief Set the field of view.
+	* @brief Set the field of view
 	*
-	* @param fov(float) - The field of view.
-	*
-	* @return NONE.
+	* @param fov - The new FoV.
 	*/
 	void SetFov(float fov); //sets field of view
 
 	/**
-	* @brief Set the frustrum near and far values.
+	* @brief Sets the viewing frustrum near and far plane.
 	*
-	* @param nearPlane(float) - The near plane.
-	* @param farPlane(float) - The far plane.
-	*
-	* @return NONE.
+	* @param nearPlane - The nearest plane.
+	* @param farPlane - The furthest Plane.
 	*/
 	void SetFrustrumNearFar(float nearPlane, float farPlane); //sets the viewing frustrum near and far plane
-
+	
 	/**
-	* @brief Rotate the camera.
+	* @brief Changes the direction the camera is facing.
 	*
-	* @param - upAngle(float) - The new up angle.
-	* @param - rightAngle(float) - The new right angle.
-	*
-	* @return NONE.
+	* @param upAngle
+	* @param rightAngle
 	*/
 	void Rotate(float upAngle, float rightAngle); //Changes the direction the camera is facing
 
 	/**
-	* @brief Set a new look at vector.
-	* 
-	* @param pos(vec3) - The new vector.
-	* 
-	* @return NONE.
+	* @brief Adjusts camera rotation to look at 'pos'.
+	*
+	* @param pos - The position.
 	*/
-	void LookAt(vec3 pos); // adjusts camera rotation to look at 'pos'
+	void LookAt(glm::vec3 pos); // adjusts camera rotation to look at 'pos'
 
 	/**
-	* @brief Set the new position.
+	* @brief Set the position.
 	*
-	* @param pos(vec3) - The new positon.
-	*
-	* @return NONE.
+	* @param pos - The new position.
 	*/
 	void SetPosition(const vec3& pos);
 
 	/**
-	* @brief Set the new aspect ratio.
+	* @brief Set the aspect ratio.
 	*
-	* @param aspectRation(float) - The new aspect ratio.
-	*
-	* @return NONE.
+	* @param aspectratio - The new aspect ratio.
 	*/
 	void SetAspectRatio(float aspectRatio);
 
+
 	/**
-	* @brief Get the field of view.
+	* @brief Get the FoV.
 	*
-	* @return float - The field of view.
+	* @return float - FoV.
 	*/
 	float GetFov() const;
 
 	/**
-	* @brief Get the near value for the plane.
+	* @brief Get the frustrum near plane
 	*
-	* @return float - The near value.
+	* @return float - Frustrum near plane.
 	*/
 	float GetFrustrumNearPlane() const;
 
 	/**
-	* @brief Get the far value for the plane.
+	* @brief Get the frustrum far plane.
 	*
-	* @return float - The far value.
+	* @return float - Frustrum far plane.
 	*/
 	float GetFrustrumFarPlane() const;
 
@@ -122,99 +105,112 @@ public:
 	float GetAspectRatio() const;
 
 	/**
-	* @brief Get the direction of the camera.
+	* @brief Rotation matrix for the direction of the camera.
 	*
-	* @return mat4 - The direction matrix.
+	* @return mat4 - The direction
 	*/
-	mat4 GetDirection() const; //rotation matrix for the direction of the camera
+	glm::mat4 GetDirection() const; //rotation matrix for the direction of the camera
 
 	/**
-	* @brief Get the x vector of the camera.
+	* @brief Vector for cameras X axis (left / right).
 	*
-	* @return vec3 - The x vector.
+	* @return vec3 - The camera x axis position
 	*/
-	vec3 GetCamX() const; //vector for cameras X axis (left / right)
+	glm::vec3 GetCamX() const; //vector for cameras X axis (left / right)
 
 	/**
-	* @brief Get the y vector of the camera.
+	* @brief Vector for camera's Y axis (up / down).
 	*
-	* @return vec3 - The y vector.
+	* @return vec3 - The camera y axis position
 	*/
-	vec3 GetCamY() const; //vector for camera's Y axis (up/down
+	glm::vec3 GetCamY() const; //vector for camera's Y axis (up/down)
 
 	/**
-	* @brief Get the z vector of the camera.
+	* @brief Vector for the cameras Z axis (what it is looking at).
 	*
-	* @return vec3 - The z vector.
+	* @return vec3 - The camera y axis position
 	*/
-	vec3 GetCamZ() const; //vector for the cameras Z axis (what it is looking at)
+	glm::vec3 GetCamZ() const; //vector for the cameras Z axis (what it is looking at)
 
 	/**
-	* @brief Get the translation matrix.
+	* @brief Camera's transformation matrix.
 	*
-	* @return mat4 - The translation matrix.
+	* @return mat4 - The cameras transformation matrix.
 	*/
-	mat4 GetTransMatrix() const; //camera's transformation matrix
+	glm::mat4 GetTransMatrix() const; //camera's transformation matrix
 
 	/**
-	* @brief Get the projection matrix.
+	* @brief Perspective projection transformation matrix.
 	*
-	* @return mat4 - The projection matrix.
+	* @return mat4 - The cameras projection matrix.
 	*/
-	mat4 GetProjectionMatrix() const; //perspective projection transformation matrix
+	glm::mat4 GetProjectionMatrix() const; //perspective projection transformation matrix
 
 	/**
-	* @brief Get the view matrix.
+	* @brief Translation and rotation matrix.
 	*
-	* @return mat4 - Get the view matrix.
+	* @return mat4 - The cameras view matrix.
 	*/
-	mat4 GetViewMatrix() const; //translation and rotation matrix
+	glm::mat4 GetViewMatrix() const; //translation and rotation matrix
 
-
-
-	/////////
 
 	/**
-	* @brief The update function.
+	* @brief Update function for camera.
 	*
-	* @param time(float) - The system time.
-	*
-	* @return NONE.
+	* @param time - System time.
 	*/
 	void update(float time);
 
 	/**
-	* @brief Renderer function.
-	*
-	* @return NONE.
+	* @brief Call render function.
 	*/
 	void render();
 
 	/**
-	* @brief Call the GL look at function.
-	*
-	* @return NONE.
+	* @brief Look at function.
 	*/
 	void callGLLookAt();
 private:
-	float moveSpeed; /// The move speed of the camera.
-	float rotateSpeed; /// The rotation speed.
-	 
+	/// Move speed of camera.
+	float moveSpeed;
+	/// Rotation speed of camera.
+	float rotateSpeed;
+	/// Move speed decay rate.
+	float speedDecay;
+	/// If moving foward.
+	bool moveForward;
+	/// If moving backwards.
+	bool moveBack;
+	/// If moving right.
+	bool moveRight;
+	/// If moving left.
+	bool moveLeft;
+	/// If looking down.
+	bool lookDown;
+	/// If looking up.
+	bool lookUp;
+
+
 	/**
-	* @brief Correct the angle boundaries.
-	*
-	* @return NONE.
+	* @brief Correcting the angles at boundaries.
 	*/
 	void CorrectAngleBoundaries();
-	float fov; /// The field of view.
-	float aspectRatio; /// Aspect ratio.
-	float nearPlane; /// The near plane.
-	float farPlane; /// The far plane.
-	float horizontalAngle; /// The horizontal angle.
-	float verticalAngle; /// The verticle angle.
-	const float maxAngle = 80.0f; /// Max angle for field of view.
-	Camera (const Camera &cam) {};
-    Camera &operator = (const Camera &cam) {};
+	/// Field of View.
+	float fov;
+	/// Aspect ratio.
+	float aspectRatio;
+	/// Near plane.
+	float nearPlane;
+	/// Far plane.
+	float farPlane;
+	/// Horizontal Angle.
+	float horizontalAngle;
+	/// Verticle Angle.
+	float verticalAngle;
+	/// Max angle.
+	const float maxAngle = 60.0f;
+	Camera(const Camera &cam) {};
+	Camera &operator = (const Camera &cam) {};
 };
 
 #endif

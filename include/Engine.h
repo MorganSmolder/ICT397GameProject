@@ -12,8 +12,7 @@
 
 /**
 * @class Engine
-*
-* @brief Core engine that calls other engines and creates their objects.
+* @brief Class for handling all other engines and creating their objects
 *
 * @author Morgan Smolder
 * @version 01
@@ -26,33 +25,66 @@ public:
 	~Engine();
 
 	/**
-	* @brief initalise the engine.
+	* @brief Initalise the engine.
 	*
-	* @param initscript(string) - The script to setup the engine.
+	* @param initscript - The script to being called to initalise the engine.
 	*
-	* @return bool - If the script was run.
+	* @return bool - If the engine was initilised.
 	*/
 	bool Initalise(std::string initscript);
-	
-	/** 
-	* @brief Run the engine.
-	*
-	* @return NONE.
+
+	/**
+	* @brief The run funtion.
 	*/
 	void Run();
 
 private:
-	SceneManager SM; /// Scene manager object.
-	LUAScriptManager* LSM; /// Lua script manager.
-	RenderModuleStubb* RNDR; /// Render stubb object.
-	AssetManager* AMAN; /// Asset manager.
-	AudioEngine* AE; /// Audio engine.
-	Controls* CONT; /// Control groups.
+	/// Scene manager object.
+	SceneManager SM;
+	/// Lua script manager.
+	LUAScriptManager* LSM;
+	/// Renderer.
+	RenderModuleStubb* RNDR;
+	/// Assest manager object.
+	AssetManager* AMAN;
+	/// Audio manager object.
+	AudioEngine* AE;
+	/// Controller object.
+	Controls* CONT;
 
-	bool initaliseScriptingInterface(); /// Flag for interface scripts
-	bool initaliseRenderer(); /// Flag for the render.
-	bool initaliseUtilityModules(); /// Flag for the utility modules.
-	bool initaliseAudioEngine(); /// Flag for the audio.
-	bool initaliseControls(); /// Flag for control groups.
+	/**
+	* @brief Initalise the scripting interface.
+	*
+	* @return bool - If it was initalised.
+	*/
+	bool initaliseScriptingInterface();
+
+	/**
+	* @brief Initalise the renderer.
+	*
+	* @return bool - If it was initalised.
+	*/
+	bool initaliseRenderer();
+
+	/**
+	* @brief Initalise the utility modules.
+	*
+	* @return bool - If it was initalised.
+	*/
+	bool initaliseUtilityModules();
+
+	/**
+	* @brief Initalise the audio engine.
+	*
+	* @return bool - If it was initalised.
+	*/
+	bool initaliseAudioEngine();
+
+	/**
+	* @brief Initalise the controls.
+	*
+	* @return bool - If it was initalised.
+	*/
+	bool initaliseControls();
 };
 

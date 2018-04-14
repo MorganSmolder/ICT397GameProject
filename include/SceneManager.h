@@ -5,7 +5,7 @@
 
 /**
 * @class SceneManager
-* @brief The scene manager.
+* @brief Class for handling the scene object
 *
 * @author Morgan Smolder
 * @version 01
@@ -18,118 +18,122 @@ public:
 	~SceneManager();
 
 	/**
-	* @brief Add a scene.
-	*
-	* @return NONE.
+	* @brief Add a scene to the manager.
 	*/
 	void addScene(void);
 
 	/**
-	* @brief Add a object to the scene.
+	* @brief Add a object to the manager.
 	*
-	* @param id(Identifiers) - The game object id.
+	* @param id - The object identifier.
+	* @param sceneno - The scene number.
+	* @param pos - The postion vector.
+	* @param list - The resource list.
 	*
 	* @return bool - If the object was added.
 	*/
 	bool addObject(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & list);
 
 	/**
-	* @brief Get the game object id.
+	* @brief Attach a terrain to the scene
 	*
-	* @param name(string) - The name of the game object.
+	* @param id - The identifier for the terrain.
+	* @param sceneno - The scene id.
+	* @param pos - The position vector.
+	* @param list - The resource lists.
+	*
+	* @return bool - If the terrain was attached.
+	*/
+	bool attachTerrain(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & lists);
+
+	/**
+	* @brief Get the game object id.
+	* 
+	* @param name - the game object name.
 	*
 	* @return int - The game object id.
 	*/
 	int GetGameObjectID(std::string name);
 
 	/**
-	* @brief The update function.
+	* @brief The update function
 	*
-	* @param time(float) - The system time.
-	*
-	* @return NONE.
+	* @param time - System time.
 	*/
 	void update(float time);
 
 	/**
 	* @brief The render function.
-	*
-	* @return NONE.
 	*/
 	void render();
 
 	/**
 	* @brief Set the current scene.
 	*
-	* @param sceneno(unsigned) - The scene number.
-	*
-	* @return NONE.
+	* @param sceneno - The scene number to be set to.
 	*/
 	void setCurrScene(unsigned sceneno);
 
 	/**
-	* @brief Get the number of scenes.
+	* @brief Get the scene number.
 	*
-	* @return unsigned - The number of scenes.
+	* @return unsigned - The scene number.
 	*/
 	unsigned getNumScenes();
 
 	/**
 	* @brief Get the game object.
 	*
-	* @param name(string) - The name of the game object.
+	* @param name - The game objects name.
 	*
 	* @return GameObject* - The game object.
 	*/
 	GameObject* GetGameObject(std::string name);
-	
+
 	/**
-	* @brief The Scene Height map setter.
+	* @brief Set the scene heightmap.
 	*
-	* @param sceneno(unsigned) - The scene number.
-	* @param hmObj(GameObject*) - The heightmap.
-	* 
-	* @return bool - If the heightmap was set.
+	* @param sceneno - The scene number.
+	* @param hmObj - The heightmap object.
+	*
+	* @return bool - If the scene heightmap was set.
 	*/
 	bool setSceneHeightMap(unsigned sceneno, GameObject* hmObj);
 
 	/**
-	* @brief Attach the controls to the scene.
+	* @brief Attach controls to a scene.
 	*
-	* @param sceneno(unsigned) - The scene number.
-	* @param toset(ResourceList) - The resources to be set.
+	* @param sceneno - The scene id.
+	* @param toset - The resource list.
 	*
-	* @return bool - If the controls where set.
+	* @return bool - If the controls were attached to the scene.
 	*/
 	bool attachControls(unsigned sceneno, ResourceList toset);
 
 private:
-	std::vector<Scene> scenes; /// Vector of scenes.
-	unsigned currscene; /// Current scene id.
-	Identifiers id; /// Identifier for scenes.
+	/// The scene vector.
+	std::vector<Scene> scenes;
+	/// The current scene id.
+	unsigned currscene;
+	/// The identifier.
+	Identifiers id;
 	
 	/**
-	* @brief The initilisation for the scene.
+	* @brief Initalise the scene.
 	*
-	* @param sceneind(unsigned) - The scene index.
-	*
-	* @return NONE.
+	* @param sceneind - The scene index.
 	*/
 	void initScene(unsigned sceneind);
 
 	/**
 	* @brief Close the scene.
 	*
-	* @param sceneind(unsigned) - The scene index.
-	*
-	* @return NONE.
+	* @param sceneind - The scene index.
 	*/
 	void closeScene(unsigned sceneind);
 
 	/**
-	* @brief Message receiver.
-	*
-	* @return NONE.
+	* @brief The message reveiver method.
 	*/
 	void msgrcvr();
 };

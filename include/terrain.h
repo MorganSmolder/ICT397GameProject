@@ -5,12 +5,11 @@
 #include "RenderModuleStubb.h"
 #include "Singleton.h"
 #include "TextureManager.h"
-//#include "vec2.h"
-#include "Maths.h"
+#include "vec2.h"
 
 /**
 * @class terrain
-* @brief The terrain data.
+* @brief Class for loading and creating the terrain
 *
 * @author Morgan Smolder
 * @version 01
@@ -22,110 +21,99 @@ class terrain : public Model
 		terrain();
 		 ~terrain();
 
-		 /**
-		 * @brief Virtual method to load models.
-		 *
-		 * @param filename(string) - The string name.
-		 *
-		 * @return bool - If the model was loaded.
-		 */
+		/**
+		* @brief Virtual method to load the model.
+		*
+		* @param filename - The file name.
+		*
+		* @return bool - If the model is loaded.
+		*/
 		virtual bool loadModel(std::string filename) = 0;
 
 		/**
-		* @brief Virtual method for update.
-		*
-		* @return NONE.
+		* @brief Virtual update function.
 		*/
 		virtual void update() = 0;
 
 		/**
-		* @brief Virtual method for the renderer.
+		* @brief Virtual render function.
 		*
-		* @param transmat(vec3) - The transmat vector.
-		*
-		* @return NONE.
+		* @param transmat - Translation matrix.
 		*/
 		virtual void render(const vec3 & transmat) = 0;
 
 		/**
-		* @brief Virtual method for creating terrain.
+		* @brief Virtual creation function.
 		*
-		* @return terrain* - The terrain data.
+		* @return terrain*  - The terrain data.
 		*/
 		virtual terrain * create() const = 0;
 
 		/**
-		* @brief Center the point.
+		* @brief Get the center on point.
 		*
-		* @param point(vec3) - The point.
-		*
-		* @return NONE.
+		* @param point - The vector point.
 		*/
 		void centerOnPoint(vec3 & point);
 
 		/**
-		* @brief Get the vertices.
+		* @brief Get the verticies.
 		*
 		* @return vector<vec3> - The verticies.
 		*/
 		std::vector<vec3>& getVerticies();
 
 		/**
-		* @brief Set the scale vector.
+		* @brief Get the scale vector.
 		*
-		* @param toset(vec3) - The new scale vector.
-		*
-		* @return NONE.
+		* @param toset - The new scale vector.
 		*/
 		void setScale(vec3 & toset);
 
 	protected:
-		float * data; /// Data
-		std::vector<vec3> plane; /// The plane of terrain.
-		std::vector<unsigned> planInd; /// The texture plan.
-		std::vector<vec2> texcoords; /// The texture coords.
-		std::vector<float> lights; /// The lights.
-		vec3 scale; /// The scale vector.
-		unsigned dimensions; /// The size of the map.
+		/// The terrian data.
+		float * data;
+		/// The plane vectors.
+		std::vector<vec3> plane;
+		/// The plane indexies.
+		std::vector<unsigned> planInd;
+		/// The texture coords.
+		std::vector<vec2> texcoords;
+		/// The vector for the lights.
+		std::vector<float> lights;
+		/// The scale vector.
+		vec3 scale;
+		/// The dimensions of the world.
+		unsigned dimensions;
 
 		/**
-		* @brief Calculate the min and max values.
-		*
-		* @return NONE.
+		* @brief Calculate the max and min values.
 		*/
 		void calcMaxMin();
 
 		/**
-		* @brief Generate the plane.
+		* @brief Generate the plane data.
 		*
-		* @param size(unsigned) - The size of the plane.
-		*
-		* @return NONE.
+		* @param size - The size of the plane.
 		*/
 		void genPlane(unsigned size);
-
+		
 		/**
-		* @brief Generate the plane indecies.
+		* @brief Generate the plane indicies.
 		*
-		* @param size(unsigned) - The size of the plane.
-		*
-		* @return NONE.
+		* @param size - the size of the plane.
 		*/
 		void genPlaneIndicies(unsigned size);
 
 		/**
-		* @brief Generate the texture coords.
-		*
-		* @return NONE.
+		* @brief Generate the texture coods.
 		*/
 		void genTexCoords();
 
 		/**
-		* @brief Apply the scaling to the heightmap.
+		* @brief Apply the scaling vector.
 		*
-		* @param scale(vec3) - The scaling vector.
-		*
-		* @return NONE.
+		* @param scale - The new scaling vector.
 		*/
 		void applyScaling(vec3 & scale);
 };

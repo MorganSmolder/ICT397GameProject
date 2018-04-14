@@ -2,30 +2,38 @@
 
 #include "ImageLoader.h"
 
+/**
+* @class TGALoader
+* @brief Class for loading TGAs
+*
+* @author Morgan Smolder
+* @version 01
+* @date 02/04/2018
+*/
 class TGALoader : public ImageLoader
 {
 public:
 	TGALoader();
 	~TGALoader();
-
+	
 	/**
-	* @brief Load a file.
-	* 
-	* @param filename(string) - The file name.
+	* @brief Load the file.
 	*
-	* @return bool - If the file was loaded.
+	* @param filename - The file name.
+	*
+	* @return bool - If the file loaded.
 	*/
 	bool loadFile(std::string filename);
 
 	/**
 	* @brief Get the data.
 	*
-	* @return char* - The data.
+	* @return unsigned char* - The image data.
 	*/
 	unsigned char* getData() const;
 
 	/**
-	* @brief Get the number of bits in the data.
+	* @brief Get the number of bits.
 	*
 	* @return unsigned - The number of bits.
 	*/
@@ -37,7 +45,7 @@ public:
 	* @return unsigned - The width.
 	*/
 	unsigned getWidth() const;
-	
+
 	/**
 	* @brief Get the height.
 	*
@@ -47,8 +55,6 @@ public:
 
 	/**
 	* @brief Clear the data.
-	* 
-	* @return NONE.
 	*/
 	void clear();
 
@@ -60,10 +66,15 @@ public:
 	unsigned getDataSize();
 
 private:
-	unsigned char * data; /// Data
-	unsigned width; /// Width of the data.
-	unsigned height; /// Height of the data
-	unsigned bits; /// The number of bits in the data.
-	unsigned size; /// The size of the data.
+	/// The TGA data.
+	unsigned char * data;
+	/// The file width.
+	unsigned width;
+	/// The file height.
+	unsigned height;
+	/// The number of bits in the file.
+	unsigned bits;
+	/// The file size.
+	unsigned size;
 };
 

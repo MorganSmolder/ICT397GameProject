@@ -9,13 +9,11 @@
 #define VDATA 'V'
 
 #include <string>
-//#include "vec3.h"
-#include "Maths.h"
+#include "vec3.h"
 
 /**
-* @struct Data
-*
-* @brief The data container
+* @struct Struct for holding all message data
+* @brief Class for handling collision
 *
 * @author Morgan Smolder
 * @version 01
@@ -31,9 +29,8 @@ public:
 };
 
 /**
-* @class LUAScriptManager
-*
-* @brief Lua script manager
+* @class Message
+* @brief Class for creating messages
 *
 * @author Morgan Smolder
 * @version 01
@@ -46,101 +43,91 @@ public:
 	Message(std::string instruction);
 
 	/**
-	* @brief Set the instructs for the message.
+	* @brief Set the instructions.
 	*
-	* @param instruuction(string) - The instructions.
-	*
-	* @return NONE.
+	* @param string - The new instructions.
 	*/
 	void setInstruction(std::string instruuction);
-
+	
 	/**
-	* @brief Get the instruction for the message.
+	* @brief Get the instructions
 	*
 	* @return string - The instructions.
 	*/
 	std::string getInstruction();
 
 	/**
-	* @brief Get where the message is from.
+	* @brief Get where the message came from.
 	*
-	* @return Identifiers & - Where the message is from.
+	* @return identifier - id for the message.
 	*/
 	Identifiers & getFrom();
 
 	/**
-	* @brief Set where the message is from.
+	* @brief Set the identifier of the message.
 	*
-	* @param nid(Identifiers) - Where the message is from.
-	*
-	* @return NONE.
+	* @param nid - The new identifier.
 	*/
 	void setFrom(Identifiers & nid);
 
 	/**
 	* @brief Set the float data.
 	*
-	* @param data(float)
-	*
-	* @return NONE.
+	* @param data - The float data.
 	*/
 	void setfData(float data);
 
 	/**
 	* @brief Set the char data.
 	*
-	* @param data(char)
-	*
-	* @return NONE.
+	* @param data - The char data.
 	*/
 	void setData(char data);
 
 	/**
 	* @brief Set the int data.
 	*
-	* @param data(int)
-	*
-	* @return NONE.
+	* @param data - The int data.
 	*/
 	void setData(int data);
 
 	/**
 	* @brief Set the string data.
 	*
-	* @param data(string)
-	*
-	* @return NONE.
+	* @param data - The string data.
 	*/
 	void setData(std::string data);
 
 	/**
 	* @brief Set the vec3 data.
 	*
-	* @param data(vec3)
-	*
-	* @return NONE.
+	* @param data - The vec3 data.
 	*/
 	void setData(const vec3 & data);
 
-	/*
-	* @brief Get the data from the message
+	/**
+	* @brief Get the Data
 	*
-	* @return Data & - The data.
+	* @return Data - The data.
 	*/
 	Data & getData();
 
 	/**
 	* @brief Get the data type.
 	*
-	* @return char - The type of data.
+	* @return char - The data type.
 	*/
 	char getDType();
 
 private:
-	char dtype; /// The data type.
-	std::string instruction; /// The instructions.
-	Data mdata; /// The message data.
-	Identifiers from; /// Where the message is from.
+	/// The data type.
+	char dtype;
+	/// The instructions.
+	std::string instruction;
+	/// The message data.
+	Data mdata;
+	/// The identifier to locate where the message is from.
+	Identifiers from;
 
 };
 

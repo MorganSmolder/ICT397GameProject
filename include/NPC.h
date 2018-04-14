@@ -5,8 +5,7 @@
 
 /**
 * @class NPC
-*
-* @brief Creation for NPCs.
+* @brief Class for creating NPCs
 *
 * @author Morgan Smolder
 * @version 01
@@ -20,25 +19,21 @@ public:
 	~NPC();
 
 	/**
-	* @brief Update the NPCs
+	* @brief The update function.
 	*
-	* @param time(float) - The system time.
-	*
-	* @return NONE.
+	* @param time - The system time.
 	*/
 	void update(float time);
 
 	/**
-	* @brief Render function.
-	*
-	* @return NONE.
+	* @brief The render function.
 	*/
 	void render();
 
 	/**
-	* @brief Get the off set.
+	* @brief Get the center offset.
 	*
-	* @return vec3 - The off set vector.
+	* @return vec3 - The offset.
 	*/
 	vec3 getCenterOffset();
 };

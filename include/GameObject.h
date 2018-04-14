@@ -1,6 +1,5 @@
 #pragma once
-//#include "vec3.h"
-#include "Maths.h"
+#include "vec3.h"
 #include "LUAScriptManager.h"
 #include "Singleton.h"
 #include <string>
@@ -12,8 +11,7 @@
 
 /**
 * @class GameObject
-*
-* @brief Container for the game object data.
+* @brief Class for handling game objects and all their data.
 *
 * @author Morgan Smolder
 * @version 01
@@ -27,135 +25,133 @@ public:
 	~GameObject();
 
 	/**
-	* @brief Setter for object id.
+	* @brief Set the id of the object
 	*
-	* @param id(int) - New id.
-	*
-	* @return NONE.
+	* @param id - New id.
 	*/
 	void setID(int id);
 
 	/**
-	* @brief Getter for object id.
+	* @brief Get the d of the object.
 	*
-	* @return int - Object id.
+	* @return int - The id.
 	*/
 	int getID() const;
 
 	/**
-	* @brief Setter for object position.
+	* @brief Set the position of the object.
 	*
-	* @param pos(vec3) - The new position.
-	*
-	* @return NONE.
+	* @param pos - The new position.
 	*/
 	void setPos(vec3 pos);
 
 	/**
-	* @brief Getter for object position.
+	* @brief Get the positon of the object.
 	*
-	* @return vec3 - Object position.
+	* @return vec3 - The position of the object.
 	*/
 	const vec3 & getPos() const;
 
 	/**
-	* @brief Getter for object type.
+	* @brief Get the type of the object.
 	*
-	* @return string - Object type.
+	* @return string - The type of the object.
 	*/
 	std::string getType();
 
 	/**
-	* @brief Virtual update function for the object.
+	* @brief Update the object.
 	*
-	* @param time(float) - System time.
-	*
-	* @return NONE.
+	* @param time - System time.
 	*/
 	virtual void update(float time) = 0;
 
 	/**
-	* @brief Virtual render function.
-	*
-	* @return NONE.
+	* @brief Virtual method to render the object.
 	*/
 	virtual void render() = 0;
 
 	/**
-	* @brief Virtual get offset function.
+	* @brief Virtaul method to get the center offset of the object.
 	*
-	* @return vec3 - Center offset.
+	* @return vec3 - The center offset of the object.
 	*/
-	virtual vec3 getCenterOffset() = 0;
+	virtual vec3 getCenterOffset();
 
 	/**
-	* @brief Getter for identifiers.
+	* @brief Get the identifier of the object.
 	*
-	* @return Identifiers - The object identitfier.
+	* @return Identifiers - The identifier of the object.
 	*/
 	const Identifiers &getIdentifiers();
 
 	/**
-	* @brief Getter for object state.
+	* @brief Get the state of the object.
 	*
-	* @return int - Object state.
+	* @return int - The state of the object.
 	*/
 	int getState();
 
 	/**
-	* @brief Setter for object state,
+	* @brief Set the state of the object.
 	*
-	* @param state(int) - The state the object is in.
-	*
-	* @return NONE.
+	* @param state - The state of the object.
 	*/
 	void setState(int state);
 
 	/**
-	* @brief Setter for the model data.
+	* @brief Virtual method to set the model of the object.
 	*
-	* @param M(Model*) - The new model data.
-	*
-	* @return NONE.
+	* @param m - The model for the object.
 	*/
-	void setModel(Model* M);
+	virtual void setModel(Model* M);
 
 	/**
-	* @brief Getter for the model data.
+	* @brief Get the model of the object.
 	*
-	* @return Model* - A pointer to the model data.
+	* @return Model* - The model of the object.
 	*/
 	Model* getModel();
 
 	/**
-	* @brief Setter for the target position vector.
+	* @brief Set the target position vector of the object.
 	*
-	* @param target(vec3) - The new target vector.
-	*
-	* @return NONE.
+	* @param vec3 - The new target position vector of the object.
 	*/
 	void setTarget(const vec3 target);
 
 	/**
-	* @brief Getter for target vector.
+	* @brief Get the target position vector of the object.
 	*
-	* @return vec3 - Target position vector.
+	* @return vec3 - The target position vector of the object.
 	*/
 	const vec3 & getTarget();
 
+	/**
+	* @brief Find if the object is collidiable with other objects.
+	*
+	* @return bool - If the object can collide.
+	*/
+	virtual bool isCollidable();
+
 protected:
-	int state; /// The state the game engine is in.
-	vec3 pos; /// The x, y, z position of the game object.
-	vec3 target; /// The target position of the game object.
-	vec3 targetlook; /// The target look at position of the game object.
-	Identifiers id; /// The game objects ID.
-	ResourceList resources; /// The resources required for the game object.
-	Model* model; /// The model of the object.
+	/// The state of the object.
+	int state;
+	/// The position of the object.
+	vec3 pos;
+	/// The position vector of the target.
+	vec3 target;
+	/// The position vector for the look at target.
+	vec3 targetlook;
+	/// The objects identifier.
+	Identifiers id;
+	/// The resources linked to the object.
+	ResourceList resources;
+	/// The model data for the object.
+	Model* model;
 
 	/**
-	* @brief Receives messages from other parts of the system.
-	*
-	* @return NONE.
+	* @brief The message receiver.
 	*/
 	void msgrcvr();
 };

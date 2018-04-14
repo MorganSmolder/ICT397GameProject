@@ -7,8 +7,7 @@
 
 /**
 * @struct pair
-*
-* @brief A pair to hold data.
+* @brief Struct for holding data from the tree in
 *
 * @author Morgan Smolder
 * @version 01
@@ -33,8 +32,7 @@ struct pair{
 
 /**
 * @class QuadTree
-*
-* @brief A data structure.
+* @brief Class for creating a quadtree data structure to store all data in
 *
 * @author Morgan Smolder
 * @version 01
@@ -49,126 +47,112 @@ class QuadTree{
 		QuadTree(const QuadTree<T> & tocpy);
 
 		/**
-		* @brief Set the dimensions of the tree.
-		*
-		* @param TL(pair) - Top left.
-		* @param BR(pair) - Bottom right.
-		*
-		* @return NONE.
+		* @brief Set the dimensions
+		* 
+		* @param TL - The top left pair.
+		* @param BR - The bottom right pair.
 		*/
 		void setDimensions(pair TL, pair BR);
 
 		/**
-		* @brief Insert data into the tree.
+		* @brief Insert a new element
 		*
-		* @param newelement(const T &) - The new element.
-		* @param (pair) - The new element pair.
+		* @param newelement - The new element
+		* @param getposfunc() - The get position function.
 		*
-		* @return bool - If the insert was successful.
+		* @return bool - If the element was inserted.
 		*/
 		bool insert(const T & newelement, pair (*getposfunc)(const T & element));
 
 		/**
-		* @brief Traverse the tree.
+		* @brief Traverse the quadtree structure.
 		*
-		* @param elements - The element being searched for.
-		* @param topleft(pair) - Top left element in the tree.
-		* @param bottomright(pair) - Bottom right element in the tree.
-		*
-		* @return NONE.
+		* @param travfun() - The traverse function.
 		*/
 		void traverse(void(*travfunc)(const std::vector<std::list<T> > & elements, pair topleft, pair bottomright));
 
 		/**
-		* @brief Search for a element.
+		* @brief Search for a element in the tree
 		*
-		* @param *comparisonfunc() - The compairson function.
-		* @param *onFind() - The onfind function.
-		* @param topleft(pair) - The top left function.
-		* @param bottomright(pair) - The bottom left function.
-		* @param *getposfunc() - The get position function.
-		* @param tofind(T&) - The element.
+		* @param comparisonfunc() - The comparison function.
+		* @param onFind() - The onfind function
+		* @param getposfunc() - The get position function
+		* @param tofind - The data to find.
 		*
-		* @return bool - If the search was successful.
+		* @return bool - If the target was found.
 		*/
 		bool search(bool(*comparisonfunc)(const T & element, const T & comparator), void(*onFind)(const std::vector<std::list<T> > & elements, pair topleft, pair bottomright), pair(*getposfunc)(const T& element), const T& tofind);
 
 		/**
 		* @brief Clear the tree.
-		*
-		* @return NONE.
 		*/
 		void clear();
-
+		
 		/**
-		* @brief Operator overload for =.
-		*
-		* @param tocpy(QuadTree<T>) - The tree being copied
+		* @brief Overload for the = operator.
 		* 
-		* @return QuadTree<T> - The new tree.
+		* @param tocpy - The quadtree to be copied.
+		*
+		* @return QuadTree<T> - The quadtree.
 		*/
 		const QuadTree<T> & operator = (const QuadTree<T> & tocpy);
 	private:
-		std::vector<std::list<T> > bucket; /// The bucket of data.
-		unsigned ceiling; /// The max data in the tree.
-		pair topleft; /// Top left data.
-		pair bottomright; /// Bottom right data.
-		QuadTree<T>* top_left; /// Top left data.
-		QuadTree<T>* top_right; /// Top right data.
-		QuadTree<T>* bottom_left; /// Bottom left data.
-		QuadTree<T>* bottom_right; /// Bottom right data.
-		 
+		/// The data bucket.
+		std::vector<std::list<T> > bucket;
+		/// The ceiling for the quadtree.
+		unsigned ceiling;
+		/// The top left element.
+		pair topleft;
+		/// The bottom right element.
+		pair bottomright;
+		/// Pointer to the top left data.
+		QuadTree<T>* top_left;
+		/// Pointer to the top right data.
+		QuadTree<T>* top_right;
+		/// Pointer to the bottom left data.
+		QuadTree<T>* bottom_left;
+		/// Pointer to the bottom right data.
+		QuadTree<T>* bottom_right;
+
 		/**
 		* @brief Delete the root.
-		*
-		* @return NONE.
 		*/
 		void killTreeRoot();
 
 		/**
 		* @brief Delete the tree.
 		*
-		* @param currnode(QuadTree<T>*) - Pointer to the current node.
-		*
-		* @return NONE.
+		* @param currnode - The current node.
 		*/
 		void killTree(QuadTree<T>* & currnode);
 
 		/**
-		* @brief Copy the tree root.
+		* @brief Copy the root.
 		*
-		* @param tocpyroot(QuadTree<T>*) - The new root.
-		*
-		* @return NONE.
+		* @param tocpyroot - The root to be copied.
 		*/
 		void cpyTreeRoot(const QuadTree<T>* tocpyroot);
 
 		/**
-		* @brief Copy the whole tree.
+		* @brief Copy a tree.
 		*
-		* @param curnode(QuadTree<T>*) - The current node.
-		* @param tocpy(QuadTree<T>*) - The node being copied.
-		*
-		* @return NONE.
+		* @param curnode - The current node.
+		* @param tocpy - The tree to be copied.
 		*/
 		void cpyTree(QuadTree<T>* & curnode, const QuadTree<T>* tocpy);
 
 		/**
 		* @brief Traverse the tree.
 		*
-		* @param currnode(QuadTree<T>*) - The current node.
-		* @param *travfunc() - The traverse function.
-		* @param topleft(pair) - The top left element.
-		* @param bottomright(pair) - The bottom right element.
-		*
-		* @return NONE.
+		* @param currnode - The current node.
+		* @param travfunc() - The traverse function.
 		*/
 		void traverse(QuadTree<T>* currnode, void(*travfunc)(const std::vector<std::list<T> >  & elements, pair topleft, pair bottomright));
 
 		/**
-		* @brief If the tree has any element.
+		* @brief If the tree has any children.
 		*
-		* @param totest(QuadTree<T>*) - The element to test.
+		* @param totest - The quadtree to test.
 		*
 		* @return bool - If the tree has children.
 		*/
@@ -177,20 +161,18 @@ class QuadTree{
 		/**
 		* @brief Split the tree.
 		*
-		* @param tosplit(QuadTree<T>*) - The element to be split.
-		* @param *getposfunc() - The position function.
-		*
-		* @return NONE. 
+		* @param tosplit - The quad tree.
+		* @param getposfunc() - Get position function.
 		*/
 		void splitTree(QuadTree<T>* tosplit, pair (*getposfunc)(const T & element));
 
 		/**
-		* @brief Insert the element.
+		* @brief Insert a element into the tree
 		*
-		* @param curnode(QuadTree<T>*) - The current node.
-		* @param newelement(T &) - The new element.
-		* @param *getposfunc() - The get position function.
-		* 
+		* @param curnode - The current node.
+		* @param newelement - The new element.
+		* @param getposfun() - Get position function.
+		*
 		* @return bool - If the element was inserted.
 		*/
 		bool insert(QuadTree<T>* curnode, const T & newelement, pair (*getposfunc)(const T & element));
@@ -198,11 +180,11 @@ class QuadTree{
 		/**
 		* @brief Duplicate the element.
 		*
-		* @param tosearch(vector<T>) - The elements to be searched.
-		* @param target(T) - The target element.
-		* @param *getposfunc() - The get position function.
+		* @param tosearch - A list of data to check.
+		* @param target - The element to look for.
+		* @param getposfunc() - The get position function.
 		*
-		* @return int - The element id.
+		* @return int - The new element
 		*/
 		int duplicateElement(const std::vector<std::list<T> >& tosearch, const T & target, pair(*getposfunc)(const T& element));
 };

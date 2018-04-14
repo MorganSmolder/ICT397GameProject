@@ -6,8 +6,7 @@
 
 /**
 * @class ModelFactory
-*
-* @brief Creates models.
+* @brief Class for creating model objects
 *
 * @author Morgan Smolder
 * @version 01
@@ -17,12 +16,12 @@ class ModelFactory
 {
 public:
 	/**
-	* @brief Create the model.
+	* @brief Create a model.
 	*
-	* @param path(string) - The path of the model.
-	* @param type(string) - The type of model.
-	* 
-	* @return Model* - The model.
+	* @param path - The file path.
+	* @param type - The type of model.
+	*
+	* @return Model* - The model data.
 	*/
 	Model* create(std::string path, std::string type);
 };

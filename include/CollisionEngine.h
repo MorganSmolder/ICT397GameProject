@@ -2,15 +2,12 @@
 
 #include <map>
 #include <vector>
-#include "Maths.h"
-//#include "vec3.h"
-//#include "vec2.h"
+#include "vec3.h"
+#include "vec2.h"
 #include "GameObject.h"
-
 /**
 * @struct HMPos
-*
-* @brief Position of height map.
+* @brief Struct for containing heightmap position data
 *
 * @author Morgan Smolder
 * @version 01
@@ -23,23 +20,21 @@ struct HMPos {
 
 /**
 * @struct AABB
-*
-* @brief AABB collider object.
+* @brief Struct for containing AABB collider data
 *
 * @author Morgan Smolder
 * @version 01
 * @date 02/04/2018
 */
 struct AABB {
-	float xmin, ymin, zmin, xmax, ymax, zmax; /// Min and max coord values.
+	float xmin, ymin, zmin, xmax, ymax, zmax;
 	AABB(float xmx, float xmn, float ymx, float ymn, float zmx, float zmn) : xmax(xmx), xmin(xmn), ymax(ymx), ymin(ymn), zmax(zmx), zmin(zmn) {};
 	AABB() {};
 };
 
 /**
 * @class CollisionEngine
-*
-* @brief Class handling collision.
+* @brief Class for handling collision
 *
 * @author Morgan Smolder
 * @version 01
@@ -52,47 +47,56 @@ public:
 	~CollisionEngine();
 
 	/**
-	* @brief Setter for height map.
+	* @brief Set the height map.
 	*
-	* @param toset(vector<vec3>) - The new map.
-	*
-	* @return NONE.
+	* @param toset - The new height map.
 	*/
 	void setHeightMap(std::vector<vec3> & toset);
 
 	/**
-	* @brief Update function to find collisions with GameObjects.
+	* @brief Update the collision.
 	*
-	* @param toupdate(GameObject* &) - The game object being updated.
-	* @param collGO(vector<GameObject*> - Vector of GameObjects to check for collisions with.
-	* @param time(float) - The system time.
-	*
-	* @return NONE.
+	* @param toupdate - The game object to be updated.
+	* @param collGO - A vector of game objects for colliders
+	* @param time - System time.
 	*/
 	void update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time);
 private:
-	std::map<float, std::map<float, float>> heightmap; /// Height map data container.
+	/// The height map data.
+	std::map<float, std::map<float, float>> heightmap;
 
 	/**
-	* @brief Returns a HMPos type variable from the vec3 variable.
+	* @brief Returns the height map location.
 	*
-	* @param pos(const vec3 &) - Position of the heightmap.
+	* @param pos - The position
 	*
-	* @return HMPos - Height map position.
+	* @return HMPos - The position of the height map.
 	*/
 	HMPos findHMLocation(const vec3 & pos);
 
 	/**
-	* @brief Find the center of a object based.
+	* @brief Generate a AABB collider.
 	*
-	* @param ppos(const vec3 &) - Position of the object.
-	* @param pos(HMPos &) - Heightmap position.
+	* @param toupdate - The game object having the collider generated for.
 	*
-	* @return float - The center.
+	* @return AABB - The collider.
 	*/
-	float findBarycenter(const vec3 & ppos, HMPos & pos);
+	AABB genAABB(GameObject* toupdate);
 
-	float maxx, minx, maxz, minz; /// Max and min X and Z coords.
-	bool hasHMap; /// Flag for height map.
+	/**
+	* @brief Interpolate the y axis
+	*
+	* @param ppos - The first position vector.
+	* @param pos - The second position vector.
+	*
+	* @return float - The interpolation.
+	*/
+	float interpolateY(const vec3 & ppos, HMPos & pos);
+
+	/// Max and min values for the x and z axis.
+	float maxx, minx, maxz, minz;
+
+	/// If the object has a height map.
+	bool hasHMap;
 };
 

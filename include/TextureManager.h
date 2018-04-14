@@ -4,7 +4,7 @@
 
 /**
 * @class TextureManager
-* @brief The texture manager.
+* @brief Class for handling textures
 *
 * @author Morgan Smolder
 * @version 01
@@ -16,93 +16,94 @@ public:
 	TextureManager();
 
 	/**
-	* @brief Load the new texture.
+	* @brief Load the new texture
 	*
-	* @param path(string) - The path of the texture.
-	* @param type(string) - The type of texture.
-	* @param name(string) - The name of the texure.
-	* @param renderer(RenderModuleStubb*) - The renderer object.
+	* @param path - The file path.
+	* @param type - The texture type.
+	* @param name - The texture name.
+	* @param renderer - The rendering object.
 	*
-	* @return bool - If the new texture was created.
+	* return bool - If the texture loaded.
 	*/
-	bool loadNewTexture(std::string path, std::string type, std::string name, RenderModuleStubb* renderer); 
+	bool loadNewTexture(std::string path, std::string type, std::string name, RenderModuleStubb* renderer);
 
 	/**
-	* @brief Store the texture data.
+	* @brief Store the texutre data.
 	*
-	* @param name(string) - The name of the texture data.
-	* @param data(unsigned char*) - The data.
-	* @param bits(unsigned) - The number of bits in the data.
-	* @param width(unsigned) - The width of the data.
-	* @param height(unsigned) - The height of the data.
-	*
-	* @return bool - If the texture was stored.
+	* @param name - The name of the texture.
+	* @param data - The texture data.
+	* @param bits - The number of bits in the file.
+	* @param width - The width of the file.
+	* @param height - The height of the file.
+	* 
+	* @return bool - If the data was stored.
 	*/
 	bool storeTextureFromData(std::string name, unsigned char* data, unsigned bits, unsigned width, unsigned height);
 
 	/**
-	* @brief Use the texture.
+	* @brief Use the texture data.
 	*
-	* @param name(string) - The name of the texture.
-	* @param renderer(RenderModuleStubb*) - The renderer object.
-	* 
-	* @return bool - If the texture was used.
+	* @param name - The texture name
+	* @param renderer - The rendering object.
+	*
+	* @return bool - If the data was used.
 	*/
 	bool useTexture(std::string name, RenderModuleStubb* renderer);
 
 	/**
-	* @brief Use the texture.
+	* @brief Use the texture data.
 	*
-	* @param name(string) - The name of the texture.
-	* @param name2(string) - The name of the second texture.
-	* @param renderer(RenderModuleStubb*) - The renderer object.
+	* @param name - The texture name.
+	* @param name2 - The second texture name.
+	* @param renderer - The rendering object.
 	*
-	* @return bool - If the texture was used.
+	* @return bool - If the data was used.
 	*/
 	bool useTexture(std::string name, std::string name2, RenderModuleStubb* renderer);
 
 	/**
-	* @brief Delete the texture.
+	* @brief Delete the texture data.
 	*
-	* @param name(string) - The texture to be deleted.
-	* @param renderer(RenderModuleStubb*) - The renderer object.
-	* 
+	* @param name - The texture name.
+	* @param renderer - The rendering object.
+	*
 	* @return bool - If the texture was deleted.
 	*/
 	bool deleteTexture(std::string name, RenderModuleStubb* renderer);
 
 	/**
-	* @brief Disable the texture.
-	* 
-	* @param renderer(RenderModuleStubb*) - The renderer object.
+	* @brief Disable a texture.
 	*
-	* @return NONE.
+	* @param renderer - The rendering object.
+	*
+	* @return bool - If the texture was disabled.
 	*/
 	void disableTexture(RenderModuleStubb* renderer);
 
 	/**
-	* @brief Generate the multi-texture.
+	* @brief Generate a multi-texture.
 	*
-	* @param heightmap(vector<vec3>) - The heightmap data.
-	* @param texture(vector<string>) - The texture data.
-	* @param name(string) - The name of the height map.
+	* @param heightmap - The heightmap data.
+	* @param textures - The texture data for the heightmap.
+	* @param name - The heightmap name.
 	*
 	* @return bool - If the texture was generated.
 	*/
 	bool genMultiTexture(std::vector<vec3> heightmap, std::vector<std::string> textures, std::string name);
 
 	/**
-	* @brief disable the multi-texture.
+	* @brief Disable the multi-texture.
 	*
-	* @param renderer(RenderModuleStubb*) - The renderer object.
-	*
-	* @return NONE.
+	* @param renderer - The rendering object.
 	*/
 	void DisableMultiTex(RenderModuleStubb* renderer);
 
 private:
-	std::map<std::string, int> images; /// The images
-	ImageCreationHandler ImgCH; /// The creation handeler object.
-	unsigned nextid; /// The next texture id.
+	/// Map of the images.
+	std::map<std::string, int> images;
+	/// The image creation handler.
+	ImageCreationHandler ImgCH;
+	/// The next texture id.
+	unsigned nextid;
 };
 

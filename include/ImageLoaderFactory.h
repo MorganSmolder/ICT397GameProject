@@ -4,9 +4,8 @@
 #include "BMPLoader.h"
 
 /**
-* @class ImageLoaderFactor
-*
-* @brief Creates image loader objects.
+* @class ImageLoaderFactory
+* @brief Class for creaing new image loader objects.
 *
 * @author Morgan Smolder
 * @version 01
@@ -16,11 +15,11 @@ class ImageLoaderFactory
 {
 	public:
 		/**
-		* @brief Create a new image loader
-		* 
-		* @param type(String) - The type of image loader being created.
+		* @brief Get a new loader.
 		*
-		* @return ImageLoader* - The pointer for the image loader created.
+		* @param type - The type of image.
+		* 
+		* @return ImageLoader* - The new image loader object.
 		*/
 		ImageLoader* getNewLoader(std::string type);
 };

@@ -6,8 +6,7 @@
 
 /**
 * @class ModelManger
-*
-* @brief The model manger.
+* @brief Class for handling model objects
 *
 * @author Morgan Smolder
 * @version 01
@@ -22,28 +21,28 @@ public:
 	/**
 	* @brief Load the model.
 	*
-	* @param path(string) - The path of the model.
-	* @param type(string) - The type of model.
-	* @param name(string) - The name of the model.
+	* @param path - The path of the file.
+	* @param type - The type of model.
+	* @param name - The name of the model.
 	*
-	* @return bool - If the model was laoded.
+	* @return bool - If the model loaded.
 	*/
 	bool loadModel(std::string path, std::string type, std::string name);
 
 	/**
 	* @brief Use the model.
 	*
-	* @param name(string) - The name of the model.
+	* @param name - The name of the model.
 	*
-	* @return Model* - A pointer to the model.
+	* @return Model* - The model data.
 	*/
 	Model* useModel(std::string name);
 
 	/**
 	* @brief Get the model refrence.
-	*
-	* @param name(string) - The name of the model.
-	*
+	* 
+	* @param name - The name of the model.
+	* 
 	* @return Model* - The model data.
 	*/
 	Model* getModelRefrence(std::string name);
@@ -51,17 +50,19 @@ public:
 	/**
 	* @brief Load the model.
 	*
-	* @param path(string) - The path of the model.
-	* @param type(string) - The type of model.
-	* @param name(string) - The name of the model.
-	* @param scale(vec3) - The scale vector.
+	* @param path - The file path.
+	* @param type - The file type.
+	* @param name - The file name.
+	* @param scale - The scale vector.
 	*
-	* @return bool - If the model was loaded.
+	* @return bool - If the model loaded.
 	*/
 	bool loadModel(std::string path, std::string type, std::string name, vec3 & scale);
 
 private:
-	ModelFactory modelfactory; /// Model factory creation object.
-	std::map<std::string, Model*> models; /// A map of models.
+	/// The model creation object.
+	ModelFactory modelfactory;
+	/// A map of models.
+	std::map<std::string, Model*> models;
 };
 

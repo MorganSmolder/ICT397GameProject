@@ -2,7 +2,7 @@
 
 /**
 * @class Singleton
-* @brief A singleton data container.
+* @brief Class for creating a singleton data type
 *
 * @author Morgan Smolder
 * @version 01
@@ -12,15 +12,17 @@ template <class T>
 class Singleton
 {
 public:
-	 /**
-	 * @brief Get the instance.
-	 *
-	 * @return T* - The data.
-	 */
+
+	/**
+	* @brief Get the instance of the data.
+	*
+	* @return T* - The data.
+	*/
 	static T* getInstance();
 
 private:
-	static T* instance; /// The data.
+	/// The Data.
+	static T* instance;
 	Singleton() {};
 };
 
