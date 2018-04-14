@@ -8,6 +8,9 @@
 class ModelFactory
 {
 public:
+	ModelFactory();
 	Model* create(std::string path, std::string type);
+private:
+	static unsigned nextid;
 };
 

@@ -95,6 +95,18 @@ void Camera::update(float time) {
 			if (verticalAngle <= -maxAngle && tmpm.getData().fdata < 0) verticalAngle = -maxAngle;
 			if (verticalAngle >= maxAngle && tmpm.getData().fdata > 0) verticalAngle = maxAngle;
 		}
+		else
+		if (tmpm.getInstruction() == POS_REQUEST) {
+			tmpm.setInstruction(POS_RESPONSE);
+			tmpm.getData().vdata = pos;
+			tmp->postMessage(tmpm, tmpm.getFrom());
+		}
+		else
+		if (tmpm.getInstruction() == GET_FRONT) {
+			tmpm.setInstruction(GET_FRONT_RESPONSE);
+			tmpm.getData().vdata = GetCamZ();
+			tmp->postMessage(tmpm, tmpm.getFrom());
+		}
 	}
 
 	if (this->moveForward) {
@@ -123,15 +135,20 @@ void Camera::update(float time) {
 
 	pos += (target * (time * speedDecay));
 	target -= (target * (time * speedDecay));
+}
 
-
-	callGLLookAt();
+void Camera::stop(){
+	moveForward = false;
+	moveBack = false;
+	moveRight = false;
+	moveLeft = false;
+	lookDown = false;
+	lookUp = false;
+	target = vec3();
 }
 
 void Camera::render() {
-	//Singleton<RenderModuleStubb>::getInstance()->RenderFacingCamera();
-
-	//Singleton<RenderModuleStubb>::getInstance()->StopRenderFacingCamera();
+	callGLLookAt();
 }
 
 void Camera::callGLLookAt()

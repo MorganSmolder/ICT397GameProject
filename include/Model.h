@@ -22,7 +22,10 @@ class Model
 		 float getMaxX() { return maxx; };
 		 float getMaxZ() { return maxz; };
 		 float getMaxY() { return maxy; };
+		void setId(unsigned nid) { id = nid; };
+		unsigned getId() { return id; };
 	protected:
 		float minx, maxx, minz, maxz, miny, maxy;
+		unsigned id;
 };
 

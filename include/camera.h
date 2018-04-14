@@ -23,6 +23,7 @@ public:
 	void LookAt(glm::vec3 pos); // adjusts camera rotation to look at 'pos'
 	void SetPosition(const vec3& pos);
 	void SetAspectRatio(float aspectRatio);
+	void stop();
 
 	float GetFov() const;
 	float GetFrustrumNearPlane() const;

@@ -18,7 +18,6 @@ GameObject::GameObject(Identifiers & id, vec3 pos, ResourceList & list) {
 GameObject::~GameObject() {
 	if (model != NULL) delete model;
 
-
 	model = NULL;
 }
 
@@ -62,6 +61,10 @@ std::string GameObject::getType(){
 	return id.getType();
 }
 
+void GameObject::stop() {
+	target = vec3();
+}
+
 void GameObject::msgrcvr() {
 	MessagingBus* tmpmsgbus = Singleton<MessagingBus>::getInstance();
 
@@ -82,8 +85,15 @@ void GameObject::msgrcvr() {
 	}
 }
 
+bool GameObject::isVisible() {
+	return true;
+}
+
 void GameObject::setModel(Model* M) {
+	if (model != NULL) delete model;
+	
 	model = M;
+
 	model->centerOnPoint(pos);
 }
 

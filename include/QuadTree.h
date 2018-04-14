@@ -63,7 +63,7 @@ QuadTree<T>::QuadTree() {
 	top_right = NULL;
 	bottom_left = NULL;
 	bottom_right = NULL;
-	this->ceiling = 2;
+	this->ceiling = 7;
 	this->topleft = pair(0,100);
 	this->bottomright = pair(100,0);
 }

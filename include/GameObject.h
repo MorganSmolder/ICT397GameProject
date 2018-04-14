@@ -28,9 +28,11 @@ public:
 	void setState(int state);
 	virtual void setModel(Model* M);
 	Model* getModel();
-	void setTarget(const vec3 target);
+	virtual void setTarget(const vec3 target);
 	const vec3 & getTarget();
 	virtual bool isCollidable();
+	virtual bool isVisible();
+	virtual void stop();
 
 protected:
 	int state;
@@ -40,6 +42,8 @@ protected:
 	Identifiers id;
 	ResourceList resources;
 	Model* model;
+
+	GameObject(const GameObject&) {};
 
 	void msgrcvr();
 };

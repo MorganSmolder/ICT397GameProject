@@ -29,9 +29,13 @@ public:
 private:
 	GameObject* terrain;
 	std::vector<GameObject*> gameobjects;
+	std::vector<GameObject*> tmpobjects;
 	QuadTree<GameObjectWrapper> gameobjectQT;
 	GameObjectFactory* GOF;
+	Identifiers id;
 
+	void msgrcvr();
+	bool addTmpObj(Identifiers id, vec3 pos, vec3 target, ResourceList model);
 	static std::vector<GameObject*> searchres;
 	static pair getposfunc(const GameObjectWrapper & element);
 	static void travfunc(const std::vector< std::list<GameObjectWrapper> > & elements, pair topleft, pair bottomright);

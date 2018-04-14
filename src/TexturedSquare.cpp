@@ -11,6 +11,7 @@ TexturedSquare * TexturedSquare::create() const {
 	tmp->tl = this->tl;
 	tmp->texture = this->texture;
 	tmp->verts = this->verts;
+	tmp->id = this->id;
 
 	return tmp;
 }

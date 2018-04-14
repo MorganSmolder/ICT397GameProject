@@ -24,15 +24,18 @@ local function loadResources(AMAN)
 	if AMAN:addModel("./Resources/Models/Rock.obj", "IM", "rock", vec3(8,8,8)) then print("Successfully loaded Resource 'rock'");
 	else print("Failed to load Resource 'rock'"); end
 
-	if AMAN:addResource("./Resources/Models/start.obj", "IM", "start") then print("Successfully loaded Resource 'start'");
-	else print("Failed to load Resource 'start'"); end
+	if AMAN:addModel("./Resources/Models/bullet.obj", "IM", "bullet", vec3(1,1,1)) then print("Successfully loaded Resource 'bullet'");
+	else print("Failed to load Resource 'bullet'"); end
 
 	if AMAN:addResource("./Resources/Audio/2.wav", "WAV", "bgmusic") then print("Successfully loaded Resource 'bgmusic'");
 	else print("Failed to load Resource 'bgmusic'"); end
 
 	if AMAN:addResource("./Resources/Audio/30.wav", "WAV", "bgmusic1") then print("Successfully loaded Resource 'bgmusic1'");
 	else print("Failed to load Resource 'bgmusic1'"); end
-	
+
+	if AMAN:addResource("./Resources/Audio/gunshot.wav", "WAV", "gunshot") then print("Successfully loaded Resource 'gunshot'");
+	else print("Failed to load Resource 'gunshot'"); end
+
 	if AMAN:addResource("./Resources/Models/popup.tsqr", "TX", "popup") then print("Successfully loaded Resource 'popup'");
 	else print("Failed to load Resource 'popup'"); end
 	
@@ -61,29 +64,32 @@ function initGame(SM, LSM, AMAN, AE)
 	SM:attachControls(0, ResourceList("keyCallback", "keys", "mouseCallback", "mouse"));
 
 	SM:attachTerrain(Identifiers("TO", "Terrain"), 0, vec3(0,0,0), ResourceList("model", "Terrain"));
-
 	for i = 10,1,-1 
 	do 
-		SM:addObject(Identifiers("SE"), 0, vec3(math.random()*(512-0) + 0, 0, math.random()*(512 - 0) + 0), ResourceList("model", "rock")); 
+		SM:addObject(Identifiers("SE"), 0, vec3(math.random()*(5120), 0, math.random()*(5120)), ResourceList("model", "rock")); 
 	end
 
 	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(20, 0, 10), ResourceList());
 
+	SM:addObject(Identifiers("PLYR", "Player"), 0, vec3(20, 0, 10), ResourceList("camera", "Camera", "projmodel", "bullet", "projsnd", "gunshot"));
+
 	SM:addObject(Identifiers("MO","Guide"), 0, vec3(0, 0, 0), ResourceList("model", "popup"));
 
-	--SM:addObject(Identifiers("NPC", "ted"), 0, vec3(0,0,0), ResourceList("model", "Robot"));
+	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(0,0,0), ResourceList("model", "Robot"));
 
 	SM:setSceneHeightMap(0, SM:GetGameObject("Terrain"));
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
-	--AE:playSoundatSource("bgmusic", SM:GetGameObjectID("Camera"), vec3(0, 0, 10));
+	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("Camera"), vec3(0, 0, 10));
+
+	print(SM:GetGameObjectID("Player"));
 
 	--Initalise Scene 2
 	SM:addScene();
 
 	SM:setCurrScene(1);
-	
+
 	SM:attachControls(1, ResourceList("keyCallback", "keys", "mouseCallback", "mouse"));
 
 	SM:attachTerrain(Identifiers("TO", "Terrain2"), 1, vec3(0,0,0), ResourceList("model", "Terrain2"));

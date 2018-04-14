@@ -9,6 +9,7 @@
 #define VDATA 'V'
 
 #include <string>
+#include <vector>
 #include "vec3.h"
 
 struct Data{
@@ -18,6 +19,7 @@ public:
 	int idata;
 	std::string sdata;
 	vec3 vdata;
+	std::vector<vec3> mvdata;
 };
 
 class Message

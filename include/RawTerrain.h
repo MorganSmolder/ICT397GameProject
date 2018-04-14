@@ -9,7 +9,6 @@ class RAWTerrain : public terrain
 {
 	public:
 		RAWTerrain();
-		RAWTerrain(const RAWTerrain & tocpy);
 		~RAWTerrain();
 		virtual bool loadModel(std::string filename);
 		virtual void update();
@@ -24,5 +23,6 @@ class RAWTerrain : public terrain
 		std::string parseOptions(std::string file);
 		std::string RandomString(unsigned len);
 		std::vector<std::string> images;
+		RAWTerrain(const RAWTerrain & tocpy);
 };
 

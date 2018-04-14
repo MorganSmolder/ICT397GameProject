@@ -20,6 +20,7 @@ ImportModel::ImportModel(const ImportModel & tocpy)
 	texture = tocpy.texture;
 	
 	model = tocpy.model;
+	id = tocpy.id;
 }
 ImportModel::~ImportModel()
 {

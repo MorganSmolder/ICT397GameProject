@@ -56,6 +56,7 @@ void Controls::keyCallback(GLFWwindow* window, int key, int scancode, int action
 	std::string keys;
 	keys = (char) key;
 
+	if (key == 32) keys = "space";
 	if (key == 257) keys = "enter";
 
 	if (action == GLFW_REPEAT) {
@@ -92,11 +93,12 @@ void Controls::mouseCallback(GLFWwindow* window, double x, double y) {
 
 	int w; int h;
 	glfwGetWindowSize(window, &w, &h);
-	if (x > w * .7 || x < w * .3) {
+
+	if (x > w * .6 || x < w * .4) {
 		glfwSetCursorPos(window, (double) w/2, y);
 		prevx = (double)w / 2;
 	}
-	if (y > h *.7 || y < h * .3) {
+	if (y > h *.6 || y < h * .4) {
 		glfwSetCursorPos(window, x, (double)h / 2);
 		prevy = (double)h / 2;
 	}

@@ -8,6 +8,8 @@
 #include "StaticEntity.h"
 #include "TerrainObject.h"
 #include "MenuObject.h"
+#include "Bullet.h"
+#include "Player.h"
 
 class GameObjectFactory
 {

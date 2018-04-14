@@ -20,6 +20,13 @@
 #define POS_RESPONSE "PR"
 #define LPOS_RESPONSE "LPR"
 
+//Camera messages
+#define GET_FRONT "GF"
+#define GET_FRONT_RESPONSE "GFR"
+
+//Player Messages
+#define FIRE_WEAPON "FIRE"
+
 //Menu object specific messagees
 #define DISPLAY "DISP"
 #define HIDE "HIDE"
@@ -34,3 +41,6 @@
 
 //Render Module Messages
 #define WIREFRAME "WF"
+
+//Game Object handler messages
+#define ADD_TMP_OBJ "ATO"

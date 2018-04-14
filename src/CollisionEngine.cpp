@@ -70,23 +70,22 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 	AABB compb;
 
 	for (unsigned i = 0; i < collGO.size(); i++) {
-		if (collGO.at(i)->getID() != toupdate->getID() && collGO.at(i)->getModel() != NULL) {
+		if (collGO.at(i)->getID() != toupdate->getID() && collGO.at(i)->isCollidable()) {
 			compb = genAABB(collGO.at(i));
 			if (updateb.xmax >= compb.xmin && updateb.xmin <= compb.xmax
 				&& updateb.zmax >= compb.zmin && updateb.zmin <= compb.zmax) {
 				toupdate->setPos(tmpos);
-				toupdate->setTarget(vec3());
+				toupdate->stop();
 			}
 		}
 	}
-
 }
 
 AABB CollisionEngine::genAABB(GameObject* toupdate) {
 	if (toupdate->getModel() == NULL) 
-		return AABB(toupdate->getPos().x() + 5.0f, toupdate->getPos().x() - 5.0f,
-			toupdate->getPos().y() + 5.0f, toupdate->getPos().y() - 5.0f,
-			toupdate->getPos().z() + 5.0f, toupdate->getPos().z() - 5.0f);
+		return AABB(toupdate->getPos().x() + 7.0f, toupdate->getPos().x() - 7.0f,
+			toupdate->getPos().y() + 7.0f, toupdate->getPos().y() - 7.0f,
+			toupdate->getPos().z() + 7.0f, toupdate->getPos().z() - 7.0f);
 	else 
 		return AABB(toupdate->getModel()->getMaxX(), toupdate->getModel()->getMinX(),
 		toupdate->getModel()->getMaxY(), toupdate->getModel()->getMinY(),

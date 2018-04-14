@@ -44,6 +44,10 @@ function keys(key, action, MB)
 		if action:equals("press") then
 			MB:postMessage(Message("WF"), Identifiers("", "RM"));
 		end
+	elseif key:equals("space") then
+		if action:equals("press") then
+			MB:postMessage(Message("FIRE"), Identifiers("", "Player"));
+		end
 	elseif key:equals("o") or key:equals("O") then
 		if action:equals("press") then
 			MB:postMessage(Message("SMF"), Identifiers("", "Camera"));

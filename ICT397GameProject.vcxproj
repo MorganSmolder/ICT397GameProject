@@ -97,6 +97,7 @@
     <ClInclude Include="include\AssetManager.h" />
     <ClInclude Include="include\AudioEngine.h" />
     <ClInclude Include="include\BMPLoader.h" />
+    <ClInclude Include="include\Bullet.h" />
     <ClInclude Include="include\camera.h" />
     <ClInclude Include="include\CollisionEngine.h" />
     <ClInclude Include="include\CtoLUABinder.h" />
@@ -120,6 +121,7 @@
     <ClInclude Include="include\ModelFactory.h" />
     <ClInclude Include="include\ModelManger.h" />
     <ClInclude Include="include\NPC.h" />
+    <ClInclude Include="include\Player.h" />
     <ClInclude Include="include\QuadTree.h" />
     <ClInclude Include="include\RawTerrain.h" />
     <ClInclude Include="include\RenderModuleStubb.h" />
@@ -143,6 +145,7 @@
     <ClCompile Include="src\AssetManager.cpp" />
     <ClCompile Include="src\AudioEngine.cpp" />
     <ClCompile Include="src\BMPLoader.cpp" />
+    <ClCompile Include="src\Bullet.cpp" />
     <ClCompile Include="src\camera.cpp" />
     <ClCompile Include="src\CollisionEngine.cpp" />
     <ClCompile Include="src\CtoLUABinder.cpp" />
@@ -163,6 +166,7 @@
     <ClCompile Include="src\ModelFactory.cpp" />
     <ClCompile Include="src\ModelManger.cpp" />
     <ClCompile Include="src\NPC.cpp" />
+    <ClCompile Include="src\Player.cpp" />
     <ClCompile Include="src\RawTerrain.cpp" />
     <ClCompile Include="src\RenderModuleStubb.cpp" />
     <ClCompile Include="src\ResourceList.cpp" />

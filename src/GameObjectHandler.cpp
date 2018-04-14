@@ -6,6 +6,7 @@ GameObjectHandler::GameObjectHandler()
 {
 	GOF = Singleton<GameObjectFactory>::getInstance();
 	terrain = NULL;
+	id.setName("GOH");
 }
 
 GameObjectHandler::~GameObjectHandler()
@@ -40,10 +41,23 @@ bool GameObjectHandler::addObject(Identifiers id, vec3 pos, ResourceList & list)
 	return true;
 }
 
+void GameObjectHandler::msgrcvr() {
+	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
+	Message tmpmsg;
+
+	while (tmp->hasMessage(id)) {
+		tmpmsg = tmp->getMessage(id);
+		if (tmpmsg.getInstruction() == ADD_TMP_OBJ) {
+			addTmpObj(Identifiers("BLT"), tmpmsg.getData().mvdata.at(0), tmpmsg.getData().mvdata.at(1), ResourceList("model", tmpmsg.getData().sdata));
+		}
+	}
+}
+
 void GameObjectHandler::update(float time) {
-	refreshTree();
-	for (unsigned i = 0; i < gameobjects.size(); i++) {
-		gameobjects.at(i)->update(time);
+	msgrcvr();
+
+	for (unsigned i = 0; i < tmpobjects.size(); i++) {
+		tmpobjects.at(i)->update(time);
 	}
 }
 
@@ -64,6 +78,8 @@ int GameObjectHandler::GetGameObjectID(std::string name) {
 		}
 	}
 
+	return tmpid;
+	
 	if (tmpid = -1 && terrain != NULL) {
 		if (terrain->getIdentifiers().getName() == name) tmpid = (int) terrain->getID();
 	}
@@ -94,6 +110,38 @@ void GameObjectHandler::render() {
 		searchres.at(i)->render();
 	}
 	if(terrain != NULL) terrain->render();
+	for (unsigned i = 0; i < tmpobjects.size(); i++) {
+		tmpobjects.at(i)->render();
+	}
+}
+
+bool GameObjectHandler::addTmpObj(Identifiers id, vec3 pos, vec3 target, ResourceList model) {
+	bool found = false;
+	if (model.hasResource("model") == false) return false;
+	for (unsigned i = 0; i < tmpobjects.size() && !found; i++) {
+		if (tmpobjects.at(i)->isVisible() == false ) {
+			found = true;
+			tmpobjects.at(i)->setPos(pos);
+			tmpobjects.at(i)->setTarget(target);
+			if(Singleton<ModelManger>::getInstance()->getModelRefrence(model.getResource("model")) != NULL)
+			if(Singleton<ModelManger>::getInstance()->getModelRefrence(model.getResource("model"))->getId() != tmpobjects.at(i)->getModel()->getId())
+				tmpobjects.at(i)->setModel(Singleton<ModelManger>::getInstance()->useModel(model.getResource("model")));
+		}
+	}
+
+	if(found) return true;
+
+	GameObject * tmp = GOF->create(id, pos, model);
+
+	if (tmp == NULL) return false;
+
+	tmp->setPos(pos);
+
+	tmp->setTarget(target);
+
+	tmpobjects.push_back(tmp);
+
+	return true;
 }
 
 void GameObjectHandler::setWorldDimensions(float tlx, float tlz, float brx, float brz) {

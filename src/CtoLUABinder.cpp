@@ -76,6 +76,17 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("getIdentifiers", &TerrainObject::getIdentifiers)
 	];
 	luabind::module(lstate)[
+		luabind::class_<Player>("Player")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
+			.def("setPos", &Player::setPos)
+			.def("getPos", &Player::getPos)
+			.def("setState", &Player::setState)
+			.def("getState", &Player::getState)
+			.def("getID", &Player::getID)
+			.def("getIdentifiers", &Player::getIdentifiers)
+	];
+	luabind::module(lstate)[
 		luabind::class_<Identifiers>("Identifiers")
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<std::string>())
@@ -108,6 +119,7 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<std::string, std::string>())
 			.def(luabind::constructor<std::string, std::string, std::string, std::string>())
+			.def(luabind::constructor<std::string, std::string, std::string, std::string, std::string, std::string>())
 			.def("hasResource", &ResourceList::hasResource)
 			.def("getResource", &ResourceList::getResource)
 			.def("addResource", &ResourceList::addResource)

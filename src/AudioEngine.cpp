@@ -112,7 +112,7 @@ bool AudioEngine::soundPlaying(std::string sound) {
 bool AudioEngine::loadSound(std::string path, std::string type, std::string name) {
 	if (type != "WAV") return false;
 
-	HSAMPLE tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 10, BASS_SAMPLE_3D | BASS_SAMPLE_LOOP);
+	HSAMPLE tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 10, BASS_SAMPLE_3D/* | BASS_SAMPLE_LOOP*/);
 	if (tmp != 0) {
 		loadedsounds[name] = tmp;
 	}
@@ -269,7 +269,10 @@ void AudioEngine::msgrcvr() {
 		tmpmsg = tmpmsgbus->getMessage(this->id);
 		//Request to play sound at source
 		if (tmpmsg.getInstruction() == "PSS") {
-			playSoundatSource(tmpmsg.getData().sdata, tmpmsg.getData().idata, tmpmsg.getData().vdata);
+			if (tmpmsg.getData().idata == -1)
+				playSoundatSource(tmpmsg.getData().sdata, channellistenersources[activesubgroup].id, channellistenersources[activesubgroup].pos);
+			else
+				playSoundatSource(tmpmsg.getData().sdata, tmpmsg.getData().idata, tmpmsg.getData().vdata);
 		}
 		else
 		//Request to play sound without source defined
