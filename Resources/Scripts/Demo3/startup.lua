@@ -32,7 +32,11 @@ local function loadResources(AMAN)
 
 	if AMAN:addResource("./Resources/Audio/30.wav", "WAV", "bgmusic1") then print("Successfully loaded Resource 'bgmusic1'");
 	else print("Failed to load Resource 'bgmusic1'"); end
-		
+	
+	if AMAN:addResource("./Resources/Models/popup.tsqr", "TX", "popup") then print("Successfully loaded Resource 'popup'");
+	else print("Failed to load Resource 'popup'"); end
+	
+
 	print();
 end
 
@@ -65,7 +69,7 @@ function initGame(SM, LSM, AMAN, AE)
 
 	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(20, 0, 10), ResourceList());
 
-	SM:addObject(Identifiers("MO","Menu"), 0, vec3(0, 0, 0), ResourceList());
+	SM:addObject(Identifiers("MO","Guide"), 0, vec3(0, 0, 0), ResourceList("model", "popup"));
 
 	--SM:addObject(Identifiers("NPC", "ted"), 0, vec3(0,0,0), ResourceList("model", "Robot"));
 
@@ -80,13 +84,15 @@ function initGame(SM, LSM, AMAN, AE)
 
 	SM:setCurrScene(1);
 	
-	SM:attachControls(1, ResourceList("keyCallback", "keys2", "mouseCallback", "mouse2"));
+	SM:attachControls(1, ResourceList("keyCallback", "keys", "mouseCallback", "mouse"));
 
 	SM:attachTerrain(Identifiers("TO", "Terrain2"), 1, vec3(0,0,0), ResourceList("model", "Terrain2"));
 
-	SM:addObject(Identifiers("CAM","Camera2"), 1, vec3(0, 0, 0), ResourceList());
+	SM:addObject(Identifiers("CAM","Camera"), 1, vec3(0, 0, 0), ResourceList());
 
 	SM:setSceneHeightMap(1, SM:GetGameObject("Terrain2"));
+
+	SM:addObject(Identifiers("MO","Guide"), 0, vec3(0, 0, 0), ResourceList("model", "popup"));
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera2"), vec3(0, 0, 0));
 	

@@ -1,9 +1,12 @@
 #include "RenderModuleStubb.h"
 
 RenderModuleStubb::RenderModuleStubb() {
+	id.setName("RM");
+	wireframe = false;
 }
 
 void RenderModuleStubb::DrawQuad(point tl, point br, float y) {
+	glDisable(GL_LIGHTING);
 	glBegin(GL_QUADS);
 	glTexCoord2f(0, 1);
 	glVertex3f(tl.x, tl.y, y);
@@ -14,6 +17,7 @@ void RenderModuleStubb::DrawQuad(point tl, point br, float y) {
 	glTexCoord2f(1, 1);
 	glVertex3f(br.x, tl.y, y);
 	glEnd();
+	glEnable(GL_LIGHTING);
 }
 
 void RenderModuleStubb::DrawQuad(vec3 tl, float widthx, float widthz, float height, vec3 trans){
@@ -199,7 +203,6 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glShadeModel(GL_SMOOTH);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
@@ -222,6 +225,25 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glLightfv(GL_LIGHT0, GL_POSITION, position);
 }
 
+void RenderModuleStubb::msgrcvr() {
+	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
+	Message tmpm;
+	
+	while (tmp->hasMessage(id)) {
+
+		tmpm = tmp->getMessage(id);
+
+		if (tmpm.getInstruction() == WIREFRAME) {
+			if (wireframe) {
+				glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+			}
+			else {
+				glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+			}
+			wireframe = !wireframe;
+		}
+	}
+}
 
 void RenderModuleStubb::startRenderCycle() {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
@@ -238,16 +260,6 @@ void RenderModuleStubb::startRenderCycle() {
 void RenderModuleStubb::RenderFacingCamera() {
 	glPushMatrix();
 	glLoadIdentity();
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 1);
-	glVertex3f(0, 1, -1);
-	glTexCoord2f(0, 0);
-	glVertex3f(0, 0, -1);
-	glTexCoord2f(1, 0);
-	glVertex3f(1, 0, -1);
-	glTexCoord2f(1, 1);
-	glVertex3f(1, 1, -1);
-	glEnd();
 }
 
 void RenderModuleStubb::StopRenderFacingCamera() {
@@ -259,6 +271,7 @@ void RenderModuleStubb::endRenderCycle() {
 	glFlush();
 	glfwSwapBuffers(window);
 	glfwPollEvents();
+	msgrcvr();
 }
 
 

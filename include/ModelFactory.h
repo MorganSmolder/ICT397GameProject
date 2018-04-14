@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "RawTerrain.h"
 #include "ImportModel.h"
+#include "TexturedSquare.h"
 
 class ModelFactory
 {

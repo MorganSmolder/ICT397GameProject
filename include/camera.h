@@ -58,6 +58,7 @@ private:
 	float farPlane;
 	float horizontalAngle;
 	float verticalAngle;
+	float maxlspeed;
 	const float maxAngle = 60.0f;
 	Camera(const Camera &cam) {};
 	Camera &operator = (const Camera &cam) {};

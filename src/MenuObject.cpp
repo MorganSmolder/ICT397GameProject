@@ -7,21 +7,37 @@ MenuObject::MenuObject(Identifiers & id, vec3 pos, ResourceList & list) : GameOb
 
 void MenuObject::render() {
 	if (!visible) return;
-	
-	if (resources.hasResource("model") && model != NULL) GameObject::model->render(this->pos);
-	else {
-		RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
 
+	if (resources.hasResource("model") && model != NULL){
+		RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
 		tmp->RenderFacingCamera();
-		tmp->DrawQuad(point(pos.x(), pos.y() + 1), point(pos.x() + 1, pos.y()), pos.z());
+		GameObject::model->render(this->pos);
 		tmp->StopRenderFacingCamera();
 	}
 }
 
 void MenuObject::update(float time) {
-	LUAScriptManager* tmp = Singleton<LUAScriptManager>::getInstance();
-
 	msgrcvr();
+
+	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
+	Message tmpm;
+
+	while (tmp->hasMessage(id)) {
+
+		tmpm = tmp->getMessage(id);
+
+		if (tmpm.getInstruction() == DISPLAY) {
+			this->visible = true;
+		}
+		else
+		if (tmpm.getInstruction() == HIDE) {
+			this->visible = false;
+		}
+		else
+		if (tmpm.getInstruction() == TOGGLE) {
+			this->visible = !this->visible;
+		}
+	}
 }
 
 vec3 MenuObject::getCenterOffset() {

@@ -2,6 +2,8 @@
 
 #include "Model.h"
 #include "vec2.h"
+#include "Singleton.h"
+#include "TextureManager.h"
 
 class TexturedSquare : public Model
 {
@@ -19,5 +21,6 @@ private:
 	vec2 br;
 	std::vector<vec3> verts;
 	std::string texture;
+	std::string RandomString(unsigned len);
 };
 

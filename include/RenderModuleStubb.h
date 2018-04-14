@@ -51,8 +51,11 @@ private:
 	GLFWwindow* window;
 	vec3 campos;
 	vec3 camlook;
+	Identifiers id;
 	float timeLastUpdate;
 	float timeElapsed = 0.0f;
+	bool wireframe;
 
+	void msgrcvr();
 };
 

@@ -15,6 +15,7 @@ Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id,
 	aspectRatio = (4.0f / 3.0f);
 	horizontalAngle = 0.0f;
 	verticalAngle = 0.0f;
+	maxlspeed = 100;
 	moveForward = false;
 	moveBack = false;
 	moveRight = false;
@@ -82,10 +83,14 @@ void Camera::update(float time) {
 		}
 		else
 		if (tmpm.getInstruction() == "LX") {
+			if (tmpm.getData().fdata > maxlspeed) tmpm.getData().fdata = maxlspeed;
+			if (tmpm.getData().fdata < -maxlspeed) tmpm.getData().fdata = -maxlspeed;
 			horizontalAngle -= tmpm.getData().fdata * time * rotateSpeed;
 		}
 		else
 		if (tmpm.getInstruction() == "LY") {
+			if (tmpm.getData().fdata > maxlspeed) tmpm.getData().fdata = maxlspeed;
+			if (tmpm.getData().fdata < -maxlspeed) tmpm.getData().fdata = -maxlspeed;
 			verticalAngle -= tmpm.getData().fdata * time * rotateSpeed;
 			if (verticalAngle <= -maxAngle && tmpm.getData().fdata < 0) verticalAngle = -maxAngle;
 			if (verticalAngle >= maxAngle && tmpm.getData().fdata > 0) verticalAngle = maxAngle;

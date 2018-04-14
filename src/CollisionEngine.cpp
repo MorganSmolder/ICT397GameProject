@@ -49,11 +49,9 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 		return;
 	}
 	
-	//Dont touch this
 	float x = toupdate->getPos().x();
 	float z = toupdate->getPos().z();
 
-	//Height mapping - Ignore for the moment
 	if (x < maxx && x > minx && z > minz && z < maxz && hasHMap){
 		HMPos hmloc = findHMLocation(toupdate->getPos());
 
@@ -63,10 +61,8 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 		toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
 	}
 
-	//Sotre entity current position
 	vec3 tmpos = toupdate->getPos();
 
-	//Update entity (changes position)
 	toupdate->update(time);
 
 	AABB updateb = genAABB(toupdate);
@@ -87,10 +83,12 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 }
 
 AABB CollisionEngine::genAABB(GameObject* toupdate) {
-	if (toupdate->getModel() == NULL) return AABB(toupdate->getPos().x() + 3.0f, toupdate->getPos().x() - 3.0f,
-		toupdate->getPos().y() + 3.0f, toupdate->getPos().y() - 3.0f,
-		toupdate->getPos().z() + 3.0f, toupdate->getPos().z() - 3.0f);
-	else return AABB(toupdate->getModel()->getMaxX(), toupdate->getModel()->getMinX(),
+	if (toupdate->getModel() == NULL) 
+		return AABB(toupdate->getPos().x() + 5.0f, toupdate->getPos().x() - 5.0f,
+			toupdate->getPos().y() + 5.0f, toupdate->getPos().y() - 5.0f,
+			toupdate->getPos().z() + 5.0f, toupdate->getPos().z() - 5.0f);
+	else 
+		return AABB(toupdate->getModel()->getMaxX(), toupdate->getModel()->getMinX(),
 		toupdate->getModel()->getMaxY(), toupdate->getModel()->getMinY(),
 		toupdate->getModel()->getMaxZ(), toupdate->getModel()->getMinZ());
 }
