@@ -10,6 +10,7 @@ TexturedSquare * TexturedSquare::create() const {
 	tmp->br = this->br;
 	tmp->tl = this->tl;
 	tmp->texture = this->texture;
+<<<<<<< HEAD
 	tmp->verts = this->verts;
 	tmp->id = this->id;
 
@@ -48,6 +49,12 @@ bool TexturedSquare::loadModel(std::string filename) {
 	}
 
 	return true;
+=======
+}
+
+bool TexturedSquare::loadModel(std::string filename) {
+
+>>>>>>> origin/particles
 }
 
 void TexturedSquare::update() {
@@ -55,9 +62,13 @@ void TexturedSquare::update() {
 }
 
 void TexturedSquare::render(const vec3 & transmat) {
+<<<<<<< HEAD
 	if (texture.empty() == false) Singleton<TextureManager>::getInstance()->useTexture(texture, Singleton<RenderModuleStubb>::getInstance());
 	Singleton<RenderModuleStubb>::getInstance()->DrawQuad(point(br.x(), tl.y()), point(tl.x(), br.y()), -3);
 	Singleton<TextureManager>::getInstance()->disableTexture(Singleton<RenderModuleStubb>::getInstance());
+=======
+
+>>>>>>> origin/particles
 }
 
 void TexturedSquare::centerOnPoint(vec3 & point) {
@@ -74,6 +85,7 @@ std::vector<vec3>& TexturedSquare::getVerticies() {
 void TexturedSquare::setScale(vec3 & toset) {
 	tl *= vec2(toset.x(), toset.y());
 	br *= vec2(toset.x(), toset.y());
+<<<<<<< HEAD
 }
 
 std::string TexturedSquare::RandomString(unsigned len) {
@@ -84,4 +96,6 @@ std::string TexturedSquare::RandomString(unsigned len) {
 	}
 
 	return tmp;
+=======
+>>>>>>> origin/particles
 }

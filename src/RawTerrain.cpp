@@ -37,7 +37,10 @@ RAWTerrain::RAWTerrain(const RAWTerrain & tocpy) {
 	multitexture = tocpy.multitexture;
 	detailmap = tocpy.detailmap;
 	lights = tocpy.lights;
+<<<<<<< HEAD
 	id = tocpy.id;
+=======
+>>>>>>> origin/particles
 }
 
 RAWTerrain * RAWTerrain::create() const {

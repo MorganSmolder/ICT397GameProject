@@ -30,6 +30,7 @@ Model* ModelFactory::create(std::string path, std::string type) {
 		}
 		if (tmp->loadModel(path))
 		{
+<<<<<<< HEAD
 			tmp->setId(nextid++);
 			return tmp;
 		}
@@ -47,6 +48,8 @@ Model* ModelFactory::create(std::string path, std::string type) {
 		if (tmp->loadModel(path))
 		{
 			tmp->setId(nextid++);
+=======
+>>>>>>> origin/particles
 			return tmp;
 		}
 		else
@@ -55,6 +58,10 @@ Model* ModelFactory::create(std::string path, std::string type) {
 			return NULL;
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/particles
 
 	return NULL;
 }

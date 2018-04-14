@@ -64,7 +64,10 @@ struct FFTData {
 * @version 01
 * @date 02/04/2018
 */
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/particles
 class AudioEngine
 {
 public:
@@ -117,28 +120,133 @@ public:
 	* @return bool - Wether or not the sound was played correctly.
 	*/
 	bool playSound(std::string sound);
+<<<<<<< HEAD
 	bool playSoundatSource(std::string sound, int gameobject, vec3 & pos);
+=======
+
+	/**
+	* @brief Plays sound at a source.
+	*
+	* @param sound - The sound data.
+	* @param gameobject - The object the sound is bound with.
+	* @param pos - The position of the sound.
+	*
+	* @return bool - If the sound played.
+	*/
+	bool playSoundatSource(std::string sound, int gameobject, vec3 & pos);
+
+	/**
+	* @brief Stop playing the sound
+	*
+	* @param sound - The sound being stopped
+	*
+	* @return bool - If the sound was stopped.
+	*/
+>>>>>>> origin/particles
 	bool stopSound(std::string sound);
+
+	/**
+	* @brief Free all sound objects.
+	*
+	* @return bool - If all sound objects were freed.
+	*/
 	bool freeAllSounds();
+
+	/**
+	* @brief Pase all active channels.
+	*
+	* @return bool - If all active channels were paused.
+	*/
 	bool pauseActiveChannels();
+
+	/**
+	* @brief Unpause all channels.
+	*
+	* @return bool - If all channels were unpaused.
+	*/
 	bool unpauseChannels();
+
+	/**
+	* @brief Find if a sound is playing
+	*
+	* @param sound - The sound being searched for.
+	*
+	* @return bool - If the sound is playing.
+	*/
 	bool soundPlaying(std::string sound);
+
+	/**
+	* @brief Perform FFT
+	*
+	* @param sound - The sound being searched for.
+	* 
+	* @return bool - If FFT is being performed.
+	*/
 	FFTData performFFT(std::string sound);
+
+	/**
+	* @brief Update method for the sound.
+	*/
 	void update();
 
 private:
+	/// Identifier for the sound.
 	Identifiers id;
+	/// Map of loaded sounds.
 	std::map<std::string, int> loadedsounds;
+	/// Map of active channels.
 	std::map<int, std::map<std::string, SoundSourceWrapper>> activechannels;
+	/// Map of channel listener resources.
 	std::map<int, ListenerSourceWrapper> channellistenersources;
+	
+	/**
+	* @brief Work out when a channel has finished playing a sound.
+	*
+	* @param handle - The name of the sound
+	* @param channel - The channel being looked at.
+	* @param data - The data of the sound.
+	* @param user - The user calling the data.
+	*
+	* @return bool - If the channel has finished its call back.
+	*/
 	static void CALLBACK ChannelFinishedCallback(HSYNC handle, DWORD channel, DWORD data, void* user);
+
+	/**
+	* @brief Set the listener position
+	*
+	* @param pos - The new position
+	*
+	* @return bool - If it was set.
+	*/
 	bool setListenerPosition(vec3 & pos);
+
+	/**
+	* @brief Get the listener Position
+	*
+	* @return bool - If it was obtained
+	*/
 	bool getListenerPosition();
 
+	/// The active sub group that the sound belongs to.
 	unsigned activesubgroup;
 
+	/**
+	* @brief Update the channel position
+	*
+	* @param sound - The sound being updated.
+	*
+	* @return bool - If the sound was updated.
+	*/
 	bool updateChannelPos(std::string sound);
+
+	/**
+	* @brief Receive any messages.
+	*/
 	void msgrcvr();
+
+	/**
+	* @brief Send any messages.
+	*/
 	void msgsndr();
 };
 

@@ -25,6 +25,10 @@ public:
 	* @param path - Location of the resource on disk.
 	* @param type - The type of resource to load.
 	* @param name - The handle to be used in calls to utilise resource.
+<<<<<<< HEAD
+=======
+	*
+>>>>>>> origin/particles
 	* @return bool - Wether or not the resource was loaded correctly.
 	*/
 	bool addResource(std::string path, std::string type, std::string name); 
@@ -35,10 +39,27 @@ public:
 	* @param path - Location of the resource on disk.
 	* @param type - The type of resource to load.
 	* @param name - The handle to be used in calls to utilise resource.
+<<<<<<< HEAD
+=======
+	*
+>>>>>>> origin/particles
 	* @return bool - Wether or not the resource could be successfully used.
 	*/
 	bool useResource(std::string name);
 
+<<<<<<< HEAD
+=======
+	/**
+	* @brief Adds a model to the asset manager.
+	*
+	* @param path - Location of the resource on disk.
+	* @param type - The type of resource to load.
+	* @param name - The handle to be used in calls to utilise resource.
+	* @param scale - The scale vector for the model.
+	*
+	* @return bool - Wether or not the resource could be successfully used.
+	*/
+>>>>>>> origin/particles
 	bool addModel(std::string path, std::string type, std::string name, vec3 & scale);
 
 private:

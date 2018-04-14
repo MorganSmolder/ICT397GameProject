@@ -1,13 +1,27 @@
 #pragma once
 
+/**
+* @class Singleton
+* @brief Class for creating a singleton data type
+*
+* @author Morgan Smolder
+* @version 01
+* @date 02/04/2018
+*/
 template <class T>
 class Singleton
 {
 public:
 
+	/**
+	* @brief Get the instance of the data.
+	*
+	* @return T* - The data.
+	*/
 	static T* getInstance();
 
 private:
+	/// The Data.
 	static T* instance;
 	Singleton() {};
 };
