@@ -12,6 +12,7 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("GetGameObject", &SceneManager::GetGameObject)
 			.def("setSceneHeightMap", &SceneManager::setSceneHeightMap)
 			.def("attachControls", &SceneManager::attachControls)
+			.def("attachTerrain", &SceneManager::attachTerrain)
 	];
 	luabind::module(lstate)[
 		luabind::class_<vec3>("vec3")
@@ -51,6 +52,17 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("getState", &StaticEntity::getState)
 			.def("getID", &StaticEntity::getID)
 			.def("getIdentifiers", &StaticEntity::getIdentifiers)
+	];
+	luabind::module(lstate)[
+		luabind::class_<MenuObject>("StaticEntity")
+			.def(luabind::constructor<>())
+			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
+			.def("setPos", &MenuObject::setPos)
+			.def("getPos", &MenuObject::getPos)
+			.def("setState", &MenuObject::setState)
+			.def("getState", &MenuObject::getState)
+			.def("getID", &MenuObject::getID)
+			.def("getIdentifiers", &MenuObject::getIdentifiers)
 	];
 	luabind::module(lstate)[
 		luabind::class_<TerrainObject>("TerrainObject")

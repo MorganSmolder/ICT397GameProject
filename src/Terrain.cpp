@@ -16,10 +16,45 @@ void terrain::genPlane(unsigned size) {
 
 	for (unsigned i = 0; i < size; i++) {
 		for (unsigned j = 0; j < size; j++) {
-			plane.push_back(vec3((float) i, data[ind], (float) j));
-			lights.push_back(data[ind++]);
+			plane.push_back(vec3((float) i, data[ind++], (float) j));
 		}
 	}
+	
+	float shade;
+
+	int dirX = -1;
+
+	int dirZ = -1;
+
+	float softness = 0.2;
+
+	float minBrightness = 0.3f;
+	float maxBrightness = 8.0f;
+
+	unsigned char * hmdata = new unsigned char[dimensions*dimensions];
+
+	for (unsigned z = 0; z < dimensions;z++) {
+		for(unsigned x = 0; x < dimensions; x++){
+			int x1 = x - dirX;
+			int z1 = z - dirZ; 
+			if (x1<0 || x1 >= dimensions || z1 <0 ||z1 >= dimensions) {
+				shade = 1.0f; 
+			}
+			else {
+				shade = 1.0f -(data[x1 + (dimensions*z1)] - data[x + (dimensions*z)])/ softness;
+			}
+			if (shade<minBrightness)
+				shade=minBrightness;
+			if (shade>maxBrightness)
+				shade=maxBrightness;
+			hmdata[x + (dimensions * z)] = (unsigned char) (shade * 255);
+		}
+	}
+
+	for (unsigned i = 0; i < dimensions*dimensions; i++) {
+		lights.push_back(hmdata[i]);
+	}
+
 }
 
 void terrain::setScale(vec3 & toset) {
@@ -28,9 +63,9 @@ void terrain::setScale(vec3 & toset) {
 
 void terrain::genPlaneIndicies(unsigned size) {
 
-	for (int i = 0; i < size - 1; i++) {
+	for (int i = 0; i < (int) size - 1; i++) {
 		if (i % 2 == 0) {
-			for (int j = 0; j < size; j++) {
+			for (int j = 0; j < (int) size; j++) {
 				planInd.push_back(j + i * size);
 				planInd.push_back(j + (i + 1) * size);
 			}

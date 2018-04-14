@@ -5,12 +5,29 @@ std::vector<GameObject*> GameObjectHandler::searchres;
 GameObjectHandler::GameObjectHandler()
 {
 	GOF = Singleton<GameObjectFactory>::getInstance();
+	terrain = NULL;
 }
 
 GameObjectHandler::~GameObjectHandler()
 {
 	GOF = NULL;
 	gameobjectQT.clear();
+}
+
+bool GameObjectHandler::addTerrain(Identifiers id, vec3 pos, ResourceList & list) {
+	if (id.getType() != "TO") return false;
+	
+	GameObject* tmp = GOF->create(id, pos, list);
+
+	if (tmp == NULL) return false;
+
+	if (this->terrain != NULL) {
+		delete this->terrain;
+	}
+
+	this->terrain = tmp;
+
+	return true;
 }
 
 bool GameObjectHandler::addObject(Identifiers id, vec3 pos, ResourceList & list){
@@ -47,6 +64,10 @@ int GameObjectHandler::GetGameObjectID(std::string name) {
 		}
 	}
 
+	if (tmpid = -1 && terrain != NULL) {
+		if (terrain->getIdentifiers().getName() == name) tmpid = (int) terrain->getID();
+	}
+
 	return tmpid;
 }
 
@@ -59,6 +80,10 @@ GameObject* GameObjectHandler::GetGameObject(std::string name) {
 		}
 	}
 
+	if (tmp == NULL && terrain != NULL) {
+		if (terrain->getIdentifiers().getName() == name) tmp = terrain;
+	}
+
 	return tmp;
 }
 
@@ -68,6 +93,7 @@ void GameObjectHandler::render() {
 	for (unsigned i = 0; i < searchres.size(); i++) {
 		searchres.at(i)->render();
 	}
+	if(terrain != NULL) terrain->render();
 }
 
 void GameObjectHandler::setWorldDimensions(float tlx, float tlz, float brx, float brz) {

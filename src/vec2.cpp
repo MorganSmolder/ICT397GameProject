@@ -1,38 +1,116 @@
 #include "vec2.h"
 
-vec2::vec2()
-{
-
-}
-
-vec2::vec2(float a, float b)
-{
-	vector[0] = a;
-	vector[1] = b;
-}
-
-glm::vec2 vec2::getVec()
-{
-	return vector;
-}
-
-void vec2::setVec(glm::vec2 vec)
-{
-	vector = vec;
+void vec2::operator = (const vec2 & rhs) {
+	vector = rhs.vector;
 }
 
 float vec2::x()
 {
-	return vector[0];
+	return vector.x;
 }
 
 float vec2::y()
 {
-	return vector[1];
+	return vector.y;
 }
 
-void vec2::add(vec2 vec)
-{
-	vector[0] = vector[0] + vec.getVec()[0];
-	vector[1] = vector[1] + vec.getVec()[1];
+vec2 vec2::normalise() {
+	return glm::normalize(vector);
+}
+
+void vec2::normailse() {
+	vector = glm::normalize(vector);
+}
+
+float vec2::dot(const vec2 & rhs) {
+	return glm::dot(vector, rhs.vector);
+}
+
+float vec2::angle(const vec2 & rhs) {
+	return glm::angle(vector, rhs.vector);
+}
+
+float& vec2::operator [] (int index) {
+	return vector[index];
+}
+
+float vec2::sx(float nx) {
+	vector.x = nx;
+	return vector.x;
+}
+float vec2::sy(float ny) {
+	vector.y = ny;
+	return vector.y;
+}
+
+vec2 vec2::operator += (const vec2 & rhs) {
+	vector += rhs.vector;
+	return *this;
+}
+
+vec2 vec2::operator /= (const vec2 & rhs) {
+	vector /= rhs.vector;
+	return *this;
+}
+
+vec2 vec2::operator *= (const vec2 & rhs) {
+	vector *= rhs.vector;
+	return *this;
+}
+
+vec2 vec2::operator -= (const vec2 & rhs) {
+	vector -= rhs.vector;
+	return *this;
+}
+
+vec2 vec2::operator + (const vec2 & rhs) {
+	return vec2(vector + rhs.vector);
+}
+
+vec2 vec2::operator * (const vec2 & rhs) {
+	return vec2(vector * rhs.vector);
+}
+
+vec2 vec2::operator / (const vec2 & rhs) {
+	return vec2(vector / rhs.vector);
+}
+
+vec2 vec2::operator - (const vec2 & rhs) {
+	return vec2(vector - rhs.vector);
+}
+
+vec2 vec2::operator + (const float rhs) {
+	return vec2(vector + rhs);
+}
+
+vec2 vec2::operator * (const float rhs) {
+	return vec2(vector * rhs);
+}
+
+vec2 vec2::operator / (const float rhs) {
+	return vec2(vector / rhs);
+}
+
+vec2 vec2::operator - (const float rhs) {
+	return vec2(vector - rhs);
+}
+
+vec2 vec2::operator += (const float rhs) {
+	vector += rhs;
+	return *this;
+}
+
+vec2 vec2::operator *= (const float rhs) {
+	vector *= rhs;
+	return *this;
+}
+
+vec2 vec2::operator /= (const float rhs) {
+	vector /= rhs;
+	return *this;
+}
+
+vec2 vec2::operator -= (const float rhs) {
+	vector -= rhs;
+	return *this;
 }

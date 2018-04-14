@@ -44,7 +44,8 @@ RAWTerrain * RAWTerrain::create() const {
 }
 
 void RAWTerrain::render(const vec3 & transmat) {
-	vec3 trans(-1 * ((maxx + minx) / 2 - transmat.x()), -1 * ((maxy + miny) / 2 - transmat.y()), -1 * ((maxz + minz) / 2 - transmat.z()));
+	//vec3 trans(-1 * ((maxx + minx) / 2 - transmat.x()), -1 * ((maxy + miny) / 2 - transmat.y()), -1 * ((maxz + minz) / 2 - transmat.z()));
+	vec3 trans(0, 0, 0);
 	if (!multitexture.empty()) {
 		Singleton<TextureManager>::getInstance()->useTexture(multitexture, detailmap, Singleton<RenderModuleStubb>::getInstance());
 		Singleton<RenderModuleStubb>::getInstance()->renderMultiTexturedArrayTriStrip(planInd, plane, texcoords, lights, trans);
@@ -113,11 +114,11 @@ std::string RAWTerrain::parseOptions(std::string file) {
 
 		switch (linehead) {
 		case 's':
-			x = atof(tmp.substr(0, tmp.find(" ")).c_str());
+			x = (float) atof(tmp.substr(0, tmp.find(" ")).c_str());
 			tmp = tmp.substr(tmp.find(" ") + 1);
-			y = atof(tmp.substr(0, tmp.find(" ")).c_str());
+			y = (float) atof(tmp.substr(0, tmp.find(" ")).c_str());
 			tmp = tmp.substr(tmp.find(" ") + 1);
-			z = atof(tmp.c_str());
+			z = (float) atof(tmp.c_str());
 			scale = vec3(x, y, z);
 			break;
 		case 'f':
@@ -141,6 +142,8 @@ std::string RAWTerrain::parseOptions(std::string file) {
 			break;
 		}
 	}
+
+	return hm;
 }
 
 bool RAWTerrain::loadModel(std::string filename){

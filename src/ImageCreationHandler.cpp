@@ -96,7 +96,7 @@ bool ImageCreationHandler::CreateMultiTexture(std::vector<vec3> heightmap, std::
 
 	int ntexind = 0;
 
-	int dimensions = sqrt(heightmap.size());
+	int dimensions = (int) sqrt(heightmap.size());
 
 	unsigned xind;
 	unsigned zind;
@@ -114,8 +114,8 @@ bool ImageCreationHandler::CreateMultiTexture(std::vector<vec3> heightmap, std::
 
 			if (weight > 0) {
 				rgb[0] += (unsigned char) data[j][((xind + (zind * dimensions))*3)]*weight;
-				rgb[1] += (unsigned char)data[j][((xind + (zind * dimensions))*3) + 1]*weight;
-				rgb[2] += data[j][((xind + (zind * dimensions))*3) + 2]*weight;
+				rgb[1] += (unsigned char) data[j][((xind + (zind * dimensions))*3) + 1]*weight;
+				rgb[2] += (unsigned char) data[j][((xind + (zind * dimensions))*3) + 2]*weight;
 			}
 		}
 		imagedata[((xind + (zind * dimensions)) * 3)] = rgb[0];

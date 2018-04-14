@@ -33,6 +33,11 @@ GameObject* GameObjectFactory::create(Identifiers & id, vec3 pos, ResourceList &
 		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
 		return tmp;
 	}
+	if (id.getType() == "MO") {
+		tmp = new MenuObject(id, pos, list);
+		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
+		return tmp;
+	}
 	else{
 		nextid--;
 		return NULL;

@@ -3,7 +3,7 @@
 RenderModuleStubb::RenderModuleStubb() {
 }
 
-void RenderModuleStubb::DrawQuad(point tl, point br, float y){
+void RenderModuleStubb::DrawQuad(point tl, point br, float y) {
 	glBegin(GL_QUADS);
 	glTexCoord2f(0, 1);
 	glVertex3f(tl.x, tl.y, y);
@@ -14,6 +14,32 @@ void RenderModuleStubb::DrawQuad(point tl, point br, float y){
 	glTexCoord2f(1, 1);
 	glVertex3f(br.x, tl.y, y);
 	glEnd();
+}
+
+void RenderModuleStubb::DrawQuad(vec3 tl, float widthx, float widthz, float height, vec3 trans){
+	glPushMatrix();
+	glTranslatef(trans.x(), trans.y(), trans.z());
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 1);
+	glVertex3f(tl.x(), tl.y(), tl.z());
+	glTexCoord2f(0, 0);
+	glVertex3f(tl.x(), tl.y() + height, tl.z());
+	glTexCoord2f(1, 0);
+	glVertex3f(tl.x() + widthx, tl.y() + height, tl.z());
+	glTexCoord2f(1, 1);
+	glVertex3f(tl.x() + widthx, tl.y(), tl.z());
+
+	glTexCoord2f(0, 1);
+	glVertex3f(tl.x(), tl.y(), tl.z() + widthz);
+	glTexCoord2f(0, 0);
+	glVertex3f(tl.x(), tl.y() + height, tl.z() + widthz);
+	glTexCoord2f(1, 0);
+	glVertex3f(tl.x() + widthx, tl.y() + height, tl.z() + widthz);
+	glTexCoord2f(1, 1);
+	glVertex3f(tl.x() + widthx, tl.y(), tl.z() + widthz);
+	glEnd();
+
+	glPopMatrix();
 }
 
 void RenderModuleStubb::storeTexture(const int & texID, unsigned pixelsize, unsigned width, unsigned height, const unsigned char* data){
@@ -69,7 +95,7 @@ void RenderModuleStubb::renderArrayTriStrip(std::vector<unsigned> &indicies, std
 	glEnd();
 	glPopMatrix();
 }
-void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> texcoords, const vec3 & trans){
+void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> & texcoords, const vec3 & trans){
 	
 	glPushMatrix();
 	glTranslatef(trans.x(), trans.y(), trans.z());
@@ -83,12 +109,27 @@ void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vec
 	glPopMatrix();
 }
 
+void RenderModuleStubb::renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec3> normals, std::vector<vec2> & texcoords, const vec3 & trans) {
+	glPushMatrix();
+	glTranslatef(trans.x(), trans.y(), trans.z());
+	glBegin(GL_TRIANGLES);
+	for (unsigned i = 0; i < indicies.size(); i++) {
+		if (texcoords.empty() == false) glTexCoord2f(texcoords.at(indicies.at(i)).x(), texcoords.at(indicies.at(i)).y());
+		//Temporarily scaled for demo purposes
+		if (normals.empty() == false) glNormal3f(normals.at(indicies.at(i)).x(), normals.at(indicies.at(i)).y(), normals.at(indicies.at(i)).z());
+		glVertex3f(vertices.at(indicies.at(i)).x(), vertices.at(indicies.at(i)).y(), vertices.at(indicies.at(i)).z());
+	}
+	glEnd();
+	glPopMatrix();
+}
+
 void RenderModuleStubb::renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, std::vector<float> lights, const vec3 & trans) {
+	glDisable(GL_LIGHTING);
 	glPushMatrix();
 	glTranslatef(trans.x(), trans.y(), trans.z());
 	glBegin(GL_TRIANGLE_STRIP);
 	for (unsigned i = 0; i < indicies.size(); i++) {
-		glColor4ub(lights.at(indicies.at(i)) * 1, lights.at(indicies.at(i)) * 1, lights.at(indicies.at(i)) * 1, 255);
+		glColor4ub((GLubyte) lights.at(indicies.at(i)) * 1, (GLubyte) lights.at(indicies.at(i)) * 1, (GLubyte) lights.at(indicies.at(i)) * 1, (GLubyte) 255);
 		glMultiTexCoord2fARB(GL_TEXTURE0_ARB, texcoords.at(indicies.at(i)).x(), texcoords.at(indicies.at(i)).y());
 		glMultiTexCoord2fARB(GL_TEXTURE1_ARB, texcoords.at(indicies.at(i)).x() * 32, texcoords.at(indicies.at(i)).y() * 32);
 		glVertex3f(vertices.at(indicies.at(i)).x(), vertices.at(indicies.at(i)).y(), vertices.at(indicies.at(i)).z());
@@ -96,7 +137,8 @@ void RenderModuleStubb::renderMultiTexturedArrayTriStrip(std::vector<unsigned> &
 	glEnd();
 	glPopMatrix();
 
-	glColor4ub(255, 255, 255, 255);
+	glColor4ub(255, 255, 255, 255); 
+	glEnable(GL_LIGHTING);
 }
 
 void RenderModuleStubb::renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords) {
@@ -128,7 +170,7 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 	glfwWindowHint(GLFW_DEPTH_BITS, GL_TRUE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
-	window = glfwCreateWindow(1280, 720, "Shitty Render Standin", NULL, NULL);
+	window = glfwCreateWindow(1280, 720, "Game Engine", NULL, NULL);
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1);
 	glfwSetFramebufferSizeCallback(window, reshape);
@@ -149,7 +191,7 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
 
 	reshape(window, 1280, 720);
-	glClearColor(0.1f, 0.1f, 0.1f, 0.1f);
+	glClearColor(0.52f, 0.8f, 0.8f, 0.92f);
 	glClearDepth(1.0f);
 	glEnable(GL_DEPTH_TEST);
 	glEnable(GL_TEXTURE_2D);
@@ -157,6 +199,27 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glShadeModel(GL_SMOOTH);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
+	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+
+	float ambientLight[] = { 0.0f, 0.0f, 0.0f, 1.0f };
+	float diffuseLight[] = { 1, 1, 1, 1.0f };
+	float specularLight[] = { 1, 1, 1, 1.0f };
+	float position[] = { 1.0f, 0.5f, 1.0f, 0 };
+	
+	glEnable(GL_COLOR_MATERIAL);
+	glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specularLight);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, ambientLight);
+
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+	// Assign created components to GL_LIGHT0
+	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
+	glLightfv(GL_LIGHT0, GL_POSITION, position);
 }
 
 
@@ -170,9 +233,25 @@ void RenderModuleStubb::startRenderCycle() {
 		camlook.x(), camlook.y(), camlook.z(),
 		0.0f, 1.0f, 0.0f);
 	glPushMatrix();
-	
+}
 
+void RenderModuleStubb::RenderFacingCamera() {
+	glPushMatrix();
+	glLoadIdentity();
+	glBegin(GL_QUADS);
+	glTexCoord2f(0, 1);
+	glVertex3f(0, 1, -1);
+	glTexCoord2f(0, 0);
+	glVertex3f(0, 0, -1);
+	glTexCoord2f(1, 0);
+	glVertex3f(1, 0, -1);
+	glTexCoord2f(1, 1);
+	glVertex3f(1, 1, -1);
+	glEnd();
+}
 
+void RenderModuleStubb::StopRenderFacingCamera() {
+	glPopMatrix();
 }
 
 void RenderModuleStubb::endRenderCycle() {

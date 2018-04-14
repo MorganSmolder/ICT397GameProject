@@ -17,7 +17,7 @@ NPC::~NPC()
 
 void NPC::render() {
 
-	if (resources.hasResource("model")) GameObject::model->render(this->pos);
+	if (resources.hasResource("model") && model != NULL) GameObject::model->render(this->pos);
 	else {
 		RenderModuleStubb* tmp = Singleton<RenderModuleStubb>::getInstance();
 
@@ -39,8 +39,8 @@ void NPC::update(float time) {
 }
 
 vec3 NPC::getCenterOffset() {
-	if (resources.hasResource("model")) {
-		return vec3(model->getMaxX() - model->getMinX(), model->getMaxY() - model->getMinY(), model->getMaxZ() - model->getMinZ());
+	if (resources.hasResource("model") && model != NULL) {
+		return vec3(0, abs(model->getMaxY()), 0);
 	}
 
 	return vec3(0, 0, 0);
