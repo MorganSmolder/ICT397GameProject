@@ -1,12 +1,9 @@
 #include "CollisionEngine.h"
 
-
-
 CollisionEngine::CollisionEngine()
 {
 	hasHMap = false;
 }
-
 
 CollisionEngine::~CollisionEngine()
 {
@@ -48,18 +45,6 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 		toupdate->update(time);
 		return;
 	}
-	
-	float x = toupdate->getPos().x();
-	float z = toupdate->getPos().z();
-
-	if (x < maxx && x > minx && z > minz && z < maxz && hasHMap){
-		HMPos hmloc = findHMLocation(toupdate->getPos());
-
-		float y = interpolateY(toupdate->getPos(), hmloc);
-
-		toupdate->setPos(vec3(toupdate->getPos().x(), y + toupdate->getCenterOffset().y(), toupdate->getPos().z()));
-		toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
-	}
 
 	vec3 tmpos = toupdate->getPos();
 
@@ -77,6 +62,25 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 				toupdate->setPos(tmpos);
 				toupdate->stop();
 			}
+		}
+	}
+
+	if (hasHMap) {
+		float x = toupdate->getPos().x();
+		float z = toupdate->getPos().z();
+
+		if ((x < maxx && x > minx && z > minz && z < maxz) == false) {
+			toupdate->setPos(tmpos);
+			toupdate->stop();
+		}
+
+		if (x < maxx && x > minx && z > minz && z < maxz && hasHMap) {
+			HMPos hmloc = findHMLocation(toupdate->getPos());
+
+			float y = interpolateY(toupdate->getPos(), hmloc);
+
+			toupdate->setPos(vec3(toupdate->getPos().x(), y + toupdate->getCenterOffset().y(), toupdate->getPos().z()));
+			toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
 		}
 	}
 }

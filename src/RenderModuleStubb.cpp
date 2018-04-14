@@ -174,7 +174,8 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 	glfwWindowHint(GLFW_DEPTH_BITS, GL_TRUE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
-	window = glfwCreateWindow(1280, 720, "Game Engine", NULL, NULL);
+
+	window = glfwCreateWindow(1280, 720, "Game Engine", glfwGetPrimaryMonitor(), NULL);
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1);
 	glfwSetFramebufferSizeCallback(window, reshape);

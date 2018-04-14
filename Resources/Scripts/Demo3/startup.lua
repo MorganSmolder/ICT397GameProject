@@ -21,7 +21,7 @@ local function loadResources(AMAN)
 	if AMAN:addModel("./Resources/Models/Iron_Man.obj", "IM", "Robot", vec3(8,8,8)) then print("Successfully loaded Resource 'Robot'");
 	else print("Failed to load Resource 'Robot'"); end
 
-	if AMAN:addModel("./Resources/Models/Rock.obj", "IM", "rock", vec3(8,8,8)) then print("Successfully loaded Resource 'rock'");
+	if AMAN:addModel("./Resources/Models/Rock.obj", "IM", "rock", vec3(15,15,15)) then print("Successfully loaded Resource 'rock'");
 	else print("Failed to load Resource 'rock'"); end
 
 	if AMAN:addModel("./Resources/Models/bullet.obj", "IM", "bullet", vec3(1,1,1)) then print("Successfully loaded Resource 'bullet'");
@@ -69,21 +69,19 @@ function initGame(SM, LSM, AMAN, AE)
 		SM:addObject(Identifiers("SE"), 0, vec3(math.random()*(5120), 0, math.random()*(5120)), ResourceList("model", "rock")); 
 	end
 
-	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(20, 0, 10), ResourceList());
+	SM:addObject(Identifiers("CAM","Camera"), 0, vec3(0, 0, 0), ResourceList());
 
-	SM:addObject(Identifiers("PLYR", "Player"), 0, vec3(20, 0, 10), ResourceList("camera", "Camera", "projmodel", "bullet", "projsnd", "gunshot"));
+	SM:addObject(Identifiers("PLYR", "Player"), 0, vec3(0, 0, 0), ResourceList("camera", "Camera", "projmodel", "bullet", "projsnd", "gunshot"));
 
 	SM:addObject(Identifiers("MO","Guide"), 0, vec3(0, 0, 0), ResourceList("model", "popup"));
 
-	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(0,0,0), ResourceList("model", "Robot"));
+	SM:addObject(Identifiers("NPC", "ted"), 0, vec3(-30,0,0), ResourceList("model", "Robot"));
 
 	SM:setSceneHeightMap(0, SM:GetGameObject("Terrain"));
 
 	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
 	AE:playSoundatSource("bgmusic", SM:GetGameObjectID("Camera"), vec3(0, 0, 10));
-
-	print(SM:GetGameObjectID("Player"));
 
 	--Initalise Scene 2
 	SM:addScene();
@@ -98,11 +96,11 @@ function initGame(SM, LSM, AMAN, AE)
 
 	SM:setSceneHeightMap(1, SM:GetGameObject("Terrain2"));
 
-	SM:addObject(Identifiers("MO","Guide"), 0, vec3(0, 0, 0), ResourceList("model", "popup"));
+	SM:addObject(Identifiers("MO","Guide"), 1, vec3(0, 0, 0), ResourceList("model", "popup"));
 
-	AE:setListenerSource(SM:GetGameObjectID("Camera2"), vec3(0, 0, 0));
+	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
-	AE:playSoundatSource("bgmusic1", SM:GetGameObjectID("Camera2"), vec3(0, 0, 0));
+	AE:playSoundatSource("bgmusic1", SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 
 	--Set Starting Scene
 	SM:setCurrScene(0);

@@ -94,11 +94,11 @@ void Controls::mouseCallback(GLFWwindow* window, double x, double y) {
 	int w; int h;
 	glfwGetWindowSize(window, &w, &h);
 
-	if (x > w * .6 || x < w * .4) {
+	if (x > w * .55 || x < w * .45) {
 		glfwSetCursorPos(window, (double) w/2, y);
 		prevx = (double)w / 2;
 	}
-	if (y > h *.6 || y < h * .4) {
+	if (y > h *.55 || y < h * .45) {
 		glfwSetCursorPos(window, x, (double)h / 2);
 		prevy = (double)h / 2;
 	}
