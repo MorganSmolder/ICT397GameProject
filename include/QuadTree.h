@@ -5,14 +5,6 @@
 
 #ifndef pair
 
-/**
-* @struct pair
-* @brief Struct for holding data from the tree in
-*
-* @author Morgan Smolder
-* @version 01
-* @date 02/04/2018
-*/
 struct pair{
 	float x;
 	float z;
@@ -30,14 +22,7 @@ struct pair{
 
 #endif 
 
-/**
-* @class QuadTree
-* @brief Class for creating a quadtree data structure to store all data in
-*
-* @author Morgan Smolder
-* @version 01
-* @date 02/04/2018
-*/
+
 template <class T>
 class QuadTree{
 	public:
@@ -45,147 +30,30 @@ class QuadTree{
 		QuadTree();
 		~QuadTree();
 		QuadTree(const QuadTree<T> & tocpy);
-
-		/**
-		* @brief Set the dimensions
-		* 
-		* @param TL - The top left pair.
-		* @param BR - The bottom right pair.
-		*/
 		void setDimensions(pair TL, pair BR);
-
-		/**
-		* @brief Insert a new element
-		*
-		* @param newelement - The new element
-		* @param getposfunc() - The get position function.
-		*
-		* @return bool - If the element was inserted.
-		*/
 		bool insert(const T & newelement, pair (*getposfunc)(const T & element));
-
-		/**
-		* @brief Traverse the quadtree structure.
-		*
-		* @param travfun() - The traverse function.
-		*/
 		void traverse(void(*travfunc)(const std::vector<std::list<T> > & elements, pair topleft, pair bottomright));
-
-		/**
-		* @brief Search for a element in the tree
-		*
-		* @param comparisonfunc() - The comparison function.
-		* @param onFind() - The onfind function
-		* @param getposfunc() - The get position function
-		* @param tofind - The data to find.
-		*
-		* @return bool - If the target was found.
-		*/
 		bool search(bool(*comparisonfunc)(const T & element, const T & comparator), void(*onFind)(const std::vector<std::list<T> > & elements, pair topleft, pair bottomright), pair(*getposfunc)(const T& element), const T& tofind);
-
-		/**
-		* @brief Clear the tree.
-		*/
 		void clear();
-		
-		/**
-		* @brief Overload for the = operator.
-		* 
-		* @param tocpy - The quadtree to be copied.
-		*
-		* @return QuadTree<T> - The quadtree.
-		*/
 		const QuadTree<T> & operator = (const QuadTree<T> & tocpy);
 	private:
-		/// The data bucket.
 		std::vector<std::list<T> > bucket;
-		/// The ceiling for the quadtree.
 		unsigned ceiling;
-		/// The top left element.
 		pair topleft;
-		/// The bottom right element.
 		pair bottomright;
-		/// Pointer to the top left data.
 		QuadTree<T>* top_left;
-		/// Pointer to the top right data.
 		QuadTree<T>* top_right;
-		/// Pointer to the bottom left data.
 		QuadTree<T>* bottom_left;
-		/// Pointer to the bottom right data.
 		QuadTree<T>* bottom_right;
 
-		/**
-		* @brief Delete the root.
-		*/
 		void killTreeRoot();
-
-		/**
-		* @brief Delete the tree.
-		*
-		* @param currnode - The current node.
-		*/
 		void killTree(QuadTree<T>* & currnode);
-
-		/**
-		* @brief Copy the root.
-		*
-		* @param tocpyroot - The root to be copied.
-		*/
 		void cpyTreeRoot(const QuadTree<T>* tocpyroot);
-
-		/**
-		* @brief Copy a tree.
-		*
-		* @param curnode - The current node.
-		* @param tocpy - The tree to be copied.
-		*/
 		void cpyTree(QuadTree<T>* & curnode, const QuadTree<T>* tocpy);
-
-		/**
-		* @brief Traverse the tree.
-		*
-		* @param currnode - The current node.
-		* @param travfunc() - The traverse function.
-		*/
 		void traverse(QuadTree<T>* currnode, void(*travfunc)(const std::vector<std::list<T> >  & elements, pair topleft, pair bottomright));
-
-		/**
-		* @brief If the tree has any children.
-		*
-		* @param totest - The quadtree to test.
-		*
-		* @return bool - If the tree has children.
-		*/
 		bool noChildren(QuadTree<T>* totest);
-
-		/**
-		* @brief Split the tree.
-		*
-		* @param tosplit - The quad tree.
-		* @param getposfunc() - Get position function.
-		*/
 		void splitTree(QuadTree<T>* tosplit, pair (*getposfunc)(const T & element));
-
-		/**
-		* @brief Insert a element into the tree
-		*
-		* @param curnode - The current node.
-		* @param newelement - The new element.
-		* @param getposfun() - Get position function.
-		*
-		* @return bool - If the element was inserted.
-		*/
 		bool insert(QuadTree<T>* curnode, const T & newelement, pair (*getposfunc)(const T & element));
-
-		/**
-		* @brief Duplicate the element.
-		*
-		* @param tosearch - A list of data to check.
-		* @param target - The element to look for.
-		* @param getposfunc() - The get position function.
-		*
-		* @return int - The new element
-		*/
 		int duplicateElement(const std::vector<std::list<T> >& tosearch, const T & target, pair(*getposfunc)(const T& element));
 };
 
