@@ -113,6 +113,7 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("getInstruction", &Message::getInstruction)
 			.def("setInstruction", &Message::setInstruction)
 			.def("setfData", &Message::setfData)
+			.def("setiData", &Message::setIData)
 	];
 	luabind::module(lstate)[
 		luabind::class_<ResourceList>("ResourceList")
@@ -130,12 +131,14 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("addResource", &AssetManager::addResource)
 			.def("useResource", &AssetManager::useResource)
 			.def("addModel", &AssetManager::addModel)
+			.def("addSound", &AssetManager::addSound)
 	];
 	luabind::module(lstate)[
 		luabind::class_<AudioEngine>("AudioEngine")
 			.def("loadSound", &AudioEngine::loadSound)
 			.def("playSoundatSource", &AudioEngine::playSoundatSource)
 			.def("setListenerSource", &AudioEngine::setListenerSource)
+			.def("loadSound", &AudioEngine::loadSound)
 	];
 	luabind::module(lstate)[
 		luabind::class_<SimpleString>("SimpleString")

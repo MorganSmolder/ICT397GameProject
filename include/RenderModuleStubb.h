@@ -2,8 +2,11 @@
 
 #include "Windows.h"
 #define GLFW_INCLUDE_GLU 
+#define GLFW_EXPOSE_NATIVE_WGL
+#define GLFW_EXPOSE_NATIVE_WIN32
 #include "gl/glew.h"
 #include "glfw/glfw3.h"
+#include "GLFW/glfw3native.h"
 #include <vector>
 #include "vec3.h"
 #include "vec2.h"
@@ -215,6 +218,8 @@ public:
 	* @return float - The time since the last update.
 	*/
 	float getTimeSinceUpdate();
+
+	HWND getWinWindow();
 
 private:
 	/// The window.

@@ -36,6 +36,10 @@ function keys(key, action, MB)
 		elseif(action:equals("release")) then
 			MB:postMessage(Message("SLU"), Identifiers("", "Camera"));
 		end 
+	elseif key:equals("B") then
+		if action:equals("press") then
+			MB:postMessage(Message("SVM"), Identifiers("", "Camera"));
+		end
 	elseif key:equals("m") or key:equals("M") then
 		if action:equals("press") then
 			MB:postMessage(Message("TG"), Identifiers("", "Guide"));
@@ -48,6 +52,12 @@ function keys(key, action, MB)
 		if action:equals("press") then
 			MB:postMessage(Message("FIRE"), Identifiers("", "Player"));
 		end
+	elseif key:equals("X") then
+		if action:equals("press") then
+			tmpm = Message("CS");
+			tmpm:setiData(2);
+			MB:postMessage(tmpm, Identifiers("", "SM"));
+		end
 	elseif key:equals("o") or key:equals("O") then
 		if action:equals("press") then
 			MB:postMessage(Message("SMF"), Identifiers("", "Camera"));
@@ -56,15 +66,13 @@ function keys(key, action, MB)
 			MB:postMessage(Message("SMB"), Identifiers("", "Camera"));
 			MB:postMessage(Message("SLD"), Identifiers("", "Camera"));
 			MB:postMessage(Message("SLU"), Identifiers("", "Camera"));
-			MB:postMessage(Message("CS"), Identifiers("", "SM"));
-		end
-	end
-end
-
-function startcont(key, action, MB)
-	if key:equals("enter") then
-		if action:equals("press") then
-			MB:postMessage(Message("CS"), Identifiers("", "SM"));
+			tmpm = Message("CS");
+			if (curscene == 0) then
+				tmpm:setiData(1);
+			else
+				tmpm:setiData(0);
+			end
+			MB:postMessage(tmpm, Identifiers("", "SM"));
 		end
 	end
 end
@@ -77,4 +85,10 @@ function mouse(x, y, MB)
 	topost = Message("LY");
 	topost:setfData(prevy - y:toDouble());
 	MB:postMessage(topost, Identifiers("", "Camera"));
+end
+
+function exitGameControls(button, action, MB)
+	if button:equals("left") and action:equals("press") then
+		print("The Game Would Close Now.");
+	end
 end

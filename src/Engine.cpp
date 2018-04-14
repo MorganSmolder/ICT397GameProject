@@ -85,7 +85,7 @@ bool Engine::initaliseAudioEngine() {
 	AE = Singleton<AudioEngine>::getInstance();
 	if (AE == NULL) return false;
 
-	AE->initalise();
+	AE->initalise(RNDR->getWinWindow());
 	
 	return true;
 }

@@ -12,6 +12,10 @@ char Message::getDType() {
 	return dtype;
 }
 
+void Message::setIData(int idata) {
+	mdata.idata = idata;
+}
+
 void Message::setInstruction(std::string instruuction) {
 	this->instruction = instruuction;
 }

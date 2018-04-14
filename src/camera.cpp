@@ -6,7 +6,7 @@
 
 Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id, pos, list)
 {
-	rotateSpeed = 3.0f;
+	rotateSpeed = 6.0f;
 	moveSpeed = 3.0f;
 	speedDecay = 7.0f;
 	fov = 50.0f;
@@ -14,14 +14,18 @@ Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id,
 	farPlane = 100.0f;
 	aspectRatio = (4.0f / 3.0f);
 	horizontalAngle = 0.0f;
-	verticalAngle = 0.0f;
-	maxlspeed = 100;
+	verticalAngle = 20.0f;
+	maxlspeed = 100.0f;
 	moveForward = false;
 	moveBack = false;
 	moveRight = false;
 	moveLeft = false;
 	lookDown = false;
 	lookUp = false;
+	maxAngle = 80.0f;
+	maxNangle = -80.0f;
+	birdseye = false;
+	yoff = 10.0f;
 }
 
 void Camera::update(float time) {
@@ -83,17 +87,13 @@ void Camera::update(float time) {
 		}
 		else
 		if (tmpm.getInstruction() == "LX") {
-			if (tmpm.getData().fdata > maxlspeed) tmpm.getData().fdata = maxlspeed;
-			if (tmpm.getData().fdata < -maxlspeed) tmpm.getData().fdata = -maxlspeed;
 			horizontalAngle -= tmpm.getData().fdata * time * rotateSpeed;
 		}
 		else
 		if (tmpm.getInstruction() == "LY") {
-			if (tmpm.getData().fdata > maxlspeed) tmpm.getData().fdata = maxlspeed;
-			if (tmpm.getData().fdata < -maxlspeed) tmpm.getData().fdata = -maxlspeed;
 			verticalAngle -= tmpm.getData().fdata * time * rotateSpeed;
-			if (verticalAngle <= -maxAngle && tmpm.getData().fdata < 0) verticalAngle = -maxAngle;
-			if (verticalAngle >= maxAngle && tmpm.getData().fdata > 0) verticalAngle = maxAngle;
+			if (verticalAngle <= maxNangle && tmpm.getData().fdata > 0) verticalAngle = maxNangle;
+			if (verticalAngle >= maxAngle && tmpm.getData().fdata < 0) verticalAngle = maxAngle;
 		}
 		else
 		if (tmpm.getInstruction() == POS_REQUEST) {
@@ -106,6 +106,10 @@ void Camera::update(float time) {
 			tmpm.setInstruction(GET_FRONT_RESPONSE);
 			tmpm.getData().vdata = GetCamZ();
 			tmp->postMessage(tmpm, tmpm.getFrom());
+		}
+		else
+		if (tmpm.getInstruction() == SWITCH_VIEW_MODE) {
+			switchViewMode();
 		}
 	}
 
@@ -135,6 +139,27 @@ void Camera::update(float time) {
 
 	pos += (target * (time * speedDecay));
 	target -= (target * (time * speedDecay));
+}
+
+bool Camera::isCollidable() {
+	return !birdseye;
+}
+
+void Camera::switchViewMode() {
+	birdseye = !birdseye;
+	
+	if (!birdseye) {
+		maxAngle = 80.0f;
+		maxNangle = -80.0f;
+		yoff = 10.0f;
+		moveSpeed = 3.0f;
+	}
+	else {
+		maxAngle = 80.0f;
+		maxNangle = 0.0f;
+		yoff = 1000.0f;
+		moveSpeed = 6.0f;
+	}
 }
 
 void Camera::stop(){
@@ -253,10 +278,10 @@ void Camera::CorrectAngleBoundaries() {
 
 	if (verticalAngle > maxAngle)
 		verticalAngle = maxAngle;
-	else if (verticalAngle < -maxAngle)
-		verticalAngle = -maxAngle;
+	else if (verticalAngle < maxNangle)
+		verticalAngle = maxNangle;
 }
 
 vec3 Camera::getCenterOffset() {
-	return vec3(0, 10, 0);
+	return vec3(0, yoff, 0);
 }

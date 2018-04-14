@@ -51,6 +51,7 @@ void SceneManager::setCurrScene(unsigned sceneno) {
 		initScene(sceneno);
 		scenes.at(currscene).update(0);
 	}
+	Singleton<LUAScriptManager>::getInstance()->setGlobal<double>(currscene, "curscene");
 }
 
 unsigned SceneManager::getNumScenes() {
@@ -72,7 +73,10 @@ void SceneManager::msgrcvr() {
 	while (tmp->hasMessage(id)) {
 		Message tmpmsg = tmp->getMessage(id);
 		if (tmpmsg.getInstruction() == "CS") {
-			setCurrScene((unsigned) (currscene + 1) % scenes.size());
+			setCurrScene(tmpmsg.getData().idata);
+		}
+		if (tmpmsg.getInstruction() == "CSR") {
+			setCurrScene(currscene + tmpmsg.getData().idata);
 		}
 	}
 }

@@ -2,7 +2,7 @@
 
 
 MenuObject::MenuObject(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id, pos, list){
-	visible = false;
+	visible = true;
 }
 
 void MenuObject::render() {

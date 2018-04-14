@@ -52,6 +52,8 @@ public:
 	*/
 	bool addModel(std::string path, std::string type, std::string name, vec3 & scale);
 
+	bool addSound(std::string path, std::string type, std::string name, bool loop);
+
 private:
 	///Pointer to texture manager module
 	TextureManager* TexMan;

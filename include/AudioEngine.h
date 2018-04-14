@@ -75,7 +75,7 @@ public:
 	*
 	* @return bool - Wether or not the library was successfully intalised.
 	*/
-	bool initalise();
+	bool initalise(const HWND & window);
 
 	/**
 	* @brief Sets the active channel subgroup
@@ -99,7 +99,7 @@ public:
 	* @param name - The handle to be used in calls to utilise sound.
 	* @return bool - Wether or not the sound was loaded correctly.
 	*/
-	bool loadSound(std::string path, std::string type, std::string name);
+	bool loadSound(std::string path, std::string type, std::string name, bool Loop);
 
 	/**
 	* @brief Binds a game object to the module as the listener.

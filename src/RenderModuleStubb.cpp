@@ -167,6 +167,10 @@ void RenderModuleStubb::renderMultiTexturedArrayTriStrip(std::vector<unsigned> &
 	glPopMatrix();
 }
 
+HWND RenderModuleStubb::getWinWindow() {
+	return glfwGetWin32Window(window);
+}
+
 void RenderModuleStubb::init(int argc, char** argv) {
 	glfwInit();
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);

@@ -23,6 +23,7 @@
 //Camera messages
 #define GET_FRONT "GF"
 #define GET_FRONT_RESPONSE "GFR"
+#define SWITCH_VIEW_MODE "SVM"
 
 //Player Messages
 #define FIRE_WEAPON "FIRE"

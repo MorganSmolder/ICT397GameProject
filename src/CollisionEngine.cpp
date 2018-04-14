@@ -42,7 +42,18 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 //Taken from the quad tree
 void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time) {
 	if (toupdate->isCollidable() == false) {
+		vec3 tmpos = toupdate->getPos();
+		
 		toupdate->update(time);
+
+		float x = toupdate->getPos().x();
+		float z = toupdate->getPos().z();
+
+		if ((x < maxx && x > minx && z > minz && z < maxz) == false) {
+			toupdate->setPos(tmpos);
+			toupdate->stop();
+		}
+
 		return;
 	}
 

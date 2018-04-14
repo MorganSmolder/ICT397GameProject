@@ -1,6 +1,10 @@
 ﻿  ICT397GameProject.cpp
   Unknown compiler version - please run the configure tests and report the results
+  AssetManager.cpp
+  AudioEngine.cpp
   Bullet.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  camera.cpp
   Unknown compiler version - please run the configure tests and report the results
   CollisionEngine.cpp
   Unknown compiler version - please run the configure tests and report the results
@@ -14,26 +18,41 @@
   Unknown compiler version - please run the configure tests and report the results
   GameObjectHandler.cpp
   Unknown compiler version - please run the configure tests and report the results
+  ImageCreationHandler.cpp
+src\ImageCreationHandler.cpp(116): warning C4244: '+=': conversion from 'float' to 'unsigned char', possible loss of data
+src\ImageCreationHandler.cpp(117): warning C4244: '+=': conversion from 'float' to 'unsigned char', possible loss of data
+src\ImageCreationHandler.cpp(118): warning C4244: '+=': conversion from 'float' to 'unsigned char', possible loss of data
+  ImportModel.cpp
+  Controls.cpp
+  Unknown compiler version - please run the configure tests and report the results
   MenuObject.cpp
   Unknown compiler version - please run the configure tests and report the results
+  ModelFactory.cpp
+  ModelManger.cpp
   NPC.cpp
   Unknown compiler version - please run the configure tests and report the results
   Player.cpp
   Unknown compiler version - please run the configure tests and report the results
+  RawTerrain.cpp
+  Compiling...
+  RenderModuleStubb.cpp
   Scene.cpp
   Unknown compiler version - please run the configure tests and report the results
   SceneManager.cpp
   Unknown compiler version - please run the configure tests and report the results
   StaticEntity.cpp
   Unknown compiler version - please run the configure tests and report the results
+  Terrain.cpp
+src\Terrain.cpp(29): warning C4305: 'initializing': truncation from 'double' to 'float'
+src\Terrain.cpp(40): warning C4018: '>=': signed/unsigned mismatch
   TerrainObject.cpp
   Unknown compiler version - please run the configure tests and report the results
-  camera.cpp
-  Unknown compiler version - please run the configure tests and report the results
+  TexturedSquare.cpp
+  TextureManager.cpp
   Generating code
-  52 of 8726 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
-    3 functions were new in current compilation
-    46 functions had inline decision re-evaluated but remain unchanged
+  0 of 8784 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Videos\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Videos\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.pdb (Full PDB)

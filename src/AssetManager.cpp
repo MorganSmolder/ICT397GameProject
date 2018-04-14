@@ -27,7 +27,7 @@ bool AssetManager::addResource(std::string path, std::string type, std::string n
 		return true;
 	}
 	else
-	if(AE->loadSound(path, type, name)){
+	if(AE->loadSound(path, type, name, true)){
 
 		return true;
 	}
@@ -52,4 +52,8 @@ bool AssetManager::useResource(std::string name) {
 	}
 
 	return false;
+}
+
+bool AssetManager::addSound(std::string path, std::string type, std::string name, bool loop) {
+	return AE->loadSound(path, type, name, loop);
 }

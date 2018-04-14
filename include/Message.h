@@ -121,6 +121,8 @@ public:
 	*/
 	char getDType();
 
+	void setIData(int idata);
+
 private:
 	/// The data type.
 	char dtype;

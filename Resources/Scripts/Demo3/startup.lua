@@ -33,7 +33,7 @@ local function loadResources(AMAN)
 	if AMAN:addResource("./Resources/Audio/30.wav", "WAV", "bgmusic1") then print("Successfully loaded Resource 'bgmusic1'");
 	else print("Failed to load Resource 'bgmusic1'"); end
 
-	if AMAN:addResource("./Resources/Audio/gunshot.wav", "WAV", "gunshot") then print("Successfully loaded Resource 'gunshot'");
+	if AMAN:addSound("./Resources/Audio/gunshot.wav", "WAV", "gunshot", false) then print("Successfully loaded Resource 'gunshot'");
 	else print("Failed to load Resource 'gunshot'"); end
 
 	if AMAN:addResource("./Resources/Models/popup.tsqr", "TX", "popup") then print("Successfully loaded Resource 'popup'");
@@ -101,6 +101,16 @@ function initGame(SM, LSM, AMAN, AE)
 	AE:setListenerSource(SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
 	
 	AE:playSoundatSource("bgmusic1", SM:GetGameObjectID("Camera"), vec3(0, 0, 0));
+
+	SM:addScene();
+
+	SM:setCurrScene(2);
+	
+	SM:attachControls(2, ResourceList("mouseButtonCallback", "exitGameControls"));
+
+	SM:addObject(Identifiers("CAM","Camera"), 2, vec3(0, 0, 0), ResourceList());
+
+	SM:addObject(Identifiers("MO","Guide"), 2, vec3(0, 0, 0), ResourceList("model", "popup"));
 
 	--Set Starting Scene
 	SM:setCurrScene(0);

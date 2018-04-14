@@ -23,7 +23,10 @@ public:
 private:
 	/// The Data.
 	static T* instance;
-	Singleton() {};
+	Singleton() {}; 
+	~Singleton() {};
+	Singleton(Singleton const&) {};
+	Singleton& operator=(Singleton const&) {};
 };
 
 template <class T>

@@ -61,13 +61,11 @@ bool AudioEngine::unpauseChannels() {
 	return good;
 }
 
-bool AudioEngine::initalise(){
-	if (!BASS_Init(-1, 44100, BASS_DEVICE_3D, 0, NULL)) {
+bool AudioEngine::initalise(const HWND & window){
+	if (!BASS_Init(-1, 44100, BASS_DEVICE_3D, window, NULL)) {
 		if (DEBUGMODE) std::cerr << "Error Initalising Audio Engine! Code: " << BASS_ErrorGetCode() << std::endl;
 		return false;
 	}
-
-	BASS_SetVolume(0.02f);
 
 	return true;
 }
@@ -109,10 +107,13 @@ bool AudioEngine::soundPlaying(std::string sound) {
 	return activechannels[activesubgroup].count(sound) == 1;
 }
 
-bool AudioEngine::loadSound(std::string path, std::string type, std::string name) {
+bool AudioEngine::loadSound(std::string path, std::string type, std::string name, bool Loop) {
 	if (type != "WAV") return false;
+	
+	HSAMPLE tmp;
 
-	HSAMPLE tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 10, BASS_SAMPLE_3D/* | BASS_SAMPLE_LOOP*/);
+	if(!Loop) tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 50, BASS_SAMPLE_3D);
+	else tmp = BASS_SampleLoad(false, path.c_str(), 0, 0, 50, BASS_SAMPLE_3D | BASS_SAMPLE_LOOP);
 	if (tmp != 0) {
 		loadedsounds[name] = tmp;
 	}

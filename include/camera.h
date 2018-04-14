@@ -171,6 +171,8 @@ public:
 	* @brief Look at function.
 	*/
 	void callGLLookAt();
+
+	bool isCollidable();
 private:
 	/// Move speed of camera.
 	float moveSpeed;
@@ -192,7 +194,6 @@ private:
 	bool lookUp;
 
 	float maxlspeed;
-
 	/**
 	* @brief Correcting the angles at boundaries.
 	*/
@@ -210,7 +211,15 @@ private:
 	/// Verticle Angle.
 	float verticalAngle;
 	/// Max angle.
-	const float maxAngle = 60.0f;
+	float maxAngle;
+
+	float maxNangle;
+
+	bool birdseye;
+
+	float yoff;
+
+	void switchViewMode();
 };
 
 #endif

@@ -88,12 +88,15 @@ void Controls::mouseCallback(GLFWwindow* window, double x, double y) {
 
 	tmpl->callFunction<SimpleString, SimpleString, MessagingBus>(tmpc->controls.at(tmpc->curgroup).getResource("mouseCallback"), SimpleString(sx), SimpleString(sy), *tmpmb);
 
-	prevx = x;
-	prevy = y;
-
 	int w; int h;
 	glfwGetWindowSize(window, &w, &h);
 
+	prevx = (float)w / 2;
+	prevy = (float)h / 2;
+
+	glfwSetCursorPos(window, (double)w / 2, (double)h / 2);
+
+	/*
 	if (x > w * .55 || x < w * .45) {
 		glfwSetCursorPos(window, (double) w/2, y);
 		prevx = (double)w / 2;
@@ -101,7 +104,7 @@ void Controls::mouseCallback(GLFWwindow* window, double x, double y) {
 	if (y > h *.55 || y < h * .45) {
 		glfwSetCursorPos(window, x, (double)h / 2);
 		prevy = (double)h / 2;
-	}
+	}*/
 		
 }
 
