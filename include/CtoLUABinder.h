@@ -22,10 +22,22 @@ extern "C" {
 
 #include <luabind/luabind.hpp>
 
-
+/**
+* @class CtoLUABinder
+* @brief Class for binding lua script.
+*
+* @author Morgan Smolder
+* @version 01
+* @date 02/04/2018
+*/
 class CtoLUABinder
 {
 public:
+	/**
+	* @brief Bind the lua script to the classes.
+	*
+	* @param lstate - The state of the lua script.
+	*/
 	void bindClasses(lua_State* lstate);
 };
 

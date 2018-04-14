@@ -20,17 +20,9 @@
 #define POS_RESPONSE "PR"
 #define LPOS_RESPONSE "LPR"
 
-//Menu object specific messagees
-#define DISPLAY "DISP"
-#define HIDE "HIDE"
-#define TOGGLE "TG"
-
 //Scene Manager Messages
 #define CHNG_SCENE_REQUEST "CS"
 
 //Audio Engine Messages
 #define PLY_SND_SRC_REQUEST "PSS"
 #define PLY_SND_REQUEST "PS"
-
-//Render Module Messages
-#define WIREFRAME "WF"
