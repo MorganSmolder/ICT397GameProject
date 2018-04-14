@@ -70,9 +70,6 @@ public:
 	* @brief Virtual method to render the object.
 	*/
 	virtual void render() = 0;
-<<<<<<< HEAD
-	virtual vec3 getCenterOffset();
-=======
 
 	/**
 	* @brief Virtaul method to get the center offset of the object.
@@ -86,7 +83,6 @@ public:
 	*
 	* @return Identifiers - The identifier of the object.
 	*/
->>>>>>> origin/particles
 	const Identifiers &getIdentifiers();
 
 	/**
@@ -102,9 +98,7 @@ public:
 	* @param state - The state of the object.
 	*/
 	void setState(int state);
-<<<<<<< HEAD
-	virtual void setModel(Model* M);
-=======
+
 
 	/**
 	* @brief Virtual method to set the model of the object.
@@ -118,11 +112,8 @@ public:
 	*
 	* @return Model* - The model of the object.
 	*/
->>>>>>> origin/particles
 	Model* getModel();
-	virtual void setTarget(const vec3 target);
-	const vec3 & getTarget();
-	virtual bool isCollidable();
+
 	virtual bool isVisible();
 	virtual void stop();
 
@@ -152,30 +143,20 @@ protected:
 	int state;
 	/// The position of the object.
 	vec3 pos;
-<<<<<<< HEAD
-	vec3 target;
-	vec3 targetlook;
-=======
 	/// The position vector of the target.
 	vec3 target;
 	/// The position vector for the look at target.
 	vec3 targetlook;
 	/// The objects identifier.
->>>>>>> origin/particles
 	Identifiers id;
 	/// The resources linked to the object.
 	ResourceList resources;
 	/// The model data for the object.
 	Model* model;
 
-<<<<<<< HEAD
-	GameObject(const GameObject&) {};
-
-=======
 	/**
 	* @brief The message receiver.
 	*/
->>>>>>> origin/particles
 	void msgrcvr();
 };
 

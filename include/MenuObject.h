@@ -2,8 +2,6 @@
 
 #include "GameObject.h"
 
-<<<<<<< HEAD
-=======
 /**
 * @class MenuObject
 * @brief Class for handling the menu
@@ -12,20 +10,10 @@
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class MenuObject : public GameObject {
 	public:	
 		MenuObject() {};
 		MenuObject(Identifiers & id, vec3 pos, ResourceList & list);
-<<<<<<< HEAD
-		void update(float time);
-		void render();
-		bool isCollidable();
-		vec3 getCenterOffset();
-		void setModel(Model* M);
-
-	private:
-=======
 
 		/**
 		* @brief Update the menu.
@@ -62,6 +50,5 @@ class MenuObject : public GameObject {
 
 	private:
 		/// Is the menu visable.
->>>>>>> origin/particles
 		bool visible;
 };

@@ -6,10 +6,7 @@ GameObjectHandler::GameObjectHandler()
 {
 	GOF = Singleton<GameObjectFactory>::getInstance();
 	terrain = NULL;
-<<<<<<< HEAD
 	id.setName("GOH");
-=======
->>>>>>> origin/particles
 }
 
 GameObjectHandler::~GameObjectHandler()
@@ -117,7 +114,6 @@ void GameObjectHandler::render() {
 		searchres.at(i)->render();
 	}
 	if(terrain != NULL) terrain->render();
-<<<<<<< HEAD
 	for (unsigned i = 0; i < tmpobjects.size(); i++) {
 		tmpobjects.at(i)->render();
 	}
@@ -150,8 +146,6 @@ bool GameObjectHandler::addTmpObj(Identifiers id, vec3 pos, vec3 target, Resourc
 	tmpobjects.push_back(tmp);
 
 	return true;
-=======
->>>>>>> origin/particles
 }
 
 void GameObjectHandler::setWorldDimensions(float tlx, float tlz, float brx, float brz) {

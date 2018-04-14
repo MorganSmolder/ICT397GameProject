@@ -64,10 +64,6 @@ struct FFTData {
 * @version 01
 * @date 02/04/2018
 */
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/particles
 class AudioEngine
 {
 public:
@@ -120,9 +116,6 @@ public:
 	* @return bool - Wether or not the sound was played correctly.
 	*/
 	bool playSound(std::string sound);
-<<<<<<< HEAD
-	bool playSoundatSource(std::string sound, int gameobject, vec3 & pos);
-=======
 
 	/**
 	* @brief Plays sound at a source.
@@ -142,7 +135,6 @@ public:
 	*
 	* @return bool - If the sound was stopped.
 	*/
->>>>>>> origin/particles
 	bool stopSound(std::string sound);
 
 	/**

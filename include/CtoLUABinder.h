@@ -13,10 +13,7 @@
 #include "StaticEntity.h"
 #include "TerrainObject.h"
 #include "MenuObject.h"
-<<<<<<< HEAD
 #include "Player.h"
-=======
->>>>>>> origin/particles
 
 extern "C" {
 	#include "lua/lua.h"

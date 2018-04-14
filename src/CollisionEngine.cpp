@@ -37,8 +37,6 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 	hasHMap = true;
 }
 
-<<<<<<< HEAD
-
 //CollGO - vector of object pointers it is possible for the current entity to collide with
 //Taken from the quad tree
 void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time) {
@@ -82,61 +80,9 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 
 			toupdate->setPos(vec3(toupdate->getPos().x(), y + toupdate->getCenterOffset().y(), toupdate->getPos().z()));
 			toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
-=======
-
-//CollGO - vector of object pointers it is possible for the current entity to collide with
-//Taken from the quad tree
-void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time) {
-	if (toupdate->isCollidable() == false) {
-		toupdate->update(time);
-		return;
-	}
-	
-	//Dont touch this
-	float x = toupdate->getPos().x();
-	float z = toupdate->getPos().z();
-
-	//Height mapping - Ignore for the moment
-	if (x < maxx && x > minx && z > minz && z < maxz && hasHMap){
-		HMPos hmloc = findHMLocation(toupdate->getPos());
-
-		float y = interpolateY(toupdate->getPos(), hmloc);
-
-		toupdate->setPos(vec3(toupdate->getPos().x(), y + toupdate->getCenterOffset().y(), toupdate->getPos().z()));
-		toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
-	}
-
-	//Sotre entity current position
-	vec3 tmpos = toupdate->getPos();
-
-	//Update entity (changes position)
-	toupdate->update(time);
-
-	AABB updateb = genAABB(toupdate);
-
-	AABB compb;
-
-	for (unsigned i = 0; i < collGO.size(); i++) {
-		if (collGO.at(i)->getID() != toupdate->getID() && collGO.at(i)->getModel() != NULL) {
-			compb = genAABB(collGO.at(i));
-			if (updateb.xmax >= compb.xmin && updateb.xmin <= compb.xmax
-				&& updateb.zmax >= compb.zmin && updateb.zmin <= compb.zmax) {
-				toupdate->setPos(tmpos);
-				toupdate->setTarget(vec3());
-			}
->>>>>>> origin/particles
 		}
 	}
 
-}
-
-AABB CollisionEngine::genAABB(GameObject* toupdate) {
-	if (toupdate->getModel() == NULL) return AABB(toupdate->getPos().x() + 3.0f, toupdate->getPos().x() - 3.0f,
-		toupdate->getPos().y() + 3.0f, toupdate->getPos().y() - 3.0f,
-		toupdate->getPos().z() + 3.0f, toupdate->getPos().z() - 3.0f);
-	else return AABB(toupdate->getModel()->getMaxX(), toupdate->getModel()->getMinX(),
-		toupdate->getModel()->getMaxY(), toupdate->getModel()->getMinY(),
-		toupdate->getModel()->getMaxZ(), toupdate->getModel()->getMinZ());
 }
 
 AABB CollisionEngine::genAABB(GameObject* toupdate) {
@@ -173,20 +119,11 @@ float CollisionEngine::interpolateY(const vec3 & ppos, HMPos & pos) {
 	float y01 = heightmap.at(pos.tl.x()).at(pos.tl.y());;
 	float y10 = heightmap.at(pos.br.x()).at(pos.br.y());;
 	float y11 = heightmap.at(pos.tl.x()).at(pos.br.y());;
-<<<<<<< HEAD
 
 	float y1 = ((pos.tl.x() - ppos.x())/(pos.tl.x() - pos.br.x()))*y00 + ((ppos.x() - pos.br.x())/(pos.tl.x() - pos.br.x()))*y01;
 	float y2 = ((pos.tl.x() - ppos.x()) / (pos.tl.x() - pos.br.x()))*y10 + ((ppos.x() - pos.br.x()) / (pos.tl.x() - pos.br.x()))*y11;
 
 	float fy = ((pos.br.y() - ppos.z()) / (pos.br.y() - pos.tl.y()))* y1 + ((ppos.z() - pos.tl.y()) / (pos.br.y() - pos.tl.y()))* y2;
 
-=======
-
-	float y1 = ((pos.tl.x() - ppos.x())/(pos.tl.x() - pos.br.x()))*y00 + ((ppos.x() - pos.br.x())/(pos.tl.x() - pos.br.x()))*y01;
-	float y2 = ((pos.tl.x() - ppos.x()) / (pos.tl.x() - pos.br.x()))*y10 + ((ppos.x() - pos.br.x()) / (pos.tl.x() - pos.br.x()))*y11;
-
-	float fy = ((pos.br.y() - ppos.z()) / (pos.br.y() - pos.tl.y()))* y1 + ((ppos.z() - pos.tl.y()) / (pos.br.y() - pos.tl.y()))* y2;
-
->>>>>>> origin/particles
 	return fy;
 }

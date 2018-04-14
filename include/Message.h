@@ -72,9 +72,6 @@ public:
 	*/
 	void setFrom(Identifiers & nid);
 
-<<<<<<< HEAD
-	void setfData(float data);
-=======
 	/**
 	* @brief Set the float data.
 	*
@@ -87,7 +84,6 @@ public:
 	*
 	* @param data - The char data.
 	*/
->>>>>>> origin/particles
 	void setData(char data);
 
 	/**

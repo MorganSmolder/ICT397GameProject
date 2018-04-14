@@ -38,9 +38,6 @@ class Model
 		* @brief Virtual method to update the model.
 		*/
 		virtual void update() = 0;
-<<<<<<< HEAD
-		virtual void render(const vec3 & transmat) = 0;
-=======
 
 		/**
 		* @brief Virtual method to render the model.
@@ -54,7 +51,6 @@ class Model
 		*
 		* @param point - The position to get the center of.
 		*/
->>>>>>> origin/particles
 		virtual void centerOnPoint(vec3 & point) = 0;
 
 		/**
@@ -63,9 +59,6 @@ class Model
 		* @return vector<vec3> - The verticies.
 		*/
 		virtual std::vector<vec3>& getVerticies() = 0;
-<<<<<<< HEAD
-		virtual void setScale(vec3 & toset) = 0;
-=======
 
 		/**
 		* @brief Virtual method to get the scale.
@@ -79,7 +72,6 @@ class Model
 		*
 		* @return float - The min x value.
 		*/
->>>>>>> origin/particles
 		float getMinX() { return minx; };
 
 		/**

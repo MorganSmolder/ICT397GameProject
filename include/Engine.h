@@ -32,14 +32,10 @@ public:
 	* @return bool - If the engine was initilised.
 	*/
 	bool Initalise(std::string initscript);
-<<<<<<< HEAD
-	
-=======
 
 	/**
 	* @brief The run funtion.
 	*/
->>>>>>> origin/particles
 	void Run();
 
 private:
@@ -53,10 +49,8 @@ private:
 	AssetManager* AMAN;
 	/// Audio manager object.
 	AudioEngine* AE;
-<<<<<<< HEAD
-=======
+
 	/// Controller object.
->>>>>>> origin/particles
 	Controls* CONT;
 
 	/**
@@ -86,15 +80,12 @@ private:
 	* @return bool - If it was initalised.
 	*/
 	bool initaliseAudioEngine();
-<<<<<<< HEAD
-=======
 
 	/**
 	* @brief Initalise the controls.
 	*
 	* @return bool - If it was initalised.
 	*/
->>>>>>> origin/particles
 	bool initaliseControls();
 };
 

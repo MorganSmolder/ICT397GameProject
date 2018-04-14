@@ -30,10 +30,6 @@ class RAWTerrain : public terrain
 		* @brief Virtual method to update the terrain.
 		*/
 		virtual void update();
-<<<<<<< HEAD
-		virtual void render(const vec3 & transmat);
-=======
->>>>>>> origin/particles
 
 		/**
 		* @brief Virtual method to render the terrain.
@@ -82,6 +78,5 @@ class RAWTerrain : public terrain
 
 		/// A vector containing the image data.
 		std::vector<std::string> images;
-		RAWTerrain(const RAWTerrain & tocpy);
 };
 

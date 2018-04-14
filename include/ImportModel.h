@@ -8,8 +8,6 @@
 #include "vec2.h"
 #include "TextureManager.h"
 
-<<<<<<< HEAD
-=======
 /**
 * @class ImportModel
 * @brief Class for importing models from assimp
@@ -18,7 +16,6 @@
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class ImportModel : public Model
 {
 public:
@@ -36,29 +33,6 @@ public:
 	* @return bool - If the model loaded.
 	*/
 	bool loadModel(std::string filename);
-<<<<<<< HEAD
-	void setScale(vec3 & toset);
-
-	void update();
-	void render(const vec3 & transmat);
-
-	std::vector<vec3>& getVerticies();
-
-private:
-	void setMinsAndMaxs();
-	std::string RandomString(unsigned len);
-	std::vector<vec3> Vertices;
-	std::vector<vec2> texCoords;
-	std::vector<vec3> Normals;
-	std::vector<unsigned> vertIndex;
-	std::string texture;
-	const aiScene *model;
-
-	void setVertices(aiMesh *mesh);
-	void setTexCoords(aiMesh *mesh);
-	void setNormals(aiMesh *mesh);
-	void setIndexes(aiMesh *mesh);
-=======
 
 	/**
 	* @brief Set the scale vector.
@@ -147,7 +121,6 @@ private:
 	*
 	* @param point - The position.
 	*/
->>>>>>> origin/particles
 	void centerOnPoint(vec3 &point);
 };
 

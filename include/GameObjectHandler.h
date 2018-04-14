@@ -104,8 +104,6 @@ public:
 	* @return GameObject * - The game object.
 	*/
 	GameObject* & getObject(unsigned index);
-	void refreshTree();
-	bool addTerrain(Identifiers id, vec3 pos, ResourceList & list);
 
 	/**
 	* @brief Refresh the quadtree.
@@ -124,28 +122,21 @@ public:
 	bool addTerrain(Identifiers id, vec3 pos, ResourceList & list);
 
 private:
-<<<<<<< HEAD
-	GameObject* terrain;
-	std::vector<GameObject*> gameobjects;
-	std::vector<GameObject*> tmpobjects;
-=======
 	/// Terrain.
 	GameObject* terrain;
 	/// Game object vector.
 	std::vector<GameObject*> gameobjects;
 	/// Quadtree for game objects.
->>>>>>> origin/particles
 	QuadTree<GameObjectWrapper> gameobjectQT;
 	/// Game object factory object to create game objects.
 	GameObjectFactory* GOF;
 	Identifiers id;
+	std::vector<GameObject*> tmpobjects;
 
-<<<<<<< HEAD
 	void msgrcvr();
+
 	bool addTmpObj(Identifiers id, vec3 pos, vec3 target, ResourceList model);
-=======
 	/// Game object vector for searching.
->>>>>>> origin/particles
 	static std::vector<GameObject*> searchres;
 
 	/**

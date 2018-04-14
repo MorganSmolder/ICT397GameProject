@@ -33,9 +33,6 @@ public:
 	* @return bool - If the object was added.
 	*/
 	bool addObject(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & list);
-<<<<<<< HEAD
-	bool attachTerrain(Identifiers & id, unsigned sceneno, vec3 pos, ResourceList & lists);
-=======
 
 	/**
 	* @brief Attach a terrain to the scene
@@ -56,7 +53,6 @@ public:
 	*
 	* @return int - The game object id.
 	*/
->>>>>>> origin/particles
 	int GetGameObjectID(std::string name);
 
 	/**
@@ -103,8 +99,6 @@ public:
 	* @return bool - If the scene heightmap was set.
 	*/
 	bool setSceneHeightMap(unsigned sceneno, GameObject* hmObj);
-<<<<<<< HEAD
-=======
 
 	/**
 	* @brief Attach controls to a scene.
@@ -114,7 +108,6 @@ public:
 	*
 	* @return bool - If the controls were attached to the scene.
 	*/
->>>>>>> origin/particles
 	bool attachControls(unsigned sceneno, ResourceList toset);
 
 private:

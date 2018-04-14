@@ -3,10 +3,8 @@
 #include "Model.h"
 #include "RawTerrain.h"
 #include "ImportModel.h"
-<<<<<<< HEAD
 #include "TexturedSquare.h"
-=======
->>>>>>> origin/particles
+
 
 /**
 * @class ModelFactory
@@ -19,9 +17,9 @@
 class ModelFactory
 {
 public:
-<<<<<<< HEAD
+
 	ModelFactory();
-=======
+
 	/**
 	* @brief Create a model.
 	*
@@ -30,7 +28,6 @@ public:
 	*
 	* @return Model* - The model data.
 	*/
->>>>>>> origin/particles
 	Model* create(std::string path, std::string type);
 private:
 	static unsigned nextid;

@@ -1,8 +1,6 @@
 #pragma once
 #include "GameObject.h"
 
-<<<<<<< HEAD
-=======
 /**
 * @class TerrainObject
 * @brief Class for creating the terrain object
@@ -11,18 +9,12 @@
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class TerrainObject : public GameObject
 {
 public:
 	TerrainObject();
 	TerrainObject(Identifiers & id, vec3 pos, ResourceList & list);
 	~TerrainObject();
-<<<<<<< HEAD
-	void update(float time);
-	void render();
-	void setModel(Model* M);
-=======
 
 	/**
 	* @brief The update function.
@@ -48,7 +40,6 @@ public:
 	*
 	* @return vec3 - The vector off set data.
 	*/
->>>>>>> origin/particles
 	vec3 getCenterOffset();
 };
 

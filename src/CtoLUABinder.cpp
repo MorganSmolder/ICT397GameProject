@@ -76,7 +76,6 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("getIdentifiers", &TerrainObject::getIdentifiers)
 	];
 	luabind::module(lstate)[
-<<<<<<< HEAD
 		luabind::class_<Player>("Player")
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<Identifiers &, vec3, ResourceList>())
@@ -88,8 +87,6 @@ void CtoLUABinder::bindClasses(lua_State* lstate) {
 			.def("getIdentifiers", &Player::getIdentifiers)
 	];
 	luabind::module(lstate)[
-=======
->>>>>>> origin/particles
 		luabind::class_<Identifiers>("Identifiers")
 			.def(luabind::constructor<>())
 			.def(luabind::constructor<std::string>())

@@ -23,30 +23,8 @@ class Camera : public GameObject
 public:
 
 	Camera(Identifiers & id, vec3 pos, ResourceList & list);
-
-<<<<<<< HEAD
-	vec3 getCenterOffset();
-	void SetFov(float fov); //sets field of view
-	void SetFrustrumNearFar(float nearPlane, float farPlane); //sets the viewing frustrum near and far plane
-	void Rotate(float upAngle, float rightAngle); //Changes the direction the camera is facing
-	void LookAt(glm::vec3 pos); // adjusts camera rotation to look at 'pos'
-	void SetPosition(const vec3& pos);
-	void SetAspectRatio(float aspectRatio);
 	void stop();
 
-	float GetFov() const;
-	float GetFrustrumNearPlane() const;
-	float GetFrustrumFarPlane() const;
-	float GetAspectRatio() const;
-	glm::mat4 GetDirection() const; //rotation matrix for the direction of the camera
-	glm::vec3 GetCamX() const; //vector for cameras X axis (left / right)
-	glm::vec3 GetCamY() const; //vector for camera's Y axis (up/down
-	glm::vec3 GetCamZ() const; //vector for the cameras Z axis (what it is looking at)
-	glm::mat4 GetTransMatrix() const; //camera's transformation matrix
-	glm::mat4 GetProjectionMatrix() const; //perspective projection transformation matrix
-	glm::mat4 GetViewMatrix() const; //translation and rotation matrix
-
-=======
 	/**
 	* @brief Get the center offset vector.
 	*
@@ -182,7 +160,6 @@ public:
 	*
 	* @param time - System time.
 	*/
->>>>>>> origin/particles
 	void update(float time);
 
 	/**
@@ -195,27 +172,6 @@ public:
 	*/
 	void callGLLookAt();
 private:
-<<<<<<< HEAD
-	float moveSpeed;
-	float rotateSpeed;
-	float speedDecay;
-	bool moveForward;
-	bool moveBack;
-	bool moveRight;
-	bool moveLeft;
-	bool lookDown;
-	bool lookUp;
-
-
-	void CorrectAngleBoundaries();
-	float fov;
-	float aspectRatio;
-	float nearPlane;
-	float farPlane;
-	float horizontalAngle;
-	float verticalAngle;
-	float maxlspeed;
-=======
 	/// Move speed of camera.
 	float moveSpeed;
 	/// Rotation speed of camera.
@@ -235,6 +191,7 @@ private:
 	/// If looking up.
 	bool lookUp;
 
+	float maxlspeed;
 
 	/**
 	* @brief Correcting the angles at boundaries.
@@ -253,10 +210,7 @@ private:
 	/// Verticle Angle.
 	float verticalAngle;
 	/// Max angle.
->>>>>>> origin/particles
 	const float maxAngle = 60.0f;
-	Camera(const Camera &cam) {};
-	Camera &operator = (const Camera &cam) {};
 };
 
 #endif

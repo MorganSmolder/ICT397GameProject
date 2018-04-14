@@ -45,10 +45,6 @@ public:
 	* @param argv
 	*/
 	void init(int argc, char** argv);
-<<<<<<< HEAD
-	void DrawQuad(point tl, point br, float y);
-	void DrawQuad(vec3 tl, float widthx, float widthz, float height, vec3 trans);
-=======
 
 	/**
 	* @brief Draw a quad.
@@ -79,7 +75,6 @@ public:
 	* @param height - The height of the texture.
 	* @param data - The texture data.
 	*/
->>>>>>> origin/particles
 	void storeTexture(const int & texID, unsigned pixelsize, unsigned width, unsigned height, const unsigned char* data);
 
 	/**
@@ -103,14 +98,6 @@ public:
 	* @param texIDdetail - The texture detail id.
 	*/
 	void bindMultiTexture(const int & texIDcolor, const int & texIDdetail);
-<<<<<<< HEAD
-	void renderArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, const vec3 & trans);
-	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec2> & texcoords, const vec3 & trans);
-	void renderTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords);
-	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, const vec3 & trans);
-	void renderMultiTexturedArrayTriStrip(std::vector<unsigned> & indicies, std::vector<vec3> & vertices, std::vector<vec2> & texcoords, std::vector<float> lights, const vec3 & trans);
-	void renderArrayTri(std::vector<unsigned>& indicies, std::vector<vec3>& vertices, std::vector<vec3> normals, std::vector<vec2> & texcoords, const vec3 & trans);
-=======
 
 	/**
 	* @brief Render a array triangle strip.
@@ -179,7 +166,6 @@ public:
 	* @param r2 - The second vector.
 	* @param r3 - The third vector.
 	*/
->>>>>>> origin/particles
 	void callLookAt(vec3 r1, vec3 r2, vec3 r3);
 
 	/**
@@ -187,11 +173,6 @@ public:
 	*/
 	void disableMultiTexture();
 
-<<<<<<< HEAD
-	void RenderFacingCamera();
-	void StopRenderFacingCamera();
-
-=======
 	/**
 	* @brief Render the facing camera.
 	*/
@@ -205,7 +186,6 @@ public:
 	/**
 	* @brief Start the rendering cycle.
 	*/
->>>>>>> origin/particles
 	void startRenderCycle();
 
 	/**
@@ -221,9 +201,6 @@ public:
 	* @param height - The window height.
 	*/
 	static void reshape(GLFWwindow* window, int width, int height);
-<<<<<<< HEAD
-	float getTimeElapsed();
-=======
 
 	/**
 	* @brief Get the elapsed time.
@@ -237,7 +214,6 @@ public:
 	*
 	* @return float - The time since the last update.
 	*/
->>>>>>> origin/particles
 	float getTimeSinceUpdate();
 
 private:
@@ -247,19 +223,14 @@ private:
 	vec3 campos;
 	/// The camera look at position.
 	vec3 camlook;
-<<<<<<< HEAD
 	Identifiers id;
-	float timeLastUpdate;
-	float timeElapsed = 0.0f;
 	bool wireframe;
 
 	void msgrcvr();
-=======
 	/// The time since the last update.
 	float timeLastUpdate;
 	/// The time elapsed.
 	float timeElapsed = 0.0f;
 
->>>>>>> origin/particles
 };
 

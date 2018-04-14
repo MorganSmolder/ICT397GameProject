@@ -6,8 +6,6 @@
 #include "LUAScriptManager.h"
 #include "SimpleString.h"
 
-<<<<<<< HEAD
-=======
 /**
 * @class Controls
 * @brief Class for handling user input
@@ -16,34 +14,12 @@
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class Controls
 {
 	public:
 		Controls();
 		~Controls();
 
-<<<<<<< HEAD
-		void addControlGroup(unsigned controlgroup);
-
-		void addInitalisedControlGroup(unsigned controlgroup, ResourceList & data);
-
-		bool bindControls(unsigned group, ResourceList & toset);
-	
-		static bool changeControlGroup(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
-
-	private:
-		std::map<int, ResourceList> controls;
-		unsigned curgroup;
-
-		static double prevx;
-		static double prevy;
-
-		static void bindControls(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
-		static void unbindControls(unsigned groupno, RenderModuleStubb* render, Controls* tochange);
-		static void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-		static void mouseCallback(GLFWwindow* window, double x, double y);
-=======
 		/**
 		* @brief Add a new control group.
 		*
@@ -138,6 +114,5 @@ class Controls
 		* @param action - ID for the action to be taken.
 		* @param mods - ID for any special action to be taken.
 		*/
->>>>>>> origin/particles
 		static void mouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
 };

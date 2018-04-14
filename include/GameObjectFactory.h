@@ -8,11 +8,8 @@
 #include "StaticEntity.h"
 #include "TerrainObject.h"
 #include "MenuObject.h"
-<<<<<<< HEAD
 #include "Bullet.h"
 #include "Player.h"
-=======
->>>>>>> origin/particles
 
 /**
 * @class GameObjectFactory	

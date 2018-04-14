@@ -37,8 +37,6 @@ public:
 	* @return Model* - The model data.
 	*/
 	Model* useModel(std::string name);
-	Model* getModelRefrence(std::string name);
-	bool loadModel(std::string path, std::string type, std::string name, vec3 & scale);
 
 	/**
 	* @brief Get the model refrence.

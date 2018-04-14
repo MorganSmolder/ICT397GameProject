@@ -2,11 +2,9 @@
 
 #include "Model.h"
 #include "vec2.h"
-<<<<<<< HEAD
 #include "Singleton.h"
 #include "TextureManager.h"
 
-=======
 
 /**
 * @class TexturedSquare
@@ -16,26 +14,10 @@
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class TexturedSquare : public Model
 {
 public:
 	TexturedSquare();
-<<<<<<< HEAD
-	TexturedSquare * create() const;
-	bool loadModel(std::string filename);
-	void update();
-	void render(const vec3 & transmat);
-	void centerOnPoint(vec3 & point);
-	std::vector<vec3>& getVerticies();
-	void setScale(vec3 & toset);
-private:
-	vec2 tl;
-	vec2 br;
-	std::vector<vec3> verts;
-	std::string texture;
-	std::string RandomString(unsigned len);
-=======
 
 	/**
 	* @brief Create a textured square.
@@ -94,6 +76,7 @@ private:
 	std::vector<vec3> verts;
 	/// Texture data.
 	std::string texture;
->>>>>>> origin/particles
+
+	std::string RandomString(unsigned len);
 };
 

@@ -18,8 +18,6 @@ struct HMPos {
 	vec2 br;
 };
 
-<<<<<<< HEAD
-=======
 /**
 * @struct AABB
 * @brief Struct for containing AABB collider data
@@ -28,15 +26,12 @@ struct HMPos {
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 struct AABB {
 	float xmin, ymin, zmin, xmax, ymax, zmax;
 	AABB(float xmx, float xmn, float ymx, float ymn, float zmx, float zmn) : xmax(xmx), xmin(xmn), ymax(ymx), ymin(ymn), zmax(zmx), zmin(zmn) {};
 	AABB() {};
 };
 
-<<<<<<< HEAD
-=======
 /**
 * @class CollisionEngine
 * @brief Class for handling collision
@@ -45,7 +40,6 @@ struct AABB {
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class CollisionEngine
 {
 public:
@@ -58,8 +52,6 @@ public:
 	* @param toset - The new height map.
 	*/
 	void setHeightMap(std::vector<vec3> & toset);
-<<<<<<< HEAD
-=======
 
 	/**
 	* @brief Update the collision.
@@ -68,7 +60,6 @@ public:
 	* @param collGO - A vector of game objects for colliders
 	* @param time - System time.
 	*/
->>>>>>> origin/particles
 	void update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time);
 private:
 	/// The height map data.
@@ -82,11 +73,6 @@ private:
 	* @return HMPos - The position of the height map.
 	*/
 	HMPos findHMLocation(const vec3 & pos);
-<<<<<<< HEAD
-	AABB genAABB(GameObject* toupdate);
-	float interpolateY(const vec3 & ppos, HMPos & pos);
-	float maxx, minx, maxz, minz;
-=======
 
 	/**
 	* @brief Generate a AABB collider.
@@ -111,7 +97,6 @@ private:
 	float maxx, minx, maxz, minz;
 
 	/// If the object has a height map.
->>>>>>> origin/particles
 	bool hasHMap;
 };
 

@@ -34,9 +34,6 @@ class terrain : public Model
 		* @brief Virtual update function.
 		*/
 		virtual void update() = 0;
-<<<<<<< HEAD
-		virtual void render(const vec3 & transmat) = 0;
-=======
 
 		/**
 		* @brief Virtual render function.
@@ -50,7 +47,6 @@ class terrain : public Model
 		*
 		* @return terrain*  - The terrain data.
 		*/
->>>>>>> origin/particles
 		virtual terrain * create() const = 0;
 
 		/**
@@ -66,7 +62,6 @@ class terrain : public Model
 		* @return vector<vec3> - The verticies.
 		*/
 		std::vector<vec3>& getVerticies();
-		void setScale(vec3 & toset);
 
 		/**
 		* @brief Get the scale vector.
@@ -84,13 +79,9 @@ class terrain : public Model
 		std::vector<unsigned> planInd;
 		/// The texture coords.
 		std::vector<vec2> texcoords;
-<<<<<<< HEAD
-		std::vector<float> lights;
-=======
 		/// The vector for the lights.
 		std::vector<float> lights;
 		/// The scale vector.
->>>>>>> origin/particles
 		vec3 scale;
 		/// The dimensions of the world.
 		unsigned dimensions;

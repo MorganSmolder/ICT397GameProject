@@ -28,25 +28,18 @@ GameObject* GameObjectFactory::create(Identifiers & id, vec3 pos, ResourceList &
 		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
 		return tmp;
 	}
-<<<<<<< HEAD
 	else
-=======
->>>>>>> origin/particles
 	if (id.getType() == "TO") {
 		tmp = new TerrainObject(id, pos, list);
 		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
 		return tmp;
 	}
-<<<<<<< HEAD
 	else
-=======
->>>>>>> origin/particles
 	if (id.getType() == "MO") {
 		tmp = new MenuObject(id, pos, list);
 		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
 		return tmp;
 	}
-<<<<<<< HEAD
 	else
 	if (id.getType() == "BLT") {
 		tmp = new Bullet(id, pos, list);
@@ -59,8 +52,6 @@ GameObject* GameObjectFactory::create(Identifiers & id, vec3 pos, ResourceList &
 		if (list.hasResource("model")) setModel(tmp, list.getResource("model"));
 		return tmp;
 	}
-=======
->>>>>>> origin/particles
 	else{
 		nextid--;
 		return NULL;

@@ -2,10 +2,6 @@
 
 #include <string>
 
-<<<<<<< HEAD
-///Simplified std:::string for use with lua - simplifies binding process by only including essential behaviour
-
-=======
 /**
 * @class SimpleString
 * @brief Simplified std:::string for use with lua - simplifies binding process by only including essential behaviour
@@ -14,20 +10,12 @@
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class SimpleString
 {
 public:
 	SimpleString();
 	SimpleString(std::string in) : data(in) {};
 
-<<<<<<< HEAD
-	bool equals(std::string comparator);
-	double toDouble();
-	std::string getData();
-
-private:	
-=======
 	/**
 	* @brief Find if the string are equal.
 	*
@@ -53,7 +41,6 @@ private:
 
 private:	
 	/// String data.
->>>>>>> origin/particles
 	std::string data;
 };
 

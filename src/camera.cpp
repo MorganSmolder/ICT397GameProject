@@ -15,10 +15,7 @@ Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id,
 	aspectRatio = (4.0f / 3.0f);
 	horizontalAngle = 0.0f;
 	verticalAngle = 0.0f;
-<<<<<<< HEAD
 	maxlspeed = 100;
-=======
->>>>>>> origin/particles
 	moveForward = false;
 	moveBack = false;
 	moveRight = false;
@@ -79,7 +76,6 @@ void Camera::update(float time) {
 		else
 		if (tmpm.getInstruction() == "LU") {
 			this->lookUp = true;
-<<<<<<< HEAD
 		}
 		else
 		if (tmpm.getInstruction() == "SLU") {
@@ -203,110 +199,6 @@ float Camera::GetFov() const {
 	return fov;
 }
 
-=======
-		}
-		else
-		if (tmpm.getInstruction() == "SLU") {
-			this->lookUp = false;
-		}
-		else
-		if (tmpm.getInstruction() == "LX") {
-			horizontalAngle -= tmpm.getData().fdata * time * rotateSpeed;
-		}
-		else
-		if (tmpm.getInstruction() == "LY") {
-			verticalAngle -= tmpm.getData().fdata * time * rotateSpeed;
-			if (verticalAngle <= -maxAngle && tmpm.getData().fdata < 0) verticalAngle = -maxAngle;
-			if (verticalAngle >= maxAngle && tmpm.getData().fdata > 0) verticalAngle = maxAngle;
-		}
-	}
-
-	if (this->moveForward) {
-		target += GetCamZ()* moveSpeed;
-	}
-	else
-	if (this->moveBack) {
-		target += -GetCamZ()* moveSpeed;
-	}
-
-	if (this->moveRight) {
-		target += GetCamX()* moveSpeed;
-	}
-	else
-	if (this->moveLeft) {
-		target -= GetCamX()* moveSpeed;
-	}
-
-	if (this->lookDown) {
-		target += -glm::vec3(0, 1, 0)* moveSpeed;
-	}
-	else
-	if (this->lookUp) {
-		target += glm::vec3(0, 1, 0)* moveSpeed;
-	}
-
-	pos += (target * (time * speedDecay));
-	target -= (target * (time * speedDecay));
-
-
-	callGLLookAt();
-}
-
-void Camera::render() {
-	//Singleton<RenderModuleStubb>::getInstance()->RenderFacingCamera();
-
-	//Singleton<RenderModuleStubb>::getInstance()->StopRenderFacingCamera();
-}
-
-void Camera::callGLLookAt()
-{
-	Singleton<RenderModuleStubb>::getInstance()->callLookAt(vec3(pos.x(), pos.y(), pos.z()), 
-				vec3(pos.x() + GetCamZ().x, pos.y() + GetCamZ().y, pos.z() + GetCamZ().z),
-				vec3(GetCamY().x, GetCamY().y, GetCamY().z));
-
-}
-
-void Camera::SetFov(float fov) {
-	assert(fov > 0.0f && fov < 180.0f);
-	fov = fov;
-}
-
-void Camera::SetFrustrumNearFar(float nearPlane, float farPlane) {
-	assert(nearPlane > 0.0f);
-	assert(farPlane > nearPlane);
-	nearPlane = nearPlane;
-	farPlane = farPlane;
-}
-
-void Camera::Rotate(float upAngle, float rightAngle) {
-	horizontalAngle += rightAngle;
-	verticalAngle += upAngle;
-	CorrectAngleBoundaries();
-}
-
-void Camera::LookAt(glm::vec3 pos) {
-	assert(pos != position);
-	glm::vec3 direction = glm::normalize(pos - glm::vec3(this->pos.x(), this->pos.y(), this->pos.z()));
-	verticalAngle = glm::radians(asinf(-direction.y));
-	horizontalAngle = -glm::radians(atan2f(-direction.x, -direction.z));
-	CorrectAngleBoundaries();
-}
-
-void Camera::SetPosition(const vec3& pos) {
-	this->pos = pos;
-}
-
-void Camera::SetAspectRatio(float aspectRatio) {
-	assert(aspectRatio > 0.0);
-	this->aspectRatio = aspectRatio;
-}
-
-
-float Camera::GetFov() const {
-	return fov;
-}
-
->>>>>>> origin/particles
 float Camera::GetFrustrumNearPlane() const {
 	return nearPlane;
 }

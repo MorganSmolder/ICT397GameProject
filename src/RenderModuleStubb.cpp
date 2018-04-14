@@ -6,10 +6,7 @@ RenderModuleStubb::RenderModuleStubb() {
 }
 
 void RenderModuleStubb::DrawQuad(point tl, point br, float y) {
-<<<<<<< HEAD
 	glDisable(GL_LIGHTING);
-=======
->>>>>>> origin/particles
 	glBegin(GL_QUADS);
 	glTexCoord2f(0, 1);
 	glVertex3f(tl.x, tl.y, y);
@@ -21,32 +18,6 @@ void RenderModuleStubb::DrawQuad(point tl, point br, float y) {
 	glVertex3f(br.x, tl.y, y);
 	glEnd();
 	glEnable(GL_LIGHTING);
-}
-
-void RenderModuleStubb::DrawQuad(vec3 tl, float widthx, float widthz, float height, vec3 trans){
-	glPushMatrix();
-	glTranslatef(trans.x(), trans.y(), trans.z());
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 1);
-	glVertex3f(tl.x(), tl.y(), tl.z());
-	glTexCoord2f(0, 0);
-	glVertex3f(tl.x(), tl.y() + height, tl.z());
-	glTexCoord2f(1, 0);
-	glVertex3f(tl.x() + widthx, tl.y() + height, tl.z());
-	glTexCoord2f(1, 1);
-	glVertex3f(tl.x() + widthx, tl.y(), tl.z());
-
-	glTexCoord2f(0, 1);
-	glVertex3f(tl.x(), tl.y(), tl.z() + widthz);
-	glTexCoord2f(0, 0);
-	glVertex3f(tl.x(), tl.y() + height, tl.z() + widthz);
-	glTexCoord2f(1, 0);
-	glVertex3f(tl.x() + widthx, tl.y() + height, tl.z() + widthz);
-	glTexCoord2f(1, 1);
-	glVertex3f(tl.x() + widthx, tl.y(), tl.z() + widthz);
-	glEnd();
-
-	glPopMatrix();
 }
 
 void RenderModuleStubb::DrawQuad(vec3 tl, float widthx, float widthz, float height, vec3 trans){
@@ -203,12 +174,8 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glfwWindowHint(GLFW_RESIZABLE, GL_TRUE);
 	glfwWindowHint(GLFW_DEPTH_BITS, GL_TRUE);
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_COMPAT_PROFILE);
-<<<<<<< HEAD
 
-	window = glfwCreateWindow(1280, 720, "Game Engine", glfwGetPrimaryMonitor(), NULL);
-=======
 	window = glfwCreateWindow(1280, 720, "Game Engine", NULL, NULL);
->>>>>>> origin/particles
 	glfwMakeContextCurrent(window);
 	glfwSwapInterval(1);
 	glfwSetFramebufferSizeCallback(window, reshape);
@@ -237,10 +204,6 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glShadeModel(GL_SMOOTH);
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
-<<<<<<< HEAD
-=======
-	//glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
->>>>>>> origin/particles
 	glEnable(GL_LIGHTING);
 	glEnable(GL_LIGHT0);
 
@@ -253,7 +216,6 @@ void RenderModuleStubb::init(int argc, char** argv) {
 	glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, specularLight);
 	glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, ambientLight);
-<<<<<<< HEAD
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
@@ -282,16 +244,6 @@ void RenderModuleStubb::msgrcvr() {
 			wireframe = !wireframe;
 		}
 	}
-=======
-
-	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
-	// Assign created components to GL_LIGHT0
-	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
-	glLightfv(GL_LIGHT0, GL_SPECULAR, specularLight);
-	glLightfv(GL_LIGHT0, GL_POSITION, position);
->>>>>>> origin/particles
 }
 
 
@@ -310,19 +262,6 @@ void RenderModuleStubb::startRenderCycle() {
 void RenderModuleStubb::RenderFacingCamera() {
 	glPushMatrix();
 	glLoadIdentity();
-<<<<<<< HEAD
-=======
-	glBegin(GL_QUADS);
-	glTexCoord2f(0, 1);
-	glVertex3f(0, 1, -1);
-	glTexCoord2f(0, 0);
-	glVertex3f(0, 0, -1);
-	glTexCoord2f(1, 0);
-	glVertex3f(1, 0, -1);
-	glTexCoord2f(1, 1);
-	glVertex3f(1, 1, -1);
-	glEnd();
->>>>>>> origin/particles
 }
 
 void RenderModuleStubb::StopRenderFacingCamera() {

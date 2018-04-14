@@ -29,15 +29,12 @@ public:
 	* @brief The render function.
 	*/
 	void render();
-<<<<<<< HEAD
-=======
 
 	/**
 	* @brief Get the center offset.
 	*
 	* @return vec3 - The offset.
 	*/
->>>>>>> origin/particles
 	vec3 getCenterOffset();
 };
 

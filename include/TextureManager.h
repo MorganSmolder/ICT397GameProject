@@ -26,9 +26,6 @@ public:
 	* return bool - If the texture loaded.
 	*/
 	bool loadNewTexture(std::string path, std::string type, std::string name, RenderModuleStubb* renderer);
-<<<<<<< HEAD
-	bool storeTextureFromData(std::string name, unsigned char* data, unsigned bits, unsigned width, unsigned height);
-=======
 
 	/**
 	* @brief Store the texutre data.
@@ -51,7 +48,6 @@ public:
 	*
 	* @return bool - If the data was used.
 	*/
->>>>>>> origin/particles
 	bool useTexture(std::string name, RenderModuleStubb* renderer);
 
 	/**

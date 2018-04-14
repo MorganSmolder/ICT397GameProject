@@ -2,8 +2,6 @@
 
 #include "GameObject.h"
 
-<<<<<<< HEAD
-=======
 /**
 * @class StaticEntity
 * @brief Class for creating a static entity and updating, rendering and getting the offset vector for it
@@ -12,17 +10,13 @@
 * @version 01
 * @date 02/04/2018
 */
->>>>>>> origin/particles
 class StaticEntity : public GameObject
 {
 public:
 	StaticEntity(Identifiers & id, vec3 pos, ResourceList & list);
 	StaticEntity();
 	~StaticEntity();
-<<<<<<< HEAD
-	void update(float time);
-	void render();
-=======
+
 
 	/**
 	* @brief The update function.
@@ -41,7 +35,6 @@ public:
 	*
 	* @return vec3 - The offset vector.
 	*/
->>>>>>> origin/particles
 	vec3 getCenterOffset();
 };
 

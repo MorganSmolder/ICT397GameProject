@@ -65,7 +65,6 @@ public:
 	* @return bool - If the heightmap was set.
 	*/
 	bool setHeightMap(GameObject* hmObj);
-	bool attachTerrain(Identifiers & id, vec3 pos, ResourceList & list);
 
 	/**
 	* @brief Attach the terrain to the scene object.

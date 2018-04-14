@@ -1,8 +1,10 @@
-﻿  RenderModuleStubb.cpp
+﻿  GameObjectFactory.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  RenderModuleStubb.cpp
   Generating code
-  1 of 8726 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    30 functions had inline decision re-evaluated but remain unchanged
+  106 of 8720 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    37 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Videos\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Videos\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.pdb (Full PDB)
