@@ -37,6 +37,7 @@ void CollisionEngine::setHeightMap(std::vector<vec3> & toset) {
 	hasHMap = true;
 }
 
+
 //CollGO - vector of object pointers it is possible for the current entity to collide with
 //Taken from the quad tree
 void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> collGO, float time) {
@@ -82,7 +83,6 @@ void CollisionEngine::update(GameObject* & toupdate, std::vector<GameObject*> co
 			toupdate->setTarget(vec3(toupdate->getTarget().x(), 0, toupdate->getTarget().z()));
 		}
 	}
-
 }
 
 AABB CollisionEngine::genAABB(GameObject* toupdate) {

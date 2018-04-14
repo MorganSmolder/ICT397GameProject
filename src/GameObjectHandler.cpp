@@ -44,7 +44,7 @@ bool GameObjectHandler::addObject(Identifiers id, vec3 pos, ResourceList & list)
 void GameObjectHandler::msgrcvr() {
 	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
 	Message tmpmsg;
-
+	
 	while (tmp->hasMessage(id)) {
 		tmpmsg = tmp->getMessage(id);
 		if (tmpmsg.getInstruction() == ADD_TMP_OBJ) {
@@ -55,7 +55,6 @@ void GameObjectHandler::msgrcvr() {
 
 void GameObjectHandler::update(float time) {
 	msgrcvr();
-
 	for (unsigned i = 0; i < tmpobjects.size(); i++) {
 		tmpobjects.at(i)->update(time);
 	}
@@ -76,10 +75,6 @@ int GameObjectHandler::GetGameObjectID(std::string name) {
 		if (gameobjects.at(i)->getIdentifiers().getName() == name) {
 			tmpid = (int) gameobjects.at(i)->getID();
 		}
-	}
-
-	if (tmpid = -1 && terrain != NULL) {
-		if (terrain->getIdentifiers().getName() == name) tmpid = (int) terrain->getID();
 	}
 
 	return tmpid;
@@ -133,7 +128,7 @@ bool GameObjectHandler::addTmpObj(Identifiers id, vec3 pos, vec3 target, Resourc
 		}
 	}
 
-	if(found) return true;
+	if(found) return true;	
 
 	GameObject * tmp = GOF->create(id, pos, model);
 

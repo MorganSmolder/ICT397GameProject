@@ -1,23 +1,5 @@
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\vc140.pdb
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\camera.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\terrainobject.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\staticentity.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\scenemanager.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\scene.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\npc.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\luascriptmanager.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\gameobjecthandler.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\gameobjectfactory.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\gameobject.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\engine.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ctoluabinder.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\controls.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\collisionengine.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\rendermodulestubb.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\vc140.pdb
-c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\messagingbus.obj
-c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\message.obj
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\menuobject.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\mat4.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\luascriptmanager.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\controls.obj
@@ -32,15 +14,16 @@ c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\engine.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ctoluabinder.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\collisionengine.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\camera.obj
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\bullet.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\bmploader.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\audioengine.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\assetmanager.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397gameproject.obj
-c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\vec4.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\vec3.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\vec2.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\tgaloader.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\texturemanager.obj
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\texturedsquare.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\terrainobject.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\terrain.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\staticentity.obj
@@ -50,17 +33,17 @@ c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\scene.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\resourcelist.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\rendermodulestubb.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\rawterrain.obj
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\player.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\npc.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\modelmanger.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\modelfactory.obj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.exe
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.ipdb
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.iobj
-c:\users\morgan\desktop\ict397 upload\backup\ict397gameproject\release\ict397gameproject.pdb
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\messagingbus.obj
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\message.obj
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\vec4.obj
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397gameproject.exe
+c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397gameproject.pdb
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397gameproject.ipdb
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397gameproject.iobj
-c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397gameproject.pdb
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397ga.111e66ac.tlog\cl.command.1.tlog
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397ga.111e66ac.tlog\cl.read.1.tlog
 c:\users\morgan\videos\vaugenamesopeoplecantstealourstuff\release\ict397ga.111e66ac.tlog\cl.write.1.tlog

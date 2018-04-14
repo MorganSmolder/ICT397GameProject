@@ -1,10 +1,39 @@
-﻿  GameObjectFactory.cpp
+﻿  ICT397GameProject.cpp
   Unknown compiler version - please run the configure tests and report the results
-  RenderModuleStubb.cpp
+  Bullet.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  CollisionEngine.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  CtoLUABinder.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Engine.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  GameObject.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  GameObjectFactory.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  GameObjectHandler.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  MenuObject.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  NPC.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Player.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Scene.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  SceneManager.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  StaticEntity.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  TerrainObject.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  camera.cpp
+  Unknown compiler version - please run the configure tests and report the results
   Generating code
-  106 of 8720 functions ( 1.2%) were compiled, the rest were copied from previous compilation.
-    1 functions were new in current compilation
-    37 functions had inline decision re-evaluated but remain unchanged
+  52 of 8726 functions ( 0.6%) were compiled, the rest were copied from previous compilation.
+    3 functions were new in current compilation
+    46 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Videos\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.exe
   ICT397GameProject.vcxproj -> C:\Users\Morgan\Videos\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.pdb (Full PDB)

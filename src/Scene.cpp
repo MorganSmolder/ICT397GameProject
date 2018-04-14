@@ -30,7 +30,7 @@ void Scene::update(float time) {
 		collision.update(objects.getObject(i), objects.findSpatiallyGroupedGameObjects(objects.getObject(i)), time);
 	}
 
-	//objects.update(time);
+	objects.update(time);
 }
 
 int Scene::GetGameObjectID(std::string name) {

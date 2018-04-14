@@ -78,5 +78,7 @@ class RAWTerrain : public terrain
 
 		/// A vector containing the image data.
 		std::vector<std::string> images;
+
+		RAWTerrain(const RAWTerrain& tocpy);
 };
 

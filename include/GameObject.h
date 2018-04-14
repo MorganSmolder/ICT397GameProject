@@ -122,7 +122,7 @@ public:
 	*
 	* @param vec3 - The new target position vector of the object.
 	*/
-	void setTarget(const vec3 target);
+	virtual void setTarget(const vec3 target);
 
 	/**
 	* @brief Get the target position vector of the object.

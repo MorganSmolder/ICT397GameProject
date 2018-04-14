@@ -10,7 +10,7 @@ Bullet::Bullet(Identifiers & id, vec3 pos, ResourceList & list) {
 Bullet::Bullet() {
 	lifespan = 5.0f;
 	timealive = 0.0f;
-	inUse = false;
+	inUse = true;
 	speed = 1000;
 }
 

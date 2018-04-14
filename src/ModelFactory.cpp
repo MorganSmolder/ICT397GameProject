@@ -56,6 +56,5 @@ Model* ModelFactory::create(std::string path, std::string type) {
 		}
 	}
 
-
 	return NULL;
 }
