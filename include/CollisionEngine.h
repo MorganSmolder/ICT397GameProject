@@ -2,8 +2,9 @@
 
 #include <map>
 #include <vector>
-#include "vec3.h"
-#include "vec2.h"
+//#include "vec3.h"
+//#include "vec2.h"
+#include "Maths.h"
 #include "GameObject.h"
 /**
 * @struct HMPos

@@ -6,7 +6,8 @@
 #include "ResourceList.h"
 #include "RenderModuleStubb.h"
 #include "Singleton.h"
-#include <glm/glm.hpp>
+//#include <glm/glm.hpp>
+#include "Maths.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -60,7 +61,7 @@ public:
 	*
 	* @param pos - The position.
 	*/
-	void LookAt(glm::vec3 pos); // adjusts camera rotation to look at 'pos'
+	void LookAt(vec3 pos); // adjusts camera rotation to look at 'pos'
 
 	/**
 	* @brief Set the position.
@@ -110,49 +111,49 @@ public:
 	*
 	* @return mat4 - The direction
 	*/
-	glm::mat4 GetDirection() const; //rotation matrix for the direction of the camera
+	mat4 GetDirection() const; //rotation matrix for the direction of the camera
 
 	/**
 	* @brief Vector for cameras X axis (left / right).
 	*
 	* @return vec3 - The camera x axis position
 	*/
-	glm::vec3 GetCamX() const; //vector for cameras X axis (left / right)
+	vec3 GetCamX() const; //vector for cameras X axis (left / right)
 
 	/**
 	* @brief Vector for camera's Y axis (up / down).
 	*
 	* @return vec3 - The camera y axis position
 	*/
-	glm::vec3 GetCamY() const; //vector for camera's Y axis (up/down)
+	vec3 GetCamY() const; //vector for camera's Y axis (up/down)
 
 	/**
 	* @brief Vector for the cameras Z axis (what it is looking at).
 	*
 	* @return vec3 - The camera y axis position
 	*/
-	glm::vec3 GetCamZ() const; //vector for the cameras Z axis (what it is looking at)
+	vec3 GetCamZ() const; //vector for the cameras Z axis (what it is looking at)
 
 	/**
 	* @brief Camera's transformation matrix.
 	*
 	* @return mat4 - The cameras transformation matrix.
 	*/
-	glm::mat4 GetTransMatrix() const; //camera's transformation matrix
+	mat4 GetTransMatrix() const; //camera's transformation matrix
 
 	/**
 	* @brief Perspective projection transformation matrix.
 	*
 	* @return mat4 - The cameras projection matrix.
 	*/
-	glm::mat4 GetProjectionMatrix() const; //perspective projection transformation matrix
+	mat4 GetProjectionMatrix() const; //perspective projection transformation matrix
 
 	/**
 	* @brief Translation and rotation matrix.
 	*
 	* @return mat4 - The cameras view matrix.
 	*/
-	glm::mat4 GetViewMatrix() const; //translation and rotation matrix
+	mat4 GetViewMatrix() const; //translation and rotation matrix
 
 
 	/**
@@ -172,6 +173,11 @@ public:
 	*/
 	void callGLLookAt();
 
+	/**
+	* @brief Find if the camera is collidable.
+	*
+	* @return bool - If the camera can collide.
+	*/
 	bool isCollidable();
 private:
 	/// Move speed of camera.
@@ -192,7 +198,7 @@ private:
 	bool lookDown;
 	/// If looking up.
 	bool lookUp;
-
+	/// Max speed of the camera.
 	float maxlspeed;
 	/**
 	* @brief Correcting the angles at boundaries.
@@ -212,13 +218,16 @@ private:
 	float verticalAngle;
 	/// Max angle.
 	float maxAngle;
-
+	/// Max angle of the n angle.
 	float maxNangle;
-
+	/// If the camera is birds eye view or not.
 	bool birdseye;
-
+	/// The y offset data.
 	float yoff;
-
+	
+	/**
+	* @brief A method to switch the view mode of the camera.
+	*/
 	void switchViewMode();
 };
 

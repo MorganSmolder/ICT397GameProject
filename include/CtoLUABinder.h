@@ -1,7 +1,7 @@
 #pragma once
 
 #include "SceneManager.h"
-#include "vec3.h"
+//#include "vec3.h"
 #include "LUAScriptManager.h"
 #include "NPC.h"
 #include "Identifiers.h"
@@ -14,6 +14,7 @@
 #include "TerrainObject.h"
 #include "MenuObject.h"
 #include "Player.h"
+#include "Maths.h"
 
 extern "C" {
 	#include "lua/lua.h"

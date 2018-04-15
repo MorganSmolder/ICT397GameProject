@@ -1,54 +1,117 @@
 ﻿  ICT397GameProject.cpp
   Unknown compiler version - please run the configure tests and report the results
+  AssetManager.cpp
+  AudioEngine.cpp
+  BMPLoader.cpp
+  Bullet.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  camera.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  CollisionEngine.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  CtoLUABinder.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Engine.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  GameObject.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  GameObjectFactory.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  GameObjectHandler.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Identifiers.cpp
+  ImageCreationHandler.cpp
+src\ImageCreationHandler.cpp(116): warning C4244: '+=': conversion from 'float' to 'unsigned char', possible loss of data
+src\ImageCreationHandler.cpp(117): warning C4244: '+=': conversion from 'float' to 'unsigned char', possible loss of data
+src\ImageCreationHandler.cpp(118): warning C4244: '+=': conversion from 'float' to 'unsigned char', possible loss of data
+  ImageLoaderFactory.cpp
+  ImportModel.cpp
+  Controls.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  LUAScriptManager.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  mat4.cpp
+  Maths.cpp
+  Compiling...
+  MenuObject.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Message.cpp
+  MessagingBus.cpp
+  ModelFactory.cpp
+  ModelManger.cpp
+  NPC.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Player.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  RawTerrain.cpp
   RenderModuleStubb.cpp
+  ResourceList.cpp
+  Scene.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  SceneManager.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  SimpleString.cpp
+  StaticEntity.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  Terrain.cpp
+src\Terrain.cpp(29): warning C4305: 'initializing': truncation from 'double' to 'float'
+src\Terrain.cpp(40): warning C4018: '>=': signed/unsigned mismatch
+  TerrainObject.cpp
+  Unknown compiler version - please run the configure tests and report the results
+  TexturedSquare.cpp
+  TextureManager.cpp
+  TGALoader.cpp
+  vec2.cpp
+  Compiling...
+  vec3.cpp
+  vec4.cpp
   Generating code
-  4 of 8847 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  All 8803 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-lua.lib(lapi.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lapi.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lauxlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lauxlib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lstate.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lstate.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(linit.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(linit.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(ltable.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ltable.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lvm.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lvm.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(ldo.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldo.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lgc.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lgc.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(ldebug.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldebug.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lobject.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lobject.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lfunc.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lfunc.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lzio.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lzio.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lstring.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lstring.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(ldump.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldump.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(ltm.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ltm.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lmem.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lmem.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(llex.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(llex.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(ltablib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ltablib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lbaselib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lbaselib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(loadlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(loadlib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(loslib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(loslib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lstrlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lstrlib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lmathlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lmathlib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(liolib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(liolib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(ldblib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldblib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lcorolib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lcorolib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lbitlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lbitlib.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lundump.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lundump.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lparser.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lparser.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lopcodes.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lopcodes.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lctype.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lctype.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-lua.lib(lcode.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lcode.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(scope.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(scope.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(weak_ref.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(weak_ref.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(function.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(function.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(object_rep.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(object_rep.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(class.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(class.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(exception_handler.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(exception_handler.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(inheritance.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(inheritance.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(pcall.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(pcall.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(open.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(open.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(class_rep.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(class_rep.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(class_registry.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(class_registry.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(error.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(error.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-luabind.lib(create_class.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(create_class.obj)' or at 'C:\Users\32682702\Desktop\clone\Release\LUA.pdb'; linking object as if no debug info
-  ICT397GameProject.vcxproj -> C:\Users\32682702\Desktop\clone\Release\ICT397GameProject.exe
+lua.lib(lapi.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lapi.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lauxlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lauxlib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lstate.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lstate.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(linit.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(linit.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(ltable.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ltable.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lvm.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lvm.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(ldo.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldo.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lgc.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lgc.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(ldebug.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldebug.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lobject.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lobject.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lfunc.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lfunc.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lzio.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lzio.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lstring.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lstring.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(ldump.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldump.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(ltm.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ltm.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lmem.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lmem.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(llex.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(llex.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(ltablib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ltablib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lbaselib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lbaselib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(loadlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(loadlib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(loslib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(loslib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lstrlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lstrlib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lmathlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lmathlib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(liolib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(liolib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(ldblib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(ldblib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lcorolib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lcorolib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lbitlib.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lbitlib.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lundump.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lundump.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lparser.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lparser.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lopcodes.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lopcodes.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lctype.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lctype.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+lua.lib(lcode.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'lua.lib(lcode.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(scope.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(scope.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(weak_ref.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(weak_ref.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(function.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(function.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(object_rep.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(object_rep.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(class.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(class.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(exception_handler.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(exception_handler.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(inheritance.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(inheritance.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(pcall.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(pcall.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(open.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(open.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(class_rep.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(class_rep.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(class_registry.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(class_registry.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(error.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(error.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+luabind.lib(create_class.obj) : warning LNK4099: PDB 'LUA.pdb' was not found with 'luabind.lib(create_class.obj)' or at 'F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\LUA.pdb'; linking object as if no debug info
+  ICT397GameProject.vcxproj -> F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.exe
+  ICT397GameProject.vcxproj -> F:\Github\VaugeNameSoPeopleCantStealOurStuff\Release\ICT397GameProject.pdb (Full PDB)

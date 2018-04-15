@@ -149,11 +149,11 @@ void Camera::update(float time) {
 	}
 
 	if (this->lookDown) {
-		target += -glm::vec3(0, 1, 0)* moveSpeed;
+		target += vec3(0, 1, 0)* moveSpeed;
 	}
 	else
 	if (this->lookUp) {
-		target += glm::vec3(0, 1, 0)* moveSpeed;
+		target += vec3(0, 1, 0)* moveSpeed;
 	}
 
 	pos += (target * (time * speedDecay));
@@ -198,8 +198,8 @@ void Camera::render() {
 void Camera::callGLLookAt()
 {
 	Singleton<RenderModuleStubb>::getInstance()->callLookAt(vec3(pos.x(), pos.y(), pos.z()), 
-				vec3(pos.x() + GetCamZ().x, pos.y() + GetCamZ().y, pos.z() + GetCamZ().z),
-				vec3(GetCamY().x, GetCamY().y, GetCamY().z));
+				vec3(pos.x() + GetCamZ().x(), pos.y() + GetCamZ().y(), pos.z() + GetCamZ().z()),
+				vec3(GetCamY().x(), GetCamY().y(), GetCamY().z()));
 
 }
 
@@ -221,10 +221,10 @@ void Camera::Rotate(float upAngle, float rightAngle) {
 	CorrectAngleBoundaries();
 }
 
-void Camera::LookAt(glm::vec3 pos) {
-	glm::vec3 direction = glm::normalize(pos - glm::vec3(this->pos.x(), this->pos.y(), this->pos.z()));
-	verticalAngle = glm::radians(asinf(-direction.y));
-	horizontalAngle = -glm::radians(atan2f(-direction.x, -direction.z));
+void Camera::LookAt(vec3 pos) {
+	vec3 direction = Maths::normalize(pos - vec3(this->pos.x(), this->pos.y(), this->pos.z()));
+	verticalAngle = Maths::radians(asinf(-direction.y()));
+	horizontalAngle = -Maths::radians(atan2f(-direction.x(), -direction.z()));
 	CorrectAngleBoundaries();
 }
 
@@ -254,38 +254,38 @@ float Camera::GetAspectRatio() const {
 	return aspectRatio;
 }
 
-glm::mat4 Camera::GetDirection() const {
-	glm::mat4 direction;
-	direction = glm::rotate(direction, glm::radians(verticalAngle), glm::vec3(1, 0, 0));
-	direction = glm::rotate(direction, glm::radians(horizontalAngle), glm::vec3(0, 1, 0));
+mat4 Camera::GetDirection() const {
+	mat4 direction;
+	direction = Maths::rotate(direction, Maths::radians(verticalAngle), vec3(1, 0, 0));
+	direction = Maths::rotate(direction, Maths::radians(horizontalAngle), vec3(0, 1, 0));
 	return direction;
 }
 
-glm::vec3 Camera::GetCamX() const {
-	glm::vec4 right = glm::inverse(GetDirection()) * glm::vec4(1, 0, 0, 1);
-	return glm::vec3(right);
+vec3 Camera::GetCamX() const {
+	vec4 right = Maths::inverse(GetDirection()) * vec4(1, 0, 0, 1);
+	return vec3(right);
 }
 
-glm::vec3 Camera::GetCamY() const {
-	glm::vec4 up = glm::inverse(GetDirection()) * glm::vec4(0, 1, 0, 1);
-	return glm::vec3(up);
+vec3 Camera::GetCamY() const {
+	vec4 up = Maths::inverse(GetDirection()) * vec4(0, 1, 0, 1);
+	return vec3(up);
 }
 
-glm::vec3 Camera::GetCamZ() const {
-	glm::vec4 camZ = glm::inverse(GetDirection()) * glm::vec4(0, 0, -1, 1);
-	return glm::vec3(camZ);
+vec3 Camera::GetCamZ() const {
+	vec4 camZ = Maths::inverse(GetDirection()) * vec4(0, 0, -1, 1);
+	return vec3(camZ);
 }
 
-glm::mat4 Camera::GetTransMatrix() const {
+mat4 Camera::GetTransMatrix() const {
 	return GetProjectionMatrix() * GetViewMatrix();
 }
 
-glm::mat4 Camera::GetProjectionMatrix() const {
-	return glm::perspective(glm::radians(fov), aspectRatio, nearPlane, farPlane);
+mat4 Camera::GetProjectionMatrix() const {
+	return Maths::perspective(Maths::radians(fov), aspectRatio, nearPlane, farPlane);
 }
 
-glm::mat4 Camera::GetViewMatrix() const {
-	return GetDirection() * glm::translate(glm::mat4(), glm::vec3(pos.x() * -1, pos.y() * -1, pos.z() * -1));
+mat4 Camera::GetViewMatrix() const {
+	return GetDirection() * Maths::translate(mat4(), vec3(pos.x() * -1, pos.y() * -1, pos.z() * -1));
 }
 
 void Camera::CorrectAngleBoundaries() {

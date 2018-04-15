@@ -4,7 +4,8 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include "mat4.h"
+//#include "mat4.h"
+#include "Maths.h"
 
 /**
 * @class Model
@@ -108,11 +109,24 @@ class Model
 		 * @return float - The max y value.
 		 */
 		 float getMaxY() { return maxy; };
+		 
+		 /**
+		 * @brief Set the id of the model.
+		 * 
+		 * @param nid - The new id.
+		 */
 		void setId(unsigned nid) { id = nid; };
+
+		/**
+		* @brief Get the id of the model.
+		* 
+		* @return unsigned - The id.
+		*/
 		unsigned getId() { return id; };
 	protected:
 		/// The min and max x and z values.
 		float minx, maxx, minz, maxz, miny, maxy;
+		/// The models id.
 		unsigned id;
 };
 

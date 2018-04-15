@@ -52,6 +52,16 @@ public:
 	*/
 	bool addModel(std::string path, std::string type, std::string name, vec3 & scale);
 
+	/**
+	* @brief Add sound to the channel.
+	*
+	* @param path - Location of the resource on disk.
+	* @param type - The type of resource to load.
+	* @param name - The handle to be used in calls to utilise resource.
+	* @param loop - Flag to check if the sound should loop.
+	*
+	* @return bool - If the sound was successfully added.
+	*/
 	bool addSound(std::string path, std::string type, std::string name, bool loop);
 
 private:

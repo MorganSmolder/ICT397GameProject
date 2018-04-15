@@ -3,7 +3,8 @@
 #include <map>
 #include <string>
 #include <iostream>
-#include "vec3.h"
+//#include "vec3.h"
+#include "Maths.h"
 #include "Singleton.h"
 #include "MessagingBus.h"
 #include "Identifiers.h"
@@ -50,6 +51,14 @@ struct ListenerSourceWrapper {
 	ListenerSourceWrapper() : id(-1) {};
 };
 
+/**
+* @struct
+* @brief Contains FFT data.
+*
+* @author Morgan Smolder
+* @version 01
+* @date 02/04/2018
+*/
 struct FFTData {
 	bool empty;
 	float data[8];

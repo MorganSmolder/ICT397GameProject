@@ -1,9 +1,10 @@
 #pragma once
 
 #include "Model.h"
-#include "vec2.h"
+//#include "vec2.h"
 #include "Singleton.h"
 #include "TextureManager.h"
+#include "Maths.h"
 
 
 /**
@@ -76,7 +77,13 @@ private:
 	std::vector<vec3> verts;
 	/// Texture data.
 	std::string texture;
-
+	/**
+	* @brief Create a random string of specified length.
+	*
+	* @param len - The length of the string.
+	*
+	* @param string - The random string.
+	*/
 	std::string RandomString(unsigned len);
 };
 

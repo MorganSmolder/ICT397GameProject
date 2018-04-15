@@ -10,7 +10,8 @@
 
 #include <string>
 #include <vector>
-#include "vec3.h"
+//#include "vec3.h"
+#include "Maths.h"
 
 /**
 * @struct Struct for holding all message data
