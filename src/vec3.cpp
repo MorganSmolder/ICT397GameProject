@@ -1,140 +1,237 @@
 #include "vec3.h"
 
-void vec3::operator = (const vec3 & rhs) {
-	vector = rhs.vector;
+vec3::vec3()
+{
+
+}
+
+vec3::vec3(float x, float y, float z)
+{
+	vector[0] = x;
+	vector[1] = y;
+	vector[2] = z;
+}
+
+vec3::vec3(const vec4 & v4)
+{
+	vector = v4.getVec();
+}
+
+vec3::vec3(const vec3 & v)
+{
+	vector = v.getVec();
+}
+
+glm::vec3 vec3::getVec() const
+{
+	return vector;
+}
+void vec3::setVec(glm::vec3 vec)
+{
+	vector = vec;
 }
 
 float vec3::x() const
 {
-	return vector.x;
+	return vector[0];
 }
 
 float vec3::y() const
 {
-	return vector.y;
+	return vector[1];
 }
 
 float vec3::z() const
 {
-	return vector.z;
+	return vector[2];
 }
 
 float vec3::sx(float nx)
 {
-	vector.x = nx;
-	return vector.x;
+	vector[0] = nx;
+	return vector[0];
 }
 
 float vec3::sy(float ny)
 {
-	vector.y = ny;
-	return vector.y;
+	vector[1] = ny;
+	return vector[1];
 }
 
 float vec3::sz(float nz)
 {
-	vector.z = nz;
-	return vector.z;
+	vector[2] = nz;
+	return vector[2];
 }
 
-vec3 vec3::cross(const vec3 & rhs) {
-	return glm::cross(vector, rhs.vector);
+void vec3::add(vec3 vec)
+{
+	vector[0] = vector[0] + vec.getVec()[0];
+	vector[1] = vector[1] + vec.getVec()[1];
+	vector[2] = vector[2] + vec.getVec()[2];
 }
 
-vec3 vec3::normalise() {
-	return vec3(glm::normalize(vector));
+void vec3::subtract(vec3 vec)
+{
+	vector[0] = vector[0] - vec.getVec()[0];
+	vector[1] = vector[1] - vec.getVec()[1];
+	vector[2] = vector[2] - vec.getVec()[2];
 }
 
-float vec3::dot(const vec3 & rhs) {
-	return glm::dot(vector, rhs.vector);
+vec3 vec3::normalize()
+{
+	glm::vec3 tmpglm = vector; // So vector isnt effected.
+	glm::normalize(tmpglm);
+	vec3 tmp;
+	tmp.setVec(tmpglm);
+	return tmp;
 }
 
-float vec3::angle(const vec3 & rhs) {
-	return glm::angle(vector, rhs.vector);
+void vec3::normailse()
+{
+	glm::normalize(vector);
 }
 
-float& vec3::operator [] (int index) {
-	return vector[index];
+float vec3::dot(const vec3 & v)
+{
+	return glm::dot(vector, v.getVec());
 }
 
-vec3 vec3::operator += (const vec3 & rhs) {
-	vector += rhs.vector;
+float vec3::angle(const vec3 & v)
+{
+	return glm::angle(vector, v.getVec());
+}
+
+vec3 vec3::cross(const vec3 & v)
+{
+	glm::vec3 tmpglm = glm::cross(vector, v.getVec());
+	vec3 tmp;
+	tmp.setVec(tmpglm);
+	return tmp;
+}
+
+bool vec3::almostEqual(const vec3 & v, float threshold)
+{
+	return(abs(v.getVec()[0] - vector[0]) < threshold && abs(v.getVec()[1] - vector[1]) < threshold && abs(v.getVec()[2] - vector[2]) < threshold);
+}
+
+void vec3::operator = (const vec3 & v)
+{
+	vector = v.getVec();
+}
+
+vec3 vec3::operator *= (const vec3 & v)
+{
+	vector *= v.getVec();
 	return *this;
 }
 
-vec3 vec3::operator *= (const vec3 & rhs) {
-	vector *= rhs.vector;
+vec3 vec3::operator /= (const vec3 & v)
+{
+	vector /= v.getVec();
 	return *this;
 }
 
-vec3 vec3::operator /= (const vec3 & rhs) {
-	vector /= rhs.vector;
+vec3 vec3::operator -= (const vec3 & v)
+{
+	vector -= v.getVec();
 	return *this;
 }
 
-vec3 vec3::operator -= (const vec3 & rhs) {
-	vector -= rhs.vector;
+vec3 vec3::operator += (const vec3 & v)
+{
+	vector += v.getVec();
 	return *this;
 }
 
-vec3 vec3::operator + (const vec3 & rhs) {
-	return vec3(vector + rhs.vector);
+vec3 vec3::operator + (const vec3 & v)
+{
+	vec3 tmp;
+	tmp.setVec(vector + v.getVec());
+	return tmp;
 }
 
-vec3 vec3::operator * (const vec3 & rhs) {
-	return vec3(vector * rhs.vector);
+vec3 vec3::operator - (const vec3 & v)
+{
+	vec3 tmp;
+	tmp.setVec(vector - v.getVec());
+	return tmp;
 }
 
-vec3 vec3::operator / (const vec3 & rhs) {
-	return vec3(vector / rhs.vector);
+vec3 vec3::operator * (const vec3 & v)
+{
+	vec3 tmp;
+	tmp.setVec(vector * v.getVec());
+	return tmp;
 }
 
-vec3 vec3::operator - (const vec3 & rhs) {
-	return vec3(vector - rhs.vector);
+vec3 vec3::operator / (const vec3 & v)
+{
+	vec3 tmp;
+	tmp.setVec(vector / v.getVec());
+	return tmp;
 }
 
-vec3 vec3::operator + (const float rhs) {
-	return vec3(vector + rhs);
-}
-
-vec3 vec3::operator * (const float rhs) {
-	return vec3(vector * rhs);
-}
-
-vec3 vec3::operator / (const float rhs) {
-	return vec3(vector / rhs);
-}
-
-vec3 vec3::operator - (const float rhs) {
-	return vec3(vector - rhs);
-}
-
-vec3 vec3::operator += (const float rhs) {
-	vector += rhs;
+vec3 vec3::operator += (const float f)
+{
+	vector += f;
 	return *this;
 }
 
-vec3 vec3::operator *= (const float rhs) {
-	vector *= rhs;
+vec3 vec3::operator *= (const float f)
+{
+	vector *= f;
 	return *this;
 }
 
-vec3 vec3::operator /= (const float rhs) {
-	vector /= rhs;
+vec3 vec3::operator /= (const float f)
+{
+	vector /= f;
 	return *this;
 }
 
-vec3 vec3::operator -= (const float rhs) {
-	vector -= rhs;
+vec3 vec3::operator -= (const float f)
+{
+	vector -= f;
 	return *this;
 }
 
-void vec3::clear() {
-	vector = glm::vec3(0, 0, 0);
+vec3 vec3::operator + (const float f)
+{
+	vec3 tmp;
+	tmp.setVec(vector + f);
+	return tmp;
 }
 
-bool vec3::almostEqual(const vec3 & tocompare, float threshold) {
-	return(abs(tocompare.vector.x - this->vector.x) < threshold
-		&& abs(tocompare.vector.y - this->vector.y) < threshold
-		&& abs(tocompare.vector.z - this->vector.z) < threshold);
+vec3 vec3::operator - (const float f)
+{
+	vec3 tmp;
+	tmp.setVec(vector - f);
+	return tmp;
+}
+
+vec3 vec3::operator * (const float f)
+{
+	vec3 tmp;
+	tmp.setVec(vector * f);
+	return tmp;
+}
+
+vec3 vec3::operator / (const float f)
+{
+	vec3 tmp;
+	tmp.setVec(vector / f);
+	return tmp;
+}
+
+vec3 vec3::operator- ()
+{
+	vec3 tmp;
+	tmp.setVec(-vector);
+	return tmp;
+}
+
+float& vec3::operator[] (int x)
+{
+	return vector[x];
 }
