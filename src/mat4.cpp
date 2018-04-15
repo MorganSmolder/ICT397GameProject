@@ -1,87 +1,166 @@
 #include "mat4.h"
+#include "vec3.h"
 
-void mat4::operator = (const mat4 & rhs) {
-	matrix = rhs.matrix;
+mat4::mat4()
+{
+
 }
 
-float & mat4::operator [] (int index) {
-	int internalind;
-	if (index <= 3) internalind = 0;
-	else if (index <= 7) internalind = 1;
-	else if (index <= 11) internalind = 2;
-	else internalind = 3;
-
-	return matrix[internalind][index / internalind];
+mat4::mat4(const mat4 & m)
+{
+	matrix = m.getMat();
 }
 
-mat4 mat4::operator += (const mat4 & rhs) {
-	matrix += rhs.matrix;
+glm::mat4 mat4::getMat() const
+{
+	return matrix;
+}
+
+void mat4::setMat(glm::mat4 mat)
+{
+	matrix = mat;
+}
+
+vec4 mat4::operator* (const vec4 & v)
+{
+	glm::vec4 tmpglm;
+	tmpglm = matrix * v.getVec();
+
+	vec4 tmp;
+	tmp.setVec(tmpglm);
+
+	return tmp;
+}
+
+void mat4::operator = (const mat4 & m)
+{
+	matrix = m.getMat();
+}
+
+float & mat4::operator[] (int index)
+{
+	int i;
+
+	if (index <= 3)
+	{
+		i = 0;
+	}
+	else if (index <= 7)
+	{
+		i = 1;
+	}
+	else if (i <= 11)
+	{
+		i = 2;
+	}
+	else
+	{
+		i = 3;
+	}
+
+	return matrix[i][index / i];
+}
+
+mat4 mat4::operator += (const mat4 & m)
+{
+	matrix += m.getMat();
 	return *this;
 }
 
-mat4 mat4::operator *= (const mat4 & rhs) {
-	matrix *= rhs.matrix;
+mat4 mat4::operator *= (const mat4 & m)
+{
+	matrix *= m.getMat();
 	return *this;
 }
 
-mat4 mat4::operator /= (const mat4 & rhs) {
-	matrix /= rhs.matrix;
+mat4 mat4::operator /= (const mat4 & m)
+{
+	matrix /= m.getMat();
 	return *this;
 }
 
-mat4 mat4::operator -= (const mat4 & rhs) {
-	matrix -= rhs.matrix;
+mat4 mat4::operator -= (const mat4 & m)
+{
+	matrix -= m.getMat();
 	return *this;
 }
 
-mat4 mat4::operator + (const mat4 & rhs) {
-	return mat4(matrix + rhs.matrix);
+mat4 mat4::operator + (const mat4 & m)
+{
+	mat4 tmp;
+	tmp.setMat(matrix + m.getMat());
+	return tmp;
 }
 
-mat4 mat4::operator * (const mat4 & rhs) {
-	return mat4(matrix * rhs.matrix);
+mat4 mat4::operator - (const mat4 & m)
+{
+	mat4 tmp;
+	tmp.setMat(matrix - m.getMat());
+	return tmp;
 }
 
-mat4 mat4::operator / (const mat4 & rhs) {
-	return mat4(matrix / rhs.matrix);
+mat4 mat4::operator * (const mat4 & m)
+{
+	mat4 tmp;
+	tmp.setMat(matrix * m.getMat());
+	return tmp;
 }
 
-mat4 mat4::operator - (const mat4 & rhs) {
-	return mat4(matrix - rhs.matrix);
+mat4 mat4::operator / (const mat4 & m)
+{
+	mat4 tmp;
+	tmp.setMat(matrix / m.getMat());
+	return tmp;
 }
 
-mat4 mat4::operator + (const float rhs) {
-	return mat4(matrix + rhs);
-}
-
-mat4 mat4::operator * (const float rhs) {
-	return mat4(matrix * rhs);
-}
-
-mat4 mat4::operator / (const float rhs) {
-	return mat4(matrix / rhs);
-}
-
-mat4 mat4::operator - (const float rhs) {
-	return mat4(matrix - rhs);
-}
-
-mat4 mat4::operator += (const float rhs) {
-	matrix += rhs;
+mat4 mat4::operator += (const float f)
+{
+	matrix += f;
 	return *this;
 }
 
-mat4 mat4::operator *= (const float rhs) {
-	matrix *= rhs;
+mat4 mat4::operator *= (const float f)
+{
+	matrix *= f;
 	return *this;
 }
 
-mat4 mat4::operator /= (const float rhs) {
-	matrix /= rhs;
+mat4 mat4::operator /= (const float f)
+{
+	matrix /= f;
 	return *this;
 }
 
-mat4 mat4::operator -= (const float rhs) {
-	matrix -= rhs;
+mat4 mat4::operator -= (const float f)
+{
+	matrix -= f;
 	return *this;
+}
+
+mat4 mat4::operator + (const float f)
+{
+	mat4 tmp;
+	tmp.setMat(matrix + f);
+	return tmp;
+}
+
+mat4 mat4::operator - (const float f)
+{
+	mat4 tmp;
+	tmp.setMat(matrix - f);
+	return tmp;
+}
+
+mat4 mat4::operator * (const float f)
+{
+	mat4 tmp;
+	tmp.setMat(matrix * f);
+	return tmp;
+}
+
+mat4 mat4::operator / (const float f)
+{
+	mat4 tmp;
+	tmp.setMat(matrix / f);
+	return tmp;
 }
