@@ -130,11 +130,24 @@ private:
 	QuadTree<GameObjectWrapper> gameobjectQT;
 	/// Game object factory object to create game objects.
 	GameObjectFactory* GOF;
+	/// The identifier object.
 	Identifiers id;
+	/// Vector of game objects for temporary useage.
 	std::vector<GameObject*> tmpobjects;
 
+	/**
+	* @brief Message receiver method.
+	*/
 	void msgrcvr();
 
+	/**
+	* @brief Add a object to the temporary game object vector.
+	*
+	* @param id - The identifier of the object.
+	* @param pos - The position of the object.
+	* @param target - The target position vector of the object.
+	* @param model - The resources for the model of the object.
+	*/
 	bool addTmpObj(Identifiers id, vec3 pos, vec3 target, ResourceList model);
 	/// Game object vector for searching.
 	static std::vector<GameObject*> searchres;

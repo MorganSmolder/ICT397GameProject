@@ -227,8 +227,18 @@ public:
 	*/
 	float getTimeSinceUpdate();
 
+	/**
+	* @brief Get the window object.
+	*
+	* @return HWND - The window object.
+	*/
 	HWND getWinWindow();
 
+	/**
+	* @brief Find out if the rendering should continue or if the program has been exited.
+	*
+	* @param bool - If the window should continue.
+	*/
 	bool shouldContinue();
 
 private:
@@ -238,23 +248,77 @@ private:
 	vec3 campos;
 	/// The camera look at position.
 	vec3 camlook;
+	/// The identifer for the render.
 	Identifiers id;
+	/// If the renderer should be rendering in wireframe mode.
 	bool wireframe;
 
+	/**
+	* @brief Message receiver method.
+	*/
 	void msgrcvr();
 	/// The time since the last update.
 	float timeLastUpdate;
 	/// The time elapsed.
 	float timeElapsed = 0.0f;
-
+	/// If the renderer is running.
 	bool running;
 
+	/// Array of lights.
 	light lights[8];
+
+	/**
+	* @brief Set the ambient light.
+	*
+	* @param lightno - The light number in the array.
+	* @param first - The first variable for the lighting object.
+	* @param second - The second variable for the lighting object.
+	* @param third - The third variable for the lighting object.
+	* @param fourth - The fourth variable for the lighting object.
+	*/
 	void setLightAmbient(int lightNo, float first, float second, float third, float fourth);
+
+	/**
+	* @brief Set the diffuse light.
+	*
+	* @param lightno - The light number in the array.
+	* @param first - The first variable for the lighting object.
+	* @param second - The second variable for the lighting object.
+	* @param third - The third variable for the lighting object.
+	* @param fourth - The fourth variable for the lighting object.
+	*/
 	void setLightdiffuse(int lightNo, float first, float second, float third, float fourth);
+
+	/**
+	* @brief Set the specular light.
+	*
+	* @param lightno - The light number in the array.
+	* @param first - The first variable for the lighting object.
+	* @param second - The second variable for the lighting object.
+	* @param third - The third variable for the lighting object.
+	* @param fourth - The fourth variable for the lighting object.
+	*/
 	void setLightspecular(int lightNo, float first, float second, float third, float fourth);
+
+	/**
+	* @brief Set the lights position.
+	*
+	* @param lightno - The light number in the array.
+	* @param first - The first variable for the lighting object.
+	* @param second - The second variable for the lighting object.
+	* @param third - The third variable for the lighting object.
+	* @param fourth - The fourth variable for the lighting object.
+	*/
 	void setLightposition(int lightNo, float first, float second, float third, float fourth);
+
+	/**
+	* @brief Configure the lighting.
+	*/
 	void configureLights();
+
+	/**
+	* @brief Confirm lighting changes.
+	*/
 	void commitLights();
 };
 

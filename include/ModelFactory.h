@@ -30,6 +30,7 @@ public:
 	*/
 	Model* create(std::string path, std::string type);
 private:
+	/// The next id of the model to be created.
 	static unsigned nextid;
 };
 

@@ -50,6 +50,14 @@ struct ListenerSourceWrapper {
 	ListenerSourceWrapper() : id(-1) {};
 };
 
+/**
+* @struct
+* @brief Contains FFT data.
+*
+* @author Morgan Smolder
+* @version 01
+* @date 02/04/2018
+*/
 struct FFTData {
 	bool empty;
 	float data[8];

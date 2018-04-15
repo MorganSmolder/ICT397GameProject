@@ -172,6 +172,11 @@ public:
 	*/
 	void callGLLookAt();
 
+	/**
+	* @brief Find if the camera is collidable.
+	*
+	* @return bool - If the camera can collide.
+	*/
 	bool isCollidable();
 private:
 	/// Move speed of camera.
@@ -192,7 +197,7 @@ private:
 	bool lookDown;
 	/// If looking up.
 	bool lookUp;
-
+	/// Max speed of the camera.
 	float maxlspeed;
 	/**
 	* @brief Correcting the angles at boundaries.
@@ -212,13 +217,16 @@ private:
 	float verticalAngle;
 	/// Max angle.
 	float maxAngle;
-
+	/// Max angle of the n angle.
 	float maxNangle;
-
+	/// If the camera is birds eye view or not.
 	bool birdseye;
-
+	/// The y offset data.
 	float yoff;
-
+	
+	/**
+	* @brief A method to switch the view mode of the camera.
+	*/
 	void switchViewMode();
 };
 
