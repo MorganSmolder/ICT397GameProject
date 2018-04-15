@@ -5,8 +5,9 @@
 #include "RenderModuleStubb.h"
 #include "Singleton.h"
 #include "Model.h"
-#include "vec2.h"
+//#include "vec2.h"
 #include "TextureManager.h"
+#include "Maths.h"
 
 /**
 * @class ImportModel

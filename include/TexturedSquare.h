@@ -1,9 +1,10 @@
 #pragma once
 
 #include "Model.h"
-#include "vec2.h"
+//#include "vec2.h"
 #include "Singleton.h"
 #include "TextureManager.h"
+#include "Maths.h"
 
 
 /**

@@ -4,7 +4,8 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include "mat4.h"
+//#include "mat4.h"
+#include "Maths.h"
 
 /**
 * @class Model

@@ -1,5 +1,5 @@
 #pragma once
-#include "vec3.h"
+//#include "vec3.h"
 #include "LUAScriptManager.h"
 #include "Singleton.h"
 #include <string>
@@ -8,6 +8,7 @@
 #include "ResourceList.h"
 #include "RenderMOduleStubb.h"
 #include "Model.h"
+#include "Maths.h"
 
 /**
 * @class GameObject

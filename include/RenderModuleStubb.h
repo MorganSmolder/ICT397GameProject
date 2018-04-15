@@ -8,11 +8,12 @@
 #include "glfw/glfw3.h"
 #include "GLFW/glfw3native.h"
 #include <vector>
-#include "vec3.h"
-#include "vec2.h"
+//#include "vec3.h"
+//#include "vec2.h"
 #include "MessagingBus.h"
 #include "Singleton.h"
 #include "Identifiers.h"
+#include "Maths.h"
 
 /**
 * @struct
