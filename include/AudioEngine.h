@@ -8,7 +8,7 @@
 #include "MessagingBus.h"
 #include "Identifiers.h"
 
-#define DEBUGMODE true
+#define DEBUGMODE false
 
 /**
 * @struct SoundSourceWrapper
@@ -211,6 +211,18 @@ private:
 	* @return bool - If it was set.
 	*/
 	bool setListenerPosition(vec3 & pos);
+
+	/**
+	* @brief Set the listener position
+	*
+	* @param pos - The new position
+	* @param front - The new front vec
+	* @param top - The new top vec
+	*
+	* @return bool - If it was set.
+	*/
+	bool setListenerPosition(vec3 & pos, vec3& front, vec3& top);
+
 
 	/**
 	* @brief Get the listener Position

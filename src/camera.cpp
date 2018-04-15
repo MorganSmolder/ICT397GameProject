@@ -29,10 +29,29 @@ Camera::Camera(Identifiers & id, vec3 pos, ResourceList & list) : GameObject(id,
 }
 
 void Camera::update(float time) {
-	msgrcvr();
-
 	MessagingBus* tmp = Singleton<MessagingBus>::getInstance();
 	Message tmpm;
+	Message tmrm;
+
+	while (tmp->hasIMessage(this->id.getId())) {
+		tmpm = tmp->getIMessage(this->id.getId());
+		if (tmpm.getInstruction() == "POS" || tmpm.getInstruction() == "LPOS") {
+			tmrm.setFrom(this->id);
+			if (tmpm.getInstruction() == "LPOS") {
+				tmrm.getData().mvdata.push_back(pos);
+				tmrm.getData().mvdata.push_back(vec3(GetCamZ()));
+				tmrm.getData().mvdata.push_back(vec3(GetCamY()));
+				tmrm.setData(this->pos);
+			}
+			else {
+				tmrm.setData(this->pos);
+			}
+			if (tmpm.getInstruction() == "POS") tmrm.setInstruction("PR");
+			else tmrm.setInstruction("LPR");
+			tmrm.setData(tmpm.getData().sdata);
+			tmp->postIMessage(tmrm, tmpm.getFrom().getId());
+		}
+	}
 
 	while (tmp->hasMessage(id)) {
 
@@ -203,7 +222,6 @@ void Camera::Rotate(float upAngle, float rightAngle) {
 }
 
 void Camera::LookAt(glm::vec3 pos) {
-	assert(pos != position);
 	glm::vec3 direction = glm::normalize(pos - glm::vec3(this->pos.x(), this->pos.y(), this->pos.z()));
 	verticalAngle = glm::radians(asinf(-direction.y));
 	horizontalAngle = -glm::radians(atan2f(-direction.x, -direction.z));

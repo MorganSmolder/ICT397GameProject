@@ -69,7 +69,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>luad.lib;luabindd.lib;glfw3dll.lib;glew32.lib;bass.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>luad.lib;luabindd.lib;glfw3dll.lib;glew32.lib;opengl32.lib;glu32.lib;bass.lib;assimp-vc140-mt.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -130,6 +130,7 @@
     <ClInclude Include="include\SceneManager.h" />
     <ClInclude Include="include\SimpleString.h" />
     <ClInclude Include="include\Singleton.h" />
+    <ClInclude Include="include\Singletons.h" />
     <ClInclude Include="include\StaticEntity.h" />
     <ClInclude Include="include\terrain.h" />
     <ClInclude Include="include\TerrainObject.h" />
@@ -184,14 +185,9 @@
     <ClCompile Include="src\vec4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Scripts\Demo1\npc.lua" />
-    <None Include="Resources\Scripts\Demo1\npc2.lua" />
-    <None Include="Resources\Scripts\Demo1\startup.lua" />
-    <None Include="Resources\Scripts\Demo2\npc.lua" />
-    <None Include="Resources\Scripts\Demo2\startup.lua" />
-    <None Include="Resources\Scripts\Demo3\controls.lua" />
-    <None Include="Resources\Scripts\Demo3\npc.lua" />
-    <None Include="Resources\Scripts\Demo3\startup.lua" />
+    <None Include="Resources\Scripts\controls.lua" />
+    <None Include="Resources\Scripts\npc.lua" />
+    <None Include="Resources\Scripts\startup.lua" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

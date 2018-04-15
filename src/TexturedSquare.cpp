@@ -31,7 +31,7 @@ bool TexturedSquare::loadModel(std::string filename) {
 		switch (linehead) {
 			case 't':
 				texture = RandomString(25);
-				if (Singleton<TextureManager>::getInstance()->loadNewTexture(tmp, "TGA", texture, Singleton<RenderModuleStubb>::getInstance()) == false)
+				if (Singleton<TextureManager>::getInstance()->loadNewTexture(tmp, "BMP", texture, Singleton<RenderModuleStubb>::getInstance()) == false)
 					texture = "";
 				break;
 			case 'l':

@@ -16,15 +16,6 @@
     <Filter Include="Resource Files\Scripts">
       <UniqueIdentifier>{cf939df7-a290-42df-8ceb-605f925f124d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files\Scripts\Demo1">
-      <UniqueIdentifier>{159cbef4-5c38-4562-9ca4-f9d5a71af9f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Scripts\Demo2">
-      <UniqueIdentifier>{653e103b-841d-42dc-93ab-eb38c22f472a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Resource Files\Scripts\Demo3">
-      <UniqueIdentifier>{e07ccecc-9c96-4292-80fa-6e1d4f0191d4}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -165,6 +156,9 @@
     <ClInclude Include="include\Player.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Singletons.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\CtoLUABinder.cpp">
@@ -292,29 +286,14 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Scripts\Demo1\startup.lua">
-      <Filter>Resource Files\Scripts\Demo1</Filter>
+    <None Include="Resources\Scripts\controls.lua">
+      <Filter>Resource Files\Scripts</Filter>
     </None>
-    <None Include="Resources\Scripts\Demo1\npc.lua">
-      <Filter>Resource Files\Scripts\Demo1</Filter>
+    <None Include="Resources\Scripts\npc.lua">
+      <Filter>Resource Files\Scripts</Filter>
     </None>
-    <None Include="Resources\Scripts\Demo1\npc2.lua">
-      <Filter>Resource Files\Scripts\Demo1</Filter>
-    </None>
-    <None Include="Resources\Scripts\Demo2\npc.lua">
-      <Filter>Resource Files\Scripts\Demo2</Filter>
-    </None>
-    <None Include="Resources\Scripts\Demo2\startup.lua">
-      <Filter>Resource Files\Scripts\Demo2</Filter>
-    </None>
-    <None Include="Resources\Scripts\Demo3\npc.lua">
-      <Filter>Resource Files\Scripts\Demo3</Filter>
-    </None>
-    <None Include="Resources\Scripts\Demo3\startup.lua">
-      <Filter>Resource Files\Scripts\Demo3</Filter>
-    </None>
-    <None Include="Resources\Scripts\Demo3\controls.lua">
-      <Filter>Resource Files\Scripts\Demo3</Filter>
+    <None Include="Resources\Scripts\startup.lua">
+      <Filter>Resource Files\Scripts</Filter>
     </None>
   </ItemGroup>
 </Project>

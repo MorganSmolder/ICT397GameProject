@@ -27,6 +27,14 @@ struct point{
 	point(float x, float y){ this->x = x; this->y = y; };
 };
 
+struct light {
+	float ambientLight[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	float diffuseLight[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	float specularLight[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	float position[4] = { 0.0f, 0.0f, 0.0f, 0.0f };
+	bool enabled = false;
+};
+
 /**
 * @class RenderModuleStubb
 * @brief Class rendering the game.
@@ -221,6 +229,8 @@ public:
 
 	HWND getWinWindow();
 
+	bool shouldContinue();
+
 private:
 	/// The window.
 	GLFWwindow* window;
@@ -237,5 +247,14 @@ private:
 	/// The time elapsed.
 	float timeElapsed = 0.0f;
 
+	bool running;
+
+	light lights[8];
+	void setLightAmbient(int lightNo, float first, float second, float third, float fourth);
+	void setLightdiffuse(int lightNo, float first, float second, float third, float fourth);
+	void setLightspecular(int lightNo, float first, float second, float third, float fourth);
+	void setLightposition(int lightNo, float first, float second, float third, float fourth);
+	void configureLights();
+	void commitLights();
 };
 

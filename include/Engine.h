@@ -21,8 +21,6 @@
 class Engine
 {
 public:
-	Engine();
-	~Engine();
 
 	/**
 	* @brief Initalise the engine.
@@ -41,17 +39,6 @@ public:
 private:
 	/// Scene manager object.
 	SceneManager SM;
-	/// Lua script manager.
-	LUAScriptManager* LSM;
-	/// Renderer.
-	RenderModuleStubb* RNDR;
-	/// Assest manager object.
-	AssetManager* AMAN;
-	/// Audio manager object.
-	AudioEngine* AE;
-
-	/// Controller object.
-	Controls* CONT;
 
 	/**
 	* @brief Initalise the scripting interface.
@@ -68,24 +55,10 @@ private:
 	bool initaliseRenderer();
 
 	/**
-	* @brief Initalise the utility modules.
-	*
-	* @return bool - If it was initalised.
-	*/
-	bool initaliseUtilityModules();
-
-	/**
 	* @brief Initalise the audio engine.
 	*
 	* @return bool - If it was initalised.
 	*/
 	bool initaliseAudioEngine();
-
-	/**
-	* @brief Initalise the controls.
-	*
-	* @return bool - If it was initalised.
-	*/
-	bool initaliseControls();
 };
 

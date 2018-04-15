@@ -61,8 +61,13 @@ bool AudioEngine::unpauseChannels() {
 	return good;
 }
 
-bool AudioEngine::initalise(const HWND & window){
+bool AudioEngine::initalise(const HWND & window) {
 	if (!BASS_Init(-1, 44100, BASS_DEVICE_3D, window, NULL)) {
+		if (DEBUGMODE) std::cerr << "Error Initalising Audio Engine! Code: " << BASS_ErrorGetCode() << std::endl;
+		return false;
+	}
+
+	if (!BASS_Set3DFactors(0, 1.0f, 0)) {
 		if (DEBUGMODE) std::cerr << "Error Initalising Audio Engine! Code: " << BASS_ErrorGetCode() << std::endl;
 		return false;
 	}
@@ -91,8 +96,6 @@ FFTData AudioEngine::performFFT(std::string sound) {
 		for (unsigned i = 0; i < 8; i++)
 			std::cout << tmp.data[i] << " ";
 		std::cout << std::endl;
-	//	for (unsigned i = 0; i < 128; i++)
-		//	std::cout << data[i] << " ";
 
 		tmp.empty = false;
 	}
@@ -243,6 +246,20 @@ bool AudioEngine::updateChannelPos(std::string sound) {
 	return true;
 }
 
+bool AudioEngine::setListenerPosition(vec3 & pos, vec3& front, vec3& top) {
+	BASS_3DVECTOR listnerpos(pos.x(), pos.y(), pos.z());
+	BASS_3DVECTOR lfront(-front.x(), -front.y(), -front.z());
+	BASS_3DVECTOR ltop(top.x(), top.y(), top.z());
+
+	if (!BASS_Set3DPosition(&listnerpos, NULL, &lfront, &ltop)) {
+		if (DEBUGMODE) std::cerr << "Error Playing Sound! Code: " << BASS_ErrorGetCode() << std::endl;
+		return false;
+	}
+	else BASS_Apply3D();
+
+	return true;
+}
+
 void AudioEngine::msgrcvr() {
 	MessagingBus* tmpmsgbus = Singleton<MessagingBus>::getInstance();
 
@@ -261,7 +278,10 @@ void AudioEngine::msgrcvr() {
 		if (tmpmsg.getInstruction() == "LPR") {
 			if (channellistenersources[activesubgroup].id != -1) {
 				channellistenersources[activesubgroup].pos = tmpmsg.getData().vdata;
-				setListenerPosition(channellistenersources[activesubgroup].pos);
+				if(tmpmsg.getData().mvdata.size() == 0)
+					setListenerPosition(channellistenersources[activesubgroup].pos);
+				else
+					setListenerPosition(tmpmsg.getData().mvdata.at(0), tmpmsg.getData().mvdata.at(1), tmpmsg.getData().mvdata.at(2));
 			}
 		}
 	}

@@ -42,6 +42,7 @@
 
 //Render Module Messages
 #define WIREFRAME "WF"
+#define KILL "KILL"
 
 //Game Object handler messages
 #define ADD_TMP_OBJ "ATO"
