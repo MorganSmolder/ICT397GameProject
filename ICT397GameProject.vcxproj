@@ -113,6 +113,7 @@
     <ClInclude Include="include\Controls.h" />
     <ClInclude Include="include\LUAScriptManager.h" />
     <ClInclude Include="include\mat4.h" />
+    <ClInclude Include="include\Maths.h" />
     <ClInclude Include="include\MenuObject.h" />
     <ClInclude Include="include\Message.h" />
     <ClInclude Include="include\MessageTypes.h" />
@@ -161,6 +162,7 @@
     <ClCompile Include="src\Controls.cpp" />
     <ClCompile Include="src\LUAScriptManager.cpp" />
     <ClCompile Include="src\mat4.cpp" />
+    <ClCompile Include="src\Maths.cpp" />
     <ClCompile Include="src\MenuObject.cpp" />
     <ClCompile Include="src\Message.cpp" />
     <ClCompile Include="src\MessagingBus.cpp" />
